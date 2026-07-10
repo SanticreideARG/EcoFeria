@@ -1,3 +1,4 @@
-export { db, schema, PGLITE_DATA_DIR } from './client.js';
-export type { DB } from './client.js';
-export * from './schema/index.js';
+export { db } from './client.ts';
+export { createConnection, PGLITE_DATA_DIR } from './connection.ts';
+export type { DB, Connection } from './connection.ts';
+export * from './schema/index.ts';
