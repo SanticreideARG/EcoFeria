@@ -20,11 +20,12 @@ export const router = createBrowserRouter([
       { path: '/tienda', element: <ShopPage /> },
       { path: '/producto/:slug', element: <ProductDetailPage /> },
       { path: '/carrito', element: <CartPage /> },
-      { path: '/ingreso', element: <AuthPage /> },
       { path: '/agenda', element: <ComingSoon title="Agenda Cultural" icon="event" /> },
       { path: '/blog', element: <ComingSoon title="Blog" icon="article" /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },
+  // Shell suprimido (sin TopAppBar/BottomNav): pantalla transaccional a pantalla completa.
+  { path: '/ingreso', element: <AuthPage /> },
   { path: '/dev/ui', element: <UiPlayground /> },
 ]);

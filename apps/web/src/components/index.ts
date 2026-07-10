@@ -1,4 +1,5 @@
 export { Icon } from './Icon.tsx';
+export { GoogleIcon } from './GoogleIcon.tsx';
 export { ImpactSeal } from './ImpactSeal.tsx';
 export { CtaButton } from './CtaButton.tsx';
 export { FilterChip } from './FilterChip.tsx';
