@@ -54,7 +54,7 @@ export function UiPlayground() {
 
   return (
     <div className="min-h-dvh pb-28">
-      <TopAppBar cartCount={cart} onCartClick={() => setCart(0)} />
+      <TopAppBar cartCount={cart} />
 
       <main className="mx-auto max-w-[1000px] px-5 py-8">
         <p className="text-label-caps uppercase text-secondary">Design System</p>
@@ -186,7 +186,7 @@ export function UiPlayground() {
         </Section>
       </main>
 
-      <BottomNavBar active="mercado" />
+      <BottomNavBar />
     </div>
   );
 }

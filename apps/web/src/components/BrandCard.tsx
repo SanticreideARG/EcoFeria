@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import type { ImpactSeal as Seal } from '@ecoferia/shared';
 import { cn } from '../lib/cn.ts';
 import { Icon } from './Icon.tsx';
@@ -8,28 +10,24 @@ type BrandCardProps = {
   tagline?: string | null;
   logoUrl?: string | null;
   seals?: Seal[];
-  onFollow?: () => void;
-  onMessage?: () => void;
+  productCount?: number;
+  /** Ruta al perfil de la marca; si se define, toda la card es un enlace. */
+  to?: string;
   className?: string;
 };
 
-/** Card de marca (directorio): logo circular, sellos como chips, acciones Seguir / Mensaje. */
+/** Card de marca (directorio): logo circular, tagline y sellos de impacto. */
 export function BrandCard({
   name,
   tagline,
   logoUrl,
   seals = [],
-  onFollow,
-  onMessage,
+  productCount,
+  to,
   className,
 }: BrandCardProps) {
-  return (
-    <article
-      className={cn(
-        'flex flex-col gap-3 rounded-xl bg-surface-container-lowest p-4 paper-border',
-        className,
-      )}
-    >
+  const content = (
+    <>
       <div className="flex items-center gap-3">
         <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-full border border-outline-variant bg-surface-container-low">
           {logoUrl ? (
@@ -42,9 +40,7 @@ export function BrandCard({
         </div>
         <div className="min-w-0">
           <h3 className="truncate font-display text-headline-md text-primary">{name}</h3>
-          {tagline && (
-            <p className="line-clamp-1 text-body-sm text-on-surface-variant">{tagline}</p>
-          )}
+          {tagline && <p className="line-clamp-1 text-body-sm text-on-surface-variant">{tagline}</p>}
         </div>
       </div>
 
@@ -56,24 +52,26 @@ export function BrandCard({
         </div>
       )}
 
-      <div className="mt-auto flex gap-2 pt-1">
-        <button
-          type="button"
-          onClick={onFollow}
-          className="flex flex-1 items-center justify-center gap-1.5 rounded-full border border-primary py-1.5 text-title-lg text-primary transition-transform active:scale-95"
-        >
-          <Icon name="favorite" className="text-lg" />
-          Seguir
-        </button>
-        <button
-          type="button"
-          onClick={onMessage}
-          className="flex flex-1 items-center justify-center gap-1.5 rounded-full bg-primary py-1.5 text-title-lg text-on-primary transition-transform active:scale-95"
-        >
-          <Icon name="chat_bubble" className="text-lg" />
-          Mensaje
-        </button>
+      <div className="mt-auto flex items-center justify-between pt-1 text-body-sm text-on-surface-variant">
+        <span>{productCount != null ? `${productCount} productos` : ''}</span>
+        <span className="flex items-center gap-1 font-bold text-primary">
+          Ver marca <Icon name="arrow_forward" className="text-base" />
+        </span>
       </div>
-    </article>
+    </>
   );
+
+  const cardClass = cn(
+    'flex flex-col gap-3 rounded-xl bg-surface-container-lowest p-4 paper-border transition-transform hover:-translate-y-1',
+    className,
+  );
+
+  if (to) {
+    return (
+      <Link to={to} className={cardClass}>
+        {content}
+      </Link>
+    );
+  }
+  return <article className={cardClass}>{content as ReactNode}</article>;
 }

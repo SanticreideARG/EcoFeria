@@ -1,38 +1,23 @@
+import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../lib/cn.ts';
 import { Icon } from './Icon.tsx';
 
-type NavItem = { label: string; href: string };
-
-const DEFAULT_NAV: NavItem[] = [
-  { label: 'Mercado', href: '#' },
-  { label: 'Agenda', href: '#' },
-  { label: 'Blog', href: '#' },
+const NAV = [
+  { label: 'Mercado', to: '/tienda' },
+  { label: 'Agenda', to: '/agenda' },
+  { label: 'Blog', to: '/blog' },
 ];
 
-type TopAppBarProps = {
-  cartCount?: number;
-  onCartClick?: () => void;
-  /** Label del ítem de nav activo (desktop). */
-  activeNav?: string;
-  nav?: NavItem[];
-  className?: string;
-};
+function isActive(pathname: string, to: string): boolean {
+  return to === '/' ? pathname === '/' : pathname.startsWith(to);
+}
 
 /** Barra superior sticky: logo, nav desktop y carrito con badge. */
-export function TopAppBar({
-  cartCount = 0,
-  onCartClick,
-  activeNav = 'Mercado',
-  nav = DEFAULT_NAV,
-  className,
-}: TopAppBarProps) {
+export function TopAppBar({ cartCount = 0 }: { cartCount?: number }) {
+  const { pathname } = useLocation();
+
   return (
-    <header
-      className={cn(
-        'sticky top-0 z-50 flex h-16 items-center justify-between border-b border-outline-variant bg-surface/90 px-5 backdrop-blur-md',
-        className,
-      )}
-    >
+    <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-outline-variant bg-surface/90 px-5 backdrop-blur-md">
       <button
         type="button"
         className="rounded-full p-2 text-primary transition-colors hover:bg-surface-container-high active:scale-95 md:hidden"
@@ -41,17 +26,17 @@ export function TopAppBar({
         <Icon name="menu" />
       </button>
 
-      <div className="font-display text-display-lg-mobile tracking-tight text-primary">
+      <Link to="/" className="font-display text-display-lg-mobile tracking-tight text-primary">
         La Ecoferia
-      </div>
+      </Link>
 
       <nav className="absolute left-1/2 hidden -translate-x-1/2 gap-4 md:flex">
-        {nav.map((item) => {
-          const active = item.label === activeNav;
+        {NAV.map((item) => {
+          const active = isActive(pathname, item.to);
           return (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
+              to={item.to}
               className={cn(
                 'rounded-full px-4 py-2 transition-colors active:scale-95',
                 active
@@ -60,15 +45,14 @@ export function TopAppBar({
               )}
             >
               {item.label}
-            </a>
+            </Link>
           );
         })}
       </nav>
 
       <div className="flex items-center gap-1">
-        <button
-          type="button"
-          onClick={onCartClick}
+        <Link
+          to="/carrito"
           aria-label={`Carrito${cartCount > 0 ? ` (${cartCount})` : ''}`}
           className="relative rounded-full p-2 text-primary transition-colors hover:bg-surface-container-high active:scale-95"
         >
@@ -78,14 +62,14 @@ export function TopAppBar({
               {cartCount}
             </span>
           )}
-        </button>
-        <button
-          type="button"
-          aria-label="Perfil"
+        </Link>
+        <Link
+          to="/ingreso"
+          aria-label="Ingresar"
           className="hidden rounded-full p-2 text-primary transition-colors hover:bg-surface-container-high active:scale-95 md:flex"
         >
           <Icon name="person" />
-        </button>
+        </Link>
       </div>
     </header>
   );

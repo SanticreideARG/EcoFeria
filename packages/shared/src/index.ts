@@ -4,5 +4,6 @@
  */
 export * from './enums.js';
 export * from './dto/category.js';
-export * from './dto/brand.js';
 export * from './dto/product.js';
+export * from './dto/brand.js';
+export * from './dto/content.js';
