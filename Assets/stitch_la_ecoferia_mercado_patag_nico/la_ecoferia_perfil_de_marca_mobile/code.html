@@ -1,0 +1,366 @@
+<!DOCTYPE html><html lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Botánica Sur</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#506049",
+                      "surface-variant": "#e4e2dd",
+                      "on-tertiary-container": "#fffbff",
+                      "secondary-fixed": "#ffdbce",
+                      "on-surface-variant": "#444841",
+                      "secondary-container": "#feaa88",
+                      "primary-fixed": "#d6e8ca",
+                      "primary-container": "#697960",
+                      "primary-fixed-dim": "#baccaf",
+                      "secondary": "#8e4d31",
+                      "on-background": "#1b1c19",
+                      "on-surface": "#1b1c19",
+                      "secondary-fixed-dim": "#ffb598",
+                      "on-primary-container": "#f8ffef",
+                      "outline": "#757870",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#baccaf",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#5f4100",
+                      "on-secondary-fixed-variant": "#71361d",
+                      "on-primary-fixed": "#111f0d",
+                      "tertiary-fixed": "#ffdeaa",
+                      "surface-tint": "#53634b",
+                      "on-secondary-fixed": "#370e00",
+                      "surface": "#fbf9f4",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-tertiary-fixed": "#271900",
+                      "on-error-container": "#93000a",
+                      "surface-container": "#f0eee9",
+                      "outline-variant": "#c4c8be",
+                      "on-primary-fixed-variant": "#3c4b35",
+                      "on-secondary-container": "#783c22",
+                      "inverse-surface": "#30312e",
+                      "background": "#fbf9f4",
+                      "surface-container-low": "#f5f3ee",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed-dim": "#fabc45",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#fbf9f4",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#9a6c00",
+                      "surface-dim": "#dbdad5",
+                      "tertiary": "#7a5500",
+                      "surface-container-highest": "#e4e2dd",
+                      "surface-container-high": "#eae8e3",
+                      "brand-accent": "#DCC7A1" // Light Wood
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "sm": "8px",
+                      "xl": "40px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "container-margin": "20px",
+                      "lg": "24px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Playfair Display"],
+                      "display-lg-mobile": ["Playfair Display"],
+                      "body-md": ["Inter"],
+                      "title-lg": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "headline-md": ["Playfair Display"],
+                      "body-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+              }
+      }
+          }
+        }
+    </script>
+<style>
+        .texture-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        
+        .paper-border {
+            border: 1px solid #DCC7A1;
+        }
+
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-24 relative overflow-x-hidden">
+<div class="fixed inset-0 texture-overlay z-50"></div>
+<!-- Header Section -->
+<header class="relative w-full">
+<div class="h-64 w-full bg-surface-container relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A sweeping, majestic wide-angle photograph of dense Patagonian forests under a clear morning sky. The image should feature towering ancient trees, soft morning mist weaving through the canopy, and a rich, earthy color palette dominated by deep forest greens and subtle golden light filtering through the leaves. The aesthetic is rugged yet serene, capturing the artisanal and organic spirit of the region." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuALWFCMkH0y2kkN9Ot9QfYZQuuiRf8NkooLLiBX94mo5BaXjMElBMo6I2-SeOoOEl8Ub-mFxHp_c3g9b_auVxzoRNk9qtWHA5O96rLoXsVNmFCKUAh2--9LCYQLPkNRQyK_Nxhm_jH-D-VDvi7_n9adoCEvurjw-lHzS4FBzpg0UxH0uetTCRXhR8BdrdM1LQw2H0bqQ-X-F8zhfKKdX19nUB3ZyYkyjNp_NRowMcW8vD3hVdNON-fHqQ')"></div>
+<!-- TopAppBar Navigation Overlay -->
+<div class="absolute top-0 w-full flex justify-between items-center px-container-margin py-md z-10">
+<button class="w-10 h-10 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex gap-sm">
+<button class="w-10 h-10 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="px-container-margin relative -mt-12 bg-surface rounded-t-3xl pt-8 max-w-[1280px] mx-auto">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-md">
+<div class="w-24 h-24 rounded-full bg-surface-container-low border-4 border-surface shadow-md overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A beautifully crafted, minimalist circular logo for 'Botánica Sur'. The logo features a delicate, monolinear hand-drawn illustration of an organic Patagonian leaf or fern sprig in a deep forest green. The background is a warm bone white, conveying an artisanal, premium natural cosmetics brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCinrEdM9_NMEWqKdLuSLDtA0lUch6_DCNUyuMtjV2uS6CTpkvkrB95jQw2VYhh-ectGokf-QhVPbj-78Jge4pEQR0C-NHCmEVnu01APQi4YTh7i9xle2q1S0xjZzfYSOsqo8nOKKryfMDKXGYtMbKtG2-xA45M-kchPz9wXbsccXBEKaSs3gfxU5_VSlfDHcWGHHUFKh2uxqDR8bGqNv3r9UthKzOeOcRfFpylgxTjpLDmRmRegYzKtQ">
+</div>
+<div>
+<div class="mb-2"><span class="font-label-caps text-label-caps text-primary/60 tracking-widest uppercase">La Ecoferia</span></div><h1 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-xs">EcoFungi Patagonia</h1>
+<span class="font-label-caps text-label-caps text-primary px-3 py-1 bg-brand-accent/20 rounded-full inline-block">Fungi-cultura circular</span>
+</div>
+</div>
+</div>
+<div class="flex gap-md mb-lg">
+<button class="flex-1 bg-surface py-2 rounded-full border border-primary text-primary font-title-lg text-title-lg flex items-center justify-center gap-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined">favorite_border</span>
+                    Seguir
+                </button>
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-full font-title-lg text-title-lg flex items-center justify-center gap-sm active:scale-95 transition-transform shadow-[0_4px_14px_rgba(80,96,73,0.3)]">
+<span class="material-symbols-outlined">chat_bubble_outline</span>
+                    Mensaje
+                </button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg">Producción de hongos frescos y deshidratados, sustratos orgánicos y kits de autocultivo en bloques de aserrín reciclado.</p>
+<!-- Navigation Tabs -->
+<div class="flex border-b border-outline-variant mb-lg overflow-x-auto no-scrollbar">
+<button class="flex-1 py-3 px-4 font-title-lg text-title-lg text-primary border-b-2 border-primary whitespace-nowrap" id="tab-productos" onclick="switchTab('productos')">Productos</button>
+<button class="flex-1 py-3 px-4 font-title-lg text-title-lg text-on-surface-variant whitespace-nowrap" id="tab-nosotros" onclick="switchTab('nosotros')">Sobre Nosotros</button>
+<button class="flex-1 py-3 px-4 font-title-lg text-title-lg text-on-surface-variant whitespace-nowrap" id="tab-contacto" onclick="switchTab('contacto')">Contacto</button>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-container-margin">
+<!-- Tab 1: Productos -->
+<section class="tab-content active" id="content-productos">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-md">
+<!-- Product Card 1 -->
+<article class="paper-border rounded-lg bg-surface-container-lowest overflow-hidden flex flex-col relative group">
+<div class="relative pt-[100%] w-full bg-surface-container-low">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A close-up product photograph of a small amber glass dropper bottle labeled 'Serum Facial Rosa Mosqueta'. The bottle sits on a rough, natural stone surface, surrounded by delicate pink rose petals and subtle green foliage. Lighting is soft and natural, emphasizing the artisanal, organic quality of the natural cosmetic product in a warm, rustic Patagonian setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk3e-2WHBTni_SDF4xYJq1t8hcpfI3W1gUTDl8c84g4AQWAIjwLGUYj8gLcBC_6ynLvEgpwMVu2x4z-Gac7N8ED5fmiO-TVwh9EnHyxJBlFfyDlVfiidzuU93yMyIkMp6YFhTSsw9QrnRGTLprxXWh85aDw1Uinq3aM1KboxDSpOFITPx82GENz_cd9UO_8mnrfAWTkWQmAdVAhkpNqAddvbOdpXypOnk3PCUqNUacamJFN84SdQemNg">
+<button class="absolute top-2 right-2 w-8 h-8 bg-surface/80 rounded-full flex items-center justify-center text-primary backdrop-blur-sm">
+<span class="material-symbols-outlined text-[20px]">favorite_border</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<span class="font-label-caps text-label-caps text-primary/70 mb-1">Hongos Frescos</span>
+<h3 class="font-title-lg text-title-lg text-on-surface leading-tight mb-2 line-clamp-2">Gírgolas Frescas</h3>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-body-md text-body-md font-bold text-secondary">$14.500</span>
+<button class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center active:scale-95">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="paper-border rounded-lg bg-surface-container-lowest overflow-hidden flex flex-col relative group">
+<div class="relative pt-[100%] w-full bg-surface-container-low">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A product shot of a small, eco-friendly cardboard push-up tube labeled 'Bálsamo Labial de Lavanda'. The lip balm rests on a textured kraft paper background, accompanied by a sprig of dried purple lavender. The scene uses soft, natural window light to highlight the sustainable packaging and natural ingredients, fitting an artisanal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvnsCUssUDFN57VJB7bXBisZIvwS5-SmXe_VnHCI8zqh9A0TiFYfGeJIiz54JipfK34sySbDjDq8w8HIzjVqDyRp_EnS-YEwkwMAMMxIcL6VB8dMqCwYtBTxOsVAYyoAxpyZZ7DtL19ZscTNicpGu_H0lcMjCo2eiiuIoVTAvjQ2J5eFm6OmIaS18OlX6nv_d2vkg9mG90HJRwGvvpE2-5NEGDdY5Ml8xELzHtlDakfbwSd04NtbcqSA">
+<button class="absolute top-2 right-2 w-8 h-8 bg-surface/80 rounded-full flex items-center justify-center text-primary backdrop-blur-sm">
+<span class="material-symbols-outlined text-[20px]">favorite_border</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<span class="font-label-caps text-label-caps text-primary/70 mb-1">Autocultivo</span>
+<h3 class="font-title-lg text-title-lg text-on-surface leading-tight mb-2 line-clamp-2">Kits de Autocultivo</h3>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-body-md text-body-md font-bold text-secondary">$4.200</span>
+<button class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center active:scale-95">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="paper-border rounded-lg bg-surface-container-lowest overflow-hidden flex flex-col relative group">
+<div class="relative pt-[100%] w-full bg-surface-container-low">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="An inviting photograph of a frosted glass jar containing thick, rich cream, labeled 'Crema de Ordeñe Orgánica'. The jar is placed on a piece of weathered light wood. The composition is simple and clean, bathed in warm, diffused natural light that emphasizes the creamy texture and organic origins of the skincare product in a minimalist setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQPXCgVvttYV6dA3LBpbZVVprmCTi5ixWmpzpbO6ME3eHbTSprqLB4d8SviKseNjZ4Q55MhK98crjcDLgYMdLSBSeOVjGymZLTv2GctA_PaFzZ3T6yT9dXZuw4KsFm5q38nqNTRlvMiIdoYOESbkkSGpPBf7vNUE4v1YSzJxvWWwhCdhyi9floeQz9HiexWnkGD9Ad7TGIauPNLjJGQgwNMZi4wdUarj_zSiESo1dzXii7oT3XHUjxaw">
+<button class="absolute top-2 right-2 w-8 h-8 bg-surface/80 rounded-full flex items-center justify-center text-primary backdrop-blur-sm">
+<span class="material-symbols-outlined text-[20px]">favorite_border</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<span class="font-label-caps text-label-caps text-primary/70 mb-1">Deshidratados</span>
+<h3 class="font-title-lg text-title-lg text-on-surface leading-tight mb-2 line-clamp-2">Hongos Deshidratados</h3>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-body-md text-body-md font-bold text-secondary">$12.800</span>
+<button class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center active:scale-95">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Tab 2: Sobre Nosotros -->
+<section class="tab-content" id="content-nosotros">
+<div class="paper-border rounded-xl p-lg bg-surface-container-lowest mb-xl">
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Nuestra Raíz</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                    Nacimos en los valles andinos con la convicción de que la naturaleza provee la mejor medicina para nuestra piel. En Botánica Sur, cada macerado es un ritual y cada producto cuenta una historia del bosque.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Trabajamos exclusivamente con recolectores locales y cultivamos nuestras propias aromáticas bajo principios biodinámicos, asegurando un ciclo de respeto absoluto por la tierra.
+                </p>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-md">Diario de la Marca</h3>
+<div class="space-y-lg">
+<!-- Blog Post 1 -->
+<article class="flex gap-md">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 paper-border">
+<img class="w-full h-full object-cover" data-alt="A candid, close-up photograph showing hands gently harvesting fresh lavender and wild herbs from a sunlit field. The hands are slightly dirt-stained, indicating honest, manual labor. The background is a soft blur of green fields and distant mountains under a morning sky, capturing the authentic, hands-on artisanal process of natural cosmetic ingredient sourcing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_GF5D8xHPuxj0oycrikKnaTscW3oUj-Z9GAsw_L_FpBz_rJQ6JuD5_MrnfzJpeqf9BvBB4WwplPwiuVUoo9XskG8rgkPVDOqQ1arnpy8qD24Sp2VWKEt0w2D9PYJhGvwaqTfrTOZ-Vx116LAcKumhzazEa2Ee8uR5mULyi7kL7NwEThhFJQB3nq6_HyxPMn2LGYRKCU33yyFr8YYK6IjOTPhZpK9ExLPQEXQXbiq7Eg97d2akPC-l-w">
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-primary mb-1 block">Hoy</span>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-2">Recolección de esta mañana</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                            Aprovechando el rocío de la mañana para recolectar lavanda silvestre. El aroma en el taller hoy es simplemente increíble.
+                        </p>
+</div>
+</article>
+<!-- Blog Post 2 -->
+<article class="flex gap-md">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 paper-border">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist product photograph showcasing a cluster of new, unbranded compostable cosmetic containers made from textured kraft paper and bamboo. They are arranged neatly on a bone-white surface, lit by soft, diffused daylight. The aesthetic is modern, sustainable, and eco-conscious, highlighting the brand's commitment to zero-waste packaging." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6ZvNU5n_BlJP156KyJ30Aabh4-tGeloSCLI8ukKXrg13sbH34d4z0GhoL8w7BA6ZeNZVGgGFBUXn09nkWiFHBnokqrY9URioUkbt5DYy51AydeM1fKuK_RXcw7Du2etsEvHTgyAZ9EpHWYiYjsD96pt4V83_zo5H4E4voqPkcAYZOT-1D0b2Z9CjnwgGzRnefH-URSlvhwZCHR2GXsbhmEsxhhianuUWyZ-LnNn27iWMeSfqMGfq8_g">
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-primary mb-1 block">Hace 3 días</span>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-2">Nuevos envases compostables</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                            ¡Por fin llegaron! Transicionamos el 100% de nuestras cremas sólidas a envases de cartón kraft biodegradable.
+                        </p>
+</div>
+</article>
+</div>
+</section>
+<!-- Tab 3: Contacto -->
+<section class="tab-content" id="content-contacto">
+<div class="paper-border rounded-xl p-lg bg-surface-container-lowest">
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Escríbenos</h2>
+<form class="space-y-md">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Nombre</label>
+<input class="w-full bg-surface-variant/30 border-0 border-b border-brand-accent focus:ring-0 focus:border-primary px-3 py-2 font-body-md text-on-surface transition-colors" type="text">
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Correo Electrónico</label>
+<input class="w-full bg-surface-variant/30 border-0 border-b border-brand-accent focus:ring-0 focus:border-primary px-3 py-2 font-body-md text-on-surface transition-colors" type="email">
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Mensaje</label>
+<textarea class="w-full bg-surface-variant/30 border-0 border-b border-brand-accent focus:ring-0 focus:border-primary px-3 py-2 font-body-md text-on-surface transition-colors resize-none" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-3 rounded-md font-title-lg text-title-lg active:scale-95 transition-transform" type="button">
+                        Enviar Mensaje
+                    </button>
+</form>
+<div class="mt-xl pt-lg border-t border-outline-variant">
+<h3 class="font-title-lg text-title-lg text-primary mb-md">Puntos de Entrega</h3>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">location_on</span>
+                            Taller Central (San Martín de los Andes)
+                        </li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">storefront</span>
+                            Feria Artesanal (Sábados por la mañana)
+                        </li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container-low dark:bg-surface-container-highest text-primary dark:text-primary-fixed font-label-caps text-label-caps font-display-lg-mobile text-display-lg-mobile text-primary fixed bottom-0 w-full z-50 rounded-t-xl border-t border-outline-variant dark:border-outline shadow-sm transition-all duration-300 ease-in-out fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 pb-safe md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg p-2 w-16">
+<span class="material-symbols-outlined mb-1">storefront</span>
+<span class="text-[10px]">Mercado</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg p-2 w-16">
+<span class="material-symbols-outlined mb-1">event</span>
+<span class="text-[10px]">Agenda</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg p-2 w-16">
+<span class="material-symbols-outlined mb-1">article</span>
+<span class="text-[10px]">Blog</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg p-2 w-16">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="text-[10px]">Perfil</span>
+</button>
+</nav>
+<script>
+        function switchTab(tabId) {
+            // Update Tab Content
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById('content-' + tabId).classList.add('active');
+
+            // Update Tab Styling
+            const tabs = ['productos', 'nosotros', 'contacto'];
+            tabs.forEach(id => {
+                const btn = document.getElementById('tab-' + id);
+                if (id === tabId) {
+                    btn.classList.replace('text-on-surface-variant', 'text-primary');
+                    btn.classList.add('border-b-2', 'border-primary');
+                } else {
+                    btn.classList.replace('text-primary', 'text-on-surface-variant');
+                    btn.classList.remove('border-b-2', 'border-primary');
+                }
+            });
+        }
+    </script>
+
+
+
+
+
+
+</body></html>

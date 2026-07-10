@@ -1,0 +1,404 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dashboard - Content &amp; Moderation</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#370e00",
+                    "inverse-primary": "#baccaf",
+                    "surface-tint": "#53634b",
+                    "primary-container": "#697960",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#eae8e3",
+                    "primary-fixed-dim": "#baccaf",
+                    "tertiary-container": "#9a6c00",
+                    "on-tertiary-fixed-variant": "#5f4100",
+                    "outline": "#757870",
+                    "surface-container-highest": "#e4e2dd",
+                    "inverse-surface": "#30312e",
+                    "secondary-fixed-dim": "#ffb598",
+                    "on-background": "#1b1c19",
+                    "on-surface": "#1b1c19",
+                    "tertiary": "#7a5500",
+                    "secondary": "#8e4d31",
+                    "on-tertiary-container": "#fffbff",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fbf9f4",
+                    "surface-variant": "#e4e2dd",
+                    "tertiary-fixed-dim": "#fabc45",
+                    "surface-dim": "#dbdad5",
+                    "on-primary-fixed-variant": "#3c4b35",
+                    "on-secondary-fixed-variant": "#71361d",
+                    "on-primary-container": "#f8ffef",
+                    "secondary-container": "#feaa88",
+                    "on-primary-fixed": "#111f0d",
+                    "on-primary": "#ffffff",
+                    "primary": "#506049",
+                    "surface-container-low": "#f5f3ee",
+                    "surface-container": "#f0eee9",
+                    "secondary-fixed": "#ffdbce",
+                    "background": "#fbf9f4",
+                    "on-tertiary-fixed": "#271900",
+                    "primary-fixed": "#d6e8ca",
+                    "on-secondary-container": "#783c22",
+                    "tertiary-fixed": "#ffdeaa",
+                    "outline-variant": "#c4c8be",
+                    "on-surface-variant": "#444841",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f2f1ec",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface": "#fbf9f4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "40px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "gutter": "12px",
+                    "sm": "8px",
+                    "unit": "4px",
+                    "container-margin": "20px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter", "sans-serif"],
+                    "display-lg": ["Playfair Display", "serif"],
+                    "title-lg": ["Inter", "sans-serif"],
+                    "display-lg-mobile": ["Playfair Display", "serif"],
+                    "headline-md": ["Playfair Display", "serif"],
+                    "body-sm": ["Inter", "sans-serif"],
+                    "body-md": ["Inter", "sans-serif"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                    "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                    "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                    "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                    "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                    "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+            }
+          }
+        }
+      }
+    </script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            background-color: #fbf9f4; /* surface/background */
+            color: #1b1c19; /* on-surface */
+        }
+        /* Custom scrollbar for organic feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #e4e2dd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- JSON Component: SideNavBar -->
+<!-- Applying style_component_shape and general hidden md:block for responsive pivot -->
+<aside class="hidden md:block bg-surface dark:bg-surface-dim h-screen w-64 fixed left-0 top-0 border-r border-outline-variant dark:border-outline z-40">
+<!-- Applying style_shell_layout -->
+<div class="flex flex-col h-full p-lg overflow-y-auto">
+<!-- Header area mapped from JSON -->
+<div class="flex items-center gap-md mb-xl">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant shrink-0">
+<img alt="Admin Profile Avatar" class="w-full h-full object-cover" data-alt="A close-up, natural light portrait of a confident middle-aged individual outdoors, wearing a weathered canvas jacket. The background is a soft, blurred landscape of rolling green hills. The image evokes a sense of rugged leadership, stewardship, and connection to nature, fitting perfectly with a sustainable, eco-conscious brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy_esMbd8tu-haiK9v_wk-EQgPfZ37J80DigxNcw5YSAxSdswUO9kDD5-U1liBgsE4OixkCZ3laRuxTFDz65TTDpSNV_NeTpepH9rkwtByQVB93uY9oeDr3PfPnFRH1tl8dAXeAkpKEwrklwdpr4742H3biuMk0uyrFZ5yfJkpCxOr4I9YEa3HOlRdoxVfNeZb_hWkRS52K3Fe7OfiGTObr21TRjXMWAS3DsOKKoBIMIkxt1UEzfW_xQ">
+</div>
+<div>
+<!-- style_brand_logo mapped to title -->
+<h2 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">Patagonia Admin</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Marketplace Guardian</p>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-sm flex-1">
+<!-- Tab: Metrics (Inactive) -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-on-surface">analytics</span>
+<span class="font-body-md text-body-md">Metrics</span>
+</a>
+<!-- Tab: Brands (Inactive) -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-on-surface">eco</span>
+<span class="font-body-md text-body-md">Brands</span>
+</a>
+<!-- Tab: Sellers (Inactive) -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-on-surface">storefront</span>
+<span class="font-body-md text-body-md">Sellers</span>
+</a>
+<!-- Tab: Moderation (ACTIVE - Contextual logic) -->
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<span class="font-body-md text-body-md font-semibold">Moderation</span>
+</a>
+<!-- Tab: Blog/Agenda (Inactive - but relevant to page content) -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-on-surface">menu_book</span>
+<span class="font-body-md text-body-md">Blog/Agenda</span>
+</a>
+<!-- Tab: Global Orders (Inactive) -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-on-surface">local_shipping</span>
+<span class="font-body-md text-body-md">Global Orders</span>
+</a>
+</nav>
+<!-- CTA -->
+<div class="mt-lg mb-lg">
+<button class="w-full flex items-center justify-center gap-sm px-md py-sm bg-surface-container-high text-on-surface rounded-lg hover:bg-surface-variant transition-colors duration-200 font-label-caps text-label-caps tracking-wider border border-outline-variant">
+<span class="material-symbols-outlined text-sm">settings</span>
+                    System Settings
+                </button>
+</div>
+<!-- Footer Tabs -->
+<div class="flex flex-col gap-sm pt-md border-t border-outline-variant">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-on-surface">help</span>
+<span class="font-body-md text-body-md">Support</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-on-surface">logout</span>
+<span class="font-body-md text-body-md">Sign Out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- JSON Component: TopAppBar -->
+<!-- Applying style_component_shape, style_shell_layout for mobile pivot -->
+<header class="flex md:hidden justify-between items-center w-full px-container-margin h-16 fixed top-0 z-50 bg-surface-bright dark:bg-surface-dim border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-sm">
+<!-- Hamburger menu icon for mobile (inferred requirement for mobile app bar) -->
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim truncate">Sustainable Marketplace</h1>
+</div>
+<div class="flex items-center gap-sm">
+<!-- Trailing Icons mapped from JSON -->
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<!-- Padding adjusted for fixed navs: md:pl-64 for desktop sidenav, pt-16 for mobile topnav -->
+<main class="flex-1 flex flex-col min-h-screen w-full md:pl-64 pt-16 md:pt-0">
+<!-- Page Header -->
+<div class="px-container-margin md:px-xl py-lg md:py-xl flex flex-col md:flex-row md:items-end justify-between gap-md border-b border-outline-variant/50 bg-surface-bright/50 backdrop-blur-sm sticky top-0 md:top-0 z-30">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs tracking-wider uppercase">Workspace Overview</p>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background">Content &amp; Moderation</h1>
+</div>
+<div class="flex items-center gap-sm mt-sm md:mt-0">
+<button class="flex items-center gap-sm px-md py-sm bg-primary text-on-primary rounded-lg hover:bg-surface-tint transition-colors shadow-sm font-label-caps text-label-caps tracking-wider">
+<span class="material-symbols-outlined text-sm">add</span>
+                    Create New Entry
+                </button>
+</div>
+</div>
+<!-- Content Grid (Two Column Layout) -->
+<div class="p-container-margin md:p-xl grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- LEFT COLUMN: Blog & Agenda Management -->
+<section class="lg:col-span-7 flex flex-col gap-lg">
+<div class="flex items-center justify-between">
+<h2 class="font-title-lg text-title-lg text-on-background">Editorial &amp; Agenda</h2>
+<a class="font-body-sm text-body-sm text-primary hover:underline flex items-center gap-xs" href="#">
+                        View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Content List -->
+<div class="flex flex-col gap-md">
+<!-- Content Card 1 -->
+<article class="flex flex-col sm:flex-row gap-md p-md bg-surface border border-outline-variant rounded-xl hover:shadow-sm transition-shadow group cursor-pointer relative overflow-hidden">
+<!-- Subtle tactile texture overlay -->
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDEiLz4KPC9zdmc+')] opacity-50 pointer-events-none"></div>
+<div class="w-full sm:w-40 h-32 rounded-lg overflow-hidden shrink-0 bg-surface-container-high border border-outline-variant">
+<img alt="Wool harvesting guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A beautifully styled, top-down photograph of organic, raw wool spun into thick yarn skeins, resting on a rustic wooden table. Soft, natural sunlight filters in, casting gentle shadows. The color palette emphasizes warm creams, earthy browns, and soft greys, evoking a tactile, artisanal, and sustainable craft aesthetic perfect for an editorial blog post." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmhYM_XrVz9Ee-uF3FJTWHbjJSZz0WC3m581aRPpNXmRnyBIK9jIIrmHUy4lNNtiyKRw3tmtQ02lwnsLLYdN0K_qzAVenYpnO-3LNxdVJuteTzj9xxBrhmBeqawzTRWOaczwxLUyPGxXA139w0Pjl15FOCsyBTTN516lQkjvGFJna_qivbhIRm1qJxD98m-zYDbOCHmjJ0UnJdIsrVrDvHsLREyI4Ftke5SXFBLVQx810CscQDhu0xRg">
+</div>
+<div class="flex flex-col justify-between flex-1 py-xs">
+<div>
+<div class="flex items-start justify-between gap-sm mb-sm">
+<h3 class="font-title-lg text-title-lg text-on-background group-hover:text-primary transition-colors line-clamp-2">The Artisanal Guide to Sourcing Ethical Wool</h3>
+<!-- Status Chip: Live -->
+<span class="inline-flex items-center gap-xs px-sm py-[2px] rounded-full bg-primary-container/30 text-on-primary-fixed-variant font-label-caps text-label-caps whitespace-nowrap border border-primary-container">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                                        Live
+                                    </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-md">Explore the rigorous standards our top sellers follow to ensure sheep welfare and land regeneration in Patagonia.</p>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-sm font-body-sm text-body-sm text-xs">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">calendar_today</span> Oct 12</span>
+<span>•</span>
+<span>By Editorial Team</span>
+</div>
+<button class="p-xs text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Content Card 2 -->
+<article class="flex flex-col sm:flex-row gap-md p-md bg-surface border border-outline-variant rounded-xl hover:shadow-sm transition-shadow group cursor-pointer relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDEiLz4KPC9zdmc+')] opacity-50 pointer-events-none"></div>
+<div class="w-full sm:w-40 h-32 rounded-lg overflow-hidden shrink-0 bg-surface-container-high border border-outline-variant flex items-center justify-center">
+<img alt="Event preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist, wide-angle shot of a serene community gathering space outdoors, featuring wooden benches arranged in a circle under large, ancient oak trees. The scene is bathed in golden hour light, suggesting an upcoming workshop or community event. The vibe is grounding, communal, and deeply connected to nature, aligning with an earthy brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1oOavUN22mx0su_y-6sD5hMGVebIezzrq9TC40dheF2i3Dhw1yfwc0SIFuBA6RhVRHeUwAh480oakQCzmmHp41o0G4r7MlAxst13j1OxzVLByCCqopH-lja7JBdgMcPwmHCX-GXcRcVx-2ZKbOvgGeTsKbF8GyadPel3zkTrWrbkXn8gvrLQ-Uv3vzwksInOMYDGXgv6us0DK1OeO3M1Lb_gs56T1_QwlLfAFjhy0HxTqy3_g2xZQ3Q">
+</div>
+<div class="flex flex-col justify-between flex-1 py-xs">
+<div>
+<div class="flex items-start justify-between gap-sm mb-sm">
+<h3 class="font-title-lg text-title-lg text-on-background group-hover:text-primary transition-colors line-clamp-2">Upcoming Workshop: Zero-Waste Packaging</h3>
+<!-- Status Chip: Draft -->
+<span class="inline-flex items-center gap-xs px-sm py-[2px] rounded-full bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps whitespace-nowrap border border-outline-variant">
+<span class="material-symbols-outlined text-[12px]">edit_document</span>
+                                        Draft
+                                    </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-md">A masterclass for new sellers looking to transition away from single-use plastics.</p>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-sm font-body-sm text-body-sm text-xs">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">event</span> Nov 05</span>
+<span>•</span>
+<span>Agenda Item</span>
+</div>
+<button class="p-xs text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Empty State / Add New Placeholder -->
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-lg flex flex-col items-center justify-center text-center gap-sm hover:bg-surface-container-low transition-colors cursor-pointer opacity-70 hover:opacity-100">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary mb-sm">
+<span class="material-symbols-outlined">post_add</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-background">Draft a new story</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">Share insights on sustainability, highlight a seller, or schedule an upcoming community event.</p>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: Moderation Queue -->
+<section class="lg:col-span-5 flex flex-col gap-lg">
+<div class="flex items-center justify-between">
+<h2 class="font-title-lg text-title-lg text-on-background flex items-center gap-sm">
+                        Moderation Queue
+                        <span class="px-2 py-0.5 rounded-full bg-error/10 text-error font-label-caps text-[10px] flex items-center justify-center">2 Pending</span>
+</h2>
+</div>
+<div class="flex flex-col gap-md">
+<!-- Reported Item 1 -->
+<div class="bg-surface rounded-xl border border-outline-variant overflow-hidden flex flex-col relative shadow-sm">
+<!-- Threat level indicator (left border accent) -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error"></div>
+<div class="p-md pb-sm border-b border-outline-variant/50 bg-error-container/20 flex justify-between items-start pl-lg">
+<div class="flex items-center gap-sm">
+<span class="inline-flex items-center gap-xs px-sm py-[2px] rounded-full bg-error text-on-error font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[12px]">flag</span>
+                                    Reported Review
+                                </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">Flagged 2h ago</span>
+</div>
+<button class="text-outline hover:text-on-surface"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+<div class="p-md pl-lg flex flex-col gap-sm">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-label-caps text-label-caps">
+                                    JD
+                                </div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-background leading-tight">JohnDoe88</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs leading-tight">on "Hand-carved Oak Spoon"</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-sm rounded border border-outline-variant/30 mt-xs">
+<p class="font-body-sm text-body-sm text-on-background italic">"This seller is a scammer! The spoon arrived broken and they refuse to refund. Don't buy from them, absolute garbage service."</p>
+</div>
+<div class="flex flex-wrap gap-xs mt-xs">
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-body-sm text-[11px] border border-outline-variant/50">Harassment / Hostility</span>
+</div>
+</div>
+<div class="p-sm bg-surface-container-lowest border-t border-outline-variant flex justify-end gap-sm pl-lg">
+<button class="px-md py-sm rounded-md font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-container-high transition-colors border border-transparent">
+                                Dismiss Report
+                            </button>
+<button class="px-md py-sm rounded-md font-label-caps text-label-caps text-error border border-error/50 hover:bg-error-container transition-colors bg-surface">
+                                Remove Content
+                            </button>
+</div>
+</div>
+<!-- Reported Item 2 -->
+<div class="bg-surface rounded-xl border border-outline-variant overflow-hidden flex flex-col relative shadow-sm">
+<!-- Threat level indicator (yellow for warning) -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-fixed-dim"></div>
+<div class="p-md pb-sm border-b border-outline-variant/50 bg-tertiary-container/10 flex justify-between items-start pl-lg">
+<div class="flex items-center gap-sm">
+<span class="inline-flex items-center gap-xs px-sm py-[2px] rounded-full bg-tertiary-fixed-dim text-on-tertiary-fixed font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[12px]">warning</span>
+                                    Spam Comment
+                                </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">Flagged 5h ago</span>
+</div>
+<button class="text-outline hover:text-on-surface"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+<div class="p-md pl-lg flex flex-col gap-sm">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-label-caps text-label-caps">
+                                    UK
+                                </div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-background leading-tight">UnknownUser_492</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs leading-tight">on Blog Post "Sourcing Wool"</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-sm rounded border border-outline-variant/30 mt-xs">
+<p class="font-body-sm text-body-sm text-on-background italic">"Great post! Check out my amazing crypto investment strategy here: http://suspicious-link.net to make $5000 a day!"</p>
+</div>
+</div>
+<div class="p-sm bg-surface-container-lowest border-t border-outline-variant flex justify-end gap-sm pl-lg">
+<button class="px-md py-sm rounded-md font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-container-high transition-colors border border-transparent">
+                                Dismiss
+                            </button>
+<button class="px-md py-sm rounded-md font-label-caps text-label-caps text-on-secondary-container bg-secondary-container hover:opacity-90 transition-opacity border border-transparent">
+                                Delete &amp; Ban User
+                            </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

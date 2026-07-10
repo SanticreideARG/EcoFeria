@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Patagonia Craft - Mi Blog de Marca</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#53634b",
+                        "on-primary-fixed": "#111f0d",
+                        "on-primary-container": "#f8ffef",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb598",
+                        "on-secondary-fixed-variant": "#71361d",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "secondary-container": "#feaa88",
+                        "primary-container": "#697960",
+                        "on-background": "#1b1c19",
+                        "primary-fixed": "#d6e8ca",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#30312e",
+                        "surface-variant": "#e4e2dd",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#783c22",
+                        "tertiary-fixed": "#ffdeaa",
+                        "primary": "#506049",
+                        "tertiary-container": "#9a6c00",
+                        "on-tertiary-fixed": "#271900",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-surface": "#1b1c19",
+                        "inverse-primary": "#baccaf",
+                        "surface-bright": "#fbf9f4",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#fbf9f4",
+                        "outline": "#757870",
+                        "surface-container-high": "#eae8e3",
+                        "secondary": "#8e4d31",
+                        "outline-variant": "#c4c8be",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#baccaf",
+                        "surface-container": "#f0eee9",
+                        "surface-container-low": "#f5f3ee",
+                        "surface": "#fbf9f4",
+                        "on-surface-variant": "#444841",
+                        "secondary-fixed": "#ffdbce",
+                        "surface-dim": "#dbdad5",
+                        "on-secondary-fixed": "#370e00",
+                        "surface-container-highest": "#e4e2dd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7a5500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "xl": "40px",
+                        "container-margin": "20px",
+                        "unit": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F9F7F2;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .card-level-1 {
+            border: 1px solid #DCC7A1;
+            box-shadow: 0 4px 20px rgba(62, 74, 57, 0.04);
+            background-color: #fbf9f4;
+            position: relative;
+        }
+        .card-level-1::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            border-radius: inherit;
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim w-full top-0 sticky border-b border-outline-variant z-40 hidden md:flex">
+<div class="flex justify-between items-center px-container-margin py-sm w-full max-w-[1280px] mx-auto">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed cursor-pointer active:opacity-80 text-2xl" data-icon="storefront">storefront</span>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed tracking-tight">Patagonia Craft</h1>
+</div>
+<div class="flex gap-lg items-center">
+<nav class="flex gap-lg">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-low transition-colors px-2 py-1 rounded" href="#">Dashboard</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-low transition-colors px-2 py-1 rounded" href="#">Products</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-low transition-colors px-2 py-1 rounded" href="#">Orders</a>
+<a class="text-primary font-bold font-label-caps text-label-caps hover:bg-surface-container-low transition-colors px-2 py-1 rounded relative after:absolute after:bottom-[-8px] after:left-0 after:w-full after:h-0.5 after:bg-primary" href="#">Blog</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-low transition-colors px-2 py-1 rounded" href="#">Messages</a>
+</nav>
+<img alt="Seller Profile Picture" class="w-8 h-8 rounded-full object-cover cursor-pointer active:opacity-80 border border-outline-variant" data-alt="A small circular avatar of a rugged artisan smiling gently in a well-lit workshop. Warm, natural lighting highlighting the textured background of raw materials and wooden tools. High-quality portrait style, eco-conscious aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdsVmlvjkQvEWPuH1Qu29V3aTCZqpt7v21njgjAPJEfB_A1w0u-PpaVSmF63tyoCE4vPPuptbyOiVkG4G2GZIoJN6KFVHkdwxSCAg3y2hRYRb08a-HVRLxI1GmqUCRvEK35868ZM_-BqfgSdfYvHipHt9lHl7RFIJ-112OAdBUgDj11y1vmvPSPQb516AL5o5xsy9RKYpeAbW-PwygVZ3qZcwSRHw5yDTAIEJEudCLBFFjPR3XijX9Rw">
+</div>
+</div>
+</header>
+<div class="flex flex-1 w-full max-w-[1280px] mx-auto">
+<!-- NavigationDrawer (Desktop) -->
+<aside class="bg-surface-container-low dark:bg-surface-container-lowest h-full w-64 hidden lg:flex flex-col border-r border-outline-variant p-md sticky top-[65px] h-[calc(100vh-65px)]">
+<div class="mb-xl flex items-center gap-md">
+<img alt="Artisan Profile" class="w-12 h-12 rounded-full object-cover border border-outline-variant" data-alt="A small circular avatar of a rugged artisan smiling gently in a well-lit workshop. Warm, natural lighting highlighting the textured background of raw materials and wooden tools. High-quality portrait style, eco-conscious aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW2ELLDL2hfZoipkKkPV40AK7oHvIN-kS5dCXspzaK6vWAfqe5BqBK2DhSO7zx_xh2NynUG5rWTmATYXsBH2lZnJl7xmmmuNhvjivXYMxAX18FYnhMY1gsN4NO1cduTbQvBfCmYRjnzpCrabA9anyYT_qHDOCjACzIj-JWUoo5DX1gNUYYlq47yAZD47b03RA31rasM_7PjLhamA7BeZOU0M7qs6zek8DXWnpAXmXE15MH29M8IwWhsQ">
+<div>
+<div class="font-title-lg text-title-lg text-on-surface">Artisan Dashboard</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Sustainable Seller</div>
+</div>
+</div>
+<nav class="flex flex-col gap-sm flex-1">
+<a class="flex items-center gap-md p-3 text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-high transition-all duration-200 ease-in-out rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-md p-3 text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-high transition-all duration-200 ease-in-out rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                    Products
+                </a>
+<a class="flex items-center gap-md p-3 text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-high transition-all duration-200 ease-in-out rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+                    Orders
+                </a>
+<a class="flex items-center gap-md p-3 text-primary font-bold bg-primary-fixed-dim rounded-lg font-label-caps text-label-caps transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+                    Blog
+                </a>
+<a class="flex items-center gap-md p-3 text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-high transition-all duration-200 ease-in-out rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+                    Messages
+                </a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-container-margin md:p-lg pb-24 md:pb-lg w-full max-w-4xl">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-xl gap-md">
+<div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-xs">Mi Blog de Marca</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Comparte la historia detrás de tus creaciones y conecta con la comunidad.</p>
+</div>
+<button class="bg-[#7D8E74] text-white px-md py-sm rounded flex items-center gap-sm font-label-caps text-label-caps hover:opacity-90 active:translate-y-px transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    New Post
+                </button>
+</div>
+<!-- Bento Grid Layout for Blog Posts -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md md:gap-lg">
+<!-- Featured Post (Spans 2 columns on desktop) -->
+<div class="card-level-1 rounded-lg overflow-hidden md:col-span-2 group flex flex-col md:flex-row">
+<div class="h-48 md:h-auto md:w-1/2 relative overflow-hidden">
+<img alt="Featured blog post image" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A beautifully crafted, hand-woven wool blanket resting on a raw wooden table in a sunlit rustic cabin. Dust motes dance in the golden hour light streaming through a small window. Earthy tones of beige, cream, and deep green. High-end lifestyle photography, tactile and artisanal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWOlAOWVHvTYRCtZMmcPQnFplrAC0QcmgARZq-lX3e8YJf3dXTD2ukwkDZCjvvAVPzxhT4NdIbr1QDVh0C3XQf1bk9AfZnwVvKEz7pkuvAtZbynoCR-Hu5mZgi8e6ZQlpiPoM0-eTuTcqvCFi7GGyqV6tlZXpnGex27lgegLWSXC78td7pz24igbz97nmA8HEcT1UHoBQp7O8Zr0lcxTs8an0fJSb3Wj2OEHYOQD8adghmCeg5EZMwGg">
+<div class="absolute top-sm right-sm bg-[#DCC7A1] text-[#3E4A39] px-2 py-1 rounded text-xs font-label-caps font-bold">Published</div>
+</div>
+<div class="p-lg flex flex-col justify-between md:w-1/2">
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-sm">Oct 12, 2023</p>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-md">El Arte del Teñido Natural: Secretos del Bosque</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg line-clamp-3">Exploramos las técnicas ancestrales para extraer colores vibrantes de cortezas, hojas y bayas locales. Un viaje al corazón de nuestros procesos sostenibles y cómo la naturaleza dicta nuestra paleta de colores cada temporada.</p>
+</div>
+<div class="flex gap-md pt-md border-t border-[#DCC7A1]/30">
+<button class="text-primary hover:text-primary-container font-label-caps text-label-caps flex items-center gap-xs transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+                                Edit
+                            </button>
+<button class="text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps flex items-center gap-xs transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+                                View
+                            </button>
+</div>
+</div>
+</div>
+<!-- Standard Post 1 -->
+<div class="card-level-1 rounded-lg overflow-hidden flex flex-col">
+<div class="h-40 relative">
+<div class="bg-cover bg-center w-full h-full" data-alt="A close-up of weathered artisan hands carefully carving a piece of locally sourced lenga wood. Wood shavings scattered on the workbench. Warm, focused lighting creating deep shadows and highlighting the texture of the wood and skin. Authentic, documentary-style aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIf2MirpZ0T8o-PldzieHyVHZrjJTSy3XB1NfPA9b7m40KpY_MKj7CarCU7adE6LhQwNJW9p_oDoLeTIwt1NVF2iU7_s25TotwRFocHr0uHF1vISftK4CwKEoIg6UlKwRL7BZz4A8oRYZTZzYj-gR1OSz5PPOdGfvIIyey8H4Z2t87QyG5US2PoxdqZTVQfk9gPSpT3TAOVHlIn4wHT_BYAVwGv6zUCAUbY4_eSzrYPBR2jjDe8-0dnQ')"></div>
+<div class="absolute top-sm right-sm bg-[#DCC7A1] text-[#3E4A39] px-2 py-1 rounded text-xs font-label-caps font-bold">Published</div>
+</div>
+<div class="p-md flex-1 flex flex-col">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-xs">Sep 28, 2023</p>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-sm leading-tight">Trabajando con Madera Caída: Respeto por el Ciclo</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md flex-1 line-clamp-2">Por qué solo utilizamos madera de árboles caídos naturalmente en la Patagonia.</p>
+<div class="flex gap-md mt-auto pt-sm">
+<button class="text-primary hover:text-primary-container font-label-caps text-label-caps flex items-center gap-xs transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+                                Edit
+                            </button>
+<button class="text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps flex items-center gap-xs transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+                                View
+                            </button>
+</div>
+</div>
+</div>
+<!-- Draft Post -->
+<div class="card-level-1 rounded-lg overflow-hidden flex flex-col bg-surface-container-low opacity-90 border-dashed border-outline">
+<div class="h-40 bg-surface-variant flex items-center justify-center relative">
+<span class="material-symbols-outlined text-4xl text-outline" data-icon="image">image</span>
+<div class="absolute top-sm right-sm bg-surface-variant text-on-surface-variant px-2 py-1 rounded text-xs font-label-caps border border-outline-variant">Draft</div>
+</div>
+<div class="p-md flex-1 flex flex-col">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-xs">Last edited: Yesterday</p>
+<h3 class="font-title-lg text-title-lg text-on-surface-variant mb-sm leading-tight italic">Nueva Colección Invierno (Borrador)</h3>
+<p class="font-body-sm text-body-sm text-outline mb-md flex-1">Preparando el anuncio para la próxima temporada. Falta agregar las fotos de estudio.</p>
+<div class="flex gap-md mt-auto pt-sm">
+<button class="text-primary hover:text-primary-container font-label-caps text-label-caps flex items-center gap-xs transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+                                Continue Editing
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="bg-surface dark:bg-surface-dim fixed bottom-0 w-full lg:hidden rounded-t-xl z-50 flex justify-around items-center px-gutter py-xs shadow-md border-t border-outline-variant shadow-sm transition-transform pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-body-sm text-body-sm active:scale-95 transition-transform p-2 w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-body-sm text-body-sm active:scale-95 transition-transform p-2 w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="inventory_2">inventory_2</span>
+<span class="text-[10px]">Items</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-body-sm text-body-sm active:scale-95 transition-transform p-2 w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="local_shipping">local_shipping</span>
+<span class="text-[10px]">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 font-body-sm text-body-sm active:scale-95 transition-transform w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="edit_note" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<span class="text-[10px] font-bold">Blog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-body-sm text-body-sm active:scale-95 transition-transform p-2 w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-[10px]">Chat</span>
+</a>
+</nav>
+<!-- Spacer for mobile nav -->
+<div class="h-20 lg:hidden w-full"></div>
+</body></html>

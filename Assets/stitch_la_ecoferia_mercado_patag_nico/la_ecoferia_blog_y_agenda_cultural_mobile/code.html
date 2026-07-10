@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>La Ecoferia - Blog y Agenda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#53634b",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1b1c19",
+                        "inverse-on-surface": "#f2f1ec",
+                        "tertiary-container": "#9a6c00",
+                        "surface-container-high": "#eae8e3",
+                        "surface": "#fbf9f4",
+                        "on-tertiary-fixed": "#271900",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e4e2dd",
+                        "surface-dim": "#dbdad5",
+                        "tertiary": "#7a5500",
+                        "secondary-fixed-dim": "#ffb598",
+                        "outline-variant": "#c4c8be",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#fbf9f4",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "secondary-fixed": "#ffdbce",
+                        "secondary-container": "#feaa88",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#f8ffef",
+                        "on-background": "#1b1c19",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#111f0d",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-secondary-container": "#783c22",
+                        "on-secondary-fixed": "#370e00",
+                        "primary-fixed": "#d6e8ca",
+                        "primary": "#506049",
+                        "primary-fixed-dim": "#baccaf",
+                        "outline": "#757870",
+                        "surface-container": "#f0eee9",
+                        "inverse-surface": "#30312e",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#697960",
+                        "surface-bright": "#fbf9f4",
+                        "on-surface-variant": "#444841",
+                        "on-secondary-fixed-variant": "#71361d",
+                        "surface-container-low": "#f5f3ee",
+                        "inverse-primary": "#baccaf",
+                        "tertiary-fixed": "#ffdeaa",
+                        "secondary": "#8e4d31"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "gutter": "12px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "title-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .texture-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        .wood-border {
+            border-color: #DCC7A1;
+        }
+        .wood-bg {
+            background-color: #DCC7A1;
+        }
+        .text-forest {
+            color: #3E4A39;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen relative font-body-md pb-[80px]">
+<div class="fixed inset-0 texture-overlay z-[-1]"></div>
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant flat no shadows">
+<div class="flex justify-between items-center px-container-margin py-md w-full max-w-[1280px] mx-auto">
+<button aria-label="Menú" class="text-primary cursor-pointer active:scale-95 hover:text-tertiary transition-colors duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary">La Ecoferia</h1>
+<button aria-label="Carrito" class="text-primary cursor-pointer active:scale-95 hover:text-tertiary transition-colors duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+</button>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto pt-lg">
+<!-- Tab Navigation -->
+<div class="flex justify-center mb-xl px-container-margin">
+<div class="inline-flex bg-surface-container-high rounded-full p-1 border wood-border">
+<button class="px-6 py-2 rounded-full font-label-caps text-label-caps bg-primary text-on-primary transition-all duration-300" id="tab-blog" onclick="switchTab('blog')">BLOG</button>
+<button class="px-6 py-2 rounded-full font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-variant transition-all duration-300" id="tab-agenda" onclick="switchTab('agenda')">AGENDA</button>
+</div>
+</div>
+<!-- Blog Section -->
+<section class="px-container-margin flex flex-col gap-lg pb-xl" id="section-blog">
+<!-- Blog Card 1 -->
+<article class="bg-surface border wood-border rounded-lg overflow-hidden flex flex-col relative group cursor-pointer">
+<div class="absolute inset-0 texture-overlay z-0"></div>
+<div class="relative w-full h-48 overflow-hidden z-10">
+<img alt="Técnicas de cultivo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A high-quality, warm-toned photograph of hands gently repotting a small green seedling into rich, dark soil in a terracotta pot. The setting is a sunlit, rustic wooden table with gardening tools nearby. The style is natural, earthy, and organic, embodying a sustainable Patagonia aesthetic with soft, natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw6hPUewN5wkzCRN6JB0JNb25rdf0vtkKBNUH9jb1alO5ebVQSPrWU1BWQmjVN-dWOWAVreyjkiiv-addVKsKNEhI_Yct7es_Yd9xRfMSH0qpPOJY8lCqIlc0tZIKl-pt_d77IG3BFbAo7hTd0kUS9GkEHvIPGIYdOZ9NoTNMRwRRLuRwbjyc2AdXMy8bHd9cnUIBuxrr8v_rlEyJIUlmWJYQC2NhyWyH0dhuEJsCdLeLTFYVrMffO6A">
+</div>
+<div class="p-md z-10 bg-surface">
+<div class="flex items-center gap-2 mb-sm">
+<span class="wood-bg text-forest font-label-caps text-label-caps px-2 py-1 rounded-sm">TÉCNICAS</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">12 Oct 2024</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-sm">El arte de preparar tu propia composta en casa</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Aprende los secretos para transformar tus residuos orgánicos en abono rico para tu huerta, reduciendo tu impacto ambiental de manera sencilla.</p>
+</div>
+</article>
+<!-- Blog Card 2 -->
+<article class="bg-surface border wood-border rounded-lg overflow-hidden flex flex-col relative group cursor-pointer">
+<div class="absolute inset-0 texture-overlay z-0"></div>
+<div class="relative w-full h-48 overflow-hidden z-10">
+<img alt="Artesanía local" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A beautiful close-up shot of woven artisanal baskets made from natural fibers, stacked together. The textures of the dried reeds are highlighted by soft, diffused daylight. The color palette features earthy browns, straw yellows, and sage greens. The mood is authentic, traditional, and crafted, fitting a high-end local market aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDISM693igoQ5MIalHqthmGm2laM0gwQGrKEvfXKDGDzFoBruE91almdlYaPSNz1a-beDC75Q727uBTSf9kLF_WXoDTUD1VHDZ5cVtL_kx5Q85hl2TVKsb5n3XZAmvL0P3ISGQKpi49mMwKLXev9kVAGMnQmdDO1H-EoGKo9pKT5i6y2cePIL2_Yn_gwXdmPg9Lr6nNad2YUQ-W_E7I2WiLM-gLRcNr_V0Kh2dpNnQsmDSzvcjmK_7SoA">
+</div>
+<div class="p-md z-10 bg-surface">
+<div class="flex items-center gap-2 mb-sm">
+<span class="wood-bg text-forest font-label-caps text-label-caps px-2 py-1 rounded-sm">ARTESANÍA</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">05 Oct 2024</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-sm">Fibras naturales: Rescatando tradiciones patagónicas</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Una mirada profunda al trabajo de las tejedoras locales que mantienen vivo el conocimiento ancestral del uso de fibras vegetales.</p>
+</div>
+</article>
+</section>
+<!-- Agenda Section (Hidden by default) -->
+<section class="px-container-margin hidden flex-col gap-lg pb-xl" id="section-agenda">
+<!-- Agenda Item 1 -->
+<article class="bg-surface border wood-border rounded-lg p-md flex gap-md relative items-start group">
+<div class="absolute inset-0 texture-overlay z-0 rounded-lg"></div>
+<!-- Date Box -->
+<div class="z-10 flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-md w-16 h-16 shrink-0 shadow-sm">
+<span class="font-label-caps text-label-caps opacity-80">NOV</span>
+<span class="font-headline-md text-headline-md leading-none">15</span>
+</div>
+<!-- Content -->
+<div class="z-10 flex flex-col flex-grow">
+<h3 class="font-title-lg text-title-lg text-primary mb-xs">Feria de Intercambio de Semillas</h3>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm mb-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 0;">location_on</span>
+<span>Neuquén, Paseo de la Costa</span>
+</div>
+<button class="self-start mt-2 border border-[#C67B5C] text-[#C67B5C] px-4 py-1 rounded font-label-caps text-label-caps hover:bg-[#C67B5C] hover:text-white transition-colors duration-200">
+                        MÁS INFO
+                    </button>
+</div>
+</article>
+<!-- Agenda Item 2 -->
+<article class="bg-surface border wood-border rounded-lg p-md flex gap-md relative items-start group">
+<div class="absolute inset-0 texture-overlay z-0 rounded-lg"></div>
+<!-- Date Box -->
+<div class="z-10 flex flex-col items-center justify-center bg-surface-variant text-on-surface-variant border border-outline-variant rounded-md w-16 h-16 shrink-0 shadow-sm">
+<span class="font-label-caps text-label-caps opacity-80">NOV</span>
+<span class="font-headline-md text-headline-md leading-none">22</span>
+</div>
+<!-- Content -->
+<div class="z-10 flex flex-col flex-grow">
+<h3 class="font-title-lg text-title-lg text-primary mb-xs">Taller de Tintes Naturales</h3>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm mb-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 0;">location_on</span>
+<span>San Carlos de Bariloche</span>
+</div>
+<button class="self-start mt-2 border border-[#C67B5C] text-[#C67B5C] px-4 py-1 rounded font-label-caps text-label-caps hover:bg-[#C67B5C] hover:text-white transition-colors duration-200">
+                        MÁS INFO
+                    </button>
+</div>
+</article>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container-low fixed bottom-0 w-full z-50 rounded-t-xl border-t border-outline-variant shadow-sm transition-all duration-300 ease-in-out hidden md:hidden block">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-low rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-1 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">storefront</span>
+<span class="font-label-caps text-label-caps mt-1">Mercado</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-1 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">event</span>
+<span class="font-label-caps text-label-caps mt-1">Agenda</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">article</span>
+<span class="font-label-caps text-label-caps mt-1">Blog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-1 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-caps text-label-caps mt-1">Perfil</span>
+</a>
+</div>
+</nav>
+<!-- Script for Tab Switching -->
+<script>
+        function switchTab(tabId) {
+            const blogBtn = document.getElementById('tab-blog');
+            const agendaBtn = document.getElementById('tab-agenda');
+            const blogSection = document.getElementById('section-blog');
+            const agendaSection = document.getElementById('section-agenda');
+
+            if (tabId === 'blog') {
+                // Update buttons
+                blogBtn.className = 'px-6 py-2 rounded-full font-label-caps text-label-caps bg-primary text-on-primary transition-all duration-300';
+                agendaBtn.className = 'px-6 py-2 rounded-full font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-variant transition-all duration-300';
+                
+                // Show/Hide sections
+                blogSection.classList.remove('hidden');
+                blogSection.classList.add('flex');
+                agendaSection.classList.add('hidden');
+                agendaSection.classList.remove('flex');
+            } else {
+                // Update buttons
+                agendaBtn.className = 'px-6 py-2 rounded-full font-label-caps text-label-caps bg-primary text-on-primary transition-all duration-300';
+                blogBtn.className = 'px-6 py-2 rounded-full font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-variant transition-all duration-300';
+                
+                // Show/Hide sections
+                agendaSection.classList.remove('hidden');
+                agendaSection.classList.add('flex');
+                blogSection.classList.add('hidden');
+                blogSection.classList.remove('flex');
+            }
+        }
+    </script>
+</body></html>

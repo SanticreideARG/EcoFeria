@@ -1,0 +1,332 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>La Ecoferia - Patagonia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#8e4d31",
+                        "on-tertiary-fixed": "#271900",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1b1c19",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "secondary-fixed": "#ffdbce",
+                        "surface-bright": "#fbf9f4",
+                        "surface-tint": "#53634b",
+                        "primary-fixed": "#d6e8ca",
+                        "outline-variant": "#c4c8be",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#fbf9f4",
+                        "secondary-container": "#feaa88",
+                        "surface-variant": "#e4e2dd",
+                        "primary-container": "#697960",
+                        "error-container": "#ffdad6",
+                        "primary": "#506049",
+                        "on-primary-container": "#f8ffef",
+                        "on-secondary": "#ffffff",
+                        "outline": "#757870",
+                        "primary-fixed-dim": "#baccaf",
+                        "surface-container-high": "#eae8e3",
+                        "on-primary-fixed": "#111f0d",
+                        "tertiary-fixed": "#ffdeaa",
+                        "surface": "#fbf9f4",
+                        "on-background": "#1b1c19",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#370e00",
+                        "surface-container-highest": "#e4e2dd",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3ee",
+                        "tertiary": "#7a5500",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "on-secondary-container": "#783c22",
+                        "inverse-surface": "#30312e",
+                        "tertiary-container": "#9a6c00",
+                        "on-surface-variant": "#444841",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-container": "#f0eee9",
+                        "inverse-primary": "#baccaf",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dbdad5",
+                        "secondary-fixed-dim": "#ffb598",
+                        "on-secondary-fixed-variant": "#71361d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "40px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "container-margin": "20px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .noise-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0 font-body-md text-body-md antialiased relative">
+<!-- Texture Overlay -->
+<div class="fixed inset-0 z-[-1] noise-overlay mix-blend-multiply"></div>
+<!-- TopAppBar (Mobile) / Full Nav (Desktop) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface border-b border-outline-variant shadow-sm backdrop-blur-md bg-opacity-90 transition-all duration-300" id="main-header">
+<button class="md:hidden text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">
+            La Ecoferia
+        </div>
+<nav class="hidden md:flex gap-md absolute left-1/2 transform -translate-x-1/2">
+<!-- Desktop Nav cluster matching BottomNavBar labels -->
+<a class="text-primary font-bold px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full active:scale-95 duration-150" href="#">Mercado</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full px-4 py-2 active:scale-95 duration-150" href="#">Agenda</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full px-4 py-2 active:scale-95 duration-150" href="#">Blog</a>
+</nav>
+<div class="flex items-center gap-xs">
+<button class="text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button class="hidden md:flex text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</header>
+<main class="pt-16 max-w-[1280px] mx-auto">
+<!-- Hero Section -->
+<section class="relative h-[60vh] min-h-[400px] flex flex-col justify-end p-container-margin overflow-hidden rounded-b-xl md:rounded-xl md:mt-md mx-0 md:mx-container-margin border-b md:border border-outline-variant">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A warm, sunlit view of a lush Patagonian forest with ancient Araucaria trees. Golden hour lighting casting soft, warm rays through the vibrant green foliage. The mood is tranquil, nurturing, and deeply connected to nature, reflecting a sustainable and artisanal lifestyle. Earthy tones with a soft, ethereal quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr5_HFAtTzZrzA8hp0JrTB4GII48vN7wHgYRocnRHv1XnPAW6-10be7AO12Rmdqdv6jF2vqpntFilFmVuwXqSOGeWZ-t6xBuKR9ur4xWzaoUvKkbY0B1jV_72ezrc0ZP2wSe7xO9rAvyMGQdzJYxKs504YadqpsrGZzx2LsPFzBr_x_QL6GyrY4QnTt14EsVmLzUbCaavmQeHYBz5wNwe6Aa-l2ZPi-7KuHOG0a5D1lHrDj_PRyEpgGQ">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-tint/80 to-transparent mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 text-on-primary mb-xl">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-sm">Raíces de nuestra tierra</h1>
+<p class="font-body-md text-body-md md:text-title-lg opacity-90 max-w-md">Productos locales, orgánicos y sustentables directo de artesanos patagónicos a tu hogar.</p>
+</div>
+<!-- Search Bar Overlapping -->
+<div class="relative z-20 transform translate-y-1/2">
+<div class="bg-surface-bright p-sm rounded-full border border-outline-variant shadow-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline ml-sm">search</span>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-body-md placeholder:text-outline-variant px-sm py-xs" placeholder="Buscar miel, cerámicas, semillas..." type="text">
+<button class="bg-primary text-on-primary rounded-full px-lg py-sm font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">
+                        BUSCAR
+                    </button>
+</div>
+</div>
+</section>
+<!-- Categories Bento Grid -->
+<section class="px-container-margin py-xl mt-xl">
+<div class="flex justify-between items-end mb-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface">Descubrí lo Artesanal</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md auto-rows-[160px]">
+<!-- Alimentos (Large) -->
+<a class="col-span-2 row-span-2 relative rounded-xl overflow-hidden group border border-[#DCC7A1] shadow-sm hover:-translate-y-1 transition-transform duration-300" href="#">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A rustic wooden table spread with artisanal Patagonian food products. Jars of golden honey, fresh rustic bread, organic vegetables, and wild berries. Warm, inviting lighting emphasizing natural textures. The color palette focuses on rich earth tones, fresh greens, and warm ambers, evoking a sense of wholesome, sustainable living." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz8HjVJQw6f8OAiGOaarULo-HNKUdb4_bcWv5Uv3ylvIDj2U1PPcQKpGMyqdkhMiHqKVZVxpMn-hjH0By2ROI2BxEnX9kTuvx53h13R-S4DjQYNEftxl53vOH4JxhToVNGbn-2w1hT53hcEhAEAD5sNzDo1SQRHdMFhZfu3gl2Ifjo7OqD4ZI8pFOwXl3VQrj_7j3erCOgrcJObe5PFj2-Xal15-axrBCujx_PMexP3DeNBWOxCMoj9A">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<span class="bg-[#DCC7A1] text-[#3E4A39] px-sm py-xs rounded-sm font-label-caps text-label-caps mb-xs inline-block">Frescos</span>
+<h3 class="font-title-lg text-title-lg text-on-primary">Alimentos</h3>
+</div>
+</a>
+<!-- Cosmética -->
+<a class="col-span-1 row-span-1 relative rounded-xl overflow-hidden group border border-[#DCC7A1] shadow-sm hover:-translate-y-1 transition-transform duration-300" href="#">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Handmade natural cosmetics arranged on a textured stone surface. Solid soap bars with visible dried herbs, a small glass amber bottle of essential oil. Soft, diffused natural light. Minimalist and organic aesthetic with a color palette of soft sage greens, cream, and subtle earthy browns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm0qCG46bHG7yhDlv0GYV3WcbQ_C4EPqVyvfasmXM91Oz9vJ3CCdyxyQJbd1nO2IirBCIWWW9ZgT2nlHvn2V9g0jddkYPpdbVfcgn1FoUfEgJcxRwHE0YML3hEqOnGgbgFxj16oDjB3-pN-dK2DWhQeEcSxGHg4vj4_ZdLy85lUAXIzdYi1V3hJuzdRqzI3eYVAb9O9qGt-ZimfXWKvL43-OtE27HSF4kTbsUHTUVWNXbiEHRIjg4eHw">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+<div class="absolute bottom-sm left-sm">
+<h3 class="font-body-md text-body-md font-bold text-on-primary">Cosmética</h3>
+</div>
+</a>
+<!-- Hogar -->
+<a class="col-span-1 row-span-1 relative rounded-xl overflow-hidden group border border-[#DCC7A1] shadow-sm hover:-translate-y-1 transition-transform duration-300" href="#">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Artisanal home decor objects. A hand-woven wool blanket draped over a rustic wooden chair, alongside a simple, elegant ceramic mug. Warm, cozy, tactile aesthetic. The color palette features natural wool tones, soft terracottas, and warm wood textures, creating a comforting, sustainable atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASaqZq8jMraImGYY6MygANJMB3u8hpQwhlvNzu73mdvq8Mg39qq87m9w6-jbVa6p9H2fcfnUOrinmzJIhX4aChO_6eGnGoyx-NVZalyhQr8C9a_LTyEaH7JE-_rqpx6HfRV3NBf6UzDv9JKWynprHHu4QO21CBgS1VyDnebT9Wesr2YB5lad1tn-xg1Gxu4wV9donZHQzCqR_PJk3eFxHDt5sPeyus0mvUAey8NW7WhHIqhX4w69ROqg">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+<div class="absolute bottom-sm left-sm">
+<h3 class="font-body-md text-body-md font-bold text-on-primary">Hogar</h3>
+</div>
+</a>
+<!-- Diseño -->
+<a class="col-span-2 md:col-span-1 row-span-1 relative rounded-xl overflow-hidden group border border-[#DCC7A1] shadow-sm bg-surface-container-low hover:-translate-y-1 transition-transform duration-300 flex items-center justify-center p-md text-center" href="#">
+<div>
+<span class="material-symbols-outlined text-secondary text-[40px] mb-xs">design_services</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Diseño<br>Sustentable</h3>
+</div>
+</a>
+</div>
+</section>
+<!-- Blog & Events -->
+<section class="px-container-margin py-xl bg-surface-container-low rounded-xl mx-0 md:mx-container-margin my-xl border border-outline-variant shadow-sm relative overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-30">
+<!-- Example of pattern rather than image for texture -->
+<div class="w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, #DCC7A1 1px, transparent 0); background-size: 24px 24px;"></div>
+</div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-xl">
+<!-- Blog Posts -->
+<div class="md:col-span-2">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">eco</span>
+                        Novedades del Blog
+                    </h2>
+<div class="space-y-md">
+<!-- Post 1 -->
+<article class="flex gap-md p-md bg-surface border border-outline-variant rounded-lg hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-24 h-24 flex-shrink-0 rounded-md overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up of hands gently harvesting ripe, red rosehips (mosqueta) from a wild bush in Patagonia. Crisp focus on the vibrant red berries against a softly blurred background of green foliage. The lighting is bright and natural, conveying a sense of authentic, hands-on foraging and sustainable harvesting practices." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV3ZyeufkQ1Or1scSmVB8aAN74v4a-rrp8yuazKu2HQM_nUDLYUtx0pa1oK59xQgKqlAUv1lq_ntd6GD3AhAsfCWa58H8MRa-vpKNEieQFGNuACdPfhOXvDUH7m1otC9W3lKxIuD8cF5K2yxpmJdEHR4FrHwYadMYQh5nOC7hae6G2gAkwrRknVDqGiarI9zwFKE4myOlYyEZxOPZEUBtyraIWQ_ShAQJEE2uFErInrycrldtmCNQGLw">
+</div>
+<div class="flex flex-col justify-center">
+<span class="text-secondary font-label-caps text-label-caps mb-xs">Guía Práctica</span>
+<h3 class="font-title-lg text-title-lg text-on-surface leading-tight mb-xs">Cosecha de Rosa Mosqueta</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Aprende los secretos para recolectar este fruto patagónico respetando los ciclos de la naturaleza.</p>
+</div>
+</article>
+<!-- Post 2 -->
+<article class="flex gap-md p-md bg-surface border border-outline-variant rounded-lg hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-24 h-24 flex-shrink-0 rounded-md overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An artisan carefully shaping a lump of raw clay on a pottery wheel. Hands covered in wet clay, focused on the craft. The studio is softly lit with natural light, highlighting the earthy textures of the clay and the rustic wooden tools. The mood is meditative, grounded, and intensely focused on the tactile art of ceramics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNRRpeCgPh4bVheCZUe67PwV5eKDmXxIDkmJoC5YTrKVRrnK5QKeAbn7xRYyPmrb0u-FFVhop52xoAuZkwWUjC7xhU1hgepM1ZWFr4-T-_kico8THS8P8fADi684STnvBl0-90SvIqKgYuMb0w5xjo1Agc7dRKo6FkBMtWaVna7ghCNYLSSNK9bXuyyAJK2DhCBB0LAGb5_Qk9wjav0lamkkt3smlJSX254ny0cC0cr_jtz2MhR02Dtg">
+</div>
+<div class="flex flex-col justify-center">
+<span class="text-secondary font-label-caps text-label-caps mb-xs">Entrevista</span>
+<h3 class="font-title-lg text-title-lg text-on-surface leading-tight mb-xs">Manos de Barro: Conociendo a Lucía</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Una charla íntima con la ceramista detrás de las piezas más buscadas de la feria esta temporada.</p>
+</div>
+</article>
+</div>
+</div>
+<!-- Events Teaser -->
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+                        Próximos Eventos
+                    </h2>
+<div class="bg-primary text-on-primary rounded-xl p-lg h-full flex flex-col justify-between shadow-md relative overflow-hidden">
+<div class="absolute -right-12 -top-12 opacity-10">
+<span class="material-symbols-outlined text-[150px]">festival</span>
+</div>
+<div class="relative z-10">
+<div class="text-primary-fixed font-label-caps text-label-caps mb-sm">ESTE DOMINGO</div>
+<h3 class="font-headline-md text-headline-md mb-xs">Feria Itinerante en Bariloche</h3>
+<p class="font-body-md text-body-md opacity-90 mb-lg">Más de 50 productores locales reunidos en el Centro Cívico. Música en vivo y talleres.</p>
+</div>
+<button class="w-full bg-surface-bright text-primary font-title-lg text-title-lg py-sm rounded-lg hover:bg-surface transition-colors mt-auto relative z-10">
+                            Ver Agenda Completa
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sustainable Footer -->
+<footer class="bg-surface-dim border-t border-outline-variant pt-xl pb-32 md:pb-xl px-container-margin mt-xl">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-xl">
+<div class="md:col-span-2">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary mb-sm">La Ecoferia</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-lg">
+                    Conectando consumidores conscientes con artesanos y productores de la Patagonia. Un compromiso con la tierra y nuestra comunidad.
+                </p>
+<div class="flex gap-md">
+<!-- Social Placeholders -->
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface hover:bg-surface-container-high cursor-pointer transition-colors">
+                        IG
+                     </div>
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface hover:bg-surface-container-high cursor-pointer transition-colors">
+                        FB
+                     </div>
+</div>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-md">Comunidad</h4>
+<ul class="space-y-sm font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Sobre Nosotros</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Productores</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Impacto Ambiental</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-md">Soporte</h4>
+<ul class="space-y-sm font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Preguntas Frecuentes</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Envíos y Retiros</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Términos y Condiciones</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contacto</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto mt-xl pt-lg border-t border-outline-variant/50 text-center font-body-sm text-body-sm text-on-surface-variant">
+            © 2024 La Ecoferia Patagonia. Diseñado con respeto por la naturaleza.
+        </div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface border-t border-outline-variant backdrop-blur-md bg-opacity-90 shadow-sm rounded-t-xl pb-[max(env(safe-area-inset-bottom),8px)]">
+<!-- Active Tab: Mercado -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform hover:text-primary group" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-caps text-label-caps mt-xs">Mercado</span>
+</a>
+<!-- Inactive Tabs -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:bg-surface-container-high rounded-full p-1 transition-colors">event_note</span>
+<span class="font-label-caps text-label-caps mt-xs">Agenda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:bg-surface-container-high rounded-full p-1 transition-colors">article</span>
+<span class="font-label-caps text-label-caps mt-xs">Blog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:bg-surface-container-high rounded-full p-1 transition-colors">person</span>
+<span class="font-label-caps text-label-caps mt-xs">Perfil</span>
+</a>
+</nav>
+<script>
+        // Simple header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>La Ecoferia - Conectando con lo auténtico</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-secondary-container": "#783c22",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e4e2dd",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#feaa88",
+                        "surface-container": "#f0eee9",
+                        "on-primary-fixed": "#111f0d",
+                        "surface-container-high": "#eae8e3",
+                        "on-primary-container": "#f8ffef",
+                        "on-tertiary-container": "#fffbff",
+                        "secondary": "#8e4d31",
+                        "background": "#fbf9f4",
+                        "inverse-primary": "#baccaf",
+                        "surface-bright": "#fbf9f4",
+                        "primary-container": "#697960",
+                        "on-tertiary-fixed": "#271900",
+                        "surface-dim": "#dbdad5",
+                        "on-surface": "#1b1c19",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb598",
+                        "primary": "#506049",
+                        "on-error": "#ffffff",
+                        "outline": "#757870",
+                        "outline-variant": "#c4c8be",
+                        "surface-tint": "#53634b",
+                        "tertiary-fixed": "#ffdeaa",
+                        "primary-fixed-dim": "#baccaf",
+                        "on-surface-variant": "#444841",
+                        "primary-fixed": "#d6e8ca",
+                        "inverse-surface": "#30312e",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#7a5500",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "on-secondary-fixed": "#370e00",
+                        "tertiary-container": "#9a6c00",
+                        "on-background": "#1b1c19",
+                        "surface": "#fbf9f4",
+                        "secondary-fixed": "#ffdbce",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f5f3ee",
+                        "on-secondary-fixed-variant": "#71361d"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "container-margin": "20px",
+                        "xl": "40px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "unit": "4px"
+                    },
+                    fontFamily: {
+                        "display-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "label-caps": ["Inter"],
+                        "title-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom scrollbar for horizontal scrolling areas to keep it clean */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Subtle texture overlay for the "kraft paper" feel */
+        .texture-overlay {
+            position: relative;
+        }
+        .texture-overlay::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 10;
+            border-radius: inherit;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-container w-full sticky top-0 z-50 border-b border-outline-variant dark:border-outline flat no shadows flex flex-col md:flex-row justify-between items-center px-container-margin py-md w-full max-w-[1280px] mx-auto transition-all duration-300">
+<div class="flex w-full justify-between items-center">
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors duration-200 cursor-pointer active:scale-95 p-2 hidden md:block">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">La Ecoferia</h1>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95 p-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95 p-2 relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95 p-2 hidden md:block">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</div>
+<!-- Mobile Search Bar (Expandable, shown here for completeness of requirements) -->
+<div class="w-full mt-4 md:hidden relative px-2 pb-2">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-b border-outline-variant focus:border-primary focus:ring-0 pl-10 pr-4 py-2 font-body-sm text-body-sm rounded-t-sm outline-none transition-colors" placeholder="Buscar productos auténticos..." type="text">
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1280px] mx-auto">
+<!-- Hero Section -->
+<section class="relative w-full h-[60vh] min-h-[400px] flex items-end justify-start px-container-margin py-xl overflow-hidden md:rounded-b-xl md:mt-4 md:mx-container-margin md:w-[calc(100%-40px)]">
+<div class="absolute inset-0 bg-cover bg-center z-0" data-alt="A sweeping, breathtaking landscape of a lush Patagonian forest, ancient native wood trees reaching towards a clear sky. The lighting is soft and golden, evoking early morning warmth. The mood is serene, grounding, and deeply connected to nature, perfectly matching an organic, tactile aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCssqjieT20ilTRgqzfnvA8o071KW4s6ttMl0UqLqD1WrCSJL9UnK3P8LfI_Ky1fwhhz-cvdVr4nFeyEPayIS6wwgCxmsLshLXpEOQJk9w8oZhC-L3-GUwBYalbv9dNaJ3t4v8UTtvs7FDXfo19yWT8z_qfqvVsmnWTpTxK_urzy0BRQrerWyyKu9F4alKDeBmz1FbQR2mBEVZE6KV5LvZQoRylaj_rgXkbEllEF_I-8y9na4F7W6-JgQ')"></div>
+<!-- Gradient Overlay for readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent z-10"></div>
+<div class="relative z-20 max-w-lg mb-8">
+<h2 class="font-headline-md text-headline-md text-primary mb-2 font-display-lg-mobile">Conectando con lo auténtico</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Descubre productos regionales elaborados con prácticas sostenibles y materiales nobles de nuestra tierra.</p>
+<button class="text-on-tertiary-fixed font-body-sm font-bold px-6 py-3 rounded-full hover:bg-tertiary-fixed transition-colors shadow-sm cursor-pointer active:scale-95 flex items-center gap-2 bg-primary-fixed-dim">
+                    Explorar Marcas
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Marcas Destacadas (Horizontal Carousel) -->
+<section class="py-xl px-container-margin">
+<div class="flex justify-between items-end mb-6">
+<h3 class="font-headline-md text-headline-md text-primary">Marcas Destacadas</h3>
+<a class="font-body-sm text-secondary font-semibold hover:underline" href="#">Ver todas</a>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-4 pb-4 -mx-container-margin px-container-margin snap-x snap-mandatory">
+<!-- Brand Card 1 -->
+<div class="snap-start shrink-0 w-64 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden texture-overlay shadow-sm flex flex-col p-4 items-center text-center">
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-4 overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A minimalist, rustic brand logo featuring a stylized leaf and drop of oil, indicating organic cosmetics. The design is etched-style, presented on a textured beige background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrv23cz9wi7T0WoiWsfPHCc2kuYt3dqcZyH2yDQJyqd_OZoF5VnrvYA42G6F1M5zuY1Yg_DbyzYi_XN1nxQzVEX69uW9mcStXamzvx6YoObHsahgsI00lUB5Loee6p0ukSFXgFqJ4bKpy8l3t-Ny-mIFMxl8BtYTGC4gozIsVRJhk9TLIroFvUMxTYNA7jrfQVwF4gOJOWH2ry3n9nAc3D45K79zW9fwbfvyyyrKr6KDUdfUxHDpdaWg">
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">Energía Vital</h4>
+<span class="font-label-caps text-label-caps text-primary bg-primary-fixed px-3 py-1 rounded-full mb-3">Cosmética</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Biocosmética consciente con ingredientes de la Patagonia.</p>
+</div>
+<!-- Brand Card 2 -->
+<div class="snap-start shrink-0 w-64 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden texture-overlay shadow-sm flex flex-col p-4 items-center text-center">
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-4 overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A crafted logo for a woodworking brand, featuring a simple mountain peak made of wood grain textures. The color palette is earthy brown and deep green." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpyeXBN1dTkrQJtkT5Lo1Dq2ohcTqY1-TiHk-i2-TWXUqtoBLipZfjqcFE78KSHge5gqu0D8NJQr6dRCeGiP9ktqYBp5E_XvEmxKdY6vfh5JO8laQ0rxdQxqRTdcfSpO7p8oP_2hjpX93hN9KkAZuhw1vu-y9SuRzIPkDl3Qf-9Qk_RLAzu6SZ5XrIOxo21wPPo0kKqqrpKw2bV7wy4cLDYDcBdtadQOnjzP7ej4p8k5AIYxpENFE85w">
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">Abeja Obrera SMA</h4>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary-fixed px-3 py-1 rounded-full mb-3">Apicultura</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Miel pura y productos de la colmena de San Martín de los Andes.</p>
+</div>
+<!-- Brand Card 3 -->
+<div class="snap-start shrink-0 w-64 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden texture-overlay shadow-sm flex flex-col p-4 items-center text-center">
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-4 overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="An artisanal logo showing a hand holding a jar of preserves, hand-drawn style, suitable for a local organic food brand. Warm, rustic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg87dO2OGAGw6wvdoxD2DszwD-davwPNLpyu5kGKMpNyza4te7BaKcaOR-C1crvQy5lTzCpy4Ceey4lxMx14CJWgJ5b5YWeTLjBGr1SXeGzxhzpnhS_2TWqjpAnPzkV2MIlx72QMki8r3OdGT54cktUtv8yqp9V3Pjg-0Tb_cbguagQxpaqjr6hvyg9PwPT6BcMGFucwD-NEgTtsgxKTTtaYQJ2IBNVls51HaKLeVcu4FJHhKrIWIT8Q">
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">Valle Verde</h4>
+<span class="font-label-caps text-label-caps text-tertiary bg-tertiary-fixed px-3 py-1 rounded-full mb-3">Alimentos</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Conservas y mermeladas con frutos de nuestra Patagonia.</p>
+</div>
+<!-- Brand Card 4 -->
+<div class="snap-start shrink-0 w-64 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden texture-overlay shadow-sm flex flex-col p-4 items-center text-center">
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-4 overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A clean, woven pattern logo representing a textile brand, utilizing natural undyed wool colors. Minimalist and organic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ_Va017PY1KvVkAo4gffD83Vu_tmJsFB2EPm28EAvtzwAPRg9Q58fOaXxhBlRMddbmpHiLOtlO6Mju040wF44l9KQScWs7I6xWmVTJBvvKkE4d1KXmb1QqkJ8bhk9ooEp-FBuNn9kYZPMDyMUs2Y_olc5O84zR1gagLCiZYw7WW5Qy9Ay9a4oOX5_RqfoNr9kHPGRwU2yjgUeTbZWVSgcdCivv58CyV1kjHraDMCO6WtSwxKQJHsfVA">
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">Telar Andino</h4>
+<span class="font-label-caps text-label-caps text-primary bg-primary-fixed px-3 py-1 rounded-full mb-3">Textil</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tejidos puros en telar tradicional con lana de oveja.</p>
+</div>
+</div>
+</section>
+<!-- Últimos Productos (Grid) -->
+<section class="py-xl px-container-margin bg-surface-container-low rounded-xl mx-container-margin md:mx-0">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Últimos Productos</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Product 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden texture-overlay flex flex-col cursor-pointer group">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container border-b border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A beautifully styled photograph of a handmade wooden cutting board, resting on a rustic linen cloth. Soft natural light highlights the wood grain. Aesthetic is artisanal and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcHS9Es2AEoqi_wEthqWZUVLkjvOcdxskj5fEf9sNuLnZp_pgs2AjXQYzKgmWTj4e2qJTuPg7Rt8u4UDFt37JEMQMm2dlKe-XhhFFF2ttois2FFyE3yMN8gR-TqDtddQae_EbSjbJr9m3Kvj8WZHg3ilgfev6l__hcvaFFyglelcTA9O_ruR5vN0nexNCEDcxWSgEE2fW1oM9qaUsjiV-0F4egljLZITaAG-qiZIfE9K5Mhp_wnooQOQ">
+<div class="absolute top-2 left-2 bg-surface/80 backdrop-blur-sm px-2 py-1 rounded-sm font-label-caps text-label-caps text-on-surface">Nuevo</div>
+</div>
+<div class="p-3 flex flex-col flex-grow">
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">Abeja Obrera</span>
+<h4 class="font-title-lg text-title-lg text-on-surface leading-tight mb-2 flex-grow">Miel Cruda de Montaña</h4>
+<div class="flex justify-between items-center mt-2">
+<span class="font-headline-md text-headline-md text-secondary">$24.500</span>
+<button class="w-8 h-8 rounded-full border border-secondary text-secondary flex items-center justify-center hover:bg-secondary hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden texture-overlay flex flex-col cursor-pointer group">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container border-b border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up shot of a dark glass bottle containing organic facial serum, resting on a piece of moss with a blurred forest background. Natural, apothecary aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXaYMMgPHWstyg8NhZTmWc0PoQkvalFNrvr8j2glMs047CuhWmZ9icYgsZmWa5_5pj_jex1sRtxDSisYeGLfh95qnzQ-8zLIQ8V3IpyjyQuXYXNlpFNo1SoSRBUY0PYepxRp3mkklHnD0ohuvBOoxRvCO6r9LAl0JKv-JSGNr_A7Svouka7QEbOQ3q1atbDywRnivGizaEsIeT19LOw_Qlhms_h26KralYXFtQXhRp4_szmKlhnCK_Uw">
+</div>
+<div class="p-3 flex flex-col flex-grow">
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">EcoFungi</span>
+<h4 class="font-title-lg text-title-lg text-on-surface leading-tight mb-2 flex-grow">Kit de Autocultivo de Gírgolas</h4>
+<div class="flex justify-between items-center mt-2">
+<span class="font-headline-md text-headline-md text-secondary">$18.900</span>
+<button class="w-8 h-8 rounded-full border border-secondary text-secondary flex items-center justify-center hover:bg-secondary hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product 3 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden texture-overlay flex flex-col cursor-pointer group">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container border-b border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A jar of dark, rich berry jam sitting on a wooden table next to a sprig of fresh berries. Warm, inviting, farmhouse style food photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwXmedir7HRt91LlLsUyIoMyKw9tzZ3QVT1UZQX27fQ2o7HtLWW3owWiRCG1tLrmfRdtkTKQfgR0o-OB_EAZrZWNMCG72XDZKEYSm1dc0A0jROCvGIzys9KxAaC5srTREydF2EGg2n15Nr7ZHd2F54x6mP4OtLvWu1g-3Jj6BVJCERE0WjYSVkc8Im_VN-QRaRHVHobkQRZM-8Tu5Ogn1KlAVWHQUu2v6kEEWUe2g26XNM_fkGvL7-Bw">
+</div>
+<div class="p-3 flex flex-col flex-grow">
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">Keñi</span>
+<h4 class="font-title-lg text-title-lg text-on-surface leading-tight mb-2 flex-grow">Detergente Sólido</h4>
+<div class="flex justify-between items-center mt-2">
+<span class="font-headline-md text-headline-md text-secondary">$6.500</span>
+<button class="w-8 h-8 rounded-full border border-secondary text-secondary flex items-center justify-center hover:bg-secondary hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product 4 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden texture-overlay flex flex-col cursor-pointer group">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container border-b border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A beautifully textured, thick wool blanket in natural earthy tones draped over a wooden chair. Cozy, tactile, winter aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNd0MpdhN2eq9ee0iD2dWCRqUUtJTc5a8hy2AW3PsyG8OJpkqi249dsVwuG2Quw_ltPykWPTLWeaL7bpN2EBiHQwiF0kdfZgFhye2Q7l4p_9bo6Qf0NlZORpTQ0WtDtuUYay1Tn3kCP9JJGLOufYrba5OA05COrr32O0_bXlwury3JoptFFKHqC5v3W9nPdWtCArFHb5b5OU-t9EDqkYvtu9TiUm68r5GB9GzU0YQV4Yxje6zO1hQjNg">
+</div>
+<div class="p-3 flex flex-col flex-grow">
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">Telar Andino</span>
+<h4 class="font-title-lg text-title-lg text-on-surface leading-tight mb-2 flex-grow">Manta Pura Lana Cruda</h4>
+<div class="flex justify-between items-center mt-2">
+<span class="font-headline-md text-headline-md text-secondary">$85.000</span>
+<button class="w-8 h-8 rounded-full border border-secondary text-secondary flex items-center justify-center hover:bg-secondary hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<div class="mt-8 text-center">
+<button class="border border-primary text-primary font-body-md px-6 py-2 rounded-full hover:bg-primary-container transition-colors">Ver todo el catálogo</button>
+</div>
+</section>
+<!-- Agenda Cultural -->
+<section class="py-xl px-container-margin">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-tertiary">calendar_month</span>
+<h3 class="font-headline-md text-headline-md text-primary">Agenda Cultural</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm texture-overlay">
+<div class="w-24 bg-tertiary-fixed-dim flex flex-col items-center justify-center text-on-tertiary-fixed border-r border-outline-variant">
+<span class="font-label-caps text-label-caps">OCT</span>
+<span class="font-display-lg-mobile text-display-lg-mobile">15</span>
+</div>
+<div class="p-4 flex-grow flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary mb-1">Taller Presencial</span>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">Iniciación a la Cerámica</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Espacio Raíz, Bariloche
+                        </p>
+</div>
+</div>
+<div class="flex bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm texture-overlay">
+<div class="w-24 bg-surface-container-high flex flex-col items-center justify-center text-on-surface border-r border-outline-variant">
+<span class="font-label-caps text-label-caps">OCT</span>
+<span class="font-display-lg-mobile text-display-lg-mobile">22</span>
+</div>
+<div class="p-4 flex-grow flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-primary mb-1">Feria Local</span>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">Mercado de Primavera</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Plaza Central, El Bolsón
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Blog -->
+<section class="py-xl px-container-margin border-t border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Diario de la Feria</h3>
+<div class="flex flex-col gap-6">
+<!-- Post 1 -->
+<div class="flex gap-4 items-start group cursor-pointer">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 border border-outline-variant bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A portrait of an artisan carving wood in a sunlit workshop full of sawdust. The mood is authentic, focused, and deeply connected to the craft." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl6W3JN5MaAVhP1u7w4cWqbPRxSJAtjoZVzdQ7rWCoKEAgtF7jiNWo_umxlNyy0YajAop4q4Wy6K5-HPt5Rfu696KCZKRXccaFt6hsaQKsuMfNi873fdP_qf-oL35zDP-fTlrMuakkGRsnyCcw9vwVN9e4mpbAM1y1vcwwAG3AxucdXOdyUY4UuWyM7ULk5DsodQzmVOkgSp8eCaxV3uFHN5rkPRCBIKXSCOBbvW9iLIGRCqvCfc2oYA">
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-tertiary">Historias</span>
+<h4 class="font-title-lg text-title-lg text-on-surface leading-tight mt-1 mb-2 group-hover:text-primary transition-colors">Conociendo a los artesanos detrás de Taller Lenga</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hace 2 días</span>
+</div>
+</div>
+<!-- Post 2 -->
+<div class="flex gap-4 items-start group cursor-pointer">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 border border-outline-variant bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A beautifully laid out collection of natural skincare ingredients on a rustic wooden table: rosehips, lavender, beeswax, and small glass vials. Apothecary aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCherevIi4btpLAKuJ7CcZPS0WroXmEAQ5vbB7ScokDnHR4QG-D8KwYpUmDiuoeuBGC54tKf-RgeapmBxHy0IFayJn_7C-Ki5VAO_LA3qXBAxpc0yusKb52C_I0XaLEFq-4B8Bu-bVxMOSYVf_QGra-MElYka8ip1TK5tYtJH87BPxTTfIgLGMx8z9X9dmlgh_DX1urT2afu1O5n5A0oYeWiW3AYurmwqWX9rNogTaV6_Pf3TGRQ_ElA">
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-primary">Sostenibilidad</span>
+<h4 class="font-title-lg text-title-lg text-on-surface leading-tight mt-1 mb-2 group-hover:text-primary transition-colors">Los beneficios ocultos de la cosmética sin plásticos</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hace 1 semana</span>
+</div>
+</div>
+<!-- Post 3 -->
+<div class="flex gap-4 items-start group cursor-pointer">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 border border-outline-variant bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A scenic view of a sprawling organic garden in Patagonia with mountains in the background. Lush greens and earthy browns. Harvesting fresh produce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAuQCeGIwp-bHqqqSF8VhRR3uhpJPgorCw1s30AAYaFXcb3jbdIWZ2mQvqJlz8LUsYJBxY7SYWjxGh1u_SBifqL0U3JFhm0BE68nSyPWWBEZOlPhaH1a4dKXHW6kC6h8LWczNmwDil2d5HcTSy4p-q-nGxReOYzi3rCZl9bO1Tqk56OngJsG9srjEKiMoI6AvRLNfGQjb_4Blj_uuQgbgkHytAKZS1ejzO_ERJgtaBmUINZtO0seawFQ">
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-secondary">Guías</span>
+<h4 class="font-title-lg text-title-lg text-on-surface leading-tight mt-1 mb-2 group-hover:text-primary transition-colors">Cómo reconocer un producto verdaderamente regional</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hace 2 semanas</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="bg-surface-container-low dark:bg-surface-container-highest text-primary dark:text-primary-fixed font-label-caps text-label-caps fixed bottom-0 w-full z-50 rounded-t-xl border-t border-outline-variant dark:border-outline shadow-sm transition-all duration-300 ease-in-out fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 pb-safe md:hidden">
+<!-- Active Tab: Mercado -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 hover:bg-surface-variant dark:hover:bg-inverse-surface" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="">Mercado</span>
+</a>
+<!-- Inactive Tab: Agenda -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface px-4 py-1 rounded-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">event</span>
+<span class="">Agenda</span>
+</a>
+<!-- Inactive Tab: Blog -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface px-4 py-1 rounded-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">article</span>
+<span class="">Blog</span>
+</a>
+<!-- Inactive Tab: Perfil -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface px-4 py-1 rounded-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="">Perfil</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface text-on-surface dark:text-inverse-on-surface font-body-sm text-body-sm w-full mt-xl border-t border-outline-variant flat transition-opacity duration-200 w-full px-container-margin py-xl flex flex-col items-center gap-md text-center max-w-[1280px] mx-auto pb-32 md:pb-xl">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-4">La Ecoferia</h2>
+<p class="max-w-xs mb-6 text-on-surface-variant">Conectando productores patagónicos con consumidores conscientes. Consumo responsable y auténtico.</p>
+<div class="flex gap-4 mb-8">
+<!-- Mock Social Icons using Material Symbols -->
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors border border-outline-variant" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors border border-outline-variant" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors border border-outline-variant" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+<ul class="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-8 w-full max-w-md">
+<li class=""><a class="text-on-surface-variant dark:text-outline-variant hover:text-tertiary-container underline" href="#">Privacidad</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-outline-variant hover:text-tertiary-container underline" href="#">Términos</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-outline-variant hover:text-tertiary-container underline" href="#">Preguntas Frecuentes</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-outline-variant hover:text-tertiary-container underline" href="#">Puntos de Entrega</a></li>
+</ul>
+<div class="w-full h-px bg-outline-variant mb-6"></div>
+<p class="text-on-surface-variant">2024 La Ecoferia - Cultivando el Mañana</p>
+</footer>
+
+
+
+
+
+
+</body></html>

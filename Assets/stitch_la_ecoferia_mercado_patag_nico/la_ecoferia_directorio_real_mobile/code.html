@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>La Ecoferia - Directorio de Marcas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface": "#fbf9f4",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#697960",
+                        "on-secondary-fixed-variant": "#71361d",
+                        "surface-bright": "#fbf9f4",
+                        "outline-variant": "#c4c8be",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary-fixed": "#ffdeaa",
+                        "tertiary-container": "#9a6c00",
+                        "surface-variant": "#e4e2dd",
+                        "secondary": "#8e4d31",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#dbdad5",
+                        "on-surface-variant": "#444841",
+                        "on-primary-container": "#f8ffef",
+                        "tertiary": "#7a5500",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-tertiary-fixed": "#271900",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "error-container": "#ffdad6",
+                        "primary": "#506049",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#783c22",
+                        "surface-tint": "#53634b",
+                        "surface-container-low": "#f5f3ee",
+                        "inverse-surface": "#30312e",
+                        "on-background": "#1b1c19",
+                        "on-secondary-fixed": "#370e00",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#baccaf",
+                        "secondary-fixed": "#ffdbce",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb598",
+                        "on-primary-fixed": "#111f0d",
+                        "primary-fixed": "#d6e8ca",
+                        "surface-container-high": "#eae8e3",
+                        "outline": "#757870",
+                        "background": "#fbf9f4",
+                        "on-surface": "#1b1c19",
+                        "primary-fixed-dim": "#baccaf",
+                        "secondary-container": "#feaa88",
+                        "surface-container": "#f0eee9",
+                        "on-tertiary-fixed-variant": "#5f4100"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "unit": "4px",
+                        "lg": "24px",
+                        "container-margin": "20px",
+                        "xl": "40px",
+                        "gutter": "12px",
+                        "sm": "8px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "title-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .texture-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+        }
+    </style>
+</head>
+<body class="min-h-screen relative pb-[80px] md:pb-0">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-surface dark:bg-surface-container border-b border-outline-variant dark:border-outline">
+<div class="flex justify-between items-center px-container-margin py-md w-full max-w-[1280px] mx-auto">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-all duration-200" data-icon="menu">menu</span>
+<h1 class="font-headline-md text-headline-md text-primary">La Ecoferia</h1>
+</div>
+<div class="flex items-center gap-sm">
+<div class="relative hidden md:flex items-center bg-surface-container-low rounded-full px-sm py-1 border-b border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant w-48 focus:ring-0" placeholder="Buscar marcas..." type="text">
+</div>
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-all duration-200 hover:text-tertiary" data-icon="shopping_cart">shopping_cart</span>
+</div>
+</div>
+<!-- Mobile Search Bar (Below Header) -->
+<div class="md:hidden px-container-margin pb-sm">
+<div class="relative flex items-center bg-surface-container-low rounded-lg px-sm py-2 border-b border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant w-full focus:ring-0" placeholder="Encuentra productores locales..." type="text">
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-[1280px] mx-auto px-container-margin pt-md">
+<!-- Category Filter Chips -->
+<section class="mb-lg">
+<h2 class="sr-only">Filtros de Categoría</h2>
+<div class="flex overflow-x-auto no-scrollbar gap-sm pb-2 pt-1 -mx-container-margin px-container-margin">
+<button class="whitespace-nowrap rounded-full px-4 py-2 font-body-sm text-body-sm bg-primary text-on-primary shadow-sm border border-transparent transition-all duration-200 cursor-pointer active:scale-95">Todas</button>
+<button class="whitespace-nowrap rounded-full px-4 py-2 font-body-sm text-body-sm bg-surface-container text-on-surface-variant border border-outline-variant hover:bg-surface-variant transition-all duration-200 cursor-pointer active:scale-95">Dulces</button>
+<button class="whitespace-nowrap rounded-full px-4 py-2 font-body-sm text-body-sm bg-surface-container text-on-surface-variant border border-outline-variant hover:bg-surface-variant transition-all duration-200 cursor-pointer active:scale-95">Textiles</button>
+<button class="whitespace-nowrap rounded-full px-4 py-2 font-body-sm text-body-sm bg-surface-container text-on-surface-variant border border-outline-variant hover:bg-surface-variant transition-all duration-200 cursor-pointer active:scale-95">Madera</button>
+<button class="whitespace-nowrap rounded-full px-4 py-2 font-body-sm text-body-sm bg-surface-container text-on-surface-variant border border-outline-variant hover:bg-surface-variant transition-all duration-200 cursor-pointer active:scale-95">Cosmética</button>
+<button class="whitespace-nowrap rounded-full px-4 py-2 font-body-sm text-body-sm bg-surface-container text-on-surface-variant border border-outline-variant hover:bg-surface-variant transition-all duration-200 cursor-pointer active:scale-95">Juguetes</button>
+<button class="whitespace-nowrap rounded-full px-4 py-2 font-body-sm text-body-sm bg-surface-container text-on-surface-variant border border-outline-variant hover:bg-surface-variant transition-all duration-200 cursor-pointer active:scale-95">Cerámica</button>
+</div>
+</section>
+<!-- Brands Grid -->
+<section>
+<div class="flex justify-between items-end mb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Directorio de Productores</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">24 marcas</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter md:gap-md">
+<!-- Brand Card 1 -->
+<article class="relative flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-[#DCC7A1] shadow-[0_4px_12px_rgba(62,74,57,0.04)] group cursor-pointer hover:shadow-[0_8px_16px_rgba(62,74,57,0.08)] transition-shadow duration-300">
+<div class="texture-overlay rounded-xl"></div>
+<!-- Cover Image -->
+<div class="w-full h-24 md:h-32 bg-surface-variant relative overflow-hidden">
+<img alt="Cover: Mieles del Bosque" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A warm, tactile close-up photograph of jars filled with artisanal honey and fruit preserves sitting on a rustic wooden table. The lighting is soft natural sunlight filtering through leaves, highlighting the amber tones of the honey against a Patagonia-inspired aesthetic. High quality, light mode, eco-conscious style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdPYl-NvREoNFK7k5S8Lir42pFkE6rgJAMFCEIGGj4sFVXarUEUrML5AjOna38T3HxGaXtZXLCn2FgGrQguIWoccSRCrhoT47Q0K-2-9BMGWyI2y29vEEqguP6NGDnifd1bVJNdjjsmsNWuPmvGEj1lp14xOfzMSCdntWLPXW4pFY--TGnfI2bp50KSAH4Pjp7Lex7oRQfKCQZJ98DTPptLZDMeaxcafwPHWG3lwcUJfdjjJQa-d88iw">
+<!-- Favorite Button (Active State) -->
+<button aria-label="Quitar de favoritos" class="absolute top-sm right-sm w-8 h-8 flex items-center justify-center rounded-full bg-surface/80 backdrop-blur-sm border border-outline-variant shadow-sm z-20 text-error active:scale-90 transition-transform" onclick="this.classList.toggle('text-error'); this.classList.toggle('text-on-surface-variant'); this.querySelector('span').classList.toggle('fill-1');">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="p-sm md:p-md flex flex-col items-center text-center -mt-8 relative z-10">
+<!-- Logo -->
+<div class="w-16 h-16 rounded-full border-2 border-surface bg-surface-container overflow-hidden shadow-sm mb-2">
+<img alt="Logo Mieles del Bosque" class="w-full h-full object-cover" data-alt="A minimalist, hand-drawn vector logo of a bee and a jar on a bone white background, representing an artisanal honey brand in Patagonia. Earthy green and terracotta colors, organic linework, professional branding design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9txBnx91cbM7NqtziRz-TfdPxzeoLRDYBJZYWKESlmOR6lPg4_2d8WWcP89jwdZKhIwPy_061quIxIblBwQo9A3b9VKE00gyvpZtV9M-WHtl6SQB0j0BU7xiP_MMkhwfFbNb9fwJPu5d-vne1urZSQpSlYI9VleuoTlejkXJ0WxzMz5so0oTGWP2w1ZPa1qGAKlCrEIJqLY0Du9sctcZEa4UIsLLPFvjQLdRQRqB_eqP2kF6aEr5M7A">
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-xs leading-tight line-clamp-1">Abeja Obrera</h3>
+<span class="font-body-sm text-body-sm text-primary mb-2">Apicultura local</span>
+<!-- Badges -->
+<div class="flex flex-wrap justify-center gap-1 mt-auto">
+<span class="inline-flex items-center rounded-full bg-[#DCC7A1]/30 px-2 py-0.5 font-label-caps text-label-caps text-[#3E4A39]"><span class="material-symbols-outlined text-[12px] mr-1" data-icon="local_shipping">local_shipping</span> Nacional</span>
+</div>
+</div>
+</article>
+<!-- Brand Card 2 -->
+<article class="relative flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-[#DCC7A1] shadow-[0_4px_12px_rgba(62,74,57,0.04)] group cursor-pointer hover:shadow-[0_8px_16px_rgba(62,74,57,0.08)] transition-shadow duration-300">
+<div class="texture-overlay rounded-xl"></div>
+<div class="w-full h-24 md:h-32 bg-surface-variant relative overflow-hidden">
+<img alt="Cover: Telares de Sur" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A detailed, tactile photograph showing folded, hand-woven wool textiles in earthy tones of terracotta, sage green, and natural white. The textures of the yarn are highly visible. Shot in a minimalist, light-mode setting with subtle shadows, evoking a premium Patagonian craftsmanship aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFXFdAKiP8Svtp_HUTUI3Gl42vw5QHKI0xuUs1YAGX0r4OW-RClCCGv1qVLCbQjDSJtp8AOwT0Y6TWvQv2S4mUPDIBhyYtrh-aNgvV4wEgTV0ge0zXUyevhxLVMKYkW7Fyd_TeF9vYpX6hE1mLClnSIadj7T5_pFRHVwvNwICiZeL_eLuvrkjCYAXvuzNGJ8EdmVIPphZ7ib4ZmDfcw_elJJzoEGzUCWqu7eelwnNicaKyOQSgI2vJ4Q">
+<!-- Favorite Button (Inactive State) -->
+<button aria-label="Agregar a favoritos" class="absolute top-sm right-sm w-8 h-8 flex items-center justify-center rounded-full bg-surface/80 backdrop-blur-sm border border-outline-variant shadow-sm z-20 text-on-surface-variant active:scale-90 transition-transform" onclick="this.classList.toggle('text-error'); this.classList.toggle('text-on-surface-variant'); this.querySelector('span').classList.toggle('fill-1');">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+<div class="p-sm md:p-md flex flex-col items-center text-center -mt-8 relative z-10">
+<div class="w-16 h-16 rounded-full border-2 border-surface bg-surface-container overflow-hidden shadow-sm mb-2">
+<img alt="Logo Telares de Sur" class="w-full h-full object-cover" data-alt="A simple, organic monoline logo depicting a loom and a mountain peak on a light bone white background. Earthy color palette, artisanal Patagonian branding style, high quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxNDs5gm5Y_cMa9lLtHmJMU2OSPgWnC9b1bY9xPR8KH57RbxSWwwu_m7Y6SPRaJ91OKobgLuDBIBFyluXPG2YMyCzB3HG_nacgeBxXvLDP8lay3IPKgNS7SfTgX4YHDgcn-1J8yIAbXWkZb6rmkgoOA0NZCmzSbJqqRQin_VEekNpK7o_PpubcXaK750uV4HEDOa57ih7Ezxy0F_J5jGJjZ6JDt5kkYwQLFbRCc69NhDid7-5X-AKz3g">
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-xs leading-tight line-clamp-1">Limona Limona</h3>
+<span class="font-body-sm text-body-sm text-primary mb-2">Upcycling textil</span>
+<div class="flex flex-wrap justify-center gap-1 mt-auto">
+<span class="inline-flex items-center rounded-full bg-surface-variant px-2 py-0.5 font-label-caps text-label-caps text-on-surface-variant border border-outline-variant"><span class="material-symbols-outlined text-[12px] mr-1" data-icon="storefront">storefront</span> Retiro</span>
+</div>
+</div>
+</article>
+<!-- Brand Card 3 -->
+<article class="relative flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-[#DCC7A1] shadow-[0_4px_12px_rgba(62,74,57,0.04)] group cursor-pointer hover:shadow-[0_8px_16px_rgba(62,74,57,0.08)] transition-shadow duration-300">
+<div class="texture-overlay rounded-xl"></div>
+<div class="w-full h-24 md:h-32 bg-surface-variant relative overflow-hidden">
+<img alt="Cover: Raíz Nativa" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A beautiful, bright close-up shot of artisanal wooden kitchenware, including a carved spoon and a cutting board, resting on a clean, bone-white surface. Natural, soft lighting highlights the wood grain. Minimalist, premium eco-conscious marketplace aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOOvEuL82herST9bAtOp607vLoxfEN1Wef5T56BU05JQ5TluxCxp4u0xeeKDwtzLhh5rLLwWQ1MhxHfO4pvzt2ReQzXgR6gyKmFUMXMVA7vQ--gTowxp0ujbsc5lpBADvPIIHafICAjVtglX6BXhF59R-YSCTlnSzy6rOSqku96gIhF9JxGMWJku1YO_YTYbaBMfE20xYlIRpzrh3bIs5CTPQNwbRR_w1UR7KrR77nc4pT2nYwtbtJdw">
+<button aria-label="Agregar a favoritos" class="absolute top-sm right-sm w-8 h-8 flex items-center justify-center rounded-full bg-surface/80 backdrop-blur-sm border border-outline-variant shadow-sm z-20 text-on-surface-variant active:scale-90 transition-transform" onclick="this.classList.toggle('text-error'); this.classList.toggle('text-on-surface-variant'); this.querySelector('span').classList.toggle('fill-1');">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+<div class="p-sm md:p-md flex flex-col items-center text-center -mt-8 relative z-10">
+<div class="w-16 h-16 rounded-full border-2 border-surface bg-surface-container overflow-hidden shadow-sm mb-2">
+<img alt="Logo Raíz Nativa" class="w-full h-full object-cover" data-alt="A minimalist, skeuomorphic logo featuring a stylized tree ring pattern in sage green and terracotta tones. Bone white background. Represents a sustainable woodworking brand in Patagonia." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVxKxZeXXOBwic8ZoqyvvoBlKz-h8WK96TvbrynouxE13rUsTJ3Ui0DiMprWuhybjAJtsHz0iZqi28B_9hqgejpZRS9JKt3UXzjGNR3uLc7M9z1wg8fIkYs0prYG8U1FdDqRvMxBpfxVmf0sFoy7x1B0MjTf7phPdYdcFajLChMeB9S7RSsHNorO4PR26kykIikW2TfacsNpD0CtpUevqa0S8_ZjuxDAog0dWtqFfWxX55Jh10orBFOg">
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-xs leading-tight line-clamp-1">Cerámica Ruke</h3>
+<span class="font-body-sm text-body-sm text-primary mb-2">Alfarería ancestral</span>
+<div class="flex flex-wrap justify-center gap-1 mt-auto">
+<span class="inline-flex items-center rounded-full bg-[#DCC7A1]/30 px-2 py-0.5 font-label-caps text-label-caps text-[#3E4A39]"><span class="material-symbols-outlined text-[12px] mr-1" data-icon="local_shipping">local_shipping</span> Nacional</span>
+</div>
+</div>
+</article>
+<!-- Brand Card 4 -->
+<article class="relative flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-[#DCC7A1] shadow-[0_4px_12px_rgba(62,74,57,0.04)] group cursor-pointer hover:shadow-[0_8px_16px_rgba(62,74,57,0.08)] transition-shadow duration-300">
+<div class="texture-overlay rounded-xl"></div>
+<div class="w-full h-24 md:h-32 bg-surface-variant relative overflow-hidden">
+<img alt="Cover: Pura Botánica" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A clean, minimalist layout of natural solid shampoo bars and organic skin creams in frosted glass jars. Arranged on a textured kraft paper background with a sprig of sage. Soft, diffuse lighting creating a serene, natural eco-friendly vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM1m3BqtL3slX8x24FAI4-cQtdERdq2jy1_yifYWkNLaKXvuMo5828SdvHbJ9wzpo_UMM96-Gh6BW9jiD74SntfobxDQCHZbufXALgFPzHDGpJ6mHXnrqvCRFWXKCDRC2Zdoo_blo_sXckoxoAESNsM95UQXFeH_S-nypavVYTirefQZZBoQw0oBHrBCJPeV-20QLaKWywaORwH4RwmTt2Os7B6do13lifIrHi-Xq_cFb5C-a4mP5PcQ">
+<!-- Favorite Button (Active State) -->
+<button aria-label="Quitar de favoritos" class="absolute top-sm right-sm w-8 h-8 flex items-center justify-center rounded-full bg-surface/80 backdrop-blur-sm border border-outline-variant shadow-sm z-20 text-error active:scale-90 transition-transform" onclick="this.classList.toggle('text-error'); this.classList.toggle('text-on-surface-variant'); this.querySelector('span').classList.toggle('fill-1');">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="p-sm md:p-md flex flex-col items-center text-center -mt-8 relative z-10">
+<div class="w-16 h-16 rounded-full border-2 border-surface bg-surface-container overflow-hidden shadow-sm mb-2">
+<img alt="Logo Pura Botánica" class="w-full h-full object-cover" data-alt="A delicate botanical line-art logo of a medicinal herb sprig in dark forest green, set against a warm white background. Clean, artisanal branding for a natural cosmetics line." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz-Lkw3LQLwxNamvk5usLjdn8FgiC5ctBMeon_5xz1oehPV0AIbCRTns9FwK2XCZXXlrXpcC9vGDITQkbKtqX233TI3fEARS8ZZMmedQzqg4EGjHo8DGW1EgG56vuyrsqI4Dcwrh5-zXIzcIUMAFxcvGDg-l4Y3tEbUD57BGrD7sMXCKodlE7-UT6VQssWYAsf4zGuXeYoLP1JaUS9kEASy3fNW4Ynin8kJCGuYcAVx0pXcp8YUhYvNg">
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-xs leading-tight line-clamp-1">Energía Vital</h3>
+<span class="font-body-sm text-body-sm text-primary mb-2">Cosmética zero-waste</span>
+<div class="flex flex-wrap justify-center gap-1 mt-auto">
+<span class="inline-flex items-center rounded-full bg-[#DCC7A1]/30 px-2 py-0.5 font-label-caps text-label-caps text-[#3E4A39]"><span class="material-symbols-outlined text-[12px] mr-1" data-icon="local_shipping">local_shipping</span> Nacional</span>
+<span class="inline-flex items-center rounded-full bg-surface-variant px-2 py-0.5 font-label-caps text-label-caps text-on-surface-variant border border-outline-variant"><span class="material-symbols-outlined text-[12px] mr-1" data-icon="storefront">storefront</span> Retiro</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-low dark:bg-surface-container-highest border-t border-outline-variant dark:border-outline shadow-sm md:hidden">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 pb-safe transition-all duration-300 ease-in-out">
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 hover:bg-surface-variant dark:hover:bg-inverse-surface transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-caps text-label-caps mt-1">Mercado</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface px-4 py-1 rounded-full transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="font-label-caps text-label-caps mt-1">Agenda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface px-4 py-1 rounded-full transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span class="font-label-caps text-label-caps mt-1">Blog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface px-4 py-1 rounded-full transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps mt-1">Perfil</span>
+</a>
+</div>
+</nav>
+<!-- Style element for custom toggle behavior in buttons -->
+<style>
+        .fill-1 {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+
+
+</body></html>

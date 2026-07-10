@@ -1,0 +1,301 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>La Ecoferia - Comunidad</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#8e4d31",
+                        "on-tertiary-fixed": "#271900",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1b1c19",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "secondary-fixed": "#ffdbce",
+                        "surface-bright": "#fbf9f4",
+                        "surface-tint": "#53634b",
+                        "primary-fixed": "#d6e8ca",
+                        "outline-variant": "#c4c8be",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#fbf9f4",
+                        "secondary-container": "#feaa88",
+                        "surface-variant": "#e4e2dd",
+                        "primary-container": "#697960",
+                        "error-container": "#ffdad6",
+                        "primary": "#506049",
+                        "on-primary-container": "#f8ffef",
+                        "on-secondary": "#ffffff",
+                        "outline": "#757870",
+                        "primary-fixed-dim": "#baccaf",
+                        "surface-container-high": "#eae8e3",
+                        "on-primary-fixed": "#111f0d",
+                        "tertiary-fixed": "#ffdeaa",
+                        "surface": "#fbf9f4",
+                        "on-background": "#1b1c19",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#370e00",
+                        "surface-container-highest": "#e4e2dd",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3ee",
+                        "tertiary": "#7a5500",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "on-secondary-container": "#783c22",
+                        "inverse-surface": "#30312e",
+                        "tertiary-container": "#9a6c00",
+                        "on-surface-variant": "#444841",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-container": "#f0eee9",
+                        "inverse-primary": "#baccaf",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dbdad5",
+                        "secondary-fixed-dim": "#ffb598",
+                        "on-secondary-fixed-variant": "#71361d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "40px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "container-margin": "20px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .wood-border {
+            border-color: #DCC7A1;
+        }
+        .wood-bg {
+            background-color: #DCC7A1;
+        }
+        .forest-text {
+            color: #3E4A39;
+        }
+    </style>
+</head>
+<body class="antialiased font-body-md text-body-md pt-16 pb-20 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface border-b border-outline-variant flat no shadows">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-sm rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary font-bold">La Ecoferia</h1>
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-sm rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</header>
+<main class="max-w-[1280px] mx-auto px-container-margin py-lg">
+<!-- Toggle Switch -->
+<div class="flex justify-center mb-xl">
+<div class="inline-flex bg-surface-container-high rounded-full p-xs">
+<button class="px-lg py-sm rounded-full font-label-caps text-label-caps bg-primary text-on-primary shadow-sm transition-all duration-300 ease-in-out" id="btn-blog" onclick="switchView('blog')">
+                    Blog
+                </button>
+<button class="px-lg py-sm rounded-full font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all duration-300 ease-in-out" id="btn-agenda" onclick="switchView('agenda')">
+                    Agenda
+                </button>
+</div>
+</div>
+<!-- Blog View -->
+<div class="block transition-opacity duration-500 ease-in-out opacity-100" id="view-blog">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Article 1 -->
+<article class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-solid wood-border group relative">
+<div class="relative h-64 overflow-hidden">
+<img alt="Artesanía en lana" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Close up photography of artisanal wool spinning process in Patagonia. A craftswoman's hands gently guiding natural, undyed sheep's wool into a spindle. The setting is a rustic wooden cabin bathed in warm, diffused natural light from a nearby window. Focus is sharp on the texture of the wool and the weathered hands, background is softly blurred. Earthy color palette dominating the scene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHBtST54Z-ORqylguK-_e5jh9JzOwaBjeC3R3ZsF4Dv4t7jIgxolDuZ0uUZkAqNTs8Z_DzWRViSjrEe5ek9s86FdPFCMSbMK77E-dVyDKNi3a9reOTKuexOB0PWzD4g1yMtW_-VrNgXn6uxpMSt3E8qDPe90FYA5AqohC6g0MgSYufrEbxeoJo2lHmwR47kNvZIK3FU9mGFZkR2j5wGtLXZ8yNBWmRsO4AXC6HwgAlE9XR79uT42ZI7w">
+<div class="absolute top-sm left-sm bg-surface/90 backdrop-blur-md px-sm py-xs rounded wood-bg forest-text font-label-caps text-label-caps">
+                            Artesanía
+                        </div>
+</div>
+<div class="p-md bg-surface group-hover:-translate-y-2 transition-transform duration-300 relative z-10 border-t border-solid wood-border">
+<h2 class="font-title-lg text-title-lg text-on-surface mb-sm">El arte de la lana patagónica</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-3">Descubre las técnicas ancestrales de hilado y tejido que han sido preservadas por generaciones en las comunidades locales. Un viaje por la textura y el color natural.</p>
+<a class="inline-flex items-center text-primary font-label-caps text-label-caps hover:text-secondary transition-colors" href="#">
+                            Leer artículo <span class="material-symbols-outlined ml-xs text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-solid wood-border group relative">
+<div class="relative h-64 overflow-hidden">
+<img alt="Cultivos orgánicos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Still life photography of organic vegetables fresh from the earth, arranged on a worn wooden table. Carrots with green tops, earthy potatoes, and vibrant leafy greens are featured. A soft, dappled light suggests an outdoor market setting on a sunny morning. The style is rustic, tactile, and appetizing, emphasizing the natural imperfections and deep colors of the organic produce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjAmC5-fS9LSD1o6--nQD4AnOHSNAV-_XEeKBx6Sm6lJQ9hrGb9a3DELVTDaRokjrGLEFoXKuHuhgP4svt6gHtwPcf8AjzL_DF4mgU0jOBDQCcD5byBhWPL7cOujG41GV8P36-8ugXUugCx4Th1mFZZ2j0gbwhxKFbY53hXAlVi_KKvIaxo4V5GVgrFMQFBlCnklY--X4--tUKpE2l7FyrmAoQ3bubhGDxDTKeOf96K202nOCxtqlHCQ">
+<div class="absolute top-sm left-sm bg-surface/90 backdrop-blur-md px-sm py-xs rounded wood-bg forest-text font-label-caps text-label-caps">
+                            Agroecología
+                        </div>
+</div>
+<div class="p-md bg-surface group-hover:-translate-y-2 transition-transform duration-300 relative z-10 border-t border-solid wood-border">
+<h2 class="font-title-lg text-title-lg text-on-surface mb-sm">Cultivos que respetan la tierra</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-3">Conoce las prácticas agroecológicas que nuestros productores utilizan para mantener un suelo vivo y cosechar alimentos nutritivos sin agrotóxicos.</p>
+<a class="inline-flex items-center text-primary font-label-caps text-label-caps hover:text-secondary transition-colors" href="#">
+                            Leer artículo <span class="material-symbols-outlined ml-xs text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-solid wood-border group relative">
+<div class="relative h-64 overflow-hidden">
+<img alt="Cerámica artesanal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Artistic close-up of a potter's wheel in motion. Hands slick with wet, grey clay are shaping a delicate bowl. The background is a shadowy, dusty workshop filled with finished ceramic pieces. Lighting is dramatic, highlighting the texture of the wet clay and the concentration in the craft process. Warm, muted tones define the aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmdFUUOvHs96XSdVloFCQ1Gsela9nohofWhGEVuk8VsWWoep6S9fe9FR9LaPmOvKagggo1IKlgehs5jiuEDCw_5O_I5FumBxZo9tAiFwrMzliKonpf0S5Izy3Vkcf-QTA7pDktoeeCkbtFRBu6AxX3CVLp0Fqjzu-IxXDkN1CXzwnZpYX5jGzZsEQ70Bfy-tDTrTb6NsvFqBYar1c-UAA9qCXQ5W_QUnEEdYVHrFjMKDC0353u0WjP2g">
+<div class="absolute top-sm left-sm bg-surface/90 backdrop-blur-md px-sm py-xs rounded wood-bg forest-text font-label-caps text-label-caps">
+                            Taller
+                        </div>
+</div>
+<div class="p-md bg-surface group-hover:-translate-y-2 transition-transform duration-300 relative z-10 border-t border-solid wood-border">
+<h2 class="font-title-lg text-title-lg text-on-surface mb-sm">De la tierra al cuenco</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-3">La cerámica como medio de expresión y conexión con los elementos. Exploramos el taller de alfarería local y sus creaciones únicas inspiradas en la naturaleza.</p>
+<a class="inline-flex items-center text-primary font-label-caps text-label-caps hover:text-secondary transition-colors" href="#">
+                            Leer artículo <span class="material-symbols-outlined ml-xs text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+</div>
+<!-- Agenda View -->
+<div class="hidden transition-opacity duration-500 ease-in-out opacity-0" id="view-agenda">
+<div class="flex flex-col gap-md">
+<!-- Event 1 -->
+<div class="bg-surface border border-solid wood-border rounded-xl p-md flex flex-col md:flex-row gap-md items-start hover:shadow-md transition-shadow duration-300 relative overflow-hidden group">
+<div class="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+<!-- Date Highlight -->
+<div class="flex-shrink-0 flex flex-col items-center justify-center bg-surface-container w-24 h-24 rounded-lg border border-solid wood-border">
+<span class="font-label-caps text-label-caps text-secondary mb-xs">OCT</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface">15</span>
+</div>
+<!-- Event Details -->
+<div class="flex-grow flex flex-col justify-between h-full">
+<div>
+<div class="flex items-center gap-sm mb-xs">
+<span class="bg-primary-container text-on-primary-container px-sm py-[2px] rounded text-[10px] font-bold uppercase tracking-wider">Taller</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span> 10:00 - 14:00</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-sm">Taller de Bioconstrucción</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Aprende técnicas básicas de construcción con adobe y materiales reciclados. Impartido por el colectivo 'Tierra Viva'.</p>
+</div>
+<div class="flex items-center justify-between mt-auto pt-sm border-t border-solid border-outline-variant/30">
+<span class="text-on-surface-variant font-body-sm text-body-sm flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span> Finca La Esperanza, Chacra 4</span>
+<button class="border border-solid border-secondary text-secondary hover:bg-secondary hover:text-on-secondary px-md py-sm rounded-lg font-label-caps text-label-caps transition-colors duration-200">
+                                Más información
+                            </button>
+</div>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="bg-surface border border-solid wood-border rounded-xl p-md flex flex-col md:flex-row gap-md items-start hover:shadow-md transition-shadow duration-300 relative overflow-hidden group">
+<div class="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+<!-- Date Highlight -->
+<div class="flex-shrink-0 flex flex-col items-center justify-center bg-surface-container w-24 h-24 rounded-lg border border-solid wood-border">
+<span class="font-label-caps text-label-caps text-secondary mb-xs">OCT</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface">22</span>
+</div>
+<!-- Event Details -->
+<div class="flex-grow flex flex-col justify-between h-full">
+<div>
+<div class="flex items-center gap-sm mb-xs">
+<span class="bg-secondary-container text-on-secondary-container px-sm py-[2px] rounded text-[10px] font-bold uppercase tracking-wider">Mercado</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span> 09:00 - 18:00</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-sm">Feria Grande de Productores</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Edición especial mensual con más de 50 productores locales, música en vivo y degustaciones de productos regionales.</p>
+</div>
+<div class="flex items-center justify-between mt-auto pt-sm border-t border-solid border-outline-variant/30">
+<span class="text-on-surface-variant font-body-sm text-body-sm flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span> Plaza Central del Pueblo</span>
+<button class="border border-solid border-secondary text-secondary hover:bg-secondary hover:text-on-secondary px-md py-sm rounded-lg font-label-caps text-label-caps transition-colors duration-200">
+                               Más información
+                           </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface border-t border-outline-variant/50 backdrop-blur-md shadow-sm rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform p-2">
+<span class="material-symbols-outlined mb-1" data-icon="storefront">storefront</span>
+<span class="font-label-caps text-label-caps text-[10px]">Mercado</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform p-2">
+<span class="material-symbols-outlined mb-1" data-icon="event_note">event_note</span>
+<span class="font-label-caps text-label-caps text-[10px]">Agenda</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1" data-icon="article" style="font-variation-settings: 'FILL' 1;">article</span>
+<span class="font-label-caps text-label-caps text-[10px]">Blog</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform p-2">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps text-[10px]">Perfil</span>
+</button>
+</nav>
+<script>
+        function switchView(view) {
+            const blogView = document.getElementById('view-blog');
+            const agendaView = document.getElementById('view-agenda');
+            const btnBlog = document.getElementById('btn-blog');
+            const btnAgenda = document.getElementById('btn-agenda');
+
+            if (view === 'blog') {
+                blogView.classList.remove('hidden');
+                setTimeout(() => blogView.classList.remove('opacity-0'), 10);
+                agendaView.classList.add('opacity-0');
+                setTimeout(() => agendaView.classList.add('hidden'), 500);
+
+                btnBlog.classList.add('bg-primary', 'text-on-primary');
+                btnBlog.classList.remove('text-on-surface-variant');
+                btnAgenda.classList.remove('bg-primary', 'text-on-primary');
+                btnAgenda.classList.add('text-on-surface-variant');
+            } else {
+                agendaView.classList.remove('hidden');
+                setTimeout(() => agendaView.classList.remove('opacity-0'), 10);
+                blogView.classList.add('opacity-0');
+                setTimeout(() => blogView.classList.add('hidden'), 500);
+
+                btnAgenda.classList.add('bg-primary', 'text-on-primary');
+                btnAgenda.classList.remove('text-on-surface-variant');
+                btnBlog.classList.remove('bg-primary', 'text-on-primary');
+                btnBlog.classList.add('text-on-surface-variant');
+            }
+        }
+    </script>
+</body></html>

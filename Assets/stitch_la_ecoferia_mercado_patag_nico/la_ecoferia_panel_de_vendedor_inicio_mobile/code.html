@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>La Ecoferia - Seller Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#53634b",
+                        "on-primary-fixed": "#111f0d",
+                        "on-primary-container": "#f8ffef",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb598",
+                        "on-secondary-fixed-variant": "#71361d",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "secondary-container": "#feaa88",
+                        "primary-container": "#697960",
+                        "on-background": "#1b1c19",
+                        "primary-fixed": "#d6e8ca",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#30312e",
+                        "surface-variant": "#e4e2dd",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#783c22",
+                        "tertiary-fixed": "#ffdeaa",
+                        "primary": "#506049",
+                        "tertiary-container": "#9a6c00",
+                        "on-tertiary-fixed": "#271900",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-surface": "#1b1c19",
+                        "inverse-primary": "#baccaf",
+                        "surface-bright": "#fbf9f4",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#fbf9f4",
+                        "outline": "#757870",
+                        "surface-container-high": "#eae8e3",
+                        "secondary": "#8e4d31",
+                        "outline-variant": "#c4c8be",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#baccaf",
+                        "surface-container": "#f0eee9",
+                        "surface-container-low": "#f5f3ee",
+                        "surface": "#fbf9f4",
+                        "on-surface-variant": "#444841",
+                        "secondary-fixed": "#ffdbce",
+                        "surface-dim": "#dbdad5",
+                        "on-secondary-fixed": "#370e00",
+                        "surface-container-highest": "#e4e2dd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7a5500",
+                        "light-wood": "#DCC7A1",
+                        "sage": "#7D8E74",
+                        "terracotta": "#C67B5C",
+                        "forest": "#3E4A39"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "xl": "40px",
+                        "container-margin": "20px",
+                        "unit": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f4; /* background */
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+        }
+        .organic-card {
+            border: 1px solid #DCC7A1;
+            box-shadow: 0 4px 20px rgba(62, 74, 57, 0.04);
+            position: relative;
+        }
+        .organic-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+            pointer-events: none;
+            border-radius: inherit;
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md min-h-screen flex flex-col md:flex-row">
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden bg-surface dark:bg-surface-dim w-full top-0 sticky z-40 border-b border-outline-variant shadow-sm flex justify-between items-center px-container-margin py-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="storefront">storefront</span>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed tracking-tight">Patagonia Craft</h1>
+</div>
+<div>
+<img class="w-8 h-8 rounded-full object-cover border border-light-wood" data-alt="A small circular avatar portrait of an artisan seller with a warm, welcoming smile, set against a natural, earthy background. The lighting is soft and natural, fitting a rustic, eco-conscious aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgy7ayxRsV_6uAyEYELysxY8rrg3SnpuDu8CZUjk4Aw73mA4fb5_Zc3h81ikU2zkFKsZs7UcZJ9-G9Qp1BJPAE-El_jCJrIFu2sf3AOVXhTr_Q5t2vUsZX77CcYViT6BE4KTpnkt2hrxQ6-sBcCYOx9XTaQxatwxb_1bQgumTlcEneRKpnW8_qytnZ9XPzyHT0-wv0ixscxz9WI3G7Bl65cVOD9puX7R5l5axb6UUvDR7sAf5z7i0qgQ">
+</div>
+</header>
+<!-- NavigationDrawer (Desktop) -->
+<aside class="bg-surface-container-low dark:bg-surface-container-lowest h-full w-64 hidden md:flex flex-col fixed left-0 top-0 border-r border-outline-variant z-40 p-md gap-md">
+<div class="flex items-center gap-sm mb-lg">
+<img class="w-12 h-12 rounded-lg object-cover border border-light-wood" data-alt="A high-quality square profile picture of a sustainable artisan in their workshop, surrounded by natural materials. The lighting is warm and natural, emphasizing the handcrafted nature of their work." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVDKTEt5Q4Tyx4o4dflWgaI4Eq2NCyp0km_4hZEdrYcHDTxar7ycRg1OeQtW12EC8588-Z4_8z11EG_MhGDdv5L9kLpCsrkHHKB8U7WwyDa5EiuYUKisuMDZuKPxnOjACRetPzLNn-be6BPgDznBBNNI_B_OmYMrm-sYWbkoEsw4tK2zvlIwi86p6ZBDxhM_UivS21Dw6W45rzY5RAb2UZzI80yeIHNdtX-Ls9gp2Pr-M9KKDhR4BSnA">
+<div>
+<div class="font-headline-md text-title-lg text-primary">Artisan Dashboard</div>
+<div class="font-body-sm text-on-surface-variant">Sustainable Seller</div>
+</div>
+</div>
+<nav class="flex flex-col gap-sm">
+<a class="flex items-center gap-md px-md py-sm text-primary font-bold bg-primary-fixed-dim rounded-lg transition-all duration-200 ease-in-out cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out cursor-pointer active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-caps text-label-caps">Products</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out cursor-pointer active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out cursor-pointer active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-caps text-label-caps">Blog</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out cursor-pointer active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-caps text-label-caps">Messages</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-container-margin md:p-xl max-w-[1280px] mx-auto w-full pb-24 md:pb-xl">
+<header class="mb-lg hidden md:block">
+<h2 class="font-display-lg text-display-lg text-primary tracking-tight">Overview</h2>
+<p class="font-body-md text-on-surface-variant mt-sm">Welcome back. Here's how your shop is performing.</p>
+</header>
+<!-- Metrics Bento Grid -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md mb-xl">
+<!-- Sales Card -->
+<div class="organic-card bg-surface-bright rounded-xl p-md flex flex-col justify-between h-32 sm:col-span-2 lg:col-span-1">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Monthly Sales</span>
+<span class="material-symbols-outlined text-terracotta" data-icon="payments">payments</span>
+</div>
+<div>
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary">$145.200</div>
+<div class="font-body-sm text-sage mt-xs">+12% from last month</div>
+</div>
+</div>
+<!-- Orders Card -->
+<div class="organic-card bg-surface-bright rounded-xl p-md flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Pending Orders</span>
+<span class="material-symbols-outlined text-secondary" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary">8</div>
+<div class="font-body-sm text-terracotta mt-xs">3 require immediate action</div>
+</div>
+</div>
+<!-- Products Card -->
+<div class="organic-card bg-surface-bright rounded-xl p-md flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Active Products</span>
+<span class="material-symbols-outlined text-primary" data-icon="inventory_2">inventory_2</span>
+</div>
+<div>
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary">24</div>
+<div class="font-body-sm text-on-surface-variant mt-xs">2 low on stock</div>
+</div>
+</div>
+</section>
+<!-- Quick Actions & Recent Activity Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Quick Actions -->
+<section class="lg:col-span-1 flex flex-col gap-md">
+<h3 class="font-title-lg text-title-lg text-primary border-b border-light-wood pb-xs mb-sm">Quick Actions</h3>
+<button class="w-full bg-sage text-white font-body-md py-sm px-md rounded-lg flex items-center justify-center gap-sm hover:opacity-90 transition-opacity active:translate-y-[2px] shadow-sm">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                    Add New Product
+                </button>
+<button class="w-full bg-transparent border border-terracotta text-terracotta font-body-md py-sm px-md rounded-lg flex items-center justify-center gap-sm hover:bg-surface-container-low transition-colors active:translate-y-[2px]">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+                    Create Promotion
+                </button>
+</section>
+<!-- Recent Activity List -->
+<section class="lg:col-span-2">
+<h3 class="font-title-lg text-title-lg text-primary border-b border-light-wood pb-xs mb-sm">Recent Activity</h3>
+<div class="organic-card bg-surface-bright rounded-xl p-0 overflow-hidden">
+<ul class="flex flex-col">
+<li class="flex items-center gap-md p-md border-b border-light-wood border-opacity-30">
+<div class="w-10 h-10 rounded-full bg-primary-fixed-dim flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex-1">
+<div class="font-body-md text-on-surface">Order #1042 fulfilled</div>
+<div class="font-body-sm text-on-surface-variant">Handwoven Alpaca Scarf sent to Santiago.</div>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">2h ago</div>
+</li>
+<li class="flex items-center gap-md p-md border-b border-light-wood border-opacity-30">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed-dim flex items-center justify-center text-tertiary flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+</div>
+<div class="flex-1">
+<div class="font-body-md text-on-surface">New 5-star review</div>
+<div class="font-body-sm text-on-surface-variant">"Beautiful craftsmanship, exactly as pictured."</div>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">5h ago</div>
+</li>
+<li class="flex items-center gap-md p-md">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<div class="flex-1">
+<div class="font-body-md text-on-surface">Low stock alert</div>
+<div class="font-body-sm text-on-surface-variant">Ceramic Mate Cup (Green) has only 1 left.</div>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">1d ago</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden bg-surface dark:bg-surface-dim font-body-sm text-body-sm font-headline-md text-headline-md text-primary fixed bottom-0 w-full rounded-t-xl shadow-md fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-xs border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 transition-transform cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-caps text-label-caps mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform cursor-pointer px-4 py-1 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-caps text-label-caps mt-1">Products</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform cursor-pointer px-4 py-1 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-caps text-label-caps mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform cursor-pointer px-4 py-1 rounded-full hidden sm:flex" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-caps text-label-caps mt-1">Blog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform cursor-pointer px-4 py-1 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-caps text-label-caps mt-1">Messages</span>
+</a>
+</nav>
+</body></html>

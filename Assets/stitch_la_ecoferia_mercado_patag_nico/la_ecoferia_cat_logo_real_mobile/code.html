@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>La Ecoferia - Mercado</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed": "#370e00",
+                      "tertiary-container": "#9a6c00",
+                      "surface": "#fbf9f4",
+                      "on-secondary-fixed-variant": "#71361d",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#fabc45",
+                      "on-background": "#1b1c19",
+                      "outline": "#757870",
+                      "secondary-container": "#feaa88",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#5f4100",
+                      "surface-bright": "#fbf9f4",
+                      "secondary-fixed-dim": "#ffb598",
+                      "outline-variant": "#c4c8be",
+                      "on-surface-variant": "#444841",
+                      "primary-fixed-dim": "#baccaf",
+                      "inverse-surface": "#30312e",
+                      "tertiary": "#7a5500",
+                      "on-primary-container": "#f8ffef",
+                      "secondary-fixed": "#ffdbce",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-primary-fixed": "#111f0d",
+                      "on-secondary-container": "#783c22",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#53634b",
+                      "surface-container-highest": "#e4e2dd",
+                      "on-tertiary-container": "#fffbff",
+                      "inverse-primary": "#baccaf",
+                      "primary": "#506049",
+                      "on-surface": "#1b1c19",
+                      "surface-container-high": "#eae8e3",
+                      "surface-container-low": "#f5f3ee",
+                      "surface-variant": "#e4e2dd",
+                      "primary-fixed": "#d6e8ca",
+                      "on-primary-fixed-variant": "#3c4b35",
+                      "background": "#fbf9f4",
+                      "on-tertiary-fixed": "#271900",
+                      "primary-container": "#697960",
+                      "tertiary-fixed": "#ffdeaa",
+                      "surface-dim": "#dbdad5",
+                      "surface-container": "#f0eee9",
+                      "secondary": "#8e4d31",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "xl": "40px",
+                      "container-margin": "20px",
+                      "unit": "4px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "sm": "8px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f4; /* background color */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+        }
+        
+        .card-border {
+            border: 1px solid #DCC7A1;
+        }
+
+        /* Hide scrollbar for chips */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="text-on-surface antialiased bg-background pb-32">
+<!-- NavigationDrawer (Mobile Only, Hidden by Default) -->
+<div class="fixed inset-y-0 left-0 z-[60] flex flex-col p-lg bg-surface h-full w-80 rounded-r-xl shadow-lg -translate-x-full transition-transform ease-out duration-300" id="nav-drawer">
+<div class="flex items-center gap-md mb-lg">
+<div class="w-12 h-12 rounded-full overflow-hidden card-border shrink-0">
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of a user in a natural, organic setting. Soft, natural lighting. A warm, artisanal aesthetic consistent with the La Ecoferia brand. Subtle light wood tones and a bone white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCask9RjMYxGn2rmBBpRksC7BH8Qi2uLCZEAfp30I8zczSUQ0X-PaHopaiWdzTk0tZMAEIq-njm7UDGKbGiqElDt_GfW2BzEOuVybqK1UrJzSUqQVoMzWpp8SjzosjI0E7_K3mbtiZvv7CwvD17HLPYJ5SzHCLXMm4IfVZphMO2yUPOXxAMlbxuCtS3u21I9e6jKAj7cohlm0EYWShRpyEE-E_h3Ckc8ERI-YFkbhsQ9Y0yr6o6ElxkXg">
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg text-primary">¡Hola, Biófilo!</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Consumo consciente</p>
+<p class="font-label-caps text-label-caps text-tertiary-container mt-1">Nivel: Semilla</p>
+</div>
+</div>
+<div class="h-px bg-surface-container mb-md w-full"></div>
+<nav class="flex flex-col gap-sm flex-grow">
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined">nature_people</span>
+<span class="font-title-lg text-title-lg">Sobre Nosotros</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined">agriculture</span>
+<span class="font-title-lg text-title-lg">Productores</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined">eco</span>
+<span class="font-title-lg text-title-lg">Sostenibilidad</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-title-lg text-title-lg">Talleres</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-title-lg text-title-lg">Contacto</span>
+</a>
+</nav>
+</div>
+<!-- Drawer Overlay -->
+<div class="fixed inset-0 bg-on-background/30 z-[55] hidden backdrop-blur-sm transition-opacity opacity-0" id="drawer-overlay"></div>
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant flat no shadows">
+<div class="flex justify-between items-center px-container-margin py-md w-full max-w-[1280px] mx-auto">
+<button class="text-primary hover:text-tertiary transition-colors duration-200 cursor-pointer active:scale-95 flex items-center justify-center p-2 -ml-2 rounded-full" id="menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">La Ecoferia</h1>
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant hover:text-tertiary transition-colors duration-200 cursor-pointer active:scale-95 p-2 rounded-full">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-primary hover:text-tertiary transition-colors duration-200 cursor-pointer active:scale-95 p-2 rounded-full relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+</div>
+</div>
+<!-- Category Chips -->
+<div class="w-full overflow-x-auto hide-scrollbar px-container-margin pb-md bg-surface border-t border-surface-container-high">
+<div class="flex gap-3 pt-md w-max">
+<button class="px-4 py-2 rounded-full bg-[#DCC7A1] text-[#3E4A39] font-label-caps text-label-caps shadow-sm">Todos</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps border border-outline-variant hover:bg-surface-variant transition-colors">Despensa</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps border border-outline-variant hover:bg-surface-variant transition-colors">Frescos</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps border border-outline-variant hover:bg-surface-variant transition-colors">Cuidado Personal</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps border border-outline-variant hover:bg-surface-variant transition-colors">Hogar</button>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-container-margin pt-lg">
+<!-- Product Grid (Bento/Asymmetric feel on larger screens, simple grid on mobile) -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-md md:gap-lg">
+<!-- Product Card 1 -->
+<article class="bg-surface rounded-lg overflow-hidden card-border group cursor-pointer flex flex-col relative">
+<div class="absolute top-2 left-2 z-10 bg-[#DCC7A1] text-[#3E4A39] px-2 py-1 rounded-sm font-label-caps text-label-caps text-[10px]">Orgánico</div>
+<div class="aspect-[4/5] bg-surface-container w-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A jar of raw organic honey on a textured wooden table. Soft, natural sunlight streams in, highlighting the golden amber color of the honey. Shot in a minimalist, artisanal style typical of Patagonia, with a bone white background and organic textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNKbum1YdiAE7CL7T_C5gyXLgm8Xpj-D3aXcjYphbneoLu_0QftIMMRaR88OVYaS8y0xl7BoSnMgtFXOufwHHOMdR6K-KhiOI5XZPkf4-Y2qAlmezO6zA7QO_iyKYkOOnf6-DdKtz9bG7loLKpwYJ7-pU9TSfyHcykccdKI6w1KFhcYnKs3PdXjwrfukDWhbgARWcUQ5hr26NVq4MtrSxX-bTMnEVSHJyScPQ4ZUr8PefTEw5tIWNIZQ">
+</div>
+<div class="p-3 flex flex-col flex-grow bg-surface"><span class="font-label-caps text-[10px] text-outline uppercase tracking-wider mb-1">Abeja Obrera</span><h3 class="font-headline-md text-[16px] leading-tight text-on-surface mb-2 line-clamp-2">Miel Cruda de Montaña</h3><div class="mt-auto flex items-center justify-between"><span class="font-title-lg text-title-lg text-[#C67B5C]">$8.500</span><button aria-label="Añadir al carrito" class="w-8 h-8 rounded-full bg-tertiary-container text-on-primary flex items-center justify-center hover:bg-tertiary transition-colors"><span class="material-symbols-outlined text-[18px]">add</span></button></div></div>
+</article>
+<!-- Product Card 2 (Featured, slightly larger aspect ratio if needed, keeping grid for now) -->
+<article class="bg-surface rounded-lg overflow-hidden card-border group cursor-pointer flex flex-col relative md:col-span-2 md:row-span-2">
+<div class="absolute top-2 left-2 z-10 bg-[#DCC7A1] text-[#3E4A39] px-2 py-1 rounded-sm font-label-caps text-label-caps text-[10px]">Local</div>
+<div class="aspect-square md:aspect-auto md:h-[calc(100%-120px)] bg-surface-container w-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A woven basket filled with vibrant, fresh organic root vegetables like carrots and beets. Placed on a rustic kraft paper surface. The lighting is bright and airy, emphasizing the fresh, farm-to-table aesthetic. The scene feels tactile and grounded." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzJmDmOee7MAbTX7fkrzCTLMv3qa0t4R8H-bRGbSLrXLlFl47I_0NOWPyDW5fvvuBxhpK6XOaGuTNJeY23SaCyldITPAYi3KR36zcib93gJ6ElSXMDN8xBmdKtu22B_5lz4lBOSsW8r_cBfFeC63jBtT2dfUSnTS8GwUCEiXbAGc4oDwMS1U-vr2dkCyN0qEwMK3J2vTyEcAq53p5mKm9RzNJmvQ_gx3YLeGXK3I5OavVNroewKerl1g">
+</div>
+<div class="p-4 flex flex-col flex-grow bg-surface"><span class="font-label-caps text-[10px] text-outline uppercase tracking-wider mb-1">EcoFungi</span><h3 class="font-headline-md text-headline-md text-on-surface mb-2">Kit de Autocultivo</h3><p class="font-body-sm text-on-surface-variant mb-4 hidden md:block">Todo lo necesario para cultivar tus propios hongos comestibles en casa de forma sencilla y natural.</p><div class="mt-auto flex items-center justify-between"><span class="font-title-lg text-title-lg text-[#C67B5C]">$15.000</span><button aria-label="Añadir al carrito" class="px-4 py-2 rounded-full bg-tertiary-container text-on-primary font-body-sm text-body-sm hover:bg-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">add_shopping_cart</span><span class="hidden md:inline">Agregar</span></button></div></div>
+</article>
+<!-- Product Card 3 -->
+<article class="bg-surface rounded-lg overflow-hidden card-border group cursor-pointer flex flex-col relative">
+<div class="aspect-[4/5] bg-surface-container w-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A beautifully crafted artisanal ceramic bowl resting on a linen cloth. The bowl has an earthy, unglazed exterior and a speckled interior. Photographed in soft, diffused light against a bone white background, evoking a minimalist, slow-living aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu1klTQ-5gvEG1JX6_D-M9sRXJxtAP-vgAltvZpfERA4QXglkmDQAIjeMatJpanC6lkVWqrR3OaRtCrGY62rlB5UpAyGkSgiW3_zIMtk8oZSWG-pP6mXqsc2Y2cIHrliEM58U_JDLQ911T-NPwAio3IFyaB3qw-xjHgKtWGvPpLNXSHiFMmZB1S2B4GI9EGa-Y-HYPxm7WoRHvf5DMa1oxgtIoQy_6QJq6M1kHauFm0VNhrVCYwWNOjg">
+</div>
+<div class="p-3 flex flex-col flex-grow bg-surface">
+<span class="font-label-caps text-[10px] text-outline uppercase tracking-wider mb-1">Cerámica Pata</span>
+<h3 class="font-headline-md text-[16px] leading-tight text-on-surface mb-2 line-clamp-2">Bowl Rústico Gres</h3>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-title-lg text-title-lg text-[#C67B5C]">$22.000</span>
+<button aria-label="Añadir al carrito" class="w-8 h-8 rounded-full bg-tertiary-container text-on-primary flex items-center justify-center hover:bg-tertiary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 4 -->
+<article class="bg-surface rounded-lg overflow-hidden card-border group cursor-pointer flex flex-col relative">
+<div class="absolute top-2 left-2 z-10 bg-[#DCC7A1] text-[#3E4A39] px-2 py-1 rounded-sm font-label-caps text-label-caps text-[10px]">Fair Trade</div>
+<div class="aspect-[4/5] bg-surface-container w-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A small glass bottle of organic essential oil next to sprigs of dried lavender on a textured wooden block. Minimalist composition. The light is warm and inviting, highlighting the amber liquid. The background is a clean bone white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwxomX9zSphiyBEWFdbF-sk8LMdh2bUYs31rZe2Yy6_esWG5ZINbz63etvC306g5FOB5BkZywDq9LaJiE4KKBN9JZvJBN8SKBdKnw_HS7nrZnqieqzlWI2LltQyvxVjShzZQqAnn7P4irvq77661zKiOgzaeDN97w5YpseE7RlJgqh0XSibwode3aoX0bpDqsKXezLVmMD-2BVcCsTW72YotUNSRW9cHC4SZzNPDrRSTTLdjcuKqrbyw">
+</div>
+<div class="p-3 flex flex-col flex-grow bg-surface"><span class="font-label-caps text-[10px] text-outline uppercase tracking-wider mb-1">Mburucuyá</span><h3 class="font-headline-md text-[16px] leading-tight text-on-surface mb-2 line-clamp-2">Aceite de Cannabis Full Spectrum</h3><div class="mt-auto flex items-center justify-between"><span class="font-title-lg text-title-lg text-[#C67B5C]">$12.500</span><button aria-label="Añadir al carrito" class="w-8 h-8 rounded-full bg-tertiary-container text-on-primary flex items-center justify-center hover:bg-tertiary transition-colors"><span class="material-symbols-outlined text-[18px]">add</span></button></div></div>
+</article>
+<!-- Product Card 5 -->
+<article class="bg-surface rounded-lg overflow-hidden card-border group cursor-pointer flex flex-col relative">
+<div class="aspect-[4/5] bg-surface-container w-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A loaf of artisanal sourdough bread with a deeply caramelized crust, sitting on a wooden cutting board with a bread knife nearby. Shot from a slightly high angle with directional, warm morning light. The setting is clean, highlighting the rustic texture of the bread." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEuN5geIADWX9eRoTSzGlZvOYN4A2PbyZEjintiKByFaPeHCZxKrS4HcWa91h00NHZdJNWS4NB5plCrQXL-HIv6wZ19EWyvaqB9DAxeRFSxe7smvUcNfkLN_cHmQEufOPAUONBCdrCzExDxgAhFIG3zUbbBlskNaTBN-GkPND0sk3jUiMZxsH6Q5_81DnjIZipLvUbhkys4xq3j69K-Zi4J9dkz4iWbbR7Bpo4tpmRhZtbOKV_fUhzSw">
+</div>
+<div class="p-3 flex flex-col flex-grow bg-surface"><span class="font-label-caps text-[10px] text-outline uppercase tracking-wider mb-1">Sano.Fresco.Vivo</span><h3 class="font-headline-md text-[16px] leading-tight text-on-surface mb-2 line-clamp-2">Kéfir de Agua</h3><div class="mt-auto flex items-center justify-between"><span class="font-title-lg text-title-lg text-[#C67B5C]">$4.200</span><button aria-label="Añadir al carrito" class="w-8 h-8 rounded-full bg-tertiary-container text-on-primary flex items-center justify-center hover:bg-tertiary transition-colors"><span class="material-symbols-outlined text-[18px]">add</span></button></div></div>
+</article>
+</div>
+</main>
+<!-- Floating Filter Button (Mobile) -->
+<div class="fixed bottom-[88px] right-container-margin z-40 md:hidden">
+<button class="bg-primary text-on-primary rounded-full px-4 py-3 flex items-center gap-2 shadow-lg hover:bg-primary-container transition-colors card-border" id="filter-btn">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+<span class="font-label-caps text-label-caps">Filtros</span>
+</button>
+</div>
+<!-- Filter Bottom Sheet Modal -->
+<div class="fixed inset-0 z-[70] hidden flex-col justify-end" id="filter-modal">
+<div class="absolute inset-0 bg-on-background/40 backdrop-blur-sm opacity-0 transition-opacity" id="filter-modal-overlay"></div>
+<div class="bg-surface w-full rounded-t-xl card-border transform translate-y-full transition-transform duration-300 relative z-10 flex flex-col max-h-[751px]" id="filter-modal-content">
+<!-- Handle -->
+<div class="w-full flex justify-center py-3">
+<div class="w-12 h-1.5 bg-outline-variant rounded-full"></div>
+</div>
+<!-- Header -->
+<div class="px-container-margin pb-md flex justify-between items-center border-b border-surface-container-high">
+<h2 class="font-headline-md text-[20px] text-primary">Filtros y Orden</h2>
+<button class="p-2 rounded-full hover:bg-surface-variant text-on-surface-variant" id="close-filter-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Content (Scrollable) -->
+<div class="px-container-margin py-lg overflow-y-auto flex-grow flex flex-col gap-lg">
+<!-- Sort -->
+<div>
+<h3 class="font-title-lg text-[16px] mb-3 text-on-surface">Ordenar por</h3>
+<div class="flex gap-2 flex-wrap">
+<button class="px-4 py-2 rounded-full bg-[#DCC7A1] text-[#3E4A39] font-label-caps text-label-caps shadow-sm border border-transparent">Relevancia</button>
+<button class="px-4 py-2 rounded-full bg-surface text-on-surface-variant font-label-caps text-label-caps border border-outline-variant hover:bg-surface-variant">Menor Precio</button>
+<button class="px-4 py-2 rounded-full bg-surface text-on-surface-variant font-label-caps text-label-caps border border-outline-variant hover:bg-surface-variant">Más Nuevos</button>
+</div>
+</div>
+<div class="h-px bg-surface-container w-full"></div>
+<!-- Price Range -->
+<div>
+<h3 class="font-title-lg text-[16px] mb-3 text-on-surface">Rango de Precio</h3>
+<div class="flex items-center gap-4">
+<div class="flex-1">
+<label class="block font-label-caps text-[10px] text-outline mb-1">Mínimo</label>
+<input class="w-full bg-[#F2F0EA] border-0 border-b border-[#DCC7A1] focus:ring-0 focus:border-tertiary-container font-body-md text-on-surface p-2 rounded-t-md" placeholder="$0" type="number">
+</div>
+<span class="text-outline-variant mt-4">-</span>
+<div class="flex-1">
+<label class="block font-label-caps text-[10px] text-outline mb-1">Máximo</label>
+<input class="w-full bg-[#F2F0EA] border-0 border-b border-[#DCC7A1] focus:ring-0 focus:border-tertiary-container font-body-md text-on-surface p-2 rounded-t-md" placeholder="$50.000" type="number">
+</div>
+</div>
+</div>
+<div class="h-px bg-surface-container w-full"></div>
+<!-- Brand -->
+<div>
+<h3 class="font-title-lg text-[16px] mb-3 text-on-surface">Marcas</h3>
+<div class="flex flex-col gap-3"><label class="flex items-center gap-3 cursor-pointer"><input class="form-checkbox text-[#7D8E74] rounded border-outline-variant focus:ring-[#7D8E74]" type="checkbox"><span class="font-body-md text-on-surface-variant">Abeja Obrera SMA</span></label><label class="flex items-center gap-3 cursor-pointer"><input class="form-checkbox text-[#7D8E74] rounded border-outline-variant focus:ring-[#7D8E74]" type="checkbox"><span class="font-body-md text-on-surface-variant">EcoFungi Patagonia</span></label><label class="flex items-center gap-3 cursor-pointer"><input class="form-checkbox text-[#7D8E74] rounded border-outline-variant focus:ring-[#7D8E74]" type="checkbox"><span class="font-body-md text-on-surface-variant">Mburucuyá</span></label><label class="flex items-center gap-3 cursor-pointer"><input class="form-checkbox text-[#7D8E74] rounded border-outline-variant focus:ring-[#7D8E74]" type="checkbox"><span class="font-body-md text-on-surface-variant">Sano.Fresco.Vivo</span></label></div>
+</div>
+</div>
+<!-- Footer Buttons -->
+<div class="p-container-margin border-t border-surface-container-high bg-surface flex gap-4">
+<button class="flex-1 py-3 rounded-md border border-[#C67B5C] text-[#C67B5C] font-title-lg text-[16px] hover:bg-surface-variant transition-colors">Limpiar</button>
+<button class="flex-1 py-3 rounded-md bg-[#7D8E74] text-white font-title-lg text-[16px] hover:bg-primary-container transition-colors shadow-[0_4px_0_0_rgba(62,74,57,0.1)]">Aplicar (45)</button>
+</div>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-low border-t border-outline-variant shadow-sm md:hidden">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 pb-safe">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-caps text-label-caps mt-1">Mercado</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-1 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">event</span>
+<span class="font-label-caps text-label-caps mt-1">Agenda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-1 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">article</span>
+<span class="font-label-caps text-label-caps mt-1">Blog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-1 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps mt-1">Perfil</span>
+</a>
+</div>
+</nav>
+<!-- Desktop Footer Placeholder (To match design system requirements conceptually, though hidden on small screens) -->
+<footer class="w-full mt-xl bg-surface-container-highest text-on-surface font-body-sm text-body-sm w-full border-t border-outline-variant flat hidden md:flex flex-col items-center gap-md text-center max-w-[1280px] mx-auto px-container-margin py-xl">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary-container">La Ecoferia</h2>
+<div class="flex gap-lg flex-wrap justify-center">
+<a class="text-on-surface-variant hover:text-tertiary-container underline transition-opacity duration-200" href="#">Privacidad</a>
+<a class="text-on-surface-variant hover:text-tertiary-container underline transition-opacity duration-200" href="#">Términos</a>
+<a class="text-on-surface-variant hover:text-tertiary-container underline transition-opacity duration-200" href="#">Preguntas Frecuentes</a>
+<a class="text-on-surface-variant hover:text-tertiary-container underline transition-opacity duration-200" href="#">Puntos de Entrega</a>
+</div>
+<p class="mt-4 text-outline">2024 La Ecoferia - Cultivando el Mañana</p>
+</footer>
+<script>
+        // Drawer Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const navDrawer = document.getElementById('nav-drawer');
+        const drawerOverlay = document.getElementById('drawer-overlay');
+
+        function toggleDrawer() {
+            const isClosed = navDrawer.classList.contains('-translate-x-full');
+            if (isClosed) {
+                navDrawer.classList.remove('-translate-x-full');
+                drawerOverlay.classList.remove('hidden');
+                // Small delay to allow display:block to apply before animating opacity
+                setTimeout(() => {
+                    drawerOverlay.classList.remove('opacity-0');
+                    drawerOverlay.classList.add('opacity-100');
+                }, 10);
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            } else {
+                navDrawer.classList.add('-translate-x-full');
+                drawerOverlay.classList.remove('opacity-100');
+                drawerOverlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    drawerOverlay.classList.add('hidden');
+                }, 300); // match transition duration
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleDrawer);
+        drawerOverlay.addEventListener('click', toggleDrawer);
+
+
+        // Filter Modal Logic
+        const filterBtn = document.getElementById('filter-btn');
+        const filterModal = document.getElementById('filter-modal');
+        const filterModalOverlay = document.getElementById('filter-modal-overlay');
+        const filterModalContent = document.getElementById('filter-modal-content');
+        const closeFilterBtn = document.getElementById('close-filter-btn');
+
+        function openFilter() {
+            filterModal.classList.remove('hidden');
+            filterModal.classList.add('flex');
+            
+            setTimeout(() => {
+                filterModalOverlay.classList.remove('opacity-0');
+                filterModalContent.classList.remove('translate-y-full');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFilter() {
+            filterModalOverlay.classList.add('opacity-0');
+            filterModalContent.classList.add('translate-y-full');
+            
+            setTimeout(() => {
+                filterModal.classList.add('hidden');
+                filterModal.classList.remove('flex');
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        if(filterBtn) filterBtn.addEventListener('click', openFilter);
+        closeFilterBtn.addEventListener('click', closeFilter);
+        filterModalOverlay.addEventListener('click', closeFilter);
+    </script>
+
+
+</body></html>

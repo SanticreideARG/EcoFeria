@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Local database (PGlite dev data)
+packages/db/.pglite/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+*.log
+
+# Deploy / tooling caches
+.vercel/
+.turbo/
+coverage/

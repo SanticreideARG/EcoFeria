@@ -1,0 +1,356 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Sustainable Marketplace - Global Overview</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#370e00",
+                        "inverse-primary": "#baccaf",
+                        "surface-tint": "#53634b",
+                        "primary-container": "#697960",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#eae8e3",
+                        "primary-fixed-dim": "#baccaf",
+                        "tertiary-container": "#9a6c00",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "outline": "#757870",
+                        "surface-container-highest": "#e4e2dd",
+                        "inverse-surface": "#30312e",
+                        "secondary-fixed-dim": "#ffb598",
+                        "on-background": "#1b1c19",
+                        "on-surface": "#1b1c19",
+                        "tertiary": "#7a5500",
+                        "secondary": "#8e4d31",
+                        "on-tertiary-container": "#fffbff",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fbf9f4",
+                        "surface-variant": "#e4e2dd",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "surface-dim": "#dbdad5",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "on-secondary-fixed-variant": "#71361d",
+                        "on-primary-container": "#f8ffef",
+                        "secondary-container": "#feaa88",
+                        "on-primary-fixed": "#111f0d",
+                        "on-primary": "#ffffff",
+                        "primary": "#506049",
+                        "surface-container-low": "#f5f3ee",
+                        "surface-container": "#f0eee9",
+                        "secondary-fixed": "#ffdbce",
+                        "background": "#fbf9f4",
+                        "on-tertiary-fixed": "#271900",
+                        "primary-fixed": "#d6e8ca",
+                        "on-secondary-container": "#783c22",
+                        "tertiary-fixed": "#ffdeaa",
+                        "outline-variant": "#c4c8be",
+                        "on-surface-variant": "#444841",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fbf9f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "40px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "gutter": "12px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "title-lg": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Minimalist paper texture overlay for surface containers */
+        .paper-texture {
+            position: relative;
+        }
+        .paper-texture::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 10;
+            border-radius: inherit;
+        }
+        
+        /* Subtle custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #c4c8be;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen antialiased flex flex-col md:flex-row">
+<!-- Mobile Top App Bar (Only visible on mobile) -->
+<header class="flex md:hidden justify-between items-center w-full px-container-margin h-16 fixed top-0 z-50 bg-surface-bright dark:bg-surface-dim border-b border-outline-variant dark:border-outline">
+<div class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">
+            Sustainable Marketplace
+        </div>
+<div class="flex items-center gap-sm">
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer rounded-full hover:bg-surface-container ml-2" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Side Navigation Bar (Desktop Persistent) -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface dark:bg-surface-dim border-r border-outline-variant dark:border-outline p-lg overflow-y-auto z-40 transition-transform duration-300" id="side-nav">
+<!-- Header / Brand Area -->
+<div class="mb-xl flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant flex-shrink-0">
+<img alt="Admin Profile Avatar" class="w-full h-full object-cover" data-alt="A close up, high quality studio portrait of a mature male executive or administrator with a warm, welcoming expression. The lighting is soft and natural, emphasizing a trustworthy and professional demeanor. The background is a very subtle, out-of-focus natural texture like linen or soft wood, fitting a sustainable, eco-conscious brand identity. The color palette is earthy and grounded." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjZ5gtu-ITmvUzlTCho-mAT2vNsLJ44P86JyzWQMGjf85-q5SiZCRSa3kZBHegD7OjAkEutYKLANyYsC8WJXclha3E8vHcrBSsrJb8MAZhzKJdKklFjro6OEM5imvGkQqSjNtuAVbSgY80byDO8VxXYQvKAQ6xaJAVF1BwAoZx1ue_AIfZR0XIWww50B9cmUo73ODGqp8FtGsiyeq_ELMQ0hTdeHSMMPzd1reFXDdrOclwy4tBPLvRnQ">
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg text-primary dark:text-primary-fixed-dim">Patagonia Admin</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Marketplace Guardian</p>
+</div>
+</div>
+<!-- Main Navigation Links -->
+<nav class="flex-1 space-y-sm"><a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-lg active:scale-95 transition-transform" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span><span class="">Métricas</span></a><a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200 active:scale-95" href="#"><span class="material-symbols-outlined">eco</span><span class="">Marcas</span></a><a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200 active:scale-95" href="#"><span class="material-symbols-outlined">storefront</span><span class="">Vendedores</span></a><a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200 active:scale-95" href="#"><span class="material-symbols-outlined">gavel</span><span class="">Moderación</span></a><a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200 active:scale-95" href="#"><span class="material-symbols-outlined">menu_book</span><span class="">Blog/Agenda</span></a><a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200 active:scale-95" href="#"><span class="material-symbols-outlined">local_shipping</span><span class="">Pedidos Globales</span></a></nav>
+<!-- CTA & Footer Actions -->
+<div class="mt-xl pt-lg border-t border-outline-variant space-y-md"><button class="w-full py-sm px-md bg-surface border border-outline rounded-lg text-primary font-title-lg text-title-lg hover:bg-surface-container transition-colors duration-200 flex justify-center items-center gap-sm">Ajustes del Sistema</button><div class="space-y-sm"><a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200" href="#"><span class="material-symbols-outlined">help</span><span class="">Soporte</span></a><a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200" href="#"><span class="material-symbols-outlined">logout</span><span class="">Cerrar Sesión</span></a></div></div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 pt-20 md:pt-0 p-container-margin md:p-xl max-w-[1280px] mx-auto w-full">
+<!-- Page Header -->
+<div class="mb-lg flex flex-col sm:flex-row sm:items-end justify-between gap-md">
+<div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-xs">Resumen Global</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Métricas de actividad y salud del mercado en tiempo real.</p>
+</div>
+<!-- Date Filter / Quick Action -->
+<div class="flex items-center gap-sm bg-surface-container-low border border-outline-variant rounded-full px-md py-sm w-max paper-texture">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">calendar_today</span>
+<span class="font-label-caps text-label-caps text-on-surface">ÚLTIMOS 30 DÍAS</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer hover:text-primary transition-colors">expand_more</span>
+</div>
+</div>
+<!-- Bento Grid Layout for Dashboard Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg auto-rows-min">
+<!-- CORE METRICS CARDS (Top Row) -->
+<!-- Total Sales -->
+<div class="md:col-span-3 bg-surface border border-[#DCC7A1] rounded-xl p-lg paper-texture flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-lg">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="flex items-center text-primary font-label-caps text-label-caps bg-surface-container px-sm py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span> +12.5%
+                    </span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs">VENTAS TOTALES</p>
+<p class="font-headline-md text-headline-md text-on-background">$2.4M</p>
+</div>
+</div>
+<!-- Active Brands -->
+<div class="md:col-span-3 bg-surface border border-[#DCC7A1] rounded-xl p-lg paper-texture flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-lg">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined">store</span>
+</div>
+<span class="flex items-center text-primary font-label-caps text-label-caps bg-surface-container px-sm py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span> +4
+                    </span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs">MARCAS ACTIVAS</p>
+<p class="font-headline-md text-headline-md text-on-background">1,842</p>
+</div>
+</div>
+<!-- Pending Approvals -->
+<div class="md:col-span-3 bg-surface border border-[#DCC7A1] rounded-xl p-lg paper-texture flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-lg">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+<span class="flex items-center text-secondary font-label-caps text-label-caps bg-surface-container px-sm py-1 rounded-full">
+                        Action Needed
+                    </span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs">VENDEDORES PENDIENTES</p>
+<p class="font-headline-md text-headline-md text-on-background">47</p>
+</div>
+</div>
+<!-- Today's Orders -->
+<div class="md:col-span-3 bg-surface border border-[#DCC7A1] rounded-xl p-lg paper-texture flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-lg">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<span class="flex items-center text-on-surface-variant font-label-caps text-label-caps bg-surface-container px-sm py-1 rounded-full">
+                        Steady
+                    </span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs">PEDIDOS DE HOY</p>
+<p class="font-headline-md text-headline-md text-on-background">3,105</p>
+</div>
+</div>
+<!-- MIDDLE SECTION: Chart & Activity Feed -->
+<!-- Sales Trend Chart Area -->
+<div class="md:col-span-8 bg-surface border border-[#DCC7A1] rounded-xl p-lg paper-texture min-h-[400px] flex flex-col">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-title-lg text-title-lg text-on-background">Volumen de Ventas (30 Días)</h3>
+<button class="text-primary hover:text-surface-tint transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Chart Placeholder / Visualization Area -->
+<div class="flex-1 w-full bg-surface-container-lowest rounded-lg border border-outline-variant relative overflow-hidden flex items-end p-sm pt-xl">
+<!-- Faux Line Chart using pure CSS/SVG for structural demonstration -->
+<svg class="w-full h-full preserve-aspect-ratio-none" preserveAspectRatio="none" viewBox="0 0 100 40">
+<!-- Grid lines -->
+<line stroke="#e4e2dd" stroke-dasharray="2,2" stroke-width="0.5" x1="0" x2="100" y1="10" y2="10"></line>
+<line stroke="#e4e2dd" stroke-dasharray="2,2" stroke-width="0.5" x1="0" x2="100" y1="20" y2="20"></line>
+<line stroke="#e4e2dd" stroke-dasharray="2,2" stroke-width="0.5" x1="0" x2="100" y1="30" y2="30"></line>
+<!-- Gradient Fill under line -->
+<linearGradient id="chartGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#506049" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#506049" stop-opacity="0"></stop>
+</linearGradient>
+<path d="M0,35 L10,32 L20,38 L30,25 L40,28 L50,15 L60,20 L70,10 L80,18 L90,5 L100,8 L100,40 L0,40 Z" fill="url(#chartGradient)"></path>
+<!-- Line -->
+<path d="M0,35 L10,32 L20,38 L30,25 L40,28 L50,15 L60,20 L70,10 L80,18 L90,5 L100,8" fill="none" stroke="#506049" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+<!-- Data Points -->
+<circle cx="50" cy="15" fill="#fbf9f4" r="1.5" stroke="#506049" stroke-width="0.5" vector-effect="non-scaling-stroke"></circle>
+<circle cx="70" cy="10" fill="#fbf9f4" r="1.5" stroke="#506049" stroke-width="0.5" vector-effect="non-scaling-stroke"></circle>
+<circle cx="90" cy="5" fill="#fbf9f4" r="1.5" stroke="#506049" stroke-width="0.5" vector-effect="non-scaling-stroke"></circle>
+</svg>
+<!-- X-Axis Labels -->
+<div class="absolute bottom-1 left-4 right-4 flex justify-between font-label-caps text-[10px] text-on-surface-variant opacity-70"><span class="">1 Oct</span><span class="">15 Oct</span><span class="">30 Oct</span></div>
+</div>
+</div>
+<!-- Recent Activity Feed -->
+<div class="md:col-span-4 bg-surface border border-[#DCC7A1] rounded-xl p-lg paper-texture flex flex-col h-full max-h-[500px]">
+<div class="flex justify-between items-center mb-md pb-sm border-b border-[#DCC7A1] border-opacity-30">
+<h3 class="font-title-lg text-title-lg text-on-background">Actividad Reciente</h3>
+<a class="text-primary font-label-caps text-label-caps hover:underline" href="#">VER TODO</a>
+</div>
+<div class="flex-1 overflow-y-auto pr-2 space-y-md">
+<!-- Activity Item 1 -->
+<div class="flex gap-md group cursor-pointer">
+<div class="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm">verified</span>
+</div>
+<div class="pb-md border-b border-outline-variant w-full border-opacity-40">
+<p class="font-body-md text-body-md text-on-background leading-snug">New brand registration: <span class="font-semibold">Pampa Textiles</span> approved.</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">10 MINS AGO • MODERATION</p>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex gap-md group cursor-pointer">
+<div class="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+</div>
+<div class="pb-md border-b border-outline-variant w-full border-opacity-40">
+<p class="font-body-md text-body-md text-on-background leading-snug">Order <span class="font-semibold">#5021</span> has been shipped to Portland, OR.</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">45 MINS AGO • FULFILLMENT</p>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex gap-md group cursor-pointer">
+<div class="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm">warning</span>
+</div>
+<div class="pb-md border-b border-outline-variant w-full border-opacity-40">
+<p class="font-body-md text-body-md text-on-background leading-snug">Inventory alert: <span class="font-semibold">Organic Cotton Totes</span> running low.</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">2 HOURS AGO • SYSTEM</p>
+</div>
+</div>
+<!-- Activity Item 4 -->
+<div class="flex gap-md group cursor-pointer">
+<div class="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+</div>
+<div class="pb-xs w-full">
+<p class="font-body-md text-body-md text-on-background leading-snug">Support ticket <span class="font-semibold">#992</span> escalated to Tier 2.</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">3 HOURS AGO • CUSTOMER SERVICE</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple JS for Mobile Menu Toggle -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const sideNav = document.getElementById('side-nav');
+            
+            if(mobileMenuBtn && sideNav) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    sideNav.classList.toggle('hidden');
+                    sideNav.classList.toggle('flex');
+                    // Add a scrim overlay in a real app, simplified here
+                    if(!sideNav.classList.contains('hidden')) {
+                         sideNav.style.width = '100%';
+                         sideNav.style.zIndex = '60';
+                    } else {
+                         sideNav.style.width = '16rem';
+                    }
+                });
+            }
+        });
+    </script>
+
+
+</body></html>

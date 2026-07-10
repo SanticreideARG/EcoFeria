@@ -1,0 +1,375 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Global Orders - Patagonia Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#370e00",
+                        "inverse-primary": "#baccaf",
+                        "surface-tint": "#53634b",
+                        "primary-container": "#697960",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#eae8e3",
+                        "primary-fixed-dim": "#baccaf",
+                        "tertiary-container": "#9a6c00",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "outline": "#757870",
+                        "surface-container-highest": "#e4e2dd",
+                        "inverse-surface": "#30312e",
+                        "secondary-fixed-dim": "#ffb598",
+                        "on-background": "#1b1c19",
+                        "on-surface": "#1b1c19",
+                        "tertiary": "#7a5500",
+                        "secondary": "#8e4d31",
+                        "on-tertiary-container": "#fffbff",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fbf9f4",
+                        "surface-variant": "#e4e2dd",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "surface-dim": "#dbdad5",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "on-secondary-fixed-variant": "#71361d",
+                        "on-primary-container": "#f8ffef",
+                        "secondary-container": "#feaa88",
+                        "on-primary-fixed": "#111f0d",
+                        "on-primary": "#ffffff",
+                        "primary": "#506049",
+                        "surface-container-low": "#f5f3ee",
+                        "surface-container": "#f0eee9",
+                        "secondary-fixed": "#ffdbce",
+                        "background": "#fbf9f4",
+                        "on-tertiary-fixed": "#271900",
+                        "primary-fixed": "#d6e8ca",
+                        "on-secondary-container": "#783c22",
+                        "tertiary-fixed": "#ffdeaa",
+                        "outline-variant": "#c4c8be",
+                        "on-surface-variant": "#444841",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fbf9f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "40px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "gutter": "12px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "title-lg": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .texture-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        /* Custom scrollbar for a polished feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #c4c8be;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background h-full font-body-md antialiased overflow-hidden flex">
+<div class="texture-overlay"></div>
+<!-- SideNavBar (Desktop Persistent) -->
+<nav class="hidden md:flex h-screen w-64 fixed left-0 top-0 bg-surface dark:bg-surface-dim border-r border-outline-variant dark:border-outline flex-col p-lg overflow-y-auto z-40">
+<!-- Header -->
+<div class="mb-xl flex flex-col items-center">
+<img alt="Admin Profile Avatar" class="w-16 h-16 rounded-full mb-sm object-cover border border-outline-variant" data-alt="A small, circular avatar portrait of an outdoorsy professional wearing a casual fleece jacket, photographed with soft natural lighting against a blurred natural background. The image has a warm, artisanal Patagonia-inspired aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzy3z0w-2ngmnVAnT_Q09-fLnTPHLTjUbAN4u4L06MYr92FGSHeTtSx_yAkRSouK4TYnwBr92OijPntspFWTDvPpqqHSDD-TLiP92uSo5synCY-Y3T3_Cw57vKz5KJ-pvhJJhoCxDk3kWTTYhIRAXtvgOOfRdd3_6ksE2nb6UQ7XeQlppCHoc5Q814AfTekR64Qo0HNmUUUu1GuZqafLeT9kX_NqV9kKHbifHH2YBdvU4rHJA2KGTaw">
+<h2 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim text-center">Patagonia Admin</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center">Marketplace Guardian</p>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-sm flex-grow">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200 active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">analytics</span>
+<span>Metrics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200 active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">eco</span>
+<span>Brands</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200 active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">storefront</span>
+<span>Sellers</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200 active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">gavel</span>
+<span>Moderation</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200 active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">menu_book</span>
+<span>Blog/Agenda</span>
+</a>
+<!-- Active Item: Global Orders -->
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-bold">Global Orders</span>
+</a>
+</div>
+<!-- Footer Actions -->
+<div class="mt-auto pt-lg border-t border-outline-variant flex flex-col gap-sm">
+<button class="w-full bg-[#7D8E74] hover:bg-primary text-white font-body-sm text-body-sm py-sm rounded-lg transition-colors mb-sm shadow-sm">
+                System Settings
+            </button>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar (Mobile Only) -->
+<header class="flex md:hidden justify-between items-center w-full px-container-margin h-16 fixed top-0 z-50 bg-surface-bright dark:bg-surface-dim border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim font-bold tracking-tight">Sustainable Marketplace</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">settings</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow md:ml-64 pt-16 md:pt-0 h-screen overflow-y-auto bg-background">
+<div class="max-w-[1280px] mx-auto px-container-margin md:px-lg py-lg md:py-xl">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-lg gap-md">
+<div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-primary mb-xs">Global Orders</h1>
+<p class="font-body-md text-on-surface-variant">Manage and monitor all platform transactions.</p>
+</div>
+<!-- Filters -->
+<div class="flex flex-wrap items-center gap-sm bg-surface-container-low p-sm rounded-lg border border-outline-variant">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">calendar_today</span>
+<select class="pl-xl pr-md py-sm bg-transparent border-none text-body-sm font-body-sm text-on-surface focus:ring-0 cursor-pointer appearance-none">
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+<option>This Year</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-sm pointer-events-none">arrow_drop_down</span>
+</div>
+<div class="w-px h-6 bg-outline-variant mx-xs"></div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">filter_list</span>
+<select class="pl-xl pr-md py-sm bg-transparent border-none text-body-sm font-body-sm text-on-surface focus:ring-0 cursor-pointer appearance-none">
+<option>All Statuses</option>
+<option>Processing</option>
+<option>Shipped</option>
+<option>Delivered</option>
+<option>Canceled</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-sm pointer-events-none">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout for Orders -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-md">
+<!-- Main Order List (Spans 2 columns on lg screens) -->
+<div class="lg:col-span-2 bg-surface rounded-xl border border-[#DCC7A1] overflow-hidden shadow-[0_4px_24px_rgba(62,74,57,0.04)]">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#DCC7A1]/50 bg-[#F9F7F2]/50">
+<th class="py-md px-lg font-label-caps text-label-caps text-on-surface-variant">Order #</th>
+<th class="py-md px-lg font-label-caps text-label-caps text-on-surface-variant">Date</th>
+<th class="py-md px-lg font-label-caps text-label-caps text-on-surface-variant">Customer</th>
+<th class="py-md px-lg font-label-caps text-label-caps text-on-surface-variant text-right">Total</th>
+<th class="py-md px-lg font-label-caps text-label-caps text-on-surface-variant">Status</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm">
+<!-- Order Row 1 -->
+<tr class="border-b border-[#DCC7A1]/30 hover:bg-surface-container-low transition-colors cursor-pointer group" onclick="document.getElementById('summary-panel').classList.remove('hidden')">
+<td class="py-md px-lg font-medium text-primary">#ORD-0921</td>
+<td class="py-md px-lg text-on-surface-variant">Oct 24, 2023</td>
+<td class="py-md px-lg flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-xs font-bold">EK</div>
+<span>Elena K.</span>
+</td>
+<td class="py-md px-lg text-right font-medium text-[#C67B5C]">$145.00</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-[#DCC7A1]/30 text-[#3E4A39] text-xs font-semibold">
+                                            Processing
+                                        </span>
+</td>
+</tr>
+<!-- Order Row 2 -->
+<tr class="border-b border-[#DCC7A1]/30 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="py-md px-lg font-medium text-primary">#ORD-0920</td>
+<td class="py-md px-lg text-on-surface-variant">Oct 23, 2023</td>
+<td class="py-md px-lg flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-xs font-bold">MJ</div>
+<span>Marcus J.</span>
+</td>
+<td class="py-md px-lg text-right font-medium text-[#C67B5C]">$320.50</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">
+                                            Shipped
+                                        </span>
+</td>
+</tr>
+<!-- Order Row 3 -->
+<tr class="border-b border-[#DCC7A1]/30 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="py-md px-lg font-medium text-primary">#ORD-0919</td>
+<td class="py-md px-lg text-on-surface-variant">Oct 22, 2023</td>
+<td class="py-md px-lg flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-xs font-bold">SL</div>
+<span>Sarah L.</span>
+</td>
+<td class="py-md px-lg text-right font-medium text-[#C67B5C]">$85.00</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-xs font-semibold">
+                                            Delivered
+                                        </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Order Summary Panel (Sticky or inline depending on scroll) -->
+<div class="lg:col-span-1 hidden lg:block h-fit sticky top-lg" id="summary-panel">
+<div class="bg-surface rounded-xl border border-[#DCC7A1] p-lg shadow-[0_4px_24px_rgba(62,74,57,0.08)] relative">
+<!-- Decorative top edge -->
+<div class="absolute top-0 left-0 w-full h-1 bg-[#7D8E74] rounded-t-xl"></div>
+<div class="flex justify-between items-start mb-md mt-sm">
+<div>
+<h3 class="font-title-lg text-title-lg text-primary">Order #ORD-0921</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Oct 24, 2023 • 14:32 PST</p>
+</div>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-[#DCC7A1]/30 text-[#3E4A39] text-xs font-semibold">
+                                Processing
+                            </span>
+</div>
+<div class="border-t border-b border-[#DCC7A1]/30 py-md mb-md">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-sm">Customer Details</h4>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">EK</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface">Elena K.</p>
+<p class="font-body-sm text-on-surface-variant">elena.k@example.com</p>
+</div>
+</div>
+</div>
+<div class="mb-md">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-sm">Items</h4>
+<div class="flex gap-md items-start mb-sm">
+<div class="w-16 h-16 rounded border border-outline-variant overflow-hidden shrink-0">
+<img alt="Canvas Backpack" class="w-full h-full object-cover" data-alt="A close-up product shot of a rugged, olive-green canvas backpack resting on a wooden table. Soft, natural window light highlights the texture of the organic cotton canvas and the solid brass hardware. The aesthetic is tactile, premium, and outdoorsy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuT3Z2FStRtCzNtTFv0WgGzGmDm8qqNBjSpaTvy1YhD16VyKwekRWZDM2kwleSrFU62zF8nhFnBwMI6-uYyksi4deVs6EVgGdgutchIpMrw5yvnIpGG3aVsdhtb2hZDBm6y-XovH8K-z5QkoAj1fFW092fKXN4IZ_YJZT0I52V944T4FoS0ahNfot3pPZ-0323mrzPiCFNalqwrCLbEXZDAW5SSGOoQBZnZtLO2SbAT8CWzSeqCwOKQQ">
+</div>
+<div class="flex-grow">
+<p class="font-body-sm font-semibold text-on-surface">Organic Canvas Rucksack</p>
+<p class="font-body-sm text-on-surface-variant">Qty: 1</p>
+</div>
+<p class="font-body-sm font-medium text-[#C67B5C]">$145.00</p>
+</div>
+</div>
+<div class="border-t border-[#DCC7A1]/30 pt-md mt-auto">
+<div class="flex justify-between items-center mb-sm">
+<span class="font-body-sm text-on-surface-variant">Subtotal</span>
+<span class="font-body-sm text-on-surface">$145.00</span>
+</div>
+<div class="flex justify-between items-center mb-md">
+<span class="font-body-sm text-on-surface-variant">Shipping (Carbon Neutral)</span>
+<span class="font-body-sm text-on-surface">$0.00</span>
+</div>
+<div class="flex justify-between items-center font-semibold text-lg">
+<span class="text-primary">Total</span>
+<span class="text-[#C67B5C]">$145.00</span>
+</div>
+</div>
+<div class="mt-lg flex gap-sm">
+<button class="flex-1 bg-[#7D8E74] hover:bg-primary text-white font-body-sm text-body-sm py-sm rounded-lg transition-colors text-center shadow-sm">
+                                Mark Shipped
+                            </button>
+<button class="flex-1 border border-[#C67B5C] text-[#C67B5C] hover:bg-[#C67B5C]/10 font-body-sm text-body-sm py-sm rounded-lg transition-colors text-center">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple script to toggle mobile menu (if needed, though hidden on desktop)
+        // and handle order row clicks to show summary on mobile
+        document.addEventListener('DOMContentLoaded', () => {
+            const rows = document.querySelectorAll('tbody tr');
+            const summaryPanel = document.getElementById('summary-panel');
+            
+            rows.forEach(row => {
+                row.addEventListener('click', () => {
+                    // In a real app, this would populate the panel with row data
+                    summaryPanel.classList.remove('hidden');
+                    
+                    // On mobile, maybe scroll to it or open as modal
+                    if (window.innerWidth < 1024) {
+                        summaryPanel.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>

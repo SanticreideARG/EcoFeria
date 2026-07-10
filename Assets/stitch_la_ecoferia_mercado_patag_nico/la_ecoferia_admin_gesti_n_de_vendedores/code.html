@@ -1,0 +1,297 @@
+<!DOCTYPE html><html class="h-full bg-surface" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Seller Approvals | Patagonia Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#ffdad6",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#370e00",
+                      "inverse-primary": "#baccaf",
+                      "surface-tint": "#53634b",
+                      "primary-container": "#697960",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-high": "#eae8e3",
+                      "primary-fixed-dim": "#baccaf",
+                      "tertiary-container": "#9a6c00",
+                      "on-tertiary-fixed-variant": "#5f4100",
+                      "outline": "#757870",
+                      "surface-container-highest": "#e4e2dd",
+                      "inverse-surface": "#30312e",
+                      "secondary-fixed-dim": "#ffb598",
+                      "on-background": "#1b1c19",
+                      "on-surface": "#1b1c19",
+                      "tertiary": "#7a5500",
+                      "secondary": "#8e4d31",
+                      "on-tertiary-container": "#fffbff",
+                      "error": "#ba1a1a",
+                      "surface-bright": "#fbf9f4",
+                      "surface-variant": "#e4e2dd",
+                      "tertiary-fixed-dim": "#fabc45",
+                      "surface-dim": "#dbdad5",
+                      "on-primary-fixed-variant": "#3c4b35",
+                      "on-secondary-fixed-variant": "#71361d",
+                      "on-primary-container": "#f8ffef",
+                      "secondary-container": "#feaa88",
+                      "on-primary-fixed": "#111f0d",
+                      "on-primary": "#ffffff",
+                      "primary": "#506049",
+                      "surface-container-low": "#f5f3ee",
+                      "surface-container": "#f0eee9",
+                      "secondary-fixed": "#ffdbce",
+                      "background": "#fbf9f4",
+                      "on-tertiary-fixed": "#271900",
+                      "primary-fixed": "#d6e8ca",
+                      "on-secondary-container": "#783c22",
+                      "tertiary-fixed": "#ffdeaa",
+                      "outline-variant": "#c4c8be",
+                      "on-surface-variant": "#444841",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-error": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface": "#fbf9f4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "40px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "gutter": "12px",
+                      "sm": "8px",
+                      "unit": "4px",
+                      "container-margin": "20px"
+              },
+              "fontFamily": {
+                      "label-caps": ["Inter"],
+                      "display-lg": ["Playfair Display"],
+                      "title-lg": ["Inter"],
+                      "display-lg-mobile": ["Playfair Display"],
+                      "headline-md": ["Playfair Display"],
+                      "body-sm": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .texture-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="h-full bg-background text-on-background relative overflow-hidden flex font-body-md text-body-md">
+<div class="texture-overlay"></div>
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-surface p-lg overflow-y-auto z-20">
+<div class="mb-xl">
+<h1 class="font-headline-md text-headline-md text-primary">Patagonia Admin</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Marketplace Guardian</p>
+</div>
+<div class="flex-1 space-y-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Metrics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">eco</span>
+<span>Brands</span>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span>Sellers</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span>Moderation</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span>Blog/Agenda</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span>Global Orders</span>
+</a>
+</div>
+<div class="mt-auto space-y-xs pt-lg border-t border-outline-variant">
+<button class="w-full mb-md bg-secondary text-on-secondary py-sm rounded-lg font-label-caps text-label-caps hover:bg-secondary-container hover:text-on-secondary-container transition-colors">
+                System Settings
+            </button>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar (Mobile) -->
+<header class="flex md:hidden justify-between items-center w-full px-container-margin h-16 fixed top-0 z-50 bg-surface-bright border-b border-outline-variant">
+<h1 class="font-headline-md text-headline-md text-primary font-bold">Sustainable Marketplace</h1>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">settings</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 pt-16 md:pt-0 overflow-y-auto w-full h-full p-container-margin md:p-xl relative z-10">
+<!-- Header & Filters -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-lg gap-md">
+<div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-unit">Seller Approvals</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Review and manage incoming artisan applications.</p>
+</div>
+<div class="flex flex-wrap gap-sm">
+<button class="px-md py-sm rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps border border-primary">
+                    Pending (12)
+                </button>
+<button class="px-md py-sm rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps border border-outline-variant hover:bg-surface-container-high">
+                    Approved
+                </button>
+<button class="px-md py-sm rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps border border-outline-variant hover:bg-surface-container-high">
+                    Rejected
+                </button>
+</div>
+</div>
+<!-- Applications List (Bento-ish Grid on Desktop, Stack on Mobile) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-md md:gap-lg">
+<!-- Application Card 1 -->
+<div class="bg-surface-container-lowest border border-[#DCC7A1] rounded-lg p-md md:p-lg flex flex-col justify-between hover:shadow-[0_4px_12px_rgba(62,74,57,0.08)] transition-shadow duration-300 relative group overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-transparent to-surface-container-low opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+<div class="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center mb-md gap-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant shrink-0">
+<img class="w-full h-full object-cover" data-alt="A portrait photograph of an elderly artisan in a sunlit workshop weaving textiles. Warm light, natural tones, highly detailed, professional photography, documentary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPsD3xUWeuTFSsMMLKCKgK9J_mCDf2zUICWdUBjwxSvsaCeGRHEz6XsIGt-27OuVQ1q0aVmK1ac7f5dNIUdzyrrdf9roRMML-HENQM3ORve0ngyjYxjV6h3PP4-u7P0xPi2grkY4Eq6zVzLZEndPO_HoTsPXzFdidE8N42uJOWU-E-qIa6GRl9I2OYLfviAmU4tBILkQCdyISJj4XCwAIvzlO9u6oYmV6TgdcIER6urlGlYDalDjJztQ">
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-background">Tejidos del Alma</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Maria Fernandez</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-unit bg-[#DCC7A1] text-[#3E4A39] px-sm py-unit rounded font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                        San Martín de los Andes
+                    </span>
+</div>
+<div class="relative z-10 mb-lg flex-1">
+<p class="font-body-sm text-body-sm text-on-surface line-clamp-2">"We have been weaving traditional Mapuche patterns using locally sourced, organic wool for three generations..."</p>
+</div>
+<div class="relative z-10 flex flex-col sm:flex-row justify-between items-center gap-md pt-md border-t border-[#DCC7A1]/30">
+<button class="w-full sm:w-auto text-primary font-label-caps text-label-caps flex items-center justify-center gap-unit hover:text-surface-tint transition-colors">
+                        View Application <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+<div class="flex w-full sm:w-auto gap-sm">
+<button class="flex-1 sm:flex-none px-md py-sm bg-surface-container border border-outline text-error font-label-caps text-label-caps rounded hover:bg-error-container hover:border-error transition-colors">
+                            Reject
+                        </button>
+<button class="flex-1 sm:flex-none px-md py-sm bg-[#7D8E74] text-white font-label-caps text-label-caps rounded hover:bg-primary transition-colors">
+                            Approve
+                        </button>
+</div>
+</div>
+</div>
+<!-- Application Card 2 -->
+<div class="bg-surface-container-lowest border border-[#DCC7A1] rounded-lg p-md md:p-lg flex flex-col justify-between hover:shadow-[0_4px_12px_rgba(62,74,57,0.08)] transition-shadow duration-300 relative group overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-transparent to-surface-container-low opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+<div class="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center mb-md gap-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant shrink-0">
+<img class="w-full h-full object-cover" data-alt="A close up photo of hands shaping clay on a pottery wheel. Earthy colors, rustic aesthetic, natural daylight streaming in from a side window, high resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR_Y7fFGbHXPIxLUT_6uPdGilLrknjQK9JoYNTTWApaRA5WS1MNlUSLkvBseg0JDw3LMqpmYuAGA5US0TVK9sEQwRmUwA8rQnMIuWCz7vLBAJNi2ew-7N1hhsFNnN632dtY6ooI3bBTkw7I7sY-MpqMkcO8I9rUeiby-h8u8b9kVPykOEtFohmnoHBOjHK-7FbSAX2p1MknNdCpkqMrfo0rmmLtY5EDB0EgdnvSDlLmgsmewEmHUtuRQ">
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-background">Cerámicas Andinas</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Lucas Silva</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-unit bg-[#DCC7A1] text-[#3E4A39] px-sm py-unit rounded font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                        Bariloche
+                    </span>
+</div>
+<div class="relative z-10 mb-lg flex-1">
+<p class="font-body-sm text-body-sm text-on-surface line-clamp-2">"Crafting functional art pieces using clay sourced entirely from the riverbanks of the Rio Negro province..."</p>
+</div>
+<div class="relative z-10 flex flex-col sm:flex-row justify-between items-center gap-md pt-md border-t border-[#DCC7A1]/30">
+<button class="w-full sm:w-auto text-primary font-label-caps text-label-caps flex items-center justify-center gap-unit hover:text-surface-tint transition-colors">
+                        View Application <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+<div class="flex w-full sm:w-auto gap-sm">
+<button class="flex-1 sm:flex-none px-md py-sm bg-surface-container border border-outline text-error font-label-caps text-label-caps rounded hover:bg-error-container hover:border-error transition-colors">
+                            Reject
+                        </button>
+<button class="flex-1 sm:flex-none px-md py-sm bg-[#7D8E74] text-white font-label-caps text-label-caps rounded hover:bg-primary transition-colors">
+                            Approve
+                        </button>
+</div>
+</div>
+</div>
+<!-- Application Card 3 -->
+<div class="bg-surface-container-lowest border border-[#DCC7A1] rounded-lg p-md md:p-lg flex flex-col justify-between hover:shadow-[0_4px_12px_rgba(62,74,57,0.08)] transition-shadow duration-300 relative group overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-transparent to-surface-container-low opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+<div class="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center mb-md gap-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant shrink-0">
+<img class="w-full h-full object-cover" data-alt="A portrait of a young woodworker in a dusty workshop holding a hand-carved wooden bowl. Warm natural lighting, rustic artisanal vibe, detailed texture of wood and sawdust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9StE9wgn3Zx6uEcmX_UPIsmET4Rbdpu-Mg4e9JeGJR3KKLeOocnaattv_zAwmsLVc_u4Py7zgWAVuBWtObkYFgakgRT0sUflGCRt3h4IyZT8BoDkSycmeZXObea4r6GV-UHRMl2KA-aAWkZNp94RI74G97JrsG6NY8lGae4Tl0zUtLpFPpwyZWliuAPykRZO7cxjknps6TJStSfm7fuiSBfpdcpo8Fi-iQf_-ffKq35YcG6fC62CueA">
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-background">Bosque Vivo</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mateo Herrera</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-unit bg-[#DCC7A1] text-[#3E4A39] px-sm py-unit rounded font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                        Villa La Angostura
+                    </span>
+</div>
+<div class="relative z-10 mb-lg flex-1">
+<p class="font-body-sm text-body-sm text-on-surface line-clamp-2">"Creating sustainable homeware exclusively from fallen Lenga trees found in the surrounding native forests..."</p>
+</div>
+<div class="relative z-10 flex flex-col sm:flex-row justify-between items-center gap-md pt-md border-t border-[#DCC7A1]/30">
+<button class="w-full sm:w-auto text-primary font-label-caps text-label-caps flex items-center justify-center gap-unit hover:text-surface-tint transition-colors">
+                        View Application <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+<div class="flex w-full sm:w-auto gap-sm">
+<button class="flex-1 sm:flex-none px-md py-sm bg-surface-container border border-outline text-error font-label-caps text-label-caps rounded hover:bg-error-container hover:border-error transition-colors">
+                            Reject
+                        </button>
+<button class="flex-1 sm:flex-none px-md py-sm bg-[#7D8E74] text-white font-label-caps text-label-caps rounded hover:bg-primary transition-colors">
+                            Approve
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

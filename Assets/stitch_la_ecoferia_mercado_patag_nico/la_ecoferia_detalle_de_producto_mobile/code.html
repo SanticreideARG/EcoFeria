@@ -1,0 +1,385 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>La Ecoferia - Miel de Ulmo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed": "#370e00",
+                      "tertiary-container": "#9a6c00",
+                      "surface": "#fbf9f4",
+                      "on-secondary-fixed-variant": "#71361d",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#fabc45",
+                      "on-background": "#1b1c19",
+                      "outline": "#757870",
+                      "secondary-container": "#feaa88",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#5f4100",
+                      "surface-bright": "#fbf9f4",
+                      "secondary-fixed-dim": "#ffb598",
+                      "outline-variant": "#c4c8be",
+                      "on-surface-variant": "#444841",
+                      "primary-fixed-dim": "#baccaf",
+                      "inverse-surface": "#30312e",
+                      "tertiary": "#7a5500",
+                      "on-primary-container": "#f8ffef",
+                      "secondary-fixed": "#ffdbce",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-primary-fixed": "#111f0d",
+                      "on-secondary-container": "#783c22",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#53634b",
+                      "surface-container-highest": "#e4e2dd",
+                      "on-tertiary-container": "#fffbff",
+                      "inverse-primary": "#baccaf",
+                      "primary": "#506049",
+                      "on-surface": "#1b1c19",
+                      "surface-container-high": "#eae8e3",
+                      "surface-container-low": "#f5f3ee",
+                      "surface-variant": "#e4e2dd",
+                      "primary-fixed": "#d6e8ca",
+                      "on-primary-fixed-variant": "#3c4b35",
+                      "background": "#fbf9f4",
+                      "on-tertiary-fixed": "#271900",
+                      "primary-container": "#697960",
+                      "tertiary-fixed": "#ffdeaa",
+                      "surface-dim": "#dbdad5",
+                      "surface-container": "#f0eee9",
+                      "secondary": "#8e4d31",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      
+                      // Explicitly adding requested colors for easier reference if not perfectly mapped above
+                      "sage": "#7D8E74",
+                      "terracotta": "#C67B5C",
+                      "light-wood": "#DCC7A1",
+                      "forest": "#3E4A39",
+                      "mustard": "#fabc45", // mapping to tertiary-fixed-dim roughly
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "xl": "40px",
+                      "container-margin": "20px",
+                      "unit": "4px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "sm": "8px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .kraft-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .wood-border {
+            border-color: #DCC7A1;
+        }
+        .wood-bg {
+            background-color: #DCC7A1;
+        }
+        .forest-text {
+            color: #3E4A39;
+        }
+        .sage-bg {
+            background-color: #7D8E74;
+        }
+        .terracotta-text {
+            color: #C67B5C;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Floating action bottom bar for mobile product pages */
+        .bottom-action-bar {
+            box-shadow: 0 -4px 20px rgba(62, 74, 57, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen pb-[100px] md:pb-xl relative">
+<!-- Top Navigation (Transactional intent, simple back) -->
+<header class="w-full sticky top-0 z-50 bg-surface/90 backdrop-blur-sm border-b wood-border px-container-margin py-md flex justify-between items-center max-w-[1280px] mx-auto">
+<a class="text-on-surface hover:text-tertiary transition-colors cursor-pointer w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low wood-border border" href="#">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</a>
+<div class="font-headline-md text-headline-md text-primary text-center flex-grow">La Ecoferia</div>
+<button class="text-on-surface hover:text-tertiary transition-colors cursor-pointer w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low wood-border border relative">
+<span class="material-symbols-outlined text-[24px]">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-[#C67B5C] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+</button>
+</header>
+<main class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-y-xl md:gap-x-lg md:px-container-margin md:py-xl">
+<!-- Image Gallery (Mobile top, Desktop left) -->
+<section class="md:col-span-6 flex flex-col gap-sm">
+<!-- Main Image -->
+<div class="relative w-full aspect-square bg-surface-container-low wood-border border-b md:border md:rounded-xl overflow-hidden group">
+<img alt="Miel de Ulmo Orgánica" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="A jar of raw organic honey sitting on a rustic wooden table surrounded by wildflowers in a sunlit artisanal kitchen in Patagonia. Bright, natural lighting highlighting the golden amber color of the honey. Soft focus background, high resolution, organic artisanal vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrI79BhbEtaGXXz_ZwVa3cpfSCHuc8WKTYBCtSMuJyLT6KUIg6mdRXzvKiqXAqYehXWqqr1tpSHH43r4VmEnJ2HPSTiu5tHindEfqJ1x1QmAJewOsJ-SaF-3A_vSDUosfGv-bv53Qhq-fFr2YtuRRPiz-1J9ElcqULo_UL6lun0pAEsoR8lVi_8BfSwzW8gJ1Dj-Z785U8R27RXewo9sIhzHWgEjBOIQaHuPLs_ujinesm1gzM4pitNA">
+<!-- Chips overlay -->
+<div class="absolute top-md left-md flex flex-col gap-2">
+<span class="wood-bg forest-text font-label-caps text-label-caps px-3 py-1 rounded-full shadow-sm">ORGÁNICO</span>
+<span class="wood-bg forest-text font-label-caps text-label-caps px-3 py-1 rounded-full shadow-sm">ARTESANAL</span>
+</div>
+</div>
+<!-- Thumbnails (Horizontal scroll on mobile) -->
+<div class="flex gap-xs overflow-x-auto px-container-margin md:px-0 hide-scrollbar py-sm">
+<button class="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden border-2 border-[#7D8E74] bg-surface-container-low">
+<img alt="Thumbnail 1" class="w-full h-full object-cover" data-alt="Close up shot of the artisanal honey jar label showing the ingredients and origin details. Natural sunlight, macro photography, shallow depth of field, natural textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUnsmcVWQb-zRewDDaDS7Zm5xalcr0uwHs0vZictR1qiO3Pp-UAyuuz11nHOefnUQp0dqZwQepFWb-bVkBNBUvp_yZYlEgJ3DSgWhbhoDX3ZsFNfYjYJkaOQutv901d06js59VG0LRzF6Y7uhFbqO0vvVMbljkKvhMDq-cynMCmc4NGwzd3QVprT0kMtP3s7BegD2XwRfEJYELL3EvZDTpAHokAE5KV76pk3G7vu4fuq1i_2RqA6TTgA">
+</button>
+<button class="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden border wood-border bg-surface-container-low opacity-70 hover:opacity-100 transition-opacity">
+<img alt="Thumbnail 2" class="w-full h-full object-cover" data-alt="A wooden honey dipper dripping thick golden honey into a ceramic bowl on a rustic wooden surface. Artisanal food photography style, warm earthy tones, bright natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSFalvfqByVLY357361G4olqk_IaQ-PWFyXYfVLia6AnGYM5xDZYaX51vS90lg9HlmslrDorroxUph7sj4n4poL2n0di4yai0_BcBGrLr5DqVei7HVldLA-Aat2VazWYIo0FnHLZ3jSJe2Dpd2HcJM0Pit7bvuoVfb57Z_SSdWlRiU7TD4eMBPeAfYX_JcTIvE4-uPtemjojZPkgcHVZUKo73AdOaRNTVcm0Es1227ekjw7c213iCacg">
+</button>
+<button class="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden border wood-border bg-surface-container-low opacity-70 hover:opacity-100 transition-opacity">
+<img alt="Thumbnail 3" class="w-full h-full object-cover" data-alt="Wide shot of an artisanal apiary in a green Patagonian valley. Wooden beehives in a lush field of wildflowers. Sunny day, vast landscape, eco-friendly farming aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbRodfnyDQk5u0viYybFnZsL1zvNnimVuwRO6GUgwtx9RF9m1G_O3VpR7AyK50b_n1UrkPkBUwUUvYDLuI059otDH8dc-lCV7BBW-By7Oc1k8JDOuWxIdWFqI8f2EQ49kjnonoltxrP8mAVczvzrr1DOFK_Xz9OqxjVR9URLbpChq81LQJ6JwRqDblI97uK8JLYwd6rPQk4FWYYoR8SYAdNXb-FTK_6naa9MGuFxDvbkEbXFVpdm8KVQ">
+</button>
+</div>
+</section>
+<!-- Product Details (Mobile mid, Desktop right) -->
+<section class="md:col-span-6 flex flex-col px-container-margin md:px-0 gap-lg">
+<!-- Header Info -->
+<div class="flex flex-col gap-xs">
+<a class="font-label-caps text-label-caps text-[#7D8E74] hover:underline flex items-center gap-1" href="#"><span class="material-symbols-outlined text-[16px]">storefront</span>Abeja Obrera SMA</a>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary tracking-tight">Miel Cruda de Montaña</h1>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex text-[#fabc45]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star_half</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(42 reseñas)</span>
+</div>
+</div>
+<!-- Price -->
+<div class="flex items-end gap-3 pb-md border-b wood-border">
+<span class="text-3xl font-bold terracotta-text">$8.500</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">/ 500g</span>
+</div>
+<!-- Description -->
+<div class="flex flex-col gap-md">
+<h3 class="font-title-lg text-title-lg text-primary">Descripción</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Miel pura de montaña recolectada en San Martín de los Andes. Nuestra producción estacional es 100% natural y libre de agroquímicos, preservando el sabor auténtico y las propiedades medicinales de la flora patagónica.</p>
+<!-- Features List -->
+<ul class="flex flex-col gap-sm mt-2">
+<li class="flex items-start gap-3 bg-surface-container-low p-3 rounded-lg border wood-border kraft-texture">
+<span class="material-symbols-outlined text-[#7D8E74]">eco</span>
+<div>
+<span class="block font-bold text-sm text-primary">100% Natural</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">Sin aditivos ni conservantes.</span>
+</div>
+</li>
+<li class="flex items-start gap-3 bg-surface-container-low p-3 rounded-lg border wood-border kraft-texture">
+<span class="material-symbols-outlined text-[#7D8E74]">local_shipping</span>
+<div>
+<span class="block font-bold text-sm text-primary">Envío Carbono Neutral</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">Compensamos la huella de tu pedido.</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- Desktop Actions (Hidden on mobile) -->
+<div class="hidden md:flex flex-col gap-md mt-auto pt-lg">
+<div class="flex items-center gap-4">
+<!-- Quantity -->
+<div class="flex items-center border wood-border rounded-lg bg-surface-container-lowest h-[48px]">
+<button class="w-10 h-full flex items-center justify-center text-on-surface-variant hover:text-primary active:bg-surface-container transition-colors rounded-l-lg">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="w-10 text-center font-bold text-primary">1</span>
+<button class="w-10 h-full flex items-center justify-center text-on-surface-variant hover:text-primary active:bg-surface-container transition-colors rounded-r-lg">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Add to Cart -->
+<button class="flex-grow bg-[#fabc45] hover:bg-[#e5a93e] text-[#5f4100] font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow-md transition-all active:translate-y-[2px] h-[48px] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                        Agregar al carrito
+                    </button>
+</div>
+</div>
+</section>
+<!-- Related Products Section -->
+<section class="col-span-1 md:col-span-12 px-container-margin md:px-0 py-xl border-t wood-border mt-xl">
+<h2 class="font-headline-md text-headline-md text-primary mb-lg">Más de este productor</h2>
+<!-- Horizontal scroll grid -->
+<div class="flex gap-md overflow-x-auto hide-scrollbar pb-md -mx-container-margin px-container-margin md:mx-0 md:px-0 snap-x snap-mandatory">
+<!-- Product Card 1 -->
+<div class="flex-shrink-0 w-[240px] md:w-[280px] snap-start flex flex-col group border wood-border rounded-xl bg-surface-container-lowest overflow-hidden kraft-texture relative shadow-sm">
+<div class="aspect-[4/3] overflow-hidden bg-surface-variant relative border-b wood-border">
+<img alt="Miel de Bosque" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A jar of dark amber forest honey with a rustic label. Product photography style, sitting on a wooden surface with a soft natural background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAwAsspTUBhGjMYktUaWc6lXhzUiX03WUXUE7386mokgs8_vWOw867p4UT4ha5oAqiKexl2wZvrvWRDJFoMV5HVPsxsvqoa-amdpp4LsQQMtLufYpqSLp--LOy8iB-aHkq3ycFHLSxaKbjjWVB4iJR8vLrShb0zd8x9Mjn39jcXuh1nMGJSMS9n-9vebk_dBkey91-48kZhZzOqcqFC3eU9C3TAirLrVofZ6T8gxWFFgHt2uZoMgvnMQ">
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface/80 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-terracotta border wood-border shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-md flex flex-col gap-1 flex-grow">
+<h4 class="font-title-lg text-title-lg text-primary text-base line-clamp-1 group-hover:underline">Miel de Bosque</h4>
+<span class="font-label-caps text-label-caps text-on-surface-variant">500g</span>
+<div class="mt-auto pt-2 flex justify-between items-center">
+<span class="font-bold terracotta-text">$9.200</span>
+<button class="w-8 h-8 rounded-full border border-[#7D8E74] text-[#7D8E74] hover:bg-[#7D8E74] hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="flex-shrink-0 w-[240px] md:w-[280px] snap-start flex flex-col group border wood-border rounded-xl bg-surface-container-lowest overflow-hidden kraft-texture relative shadow-sm">
+<div class="aspect-[4/3] overflow-hidden bg-surface-variant relative border-b wood-border">
+<img alt="Polen Multifloral" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Small glass jar containing bee pollen granules, vibrant yellow and orange colors. Artisanal rustic styling on a light wooden background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBad2Dt5_hPwzp86KvJxk3OmJjh-vHcKKpUx4iZ-jOETeiKBpQ1oaDgqZQ9adoJshYqgf1Bcj9CUuP1Icyg32tgQ96KFCzcUx7LGWHE7WtCzHjUcFJuSolmiScof_YkiZH8SEMRPc4jrMIV-OdwrP5ZrSrI1GpiOLA1ad6ssWnW0FgbU2HbHLb-7LouSyQyZSfJDfIwToJ1aHYzanhniMiDPLGpE1t2C0jvxpQQL_yCNhilP39iHGUoWg">
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface/80 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-terracotta border wood-border shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-md flex flex-col gap-1 flex-grow">
+<h4 class="font-title-lg text-title-lg text-primary text-base line-clamp-1 group-hover:underline">Polen Multifloral</h4>
+<span class="font-label-caps text-label-caps text-on-surface-variant">250g</span>
+<div class="mt-auto pt-2 flex justify-between items-center">
+<span class="font-bold terracotta-text">$6.500</span>
+<button class="w-8 h-8 rounded-full border border-[#7D8E74] text-[#7D8E74] hover:bg-[#7D8E74] hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="flex-shrink-0 w-[240px] md:w-[280px] snap-start flex flex-col group border wood-border rounded-xl bg-surface-container-lowest overflow-hidden kraft-texture relative shadow-sm">
+<div class="aspect-[4/3] overflow-hidden bg-surface-variant relative border-b wood-border">
+<img alt="Cera de Abeja" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A block of raw natural beeswax next to some handmade candles on a textured linen cloth. Warm lighting emphasizing the natural texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3vSTdpPA3oCg8ShVcu9XyPE-EM9gkmCm2byb7WQdPzPjY1rLbDXh3--iMnxSRwhLIpAWoft4U0374ZRg2PMLVgPhvTaPqzvLYXbrGqStvWhyR5E1LYKu_pTSmBsvmuKuFPOSM5acK_-AXxiw1yiBTJfTH73TI8YbC1TLK2asvYNJ6IlSbyp8tNI0yoMPYno9nTXbz6wZYBjwheJNmlrIA9UywOtF2l1oWgn9L_kQ4DW66uPXc6p8OWw">
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface/80 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-terracotta border wood-border shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-md flex flex-col gap-1 flex-grow">
+<h4 class="font-title-lg text-title-lg text-primary text-base line-clamp-1 group-hover:underline">Cera Virgen</h4>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Bloque 100g</span>
+<div class="mt-auto pt-2 flex justify-between items-center">
+<span class="font-bold terracotta-text">$4.000</span>
+<button class="w-8 h-8 rounded-full border border-[#7D8E74] text-[#7D8E74] hover:bg-[#7D8E74] hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile Fixed Action Bar (Hidden on desktop) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-highest border-t wood-border bottom-action-bar px-container-margin py-sm pb-safe z-50 flex items-center gap-4">
+<!-- Quantity Small -->
+<div class="flex items-center border wood-border rounded-lg bg-surface-container-lowest h-[44px]">
+<button class="w-10 h-full flex items-center justify-center text-on-surface-variant active:bg-surface-container transition-colors rounded-l-lg">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<span class="w-6 text-center font-bold text-primary text-sm">1</span>
+<button class="w-10 h-full flex items-center justify-center text-on-surface-variant active:bg-surface-container transition-colors rounded-r-lg">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Add to Cart -->
+<button class="flex-grow bg-[#fabc45] active:bg-[#e5a93e] text-[#5f4100] font-bold py-2 px-4 rounded-lg shadow-sm h-[44px] flex items-center justify-center gap-2">Agregar</button>
+</div>
+
+
+</body></html>

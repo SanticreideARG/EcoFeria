@@ -1,0 +1,325 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Brand Directory - Patagonia Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#ffdad6",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#370e00",
+                      "inverse-primary": "#baccaf",
+                      "surface-tint": "#53634b",
+                      "primary-container": "#697960",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-high": "#eae8e3",
+                      "primary-fixed-dim": "#baccaf",
+                      "tertiary-container": "#9a6c00",
+                      "on-tertiary-fixed-variant": "#5f4100",
+                      "outline": "#757870",
+                      "surface-container-highest": "#e4e2dd",
+                      "inverse-surface": "#30312e",
+                      "secondary-fixed-dim": "#ffb598",
+                      "on-background": "#1b1c19",
+                      "on-surface": "#1b1c19",
+                      "tertiary": "#7a5500",
+                      "secondary": "#8e4d31",
+                      "on-tertiary-container": "#fffbff",
+                      "error": "#ba1a1a",
+                      "surface-bright": "#fbf9f4",
+                      "surface-variant": "#e4e2dd",
+                      "tertiary-fixed-dim": "#fabc45",
+                      "surface-dim": "#dbdad5",
+                      "on-primary-fixed-variant": "#3c4b35",
+                      "on-secondary-fixed-variant": "#71361d",
+                      "on-primary-container": "#f8ffef",
+                      "secondary-container": "#feaa88",
+                      "on-primary-fixed": "#111f0d",
+                      "on-primary": "#ffffff",
+                      "primary": "#506049",
+                      "surface-container-low": "#f5f3ee",
+                      "surface-container": "#f0eee9",
+                      "secondary-fixed": "#ffdbce",
+                      "background": "#fbf9f4",
+                      "on-tertiary-fixed": "#271900",
+                      "primary-fixed": "#d6e8ca",
+                      "on-secondary-container": "#783c22",
+                      "tertiary-fixed": "#ffdeaa",
+                      "outline-variant": "#c4c8be",
+                      "on-surface-variant": "#444841",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-error": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface": "#fbf9f4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "40px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "gutter": "12px",
+                      "sm": "8px",
+                      "unit": "4px",
+                      "container-margin": "20px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar (Mobile Only) -->
+<header class="flex md:hidden justify-between items-center w-full px-container-margin h-16 fixed top-0 z-50 bg-surface-bright dark:bg-surface-dim border-b border-outline-variant dark:border-outline">
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">Sustainable Marketplace</h1>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer" data-icon="search">search</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer" data-icon="settings">settings</span>
+</div>
+</header>
+<div class="flex h-screen overflow-hidden pt-16 md:pt-0">
+<!-- SideNavBar (Desktop Only) -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface dark:bg-surface-dim border-r border-outline-variant dark:border-outline p-lg overflow-y-auto z-40">
+<div class="mb-xl flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="font-label-caps text-label-caps text-on-primary-container">PA</span>
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface leading-tight">Patagonia Admin</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Marketplace Guardian</p>
+</div>
+</div>
+<div class="flex flex-col gap-unit flex-1">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg hover:bg-surface-container-high transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Metrics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+<span>Brands</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg hover:bg-surface-container-high transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span>Sellers</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg hover:bg-surface-container-high transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span>Moderation</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg hover:bg-surface-container-high transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span>Blog/Agenda</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg hover:bg-surface-container-high transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span>Global Orders</span>
+</a>
+</div>
+<div class="mt-auto pt-lg border-t border-outline-variant flex flex-col gap-unit">
+<button class="w-full text-left font-label-caps text-label-caps text-primary hover:bg-surface-container-high px-md py-sm rounded-lg transition-colors duration-200">System Settings</button>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 overflow-y-auto bg-background">
+<div class="max-w-7xl mx-auto p-container-margin md:p-xl">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-lg mb-xl">
+<div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-sm">Brand Directory</h2>
+<p class="text-on-surface-variant max-w-2xl">Manage and oversee all artisanal brands participating in our sustainable marketplace ecosystem.</p>
+</div>
+<button class="bg-primary text-on-primary px-lg py-md rounded-lg font-label-caps text-label-caps hover:bg-surface-tint transition-colors shadow-sm flex items-center gap-sm justify-center whitespace-nowrap active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                        Add New Internal Brand
+                    </button>
+</div>
+<!-- Search & Filters -->
+<div class="flex flex-col md:flex-row gap-lg mb-xl bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm relative overflow-hidden">
+<!-- Subtle texture overlay -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-multiply bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLz4KPC9zdmc+')]"></div>
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-b border-outline-variant border-t-0 border-l-0 border-r-0 focus:ring-0 focus:border-primary pl-xl pr-md py-md text-on-surface placeholder:text-on-surface-variant font-body-md rounded-t-lg transition-colors" placeholder="Search brands by name, artisan, or origin..." type="text">
+</div>
+<div class="flex gap-sm overflow-x-auto pb-2 md:pb-0 scrollbar-hide shrink-0 items-center">
+<button class="px-md py-sm rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps hover:bg-surface-variant transition-colors whitespace-nowrap border border-outline-variant">All Brands</button>
+<button class="px-md py-sm rounded-full bg-[#DCC7A1] text-[#3E4A39] font-label-caps text-label-caps hover:opacity-90 transition-opacity whitespace-nowrap shadow-sm">Food</button>
+<button class="px-md py-sm rounded-full bg-surface text-on-surface font-label-caps text-label-caps hover:bg-surface-variant transition-colors whitespace-nowrap border border-outline-variant">Craft</button>
+<button class="px-md py-sm rounded-full bg-surface text-on-surface font-label-caps text-label-caps hover:bg-surface-variant transition-colors whitespace-nowrap border border-outline-variant">Cosmetics</button>
+</div>
+</div>
+<!-- Bento Grid of Brands -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Brand Card 1 (Internal - High Priority) -->
+<div class="col-span-1 md:col-span-2 lg:col-span-2 row-span-2 bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden group hover:shadow-md transition-shadow duration-300 relative flex flex-col md:flex-row">
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-multiply bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLz4KPC9zdmc+')]"></div>
+<div class="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A lush, cinematic shot of a vibrant organic vegetable garden in the early morning mist. Highlighting a wooden crate overflowing with heirloom tomatoes and leafy greens. The lighting is soft and golden, evoking a premium, farm-to-table aesthetic rooted in Patagonia's organic philosophy. Rich earth tones with vibrant pops of red and green." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrdUOXYDDYQ0NkrRgNofOKTzp_YaMhrmU3F9oLLffOHQMXfNbWd9XdS6Q7YFk6NwiFWjG7_fXYwdJMyH_ivgBaSsir6fl2CIQYij3gtZqrGe3UBmzD1o6rKJSe5iCYwMe56XvvRsDYPGBP8TgGV2b5BaJtipPFYLObz3VBkTT7ECjBrCCaFwmr5fWorqQaAj-TIPjKJ577C6DCUGu6f7DT6yhNs4f0i88cwqMhwIWrY-nzw0m9kE4BQw">
+<div class="absolute top-md left-md bg-surface/90 backdrop-blur-sm px-sm py-xs rounded font-label-caps text-label-caps text-primary border border-outline-variant">Internal Brand</div>
+</div>
+<div class="p-lg flex flex-col flex-1 z-10 bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-md">
+<div class="w-16 h-16 rounded-lg bg-surface border border-outline-variant flex items-center justify-center p-sm shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="yard">yard</span>
+</div>
+<span class="px-sm py-xs rounded bg-[#DCC7A1]/20 text-[#3E4A39] font-label-caps text-label-caps">Food</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Patagonia Provisions</h3>
+<p class="text-on-surface-variant font-body-sm mb-lg line-clamp-2">Sourcing the highest quality organic foods to help restore our planet's health through regenerative agriculture.</p>
+<div class="mt-auto grid grid-cols-2 gap-md border-t border-outline-variant pt-md">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs">Total Products</p>
+<p class="font-title-lg text-title-lg text-secondary">142</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs">Status</p>
+<p class="font-body-sm text-body-sm text-primary flex items-center gap-xs"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span> Active</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Brand Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden group hover:shadow-md transition-shadow duration-300 relative flex flex-col">
+<div class="h-40 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Close-up of artisan hands weaving a complex textile pattern using naturally dyed wool. The lighting highlights the rough texture of the yarn and the craftsmanship involved. Earthy palette of deep terracotta, indigo, and natural unbleached whites. Represents a high-end, sustainable craft aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHCPxW2oOlF2wWUFpAPTr9gKZPW0X1_4QVytKtbIr72CrGX9GomgtkGFdmYbsCVne-8uMyY4CHkh7o094O5_3rQYMQ1HpRRgd-9ABLxrVDCD7Jzlb5BqIlee02VmbZSYpzDbDQOkH-m4xSbAUIG0LnSrOKMcAx7mEqCPgvk96hWWf049MLU33Kv1mSw-I1chY48C1648psw_QPAnxx5YGtsjq5odsCo7y0FivGcKyCfdrBimbzAYdhOg">
+</div>
+<div class="p-lg flex flex-col flex-1 relative bg-surface-container-lowest">
+<div class="absolute -top-8 right-lg w-16 h-16 rounded-lg bg-surface border border-outline-variant flex items-center justify-center p-sm shadow-sm z-10">
+<span class="material-symbols-outlined text-3xl text-secondary" data-icon="checkroom">checkroom</span>
+</div>
+<span class="inline-block self-start px-sm py-xs rounded bg-surface-variant text-on-surface font-label-caps text-label-caps mb-md">Craft</span>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-xs">Andean Weaves</h3>
+<p class="text-on-surface-variant font-body-sm mb-lg line-clamp-2">Traditional textiles crafted by indigenous artisan co-ops using natural dyes.</p>
+<div class="mt-auto flex justify-between items-end border-t border-outline-variant pt-md">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs">Products</p>
+<p class="font-title-lg text-title-lg text-secondary">38</p>
+</div>
+<button class="text-primary hover:text-surface-tint font-label-caps text-label-caps flex items-center gap-xs">Manage <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- Brand Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden group hover:shadow-md transition-shadow duration-300 relative flex flex-col">
+<div class="h-40 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A minimalist arrangement of natural skincare products on a slab of slate next to wild herbs. Soft, diffused daylight emphasizes the organic ingredients and pure aesthetic. Palette of sage greens, slate greys, and creamy whites. Clean, premium, eco-friendly mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCrw47gR5mbq2_LmsUHjMZV8z1fWb-ZUOQUHoMbURy3KvaJ95QnUBwnkrzNv2inoXzHIleFdgUbfCO7S3fgpFnbNTjs5o4N36gD-R3Xc3xhuH_TdmJBzpEsRvjke1SWDsqg3dKFkn1qvRYbvy-7JqGjkqKWqLRxadsME_r7DanOFXXXNDmEDZQdxIG9CHcszrfn483SYWSI6-DQQ7-24ubkk5DjBJDTw8Q58lQnPSCgCwj_bSKCvButw">
+</div>
+<div class="p-lg flex flex-col flex-1 relative bg-surface-container-lowest">
+<div class="absolute -top-8 right-lg w-16 h-16 rounded-lg bg-surface border border-outline-variant flex items-center justify-center p-sm shadow-sm z-10">
+<span class="material-symbols-outlined text-3xl text-[#DCC7A1]" data-icon="spa">spa</span>
+</div>
+<span class="inline-block self-start px-sm py-xs rounded bg-surface-variant text-on-surface font-label-caps text-label-caps mb-md">Cosmetics</span>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-xs">Wilderness Botanicals</h3>
+<p class="text-on-surface-variant font-body-sm mb-lg line-clamp-2">Wild-harvested skincare formulations prioritizing local flora and minimal packaging.</p>
+<div class="mt-auto flex justify-between items-end border-t border-outline-variant pt-md">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs">Products</p>
+<p class="font-title-lg text-title-lg text-secondary">24</p>
+</div>
+<button class="text-primary hover:text-surface-tint font-label-caps text-label-caps flex items-center gap-xs">Manage <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

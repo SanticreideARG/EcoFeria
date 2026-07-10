@@ -1,0 +1,250 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>La Ecoferia - Ingreso</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d6e8ca",
+                        "on-secondary-container": "#783c22",
+                        "surface-container-high": "#eae8e3",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#baccaf",
+                        "surface-container-low": "#f5f3ee",
+                        "inverse-surface": "#30312e",
+                        "primary-fixed-dim": "#baccaf",
+                        "primary": "#506049",
+                        "tertiary-container": "#9a6c00",
+                        "surface-tint": "#53634b",
+                        "primary-container": "#697960",
+                        "on-surface": "#1b1c19",
+                        "on-background": "#1b1c19",
+                        "surface": "#fbf9f4",
+                        "surface-dim": "#dbdad5",
+                        "surface-container-highest": "#e4e2dd",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#fffbff",
+                        "on-primary-fixed": "#111f0d",
+                        "background": "#fbf9f4",
+                        "on-primary-container": "#f8ffef",
+                        "secondary-fixed-dim": "#ffb598",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7a5500",
+                        "surface-bright": "#fbf9f4",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "outline-variant": "#c4c8be",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-secondary-fixed-variant": "#71361d",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#feaa88",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#757870",
+                        "surface-container": "#f0eee9",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "secondary-fixed": "#ffdbce",
+                        "on-secondary-fixed": "#370e00",
+                        "on-tertiary-fixed": "#271900",
+                        "tertiary-fixed": "#ffdeaa",
+                        "secondary": "#8e4d31",
+                        "surface-variant": "#e4e2dd",
+                        "on-surface-variant": "#444841"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "container-margin": "20px",
+                        "xs": "4px",
+                        "xl": "40px",
+                        "gutter": "12px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .noise-overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .input-paper {
+            background-color: #F2F0EA;
+            border: none;
+            border-bottom: 1px solid #DCC7A1;
+        }
+        .input-paper:focus {
+            outline: none;
+            border-bottom: 2px solid #506049;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col relative font-body-md overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Background Texture -->
+<div class="noise-overlay z-0"></div>
+<!-- Header (Suppressed Navigation Shell, keeping Logo only for Transactional) -->
+<header class="w-full flex justify-center items-center py-xl relative z-10">
+<span class="font-display-lg text-primary text-headline-md">La Ecoferia</span>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center px-container-margin pb-xl relative z-10 w-full max-w-[500px] mx-auto">
+<!-- Auth Card Container -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm border border-[#DCC7A1] overflow-hidden relative">
+<div class="noise-overlay opacity-[0.03]"></div>
+<!-- Tabs -->
+<div class="flex border-b border-[#DCC7A1] relative z-10">
+<button class="flex-1 py-md text-center font-title-lg text-title-lg text-primary border-b-2 border-primary transition-colors" id="tab-login" onclick="switchTab('login')">Ingresar</button>
+<button class="flex-1 py-md text-center font-title-lg text-title-lg text-on-surface-variant border-b-2 border-transparent transition-colors" id="tab-register" onclick="switchTab('register')">Crear cuenta</button>
+</div>
+<!-- Tab Content Area -->
+<div class="p-lg relative z-10">
+<!-- Login Form -->
+<form class="flex flex-col gap-lg transition-opacity duration-300" id="form-login">
+<div class="flex flex-col gap-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="login-email">Correo electrónico</label>
+<input class="input-paper w-full px-sm py-sm font-body-md text-body-md text-on-surface rounded-t-sm" id="login-email" placeholder="tu@correo.com" type="email">
+</div>
+<div class="flex flex-col gap-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="login-password">Contraseña</label>
+<input class="input-paper w-full px-sm py-sm font-body-md text-body-md text-on-surface rounded-t-sm" id="login-password" placeholder="••••••••" type="password">
+<a class="font-headline-md text-[14px] text-on-surface-variant hover:text-primary self-end mt-xs transition-colors" href="#">Olvidé mi contraseña</a>
+</div>
+<button class="w-full bg-tertiary-container text-on-tertiary-container font-title-lg text-title-lg py-md rounded-lg shadow-sm hover:shadow-md transition-shadow active:translate-y-[1px]" type="button">Ingresar</button>
+<div class="flex items-center gap-md my-sm">
+<div class="h-px bg-[#DCC7A1] flex-grow"></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">o</span>
+<div class="h-px bg-[#DCC7A1] flex-grow"></div>
+</div>
+<button class="w-full bg-surface-container-low text-on-surface border border-[#DCC7A1] font-title-lg text-[16px] py-md rounded-lg flex items-center justify-center gap-sm hover:bg-surface-variant transition-colors" type="button">
+<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                        Continuar con Google
+                    </button>
+</form>
+<!-- Registration Form (Hidden by default) -->
+<form class="hidden flex-col gap-lg transition-opacity duration-300" id="form-register">
+<div class="flex flex-col gap-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="reg-email">Correo electrónico</label>
+<input class="input-paper w-full px-sm py-sm font-body-md text-body-md text-on-surface rounded-t-sm" id="reg-email" placeholder="tu@correo.com" type="email">
+</div>
+<div class="flex flex-col gap-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="reg-password">Contraseña</label>
+<input class="input-paper w-full px-sm py-sm font-body-md text-body-md text-on-surface rounded-t-sm" id="reg-password" placeholder="Min. 8 caracteres" type="password">
+</div>
+<!-- Role Selector -->
+<div class="flex flex-col gap-sm mt-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant">¿Cómo quieres participar?</span>
+<div class="grid grid-cols-2 gap-sm">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="role" type="radio" value="buyer">
+<div class="p-sm text-center border border-[#DCC7A1] rounded-lg peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container transition-colors font-body-sm text-body-sm h-full flex items-center justify-center">
+                                    Soy cliente
+                                </div>
+</label>
+<label class="cursor-pointer flex flex-col">
+<input class="peer sr-only" name="role" type="radio" value="seller">
+<div class="p-sm text-center border border-[#DCC7A1] rounded-lg peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container transition-colors font-body-sm text-body-sm h-full flex flex-col items-center justify-center">
+                                    Quiero vender
+                                </div>
+<span class="font-body-sm text-[10px] text-on-surface-variant mt-xs text-center leading-tight">Sujeto a aprobación</span>
+</label>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-title-lg text-title-lg py-md rounded-lg shadow-sm hover:shadow-md transition-shadow active:translate-y-[1px] mt-sm" type="button">Crear cuenta</button>
+<div class="flex items-center gap-md my-xs">
+<div class="h-px bg-[#DCC7A1] flex-grow"></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">o</span>
+<div class="h-px bg-[#DCC7A1] flex-grow"></div>
+</div>
+<button class="w-full bg-surface-container-low text-on-surface border border-[#DCC7A1] font-title-lg text-[16px] py-md rounded-lg flex items-center justify-center gap-sm hover:bg-surface-variant transition-colors" type="button">
+<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                        Continuar con Google
+                    </button>
+</form>
+</div>
+</div>
+</main>
+<script>
+        function switchTab(tabName) {
+            const loginForm = document.getElementById('form-login');
+            const registerForm = document.getElementById('form-register');
+            const loginTab = document.getElementById('tab-login');
+            const registerTab = document.getElementById('tab-register');
+
+            if (tabName === 'login') {
+                loginForm.classList.remove('hidden');
+                loginForm.classList.add('flex');
+                registerForm.classList.add('hidden');
+                registerForm.classList.remove('flex');
+
+                loginTab.classList.replace('text-on-surface-variant', 'text-primary');
+                loginTab.classList.replace('border-transparent', 'border-primary');
+                
+                registerTab.classList.replace('text-primary', 'text-on-surface-variant');
+                registerTab.classList.replace('border-primary', 'border-transparent');
+            } else {
+                registerForm.classList.remove('hidden');
+                registerForm.classList.add('flex');
+                loginForm.classList.add('hidden');
+                loginForm.classList.remove('flex');
+
+                registerTab.classList.replace('text-on-surface-variant', 'text-primary');
+                registerTab.classList.replace('border-transparent', 'border-primary');
+                
+                loginTab.classList.replace('text-primary', 'text-on-surface-variant');
+                loginTab.classList.replace('border-primary', 'border-transparent');
+            }
+        }
+    </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Patagonia Craft - Mensajes de Clientes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#53634b",
+                      "on-primary-fixed": "#111f0d",
+                      "on-primary-container": "#f8ffef",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#ffb598",
+                      "on-secondary-fixed-variant": "#71361d",
+                      "tertiary-fixed-dim": "#fabc45",
+                      "on-tertiary-fixed-variant": "#5f4100",
+                      "secondary-container": "#feaa88",
+                      "primary-container": "#697960",
+                      "on-background": "#1b1c19",
+                      "primary-fixed": "#d6e8ca",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#30312e",
+                      "surface-variant": "#e4e2dd",
+                      "on-error": "#ffffff",
+                      "on-secondary-container": "#783c22",
+                      "tertiary-fixed": "#ffdeaa",
+                      "primary": "#506049",
+                      "tertiary-container": "#9a6c00",
+                      "on-tertiary-fixed": "#271900",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-surface": "#1b1c19",
+                      "inverse-primary": "#baccaf",
+                      "surface-bright": "#fbf9f4",
+                      "on-tertiary-container": "#fffbff",
+                      "background": "#fbf9f4",
+                      "outline": "#757870",
+                      "surface-container-high": "#eae8e3",
+                      "secondary": "#8e4d31",
+                      "outline-variant": "#c4c8be",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#baccaf",
+                      "surface-container": "#f0eee9",
+                      "surface-container-low": "#f5f3ee",
+                      "surface": "#fbf9f4",
+                      "on-surface-variant": "#444841",
+                      "secondary-fixed": "#ffdbce",
+                      "surface-dim": "#dbdad5",
+                      "on-secondary-fixed": "#370e00",
+                      "surface-container-highest": "#e4e2dd",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#3c4b35",
+                      "error-container": "#ffdad6",
+                      "tertiary": "#7a5500"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "md": "16px",
+                      "gutter": "12px",
+                      "xs": "4px",
+                      "xl": "40px",
+                      "container-margin": "20px",
+                      "unit": "4px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "label-caps": ["Inter"],
+                      "title-lg": ["Inter"],
+                      "display-lg-mobile": ["Playfair Display"],
+                      "display-lg": ["Playfair Display"],
+                      "body-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-md": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .kraft-texture {
+            position: relative;
+        }
+        .kraft-texture::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row">
+<!-- Mobile Top App Bar -->
+<header class="w-full top-0 sticky z-40 bg-surface dark:bg-surface-dim border-b border-outline-variant md:hidden">
+<div class="flex justify-between items-center px-container-margin py-sm w-full max-w-[1280px] mx-auto">
+<div class="flex items-center gap-sm text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined cursor-pointer active:opacity-80" data-icon="storefront">storefront</span>
+<span class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Patagonia Craft</span>
+</div>
+<img alt="Seller Profile Picture" class="w-8 h-8 rounded-full object-cover border border-outline-variant cursor-pointer active:opacity-80" data-alt="A close up, high quality photo of a young artisan with a warm smile, wearing a canvas apron in a brightly lit woodworking studio. The light is soft and natural, emphasizing the organic, earthy tones of the workshop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqG2qEgcQWt0WMj890dlE73qe20SSjlgcTHa0WqYgfCjCmWJNATCRU15M5gFLitpaHGlpnzoUtRp1pynzP9-PCbOjUelBUnHGSO0HLzNWzkS6wBLv0ht42VpKQrT3YJM69xx15yP93WrTs0BjZsMxseSl4sZmsbTjHgHNM_Xq14a2Uo1jBo1NkOG5iE35c6ssIBtXgkU1P_ql2EEDKI1OC8dCkz-10ET4_hTBC2juBx0rN76rokHg1nw">
+</div>
+</header>
+<!-- Desktop Side Navigation -->
+<nav class="bg-surface-container-low dark:bg-surface-container-lowest border-r border-outline-variant h-full w-64 hidden lg:flex flex-col fixed left-0 top-0 z-40">
+<div class="flex flex-col gap-md p-md">
+<div class="flex items-center gap-md mb-lg">
+<img alt="Artisan Profile" class="w-12 h-12 rounded-full object-cover border border-outline-variant" data-alt="A close up, high quality photo of a young artisan with a warm smile, wearing a canvas apron in a brightly lit woodworking studio. The light is soft and natural, emphasizing the organic, earthy tones of the workshop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFWWW2jL73si73gMRFNSFSpUky_tDuhGDJN0WH19CCAkZgauS7LWWAJb2CFeElpzf1l6VynaistgvL2pFE2_TThanjyjzIdCmTVL9CUtnQ8OeP7AYWUyEXRFELxBf5gEwGMBMkeFlm127JvcHEgAcJCyrVIUKkPCVs-db5JtOw1X3wjBd72z_-K_rQsB5EKWr_mUJgEaBkSaF294wZvM41znJEXq0ZwA_G5laviQISLCDyDzpeY4r0vg">
+<div class="flex flex-col text-left">
+<span class="font-title-lg text-title-lg text-primary">Artisan Dashboard</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sustainable Seller</span>
+</div>
+</div>
+<a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Products
+            </a>
+<a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+                Orders
+            </a>
+<a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+                Blog
+            </a>
+<a class="flex items-center gap-sm px-sm py-xs text-primary font-bold bg-primary-fixed-dim rounded-lg transition-all duration-200 ease-in-out font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble" data-weight="fill" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+                Messages
+            </a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full lg:ml-64 pb-24 md:pb-8 pt-md px-container-margin max-w-[1280px] mx-auto">
+<header class="mb-lg">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-xs">Mensajes de Clientes</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Gestiona tus consultas y mantén contacto con tus compradores.</p>
+</header>
+<!-- Search and Filter -->
+<div class="mb-lg flex flex-col sm:flex-row gap-sm items-center">
+<div class="relative w-full sm:max-w-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-xl pr-md py-sm bg-[#F2F0EA] border-b border-[#DCC7A1] border-t-0 border-l-0 border-r-0 focus:ring-0 focus:border-primary text-on-background font-body-md text-body-md rounded-t-sm outline-none" placeholder="Buscar mensajes..." type="text">
+</div>
+<div class="flex gap-sm w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0 hide-scrollbar">
+<button class="bg-[#DCC7A1] text-[#3E4A39] px-md py-xs rounded-full font-label-caps text-label-caps whitespace-nowrap">Todos</button>
+<button class="border border-[#DCC7A1] text-on-surface-variant px-md py-xs rounded-full font-label-caps text-label-caps whitespace-nowrap hover:bg-surface-container-low transition-colors">No leídos</button>
+<button class="border border-[#DCC7A1] text-on-surface-variant px-md py-xs rounded-full font-label-caps text-label-caps whitespace-nowrap hover:bg-surface-container-low transition-colors">Archivados</button>
+</div>
+</div>
+<!-- Inbox List -->
+<div class="bg-surface-bright border border-[#DCC7A1] rounded-lg kraft-texture shadow-[0_4px_12px_rgba(62,74,57,0.04)] overflow-hidden">
+<ul class="divide-y divide-[#DCC7A1]/50 relative z-10">
+<!-- Unread Message -->
+<li class="p-md hover:bg-surface-container-low transition-colors cursor-pointer group bg-surface-container-lowest">
+<div class="flex items-start gap-md">
+<div class="relative">
+<img alt="Cliente 1" class="w-12 h-12 rounded-full object-cover" data-alt="A high quality portrait of a customer, a middle aged woman with a soft smile in a bright, modern living room setting. The lighting is natural and inviting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSlasVWrcqfNz_752YRcBGAqQdRqsK5YrDMJCdRHzu75skjavKpa9FjUo7W2_Xbsrz_Z-xaYjl8tjsYZrGecX_vD7_PHGLKVf6syxxZHAh0vJXAjvuXFlBfc_9KuoibUEaSaKAOZBY0pKIZfX1HH30vrAO9JySOwbiUjDe73q0ixJLtF1m3OoeFT8XfwcHb9bFbbu2-qEVoVZOetOs5X5R0GaNqua-vTmvi6kM_vaWFRM6f3L0wXYokw">
+<span class="absolute top-0 right-0 w-3 h-3 bg-tertiary-fixed-dim border-2 border-surface-bright rounded-full"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-xs">
+<h3 class="font-title-lg text-title-lg text-on-background font-bold truncate">María Fernández</h3>
+<span class="font-body-sm text-body-sm text-primary font-semibold whitespace-nowrap ml-sm">10:42 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-background font-medium truncate mb-1">Consulta sobre el Mate de Madera</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Hola, quería saber si tienen stock del mate de algarrobo con detalles en alpaca. Me gustaría comprar dos.</p>
+</div>
+</div>
+</li>
+<!-- Read Message -->
+<li class="p-md hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-start gap-md">
+<img alt="Cliente 2" class="w-12 h-12 rounded-full object-cover opacity-90" data-alt="A portrait of a young man with a casual style, outdoors in a park with soft sunlight filtering through the trees. The atmosphere is relaxed and natural." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSmjVH_kvsK4fgzAXLB_jeRAhXVGhgWbsszQ3bYLxRYuyiH-7DmGTgMmBps2dzWRCkRso9fs3QE8KwSbYkjlu5thedGz3xzv8CCNzLiKR8dP_0r7LgLd5iWrbr_9l-BErvr3x_iNLWpSd7zvh-y4RIVtpfnA5c6u06uY8rbdNy7EAqvD82CwA0QvI4GPhJsVFJ2CnnxHDlCwd-BEhbnCzEc-_emPmYeefy-h8rkvs3Hk9SgnY_8WJVlA">
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-xs">
+<h3 class="font-title-lg text-title-lg text-on-background truncate">Carlos Gómez</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant whitespace-nowrap ml-sm">Ayer</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate mb-1">Envío a Córdoba</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Perfecto, muchas gracias por la información. Estaré atento al número de seguimiento.</p>
+</div>
+</div>
+</li>
+<!-- Unread Message -->
+<li class="p-md hover:bg-surface-container-low transition-colors cursor-pointer group bg-surface-container-lowest">
+<div class="flex items-start gap-md">
+<div class="relative">
+<img alt="Cliente 3" class="w-12 h-12 rounded-full object-cover" data-alt="A portrait photo of an older gentleman with glasses, looking thoughtful, sitting in a cozy library or study with warm, dim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFqSl3qYgBiLvJPWgDngkjkuuJyoKQEEQHP-u_J0WTAbJGlZZIz6kBIU85abw85QnuX1s5cJCb8cCrGtxVpNGCiDAfX91r7fhW1sCX_VXBNSP0SwXeSOzpSV5iJ9bzgYeIbXiuajKholeqAXj_ovKE9JDXvwPC5DGY4RHtQ4ww5cB4keFnU9Gu9uutPrh3HLQp75QCpzl2uJD6z6rtHSo3d0LAH_5g25pwPgwiGHv9e1mwP5_QH0uNjg">
+<span class="absolute top-0 right-0 w-3 h-3 bg-tertiary-fixed-dim border-2 border-surface-bright rounded-full"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-xs">
+<h3 class="font-title-lg text-title-lg text-on-background font-bold truncate">Roberto Silva</h3>
+<span class="font-body-sm text-body-sm text-primary font-semibold whitespace-nowrap ml-sm">Lun</span>
+</div>
+<p class="font-body-md text-body-md text-on-background font-medium truncate mb-1">Pedido Personalizado</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">¿Es posible grabar unas iniciales en la tabla de cortar grande? Sería para un regalo de bodas.</p>
+</div>
+</div>
+</li>
+<!-- Read Message -->
+<li class="p-md hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-start gap-md">
+<img alt="Cliente 4" class="w-12 h-12 rounded-full object-cover opacity-90" data-alt="A portrait of a young woman with curly hair, wearing a knitted sweater, in a cozy coffee shop with warm ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl3eNNEsRelb_I5PyyfEaHW299z0AiZEj1qB7oa2xkEg4_UjvdRifEUBXds0jNxL9yHKmcVpDhESFbvZXA9hGWUKt0ZH5TjrHa2ePzMPE7ebEPP0Sb1-KWiNFo0IdbSuqoRoRrtKVL-TWwANzZ4Mm_LOC5AEZZlcUHc3MKWg-epBjaBQ2-CX64ewzXBWLNCJM1Dtfo9MAleYZAkown8yoc3lDd1eLb4sqvwuytynyQX08txGJ1zSuAGQ">
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-xs">
+<h3 class="font-title-lg text-title-lg text-on-background truncate">Ana Martínez</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant whitespace-nowrap ml-sm">20 Oct</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate mb-1">Cuidado de los cuencos</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Gracias por los consejos de curado. ¡Quedaron hermosos!</p>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</main>
+<!-- Mobile Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-xs bg-surface dark:bg-surface-dim border-t border-outline-variant shadow-md lg:hidden rounded-t-xl pb-6 pt-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform w-16 h-14" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-sm text-body-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform w-16 h-14" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-body-sm text-body-sm mt-1">Items</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform w-16 h-14" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-body-sm text-body-sm mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform w-16 h-14" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-body-sm text-body-sm mt-1">Blog</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 transition-transform w-16 h-14" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble" data-weight="fill" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="font-body-sm text-body-sm mt-1">Chat</span>
+</a>
+</nav>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

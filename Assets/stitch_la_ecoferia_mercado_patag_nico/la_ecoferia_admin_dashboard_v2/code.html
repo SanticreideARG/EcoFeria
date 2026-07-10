@@ -1,0 +1,288 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dashboard Global - La Ecoferia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#8e4d31",
+                        "on-tertiary-fixed": "#271900",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1b1c19",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "secondary-fixed": "#ffdbce",
+                        "surface-bright": "#fbf9f4",
+                        "surface-tint": "#53634b",
+                        "primary-fixed": "#d6e8ca",
+                        "outline-variant": "#c4c8be",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#fbf9f4",
+                        "secondary-container": "#feaa88",
+                        "surface-variant": "#e4e2dd",
+                        "primary-container": "#697960",
+                        "error-container": "#ffdad6",
+                        "primary": "#506049",
+                        "on-primary-container": "#f8ffef",
+                        "on-secondary": "#ffffff",
+                        "outline": "#757870",
+                        "primary-fixed-dim": "#baccaf",
+                        "surface-container-high": "#eae8e3",
+                        "on-primary-fixed": "#111f0d",
+                        "tertiary-fixed": "#ffdeaa",
+                        "surface": "#fbf9f4",
+                        "on-background": "#1b1c19",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#370e00",
+                        "surface-container-highest": "#e4e2dd",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3ee",
+                        "tertiary": "#7a5500",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "on-secondary-container": "#783c22",
+                        "inverse-surface": "#30312e",
+                        "tertiary-container": "#9a6c00",
+                        "on-surface-variant": "#444841",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-container": "#f0eee9",
+                        "inverse-primary": "#baccaf",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dbdad5",
+                        "secondary-fixed-dim": "#ffb598",
+                        "on-secondary-fixed-variant": "#71361d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "40px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "container-margin": "20px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .card-texture {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex">
+<!-- NavigationDrawer (SideNav) -->
+<nav class="hidden lg:flex flex-col fixed left-0 top-0 h-full py-xl w-64 border-r border-outline-variant bg-surface-container shadow-sm z-50">
+<div class="px-lg mb-xl">
+<h1 class="font-display-lg text-display-lg text-secondary">Panel de Ventas</h1>
+</div>
+<ul class="flex flex-col flex-grow">
+<!-- Panel Control (Active) -->
+<li class="border-l-4 border-secondary text-secondary bg-secondary-fixed/30 cursor-pointer">
+<a class="flex items-center px-lg py-md gap-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-caps text-label-caps">Panel Control</span>
+</a>
+</li>
+<!-- Mis Ventas -->
+<li class="text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-all cursor-pointer">
+<a class="flex items-center px-lg py-md gap-md" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-caps text-label-caps">Mis Ventas</span>
+</a>
+</li>
+<!-- Inventario -->
+<li class="text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-all cursor-pointer">
+<a class="flex items-center px-lg py-md gap-md" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-caps text-label-caps">Inventario</span>
+</a>
+</li>
+<!-- Mensajes -->
+<li class="text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-all cursor-pointer">
+<a class="flex items-center px-lg py-md gap-md" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-caps text-label-caps">Mensajes</span>
+</a>
+</li>
+<!-- Configuración -->
+<li class="text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-all cursor-pointer mt-auto mb-lg">
+<a class="flex items-center px-lg py-md gap-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Configuración</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 p-container-margin md:p-xl max-w-[1280px] mx-auto w-full">
+<!-- Header -->
+<header class="flex justify-between items-center mb-xl">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-xs">Resumen Global</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Hola, bienvenido de vuelta al panel central.</p>
+</div>
+<div class="flex items-center gap-md">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-title-lg text-title-lg overflow-hidden border border-outline-variant">
+<img class="object-cover w-full h-full" data-alt="A macro photography shot of an artisanal woven fabric in earthy tones, used as a user profile avatar placeholder, perfectly matching the organic and sustainable aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR_rK0_h5elbAvtMW-YS5uSwda6ctEZF5crgOc9p_5TYTETNeLqUcsCHu8IQAXjAdcjHIzrPacM3ec0r3uGhzxF1CXXuwIGq-CJD_iJYn3Wnbza9Y06S3n8pDZpLRNsNwIXD6SaGbopE6bj0z0ulFOks7t72834V0diSCqrNmG2a6ix8qzsXj9bkurqv2yqrQ57TgfknUbEgqrTYLWhMEbbO9FeVXScm_UMrvsZ9pw8EUkb0Zhn0jptA">
+</div>
+</div>
+</header>
+<!-- Metrics Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<!-- Ventas Totales -->
+<div class="bg-surface-container-lowest border border-[#DCC7A1] rounded-xl p-lg card-texture shadow-sm relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-md relative z-10">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Ventas Totales</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary mb-xs relative z-10">$2.4M</div>
+<div class="font-body-sm text-body-sm text-primary-container flex items-center gap-xs relative z-10">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="">+12% este mes</span>
+</div>
+<div class="absolute -bottom-6 -right-6 w-24 h-24 bg-secondary/5 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
+</div>
+<!-- Marcas Activas -->
+<div class="bg-surface-container-lowest border border-[#DCC7A1] rounded-xl p-lg card-texture shadow-sm relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-md relative z-10">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Marcas Activas</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary mb-xs relative z-10">124</div>
+<div class="font-body-sm text-body-sm text-primary-container flex items-center gap-xs relative z-10">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="">+3 nuevas hoy</span>
+</div>
+<div class="absolute -bottom-6 -right-6 w-24 h-24 bg-secondary/5 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
+</div>
+<!-- Pedidos del Día -->
+<div class="bg-surface-container-lowest border border-[#DCC7A1] rounded-xl p-lg card-texture shadow-sm relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-md relative z-10">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Pedidos del Día</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary mb-xs relative z-10">47</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs relative z-10">
+<span class="material-symbols-outlined text-[16px]">pending_actions</span>
+<span class="">12 pendientes de envío</span>
+</div>
+<div class="absolute -bottom-6 -right-6 w-24 h-24 bg-secondary/5 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
+</div>
+</section>
+<!-- Content Grid (Chart & Activity) -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Platform Growth Chart (Takes up 2 columns) -->
+<div class="lg:col-span-2 bg-surface-container-lowest border border-[#DCC7A1] rounded-xl p-lg card-texture shadow-sm flex flex-col">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-title-lg text-title-lg text-primary">Crecimiento de la Plataforma</h3>
+<select class="bg-[#F2F0EA] border-b border-secondary border-t-0 border-l-0 border-r-0 font-body-sm text-body-sm text-on-surface focus:ring-0 focus:border-secondary py-1 pl-2 pr-8 rounded-t-sm">
+<option>Últimos 30 días</option>
+<option>Este Año</option>
+</select>
+</div>
+<!-- Chart Area Placeholder -->
+<div class="flex-grow relative min-h-[250px] w-full rounded border border-outline-variant/30 overflow-hidden bg-surface-container-low flex items-end px-md pb-md gap-4">
+<!-- Simple CSS Bar Chart representation for visual purpose -->
+<div class="w-full flex justify-between items-end h-48 gap-2 relative z-10">
+<div class="w-1/6 bg-primary-container/80 h-1/4 rounded-t-sm hover:bg-primary transition-colors"></div>
+<div class="w-1/6 bg-primary-container/80 h-2/4 rounded-t-sm hover:bg-primary transition-colors"></div>
+<div class="w-1/6 bg-primary-container/80 h-1/3 rounded-t-sm hover:bg-primary transition-colors"></div>
+<div class="w-1/6 bg-primary-container/80 h-3/4 rounded-t-sm hover:bg-primary transition-colors"></div>
+<div class="w-1/6 bg-primary-container/80 h-2/3 rounded-t-sm hover:bg-primary transition-colors"></div>
+<div class="w-1/6 bg-secondary/80 h-full rounded-t-sm hover:bg-secondary transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-caps text-label-caps px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">Hoy</div>
+</div>
+</div>
+<!-- Decorative Line -->
+<svg class="absolute inset-0 w-full h-full z-0" preserveAspectRatio="none" viewBox="0 0 100 100">
+<path class="opacity-50" d="M0,80 Q20,60 40,70 T80,30 T100,10" fill="none" stroke="theme('colors.secondary')" stroke-dasharray="4" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Recent Activity List -->
+<div class="bg-surface-container-lowest border border-[#DCC7A1] rounded-xl p-lg card-texture shadow-sm">
+<h3 class="font-title-lg text-title-lg text-primary mb-lg">Actividad Reciente</h3>
+<ul class="flex flex-col gap-md">
+<!-- Activity Item 1 -->
+<li class="flex gap-md items-start pb-md border-b border-[#DCC7A1]/50 last:border-0 last:pb-0">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px] text-on-primary-fixed">storefront</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface"><span class="font-semibold">Nueva marca registrada:</span> "Tejidos del Sur"</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">Hace 10 min</p>
+</div>
+</li>
+<!-- Activity Item 2 -->
+<li class="flex gap-md items-start pb-md border-b border-[#DCC7A1]/50 last:border-0 last:pb-0">
+<div class="w-8 h-8 rounded-full bg-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px] text-on-error-container">flag</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface"><span class="font-semibold text-error">Comentario reportado</span> en producto "Miel Orgánica"</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">Hace 45 min</p>
+</div>
+</li>
+<!-- Activity Item 3 -->
+<li class="flex gap-md items-start pb-md border-b border-[#DCC7A1]/50 last:border-0 last:pb-0">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px] text-on-secondary-container">sell</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface">Venta mayorista confirmada por <span class="font-semibold">Almacén Verde</span></p>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">Hace 2 horas</p>
+</div>
+</li>
+</ul>
+<button class="mt-lg w-full py-2 border border-secondary text-secondary font-label-caps text-label-caps rounded hover:bg-secondary/5 transition-colors">
+                    Ver todo el registro
+                </button>
+</div>
+</section>
+</main>
+
+
+</body></html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Checkout - Shipping</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e4e2dd",
+                        "surface-container-low": "#f5f3ee",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#d6e8ca",
+                        "inverse-primary": "#baccaf",
+                        "surface-tint": "#53634b",
+                        "on-secondary-fixed": "#370e00",
+                        "secondary-fixed": "#ffdbce",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#ffb598",
+                        "outline": "#757870",
+                        "inverse-surface": "#30312e",
+                        "on-surface": "#1b1c19",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fbf9f4",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "tertiary-container": "#9a6c00",
+                        "secondary": "#8e4d31",
+                        "outline-variant": "#c4c8be",
+                        "primary": "#506049",
+                        "on-primary": "#ffffff",
+                        "background": "#fbf9f4",
+                        "on-background": "#1b1c19",
+                        "on-tertiary-fixed": "#271900",
+                        "on-surface-variant": "#444841",
+                        "surface-container": "#f0eee9",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fbf9f4",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "primary-fixed-dim": "#baccaf",
+                        "on-secondary-fixed-variant": "#71361d",
+                        "surface-container-high": "#eae8e3",
+                        "on-primary-container": "#f8ffef",
+                        "surface-dim": "#dbdad5",
+                        "on-secondary-container": "#783c22",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary-fixed": "#ffdeaa",
+                        "tertiary": "#7a5500",
+                        "secondary-container": "#feaa88",
+                        "primary-container": "#697960",
+                        "on-primary-fixed": "#111f0d",
+                        "surface-variant": "#e4e2dd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "12px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "label-caps": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+        }
+        .input-minimal {
+            background-color: #F2F0EA;
+            border: none;
+            border-bottom: 1px solid #DCC7A1;
+            border-radius: 0;
+            padding: 12px 16px;
+            width: 100%;
+            transition: border-color 0.2s ease;
+        }
+        .input-minimal:focus {
+            outline: none;
+            border-bottom-color: #7D8E74;
+            ring: 0;
+        }
+        .card-minimal {
+            border: 1px solid #DCC7A1;
+            background-color: #fbf9f4;
+            transition: all 0.2s ease;
+        }
+        .card-minimal.selected {
+            border-color: #7D8E74;
+            background-color: #f5f3ee;
+            box-shadow: 0 4px 12px rgba(62, 74, 57, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased pb-32 min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface docked full-width top-0 sticky z-50 bg-surface border-b border-outline-variant flat no shadows flex items-center justify-between px-gutter w-full h-16 max-w-[1280px] mx-auto">
+<div class="flex items-center gap-4">
+<button aria-label="Go back" class="p-2 hover:opacity-80 transition-opacity text-primary dark:text-primary-fixed Active: scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md text-primary dark:text-primary-fixed font-headline-md text-headline-md text-primary dark:text-primary-fixed">La Ecoferia</h1>
+</div>
+<div>
+<!-- Header actions could go here -->
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-container-margin md:px-lg py-6 md:py-8 lg:grid lg:grid-cols-12 lg:gap-8">
+<!-- Left Column: Checkout Form -->
+<div class="lg:col-span-8">
+<!-- Desktop Stepper (Hidden on mobile, replaced by BottomNavBar) -->
+<div class="hidden md:flex justify-between items-center mb-8 relative px-4">
+<div class="absolute left-0 top-1/2 w-full h-[1px] bg-outline-variant -z-10 transform -translate-y-1/2"></div>
+<div class="flex flex-col items-center gap-2 bg-surface px-4">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">1</div>
+<span class="font-label-caps text-label-caps text-primary">Shipping</span>
+</div>
+<div class="flex flex-col items-center gap-2 bg-surface px-4">
+<div class="w-8 h-8 rounded-full border border-outline-variant text-on-surface-variant flex items-center justify-center font-bold">2</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Payment</span>
+</div>
+<div class="flex flex-col items-center gap-2 bg-surface px-4">
+<div class="w-8 h-8 rounded-full border border-outline-variant text-on-surface-variant flex items-center justify-center font-bold">3</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Confirm</span>
+</div>
+</div>
+<div class="space-y-8">
+<!-- Contact Information -->
+<section>
+<h2 class="font-title-lg text-title-lg text-primary mb-6">Contact Information</h2>
+<div class="space-y-4">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="email">Email Address</label>
+<input class="input-minimal" id="email" placeholder="jane@example.com" type="email">
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="phone">Phone Number</label>
+<input class="input-minimal" id="phone" placeholder="+1 (555) 000-0000" type="tel">
+</div>
+</div>
+</section>
+<!-- Shipping Address -->
+<section>
+<h2 class="font-title-lg text-title-lg text-primary mb-6">Shipping Address</h2>
+<div class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="firstName">First Name</label>
+<input class="input-minimal" id="firstName" placeholder="Jane" type="text">
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="lastName">Last Name</label>
+<input class="input-minimal" id="lastName" placeholder="Doe" type="text">
+</div>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="street">Street Address</label>
+<input class="input-minimal" id="street" placeholder="123 Artisan Way" type="text">
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="apartment">Apartment, suite, etc. (optional)</label>
+<input class="input-minimal" id="apartment" placeholder="Apt 4B" type="text">
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="col-span-2 md:col-span-1">
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="city">City</label>
+<input class="input-minimal" id="city" placeholder="Portland" type="text">
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="province">Province/State</label>
+<input class="input-minimal" id="province" placeholder="OR" type="text">
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="postalCode">Postal Code</label>
+<input class="input-minimal" id="postalCode" placeholder="97204" type="text">
+</div>
+</div>
+</div>
+</section>
+<!-- Shipping Method -->
+<section>
+<h2 class="font-title-lg text-title-lg text-primary mb-6">Shipping Method</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Home Delivery Option -->
+<div class="card-minimal selected rounded-lg p-4 cursor-pointer flex flex-col justify-between h-full" onclick="selectShipping(this)">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+<span class="font-body-md text-body-md font-semibold text-primary">Home Delivery</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-tertiary-container">$5.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-auto">Arrives in 2-4 business days directly to your door.</p>
+</div>
+<!-- Pickup Point Option -->
+<div class="card-minimal rounded-lg p-4 cursor-pointer flex flex-col justify-between h-full" onclick="selectShipping(this)">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="storefront">storefront</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Pickup Point</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-primary">Free</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-auto">Collect from a local artisan partner near you.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Right Column: Order Summary (Desktop) -->
+<div class="hidden lg:block lg:col-span-4">
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant sticky top-24">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Order Summary</h3>
+<div class="space-y-4 mb-6">
+<!-- Item 1 -->
+<div class="flex gap-4 items-start">
+<div class="w-16 h-16 bg-surface-container rounded-md overflow-hidden shrink-0 border border-[#DCC7A1]">
+<img class="w-full h-full object-cover" data-alt="A small jar of artisanal organic honey, backlit with warm natural light, resting on a rustic wooden table with a soft focus background. Earthy and premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYmBEuLqm5iPPOzUnGK3wmft5OtXlDRqj8eSm6ORUR5ujQjndIACdA3Oxs6Y_X2zjpXgYcDwRveWU-Muud7zDYFd00yO2zqKQUXjjP4um9Rt9hgURmtNy3xwTkZZWhoTK_LHsFCyjt5dezvZEmKvnb0EKAFtfwSePIPdJfCoIqUxEasnJAIsB7lsZcDFm94mBzr--3kfe4Ybd_KfXU6QOwhd6z4RQZ-E2WNBc-Pbxf-t7RaRwWzsb--g">
+</div>
+<div class="flex-grow">
+<h4 class="font-body-sm text-body-sm font-semibold text-on-surface">Wildflower Honey</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Qty: 1</p>
+</div>
+<span class="font-body-md text-body-md font-semibold text-secondary">$12.00</span>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4 items-start">
+<div class="w-16 h-16 bg-surface-container rounded-md overflow-hidden shrink-0 border border-[#DCC7A1]">
+<img class="w-full h-full object-cover" data-alt="A handcrafted ceramic mug with an earthy green glaze, sitting on a textured linen cloth. Minimalist composition, soft window light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuQw-6E_rdtCRoN3LuOz-FcB4lhleZlGIRdgJtDJT1mG3vgp2ykBSTxZT-c1iqJvBVOG_QVJt56CF5Wm5rsij--8NTwYWWWnG8l69je3biTRAc4HNcbRLZ8R89G_YotBH_YT3tgng_HvF9THZEEBPQadApuokkvZ5O1rZGUwPvuwoJU5h9ZpI1Z3hgqrU6yL0O1uxt2RoXC0046C4VdJkAIN5mmZIvXyQaSg0-bPe9pYnvPsGJvktwqg">
+</div>
+<div class="flex-grow">
+<h4 class="font-body-sm text-body-sm font-semibold text-on-surface">Ceramic Mug</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Qty: 1</p>
+</div>
+<span class="font-body-md text-body-md font-semibold text-secondary">$18.00</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-4 space-y-2 mb-6">
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Subtotal</span>
+<span>$30.00</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Shipping</span>
+<span>$5.00</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Eco-packaging</span>
+<span>-$6.10</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-4 flex justify-between items-center mb-8">
+<span class="font-title-lg text-title-lg font-bold text-on-surface">Total</span>
+<span class="font-title-lg text-title-lg font-bold text-secondary">$28.90</span>
+</div>
+<button class="w-full bg-[#7D8E74] text-white font-body-md text-body-md py-3 rounded-md hover:opacity-90 transition-opacity font-semibold">
+                    Continue to Payment
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container dark:bg-inverse-surface docked full-width bottom-0 fixed z-50 bg-surface-container border-t border-outline-variant shadow-sm fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 pb-safe">
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 hover:bg-surface-container-high Active: scale-98 duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="local_shipping" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-label-caps text-label-caps">Shipping</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high Active: scale-98 duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="payments">payments</span>
+<span class="font-label-caps text-label-caps">Payment</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high Active: scale-98 duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="verified">verified</span>
+<span class="font-label-caps text-label-caps">Confirm</span>
+</button>
+</nav>
+<!-- Fixed Action Bar for Mobile -->
+<div class="md:hidden fixed bottom-[72px] left-0 w-full bg-surface border-t border-outline-variant p-4 px-container-margin z-40 shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-center mb-3">
+<span class="font-body-md text-body-md text-on-surface-variant">Total</span>
+<span class="font-title-lg text-title-lg font-bold text-secondary">$28.90</span>
+</div>
+<button class="w-full bg-[#7D8E74] text-white font-body-md text-body-md py-3 rounded-md hover:opacity-90 transition-opacity font-semibold">
+            Continue to Payment
+        </button>
+</div>
+<script>
+        function selectShipping(element) {
+            // Remove selected class from all cards
+            const cards = document.querySelectorAll('.card-minimal');
+            cards.forEach(card => {
+                card.classList.remove('selected');
+                card.querySelector('.material-symbols-outlined').classList.remove('text-primary');
+                card.querySelector('.material-symbols-outlined').classList.add('text-on-surface-variant');
+                card.querySelector('span:nth-child(2)').classList.remove('text-primary');
+                card.querySelector('span:nth-child(2)').classList.add('text-on-surface');
+            });
+
+            // Add selected class to clicked card
+            element.classList.add('selected');
+            element.querySelector('.material-symbols-outlined').classList.remove('text-on-surface-variant');
+            element.querySelector('.material-symbols-outlined').classList.add('text-primary');
+            element.querySelector('span:nth-child(2)').classList.remove('text-on-surface');
+            element.querySelector('span:nth-child(2)').classList.add('text-primary');
+        }
+    </script>
+</body></html>

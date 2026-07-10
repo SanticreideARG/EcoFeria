@@ -1,0 +1,263 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Patagonia Market - Favorite Brands</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#506049",
+                        "outline": "#757870",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#271900",
+                        "on-primary-container": "#f8ffef",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#53634b",
+                        "surface-container-highest": "#e4e2dd",
+                        "surface-container-low": "#f5f3ee",
+                        "primary-fixed": "#d6e8ca",
+                        "on-secondary-fixed": "#370e00",
+                        "on-error": "#ffffff",
+                        "secondary": "#8e4d31",
+                        "on-primary-fixed": "#111f0d",
+                        "background": "#fbf9f4",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e4e2dd",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "inverse-primary": "#baccaf",
+                        "on-secondary-fixed-variant": "#71361d",
+                        "on-surface-variant": "#444841",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#f0eee9",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-container-high": "#eae8e3",
+                        "primary-fixed-dim": "#baccaf",
+                        "inverse-surface": "#30312e",
+                        "secondary-fixed": "#ffdbce",
+                        "on-background": "#1b1c19",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#9a6c00",
+                        "surface-dim": "#dbdad5",
+                        "on-surface": "#1b1c19",
+                        "tertiary-fixed": "#ffdeaa",
+                        "secondary-fixed-dim": "#ffb598",
+                        "outline-variant": "#c4c8be",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "surface-bright": "#fbf9f4",
+                        "surface": "#fbf9f4",
+                        "secondary-container": "#feaa88",
+                        "tertiary": "#7a5500",
+                        "primary-container": "#697960",
+                        "on-secondary-container": "#783c22",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "title-lg": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f4; /* background */
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+            color: #1b1c19; /* on-background */
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface shadow-sm z-50">
+<div class="flex items-center justify-between px-container-margin py-md w-full max-w-[1280px] mx-auto">
+<button class="text-primary hover:bg-surface-container-high transition-colors p-sm rounded-full active:scale-95 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary font-bold">Patagonia Market</h1>
+<button class="text-primary hover:bg-surface-container-high transition-colors p-sm rounded-full active:scale-95 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-container-margin py-lg pb-32">
+<div class="mb-lg flex items-center justify-between">
+<h2 class="font-title-lg text-title-lg text-on-surface">Favorite Brands</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-sm py-xs rounded-full">6 Saved</span>
+</div>
+<!-- 2-Column Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-md md:gap-lg">
+<!-- Brand Card 1 -->
+<div class="bg-surface border border-[#DCC7A1] rounded-lg overflow-hidden flex flex-col relative group">
+<button class="absolute top-sm right-sm z-10 p-sm rounded-full bg-surface/80 backdrop-blur-sm text-secondary active:scale-95 transition-transform hover:bg-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<div class="w-full aspect-square relative bg-surface-container-low flex items-center justify-center">
+<img alt="Brand Image" class="w-full h-full object-cover" data-alt="A beautifully styled, top-down photograph of artisanal woven textiles from Patagonia. Soft, natural lighting highlights the rough, organic texture of the wool. The colors are earthy browns, creams, and deep greens, consistent with a premium, eco-conscious aesthetic. Minimalist composition on a slightly textured bone-white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeEjC19zUObFmKHT3JffYr3pk4V6uayfnQDHyTp5XEd505dK-lRknLgjDSV207LMTXZG_0EJCaoxlqgYP_uH4bk6eRH6DF2ysjsp2cxt-zqVEvPPJBxepHD51LzMJAjkDGgwD_jqmmOVSNRq2os_aAx4BgSCQ9pOrYXDcpJnvWyqGjTqWyeBvQBWc8BDSSY2Dh3fDP3IFCnHXG2G8wGAJoc14_UM896gJ1_0uhGYtNZbZxq5q-XFeepg">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-sm left-sm right-sm flex items-end gap-sm">
+<div class="w-12 h-12 rounded-full bg-surface border border-[#DCC7A1] overflow-hidden flex-shrink-0 shadow-sm flex items-center justify-center">
+<img alt="Brand Logo" class="w-8 h-8 object-contain" data-alt="A minimalist, hand-drawn style logo for a Patagonian textile brand. It features a simple, monolinear icon of a weaving loom in deep forest green against a textured cream background. The style is artisanal and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf_WNCDAbPEHj6LRKzqyBvw1er7cxYE_Pv7D9GrU8Xg5hz3vUH1kFb6zNd4OdwipQnU_egnaXUGbwnnsFvzO3ReEMOzAM13YHCbGuJGqf7eoF7Ex7pf_EY-9-DWLpL_sETXLZ7HDH5uOfAor_8XyO6LLK6kftaP7EMaSbnQ0GYo9mYLKw7Y3EXZJlhtMn4K2D6KPaWIDDOLiBuv5Vqox3ixDYTL-jvDJfy67TaxzapURmdgPqFB5K8FA">
+</div>
+</div>
+</div>
+<div class="p-sm md:p-md flex-grow flex flex-col justify-between bg-surface relative z-20 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<div>
+<h3 class="font-title-lg text-[16px] leading-[24px] font-semibold text-on-surface line-clamp-1">Andean Weaves</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-xs">Sustainable Textiles</p>
+</div>
+</div>
+</div>
+<!-- Brand Card 2 -->
+<div class="bg-surface border border-[#DCC7A1] rounded-lg overflow-hidden flex flex-col relative group">
+<button class="absolute top-sm right-sm z-10 p-sm rounded-full bg-surface/80 backdrop-blur-sm text-secondary active:scale-95 transition-transform hover:bg-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<div class="w-full aspect-square relative bg-surface-container-low flex items-center justify-center">
+<img alt="Brand Image" class="w-full h-full object-cover" data-alt="A close-up, high-quality photograph of handcrafted ceramic mugs resting on a rustic wooden table. The mugs have a matte, speckled glaze in muted sage green and terracotta tones. Natural sunlight streams in, casting soft shadows. The mood is warm, grounded, and artisanal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwIKvaNa2l1kkRl53qsXsbbTUmn_pDtuIWnbVhYc0el1pABwyuX6473PM_FY-F8_mxUai2ODskZ93EAEieFAM9iHunPoFlqGcUZrDi2b0Mr03KpB9ou_vK6Jassa_xFRB8owFzavpOUxPeZzRD5G4hAmVh28n71NBL49XS-f36cTJllpJIoWjdTcwUZWtbs3qH-tbvUPcWEoB83P3sgLg7RxWxLLFzkwK2KytsADEE2ICwt7uA0hMOOQ">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-sm left-sm right-sm flex items-end gap-sm">
+<div class="w-12 h-12 rounded-full bg-surface border border-[#DCC7A1] overflow-hidden flex-shrink-0 shadow-sm flex items-center justify-center">
+<img alt="Brand Logo" class="w-8 h-8 object-contain" data-alt="A minimalist, hand-drawn style logo for a Patagonian pottery studio. It features a simple, monolinear icon of a clay pot in terracotta brown against a textured cream background. The style is artisanal and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq2GYkKMnBifNc8rm2ae5qcmKeJ4Tarxzns9LDgICMSvcu99wA1FDMkvNMMAwDR2rwJUYwkL7AqqkXR6OrxjUNOcpFLYzzDlhpMwghv3ksA10R9M39EfZ-QoVRYEUWkV-olaDR3TK1xFYhe0RxoVp63-7imTlqdZqVCwIod-C68z3pTIXr_SVf_nLFSFCWKTsuECVrnURgBgPwzK_J1jfCKklLRRUdpf9Mw7bGi26x0k5CMjpyCDEaZw">
+</div>
+</div>
+</div>
+<div class="p-sm md:p-md flex-grow flex flex-col justify-between bg-surface relative z-20 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<div>
+<h3 class="font-title-lg text-[16px] leading-[24px] font-semibold text-on-surface line-clamp-1">Tierra Blanca</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-xs">Handcrafted Ceramics</p>
+</div>
+</div>
+</div>
+<!-- Brand Card 3 -->
+<div class="bg-surface border border-[#DCC7A1] rounded-lg overflow-hidden flex flex-col relative group">
+<button class="absolute top-sm right-sm z-10 p-sm rounded-full bg-surface/80 backdrop-blur-sm text-secondary active:scale-95 transition-transform hover:bg-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<div class="w-full aspect-square relative bg-surface-container-low flex items-center justify-center">
+<img alt="Brand Image" class="w-full h-full object-cover" data-alt="A beautiful, well-lit photograph of organic skincare products in amber glass bottles, arranged on a smooth stone surface next to fresh green sage leaves. The lighting is bright and natural, reflecting a clean, eco-conscious, and premium brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChnBahFPPFf5D9HMNn-o7zqAB70sN5E-jR5Z33qKohu_IHTAZ4QCHVMnwVgCcd6Rc9tZx6W2PRBxE53kzNf6nQldGoUHRyX7rUKoUhtJFfXWEoaE1XK--nDOMo4zSdqSP4Bxb3savlVrY9U8Prw5U0Sc7CQmSbsDA8N8edzFu0byVRFI6wy8AMDUZ4ejn6NWzmmCVLkET_Rv2Z6mQuzvh3G2vxPcymU-CLhQcGOHxRA1vAPBqcU4-5Mw">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-sm left-sm right-sm flex items-end gap-sm">
+<div class="w-12 h-12 rounded-full bg-surface border border-[#DCC7A1] overflow-hidden flex-shrink-0 shadow-sm flex items-center justify-center">
+<img alt="Brand Logo" class="w-8 h-8 object-contain" data-alt="A minimalist, hand-drawn style logo for an organic apothecary. It features a simple, monolinear icon of a leaf sprig in sage green against a textured cream background. The style is botanical and clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs1dirvHVOpPkKPapfwdojk3Fa_d_jDcZT7e2DE7jZALXaaaNHFdh1SrLPLi9AcRhhMGyWd4mf--AHCO4_zPoSzgdaGiY0-7ZeIQbRE3LLknk_XsyTXP_wzVLeH3QMM2GarpelyCM12t7vr447xC1Vbx3pdsrtHlK2Bf6ZBMUsLgXl80XdTpvhiWFNidIXUlWWo21mwng59TvKwPYByx_sluCFcb0zpoTW5vmcG-5JOlscV4Arol4VhA">
+</div>
+</div>
+</div>
+<div class="p-sm md:p-md flex-grow flex flex-col justify-between bg-surface relative z-20 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<div>
+<h3 class="font-title-lg text-[16px] leading-[24px] font-semibold text-on-surface line-clamp-1">Flora Austral</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-xs">Organic Apothecary</p>
+</div>
+</div>
+</div>
+<!-- Brand Card 4 -->
+<div class="bg-surface border border-[#DCC7A1] rounded-lg overflow-hidden flex flex-col relative group">
+<button class="absolute top-sm right-sm z-10 p-sm rounded-full bg-surface/80 backdrop-blur-sm text-secondary active:scale-95 transition-transform hover:bg-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<div class="w-full aspect-square relative bg-surface-container-low flex items-center justify-center">
+<img alt="Brand Image" class="w-full h-full object-cover" data-alt="A striking photograph of carefully carved wooden utensils and bowls displayed on a rough linen cloth. The wood grain is rich and detailed, showcasing expert craftsmanship. The lighting is warm and directional, emphasizing the tactile quality of the woodwork. Artisanal and grounded." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZKKD1WW836vjNuHU9oPY-BT6aSRADwH9rFbxMdQRf483E_WgVDigOz-XpMWGPEIFuJ4N5pitRbhTetOR2aIQMV1vs8pCwXgWGp4dIjJkEF_dcQJIeBCCyA6R0zWvWRQRElCEBV2wWMYXcTDIecq9c9F2MrW1JlWYHHPJIueeqFTAtntnA0giuUejdHeAWKuZs0rj2h-hLX0MUe7GgZiRU_Ecz9U-uL3E4lbbIusI3JfQwZUDv_DL6Aw">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-sm left-sm right-sm flex items-end gap-sm">
+<div class="w-12 h-12 rounded-full bg-surface border border-[#DCC7A1] overflow-hidden flex-shrink-0 shadow-sm flex items-center justify-center">
+<img alt="Brand Logo" class="w-8 h-8 object-contain" data-alt="A minimalist, hand-drawn style logo for a woodworking artisan. It features a simple, monolinear icon of a tree ring in deep brown against a textured cream background. The style is rugged yet refined." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxJfh652LYdfW00CRjkHpYMC-8ayRgFtf-hf4hkRlWQyhp3jkfKQzun71duLChZqxw-MsA2mTQDoOqotHX0SIUJGmDGqn6yvsozR1bvi03M08eWD3ZL15QlEfumREcX33jBqcDtrU0prcqG8oP5ww7tYfmrjM9l3IhfF-7mgzgU8SEj2hqjr-Zc-Rzb8NrpiDxcHDpAvUxdwSYsTtPMVsR-J3AmJQulV05mYgmXOXdx6orMe2BnDL5Qw">
+</div>
+</div>
+</div>
+<div class="p-sm md:p-md flex-grow flex flex-col justify-between bg-surface relative z-20 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<div>
+<h3 class="font-title-lg text-[16px] leading-[24px] font-semibold text-on-surface line-clamp-1">Bosque Craft</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-xs">Artisanal Woodwork</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-sm pb-safe bg-surface-container-low shadow-md rounded-t-xl border-t border-outline-variant">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-caps text-label-caps mt-1">Market</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-caps text-label-caps mt-1">Orders</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-caps text-label-caps mt-1">Inbox</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</button>
+</nav>
+<!-- Desktop Side Nav (Visible only on md+) - Acting as bottom nav replacement for layout consistency -->
+<nav class="hidden md:flex flex-col fixed left-0 top-16 bottom-0 w-20 bg-surface-container-low border-r border-outline-variant z-40 items-center py-lg gap-lg shadow-sm">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200 p-2 rounded-lg hover:bg-surface-container-high w-16">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-caps text-[10px] mt-1">Market</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200 p-2 rounded-lg hover:bg-surface-container-high w-16">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-caps text-[10px] mt-1">Orders</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200 p-2 rounded-lg hover:bg-surface-container-high w-16">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-caps text-[10px] mt-1">Inbox</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container p-2 rounded-lg active:scale-90 transition-all duration-200 w-16 shadow-sm">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-[10px] mt-1">Profile</span>
+</button>
+</nav>
+<!-- Adjust main padding for desktop side nav -->
+<style>
+        @media (min-width: 768px) {
+            main {
+                padding-left: calc(80px + 20px); /* Side nav width + margin */
+            }
+        }
+    </style>
+</body></html>

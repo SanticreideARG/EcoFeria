@@ -1,0 +1,320 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>La Ecoferia - Productores Locales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#8e4d31",
+                        "on-tertiary-fixed": "#271900",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1b1c19",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "secondary-fixed": "#ffdbce",
+                        "surface-bright": "#fbf9f4",
+                        "surface-tint": "#53634b",
+                        "primary-fixed": "#d6e8ca",
+                        "outline-variant": "#c4c8be",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#fbf9f4",
+                        "secondary-container": "#feaa88",
+                        "surface-variant": "#e4e2dd",
+                        "primary-container": "#697960",
+                        "error-container": "#ffdad6",
+                        "primary": "#506049",
+                        "on-primary-container": "#f8ffef",
+                        "on-secondary": "#ffffff",
+                        "outline": "#757870",
+                        "primary-fixed-dim": "#baccaf",
+                        "surface-container-high": "#eae8e3",
+                        "on-primary-fixed": "#111f0d",
+                        "tertiary-fixed": "#ffdeaa",
+                        "surface": "#fbf9f4",
+                        "on-background": "#1b1c19",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#370e00",
+                        "surface-container-highest": "#e4e2dd",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3ee",
+                        "tertiary": "#7a5500",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "on-secondary-container": "#783c22",
+                        "inverse-surface": "#30312e",
+                        "tertiary-container": "#9a6c00",
+                        "on-surface-variant": "#444841",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-container": "#f0eee9",
+                        "inverse-primary": "#baccaf",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dbdad5",
+                        "secondary-fixed-dim": "#ffb598",
+                        "on-secondary-fixed-variant": "#71361d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "40px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "container-margin": "20px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F9F7F2; /* Custom background matching brand description */
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.05"/></svg>');
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md min-h-screen flex flex-col relative pb-20 md:pb-0 pt-16 md:pt-0 md:pl-64">
+<!-- Mobile Top App Bar (Only visible on mobile) -->
+<header class="md:hidden bg-surface dark:bg-surface-dim font-headline-md text-headline-md docked full-width top-0 flat no shadows fixed left-0 w-full z-50 flex justify-between items-center px-container-margin h-16">
+<button class="text-primary dark:text-primary-fixed active:scale-95 duration-150 p-2 -ml-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-primary-fixed font-bold tracking-tight">La Ecoferia</h1>
+<button class="text-primary dark:text-primary-fixed active:scale-95 duration-150 p-2 -mr-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</header>
+<!-- Desktop Navigation Drawer (Hidden on mobile) -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full py-xl w-64 border-r border-outline-variant bg-surface-container shadow-sm z-40">
+<div class="px-lg mb-8">
+<h1 class="font-display-lg text-display-lg text-secondary font-bold tracking-tight">La Ecoferia</h1>
+</div>
+<div class="flex-1 overflow-y-auto px-4 flex flex-col gap-2">
+<!-- Active State: Mercado -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg bg-secondary-container text-on-secondary-container font-bold hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="storefront" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-caps text-label-caps">Mercado</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="font-label-caps text-label-caps">Agenda</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span class="font-label-caps text-label-caps">Blog</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps">Perfil</span>
+</a>
+<div class="h-px bg-outline-variant my-4 mx-2"></div>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="psychology_alt">psychology_alt</span>
+<span class="font-label-caps text-label-caps">Productores Locales</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+<span class="font-label-caps text-label-caps">Impacto Ambiental</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 max-w-[1280px] w-full mx-auto px-container-margin py-lg md:py-xl flex flex-col gap-lg">
+<!-- Header Section -->
+<div class="flex flex-col gap-sm">
+<h2 class="font-display-lg text-display-lg text-on-surface">Productores Locales</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                Conoce a los artesanos y agricultores detrás de nuestros productos. Apoya la economía regional de la Patagonia.
+            </p>
+</div>
+<!-- Scrollable Category Chips -->
+<div class="overflow-x-auto hide-scrollbar -mx-container-margin px-container-margin pb-4 pt-2">
+<div class="flex gap-3 w-max">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-caps text-label-caps shadow-sm active:scale-95 transition-transform border border-primary">
+                    Todas
+                </button>
+<button class="bg-[#DCC7A1] text-[#3E4A39] px-6 py-2 rounded-full font-label-caps text-label-caps shadow-sm hover:bg-[#cbb58d] active:scale-95 transition-colors border border-[#cbb58d]">
+                    Miel
+                </button>
+<button class="bg-[#DCC7A1] text-[#3E4A39] px-6 py-2 rounded-full font-label-caps text-label-caps shadow-sm hover:bg-[#cbb58d] active:scale-95 transition-colors border border-[#cbb58d]">
+                    Hongos
+                </button>
+<button class="bg-[#DCC7A1] text-[#3E4A39] px-6 py-2 rounded-full font-label-caps text-label-caps shadow-sm hover:bg-[#cbb58d] active:scale-95 transition-colors border border-[#cbb58d]">
+                    Textil
+                </button>
+<button class="bg-[#DCC7A1] text-[#3E4A39] px-6 py-2 rounded-full font-label-caps text-label-caps shadow-sm hover:bg-[#cbb58d] active:scale-95 transition-colors border border-[#cbb58d]">
+                    Cerámica
+                </button>
+</div>
+</div>
+<!-- Brands Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Brand Card 1: Abeja Obrera -->
+<article class="group relative bg-surface-lowest rounded-xl border border-[#DCC7A1] overflow-hidden flex flex-col transition-shadow hover:shadow-[0_4px_24px_rgba(62,74,57,0.08)] bg-opacity-90 backdrop-blur-sm" style="background-color: rgba(251, 249, 244, 0.8);">
+<div class="absolute top-4 right-4 z-10">
+<button class="p-2 rounded-full bg-surface/80 backdrop-blur-md text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="h-48 w-full relative overflow-hidden bg-surface-variant">
+<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A macro shot of a golden honeycomb dripping with fresh honey, set against a rustic wooden background. The lighting is warm and natural, highlighting the rich amber tones of the honey and the organic texture of the wood. The mood is artisanal, earthy, and inviting, reflecting a premium organic brand from the Patagonia region. Shot with a shallow depth of field in a rustic barn setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJrUP_UmV6Gh4kKD58wVzBkZ7xC-Kzk1_n29zFaNER1Ke0R0D1rpEO8FC5j8abdpe4hK28FsyiuXtLKgV9MvUcFCL6U_7scVm5TDp4_NA2Oe7nCRc81ccNr0TA_35I34lZpku12XYP1xMPJ696TE3wrntL6tDnqaSLki49rTSx9O8j-OL6kreEA4DKDFQl93wvdzTkjaEMe7aAANHICg8IUeDOn_bvmNjlAgg0_HnAmRVC2G9ZSgPARQ">
+</div>
+<div class="p-6 flex flex-col flex-1 relative pt-12">
+<div class="absolute -top-10 left-6">
+<img class="w-16 h-16 rounded-full border-4 border-surface object-cover shadow-sm bg-surface" data-alt="A portrait of a local beekeeper in Patagonia, wearing a worn denim shirt and a warm smile. They are standing outdoors with soft natural sunlight illuminating their weathered face. The background is slightly out of focus, showing green foliage. The aesthetic is authentic, documentary-style, and deeply connected to nature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQXm8odtrAerKA_s8KC0OfYoFTkkkeBlCPJc4DE7-YnrruYJZ6iBA24-n9AMaicrBS2nP86fJulJbD4dhzCQfwcs5H6ZolimyBvWXRaTMbjEtPxFZWFbvRKO-bnTgxj08wAB-dvX1Bt62cei5Xkk299FxOK4WaJhaNtBZf7MWVj3TI3NnVdsMbt3hbUfMhPfkEXHQP1cEsryqBax1gt-SqOihuTxSU64oL9mGy7_N55ltWUcSGbcRTDA">
+</div>
+<div class="flex flex-col gap-2 mb-4">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Abeja Obrera</h3>
+<div class="flex items-center gap-1 px-2 py-1 bg-surface-container rounded-md">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="location_on">location_on</span>
+<span class="font-label-caps text-label-caps text-[10px] text-on-surface-variant">San Martín de los Andes</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                            Miel orgánica de flora nativa. Protegiendo la biodiversidad patagónica colmena a colmena.
+                        </p>
+</div>
+<div class="mt-auto pt-4 border-t border-[#DCC7A1] border-opacity-30 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-[#DCC7A1]/20 text-[#3E4A39] rounded text-[10px] font-label-caps uppercase tracking-wider">Orgánico</span>
+</div>
+<a class="font-label-caps text-label-caps text-primary hover:text-primary-container transition-colors flex items-center gap-1" href="#">
+                            Ver Perfil <span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Brand Card 2: EcoFungi -->
+<article class="group relative bg-surface-lowest rounded-xl border border-[#DCC7A1] overflow-hidden flex flex-col transition-shadow hover:shadow-[0_4px_24px_rgba(62,74,57,0.08)] bg-opacity-90 backdrop-blur-sm" style="background-color: rgba(251, 249, 244, 0.8);">
+<div class="absolute top-4 right-4 z-10">
+<button class="p-2 rounded-full bg-surface/80 backdrop-blur-md text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined text-error" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="h-48 w-full relative overflow-hidden bg-surface-variant">
+<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A beautifully styled composition of diverse, freshly harvested gourmet mushrooms (like oyster and shiitake) resting in a woven wicker basket lined with rough brown kraft paper. The lighting is moody and dramatic, reminiscent of a dense, damp Patagonian forest floor. The color palette features deep earth tones, rich browns, and subtle greens, evoking a sense of wild foraging and organic agriculture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-3FXHq7UDwolb0q1_WvDmoLAEX-EnlV6tCN-P0bbxGXvvU3AwG9Ajw-m265lpdllFngAyeTnayh8VJPvwwITgL4sJdMUJ7Y1X1jmXhu-fB1OV14_cI_uFNrAHGUqOZ-_Kj-lsIJsBBtBezpsiNSgS7nRXxtlulmsGRwEsR6THQiAbvXRGqgjF216pIE-v0WTHGk3qU-UYOEJqUijby5aEEBYTU2duqSUwt4bx6bLvoVC8LjkYECqwxg">
+</div>
+<div class="p-6 flex flex-col flex-1 relative pt-12">
+<div class="absolute -top-10 left-6">
+<img class="w-16 h-16 rounded-full border-4 border-surface object-cover shadow-sm bg-surface" data-alt="A portrait of an artisanal mushroom cultivator holding a small cluster of oyster mushrooms. They wear a thick, hand-knit wool sweater typical of the Patagonian region. The setting is inside a rustic, dimly lit greenhouse with wooden beams. The mood is earthy, focused, and deeply tied to sustainable farming practices." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsiSAPwtmEUrMJ0saItEQ7bflXA2fSqYvVlBaZnxZfHk5GJxY3BJ9K9jKeLJ7clZuXnlfostqn-PENecMHzqtz2QXrIJ_k69ZhlzcXl5EffR0AP-L52PN3wfiVvalHTvB2QB2JmNNqIbxGdc1-12zbF06Wik6LmbbQ9gxXOyra_XTHiWMCt2rJkgkx8uueztX3P-YaRPInYnSvj3uxEoRQYWn7_9VPiXTgZClxZ2-TTDZZaWz4sZYdiA">
+</div>
+<div class="flex flex-col gap-2 mb-4">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">EcoFungi</h3>
+<div class="flex items-center gap-1 px-2 py-1 bg-surface-container rounded-md">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="location_on">location_on</span>
+<span class="font-label-caps text-label-caps text-[10px] text-on-surface-variant">Bariloche</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                            Cultivo sostenible de hongos adaptógenos y gourmet en el bosque andino.
+                        </p>
+</div>
+<div class="mt-auto pt-4 border-t border-[#DCC7A1] border-opacity-30 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-[#DCC7A1]/20 text-[#3E4A39] rounded text-[10px] font-label-caps uppercase tracking-wider">Local</span>
+</div>
+<a class="font-label-caps text-label-caps text-primary hover:text-primary-container transition-colors flex items-center gap-1" href="#">
+                            Ver Perfil <span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Brand Card 3: Energía Vital -->
+<article class="group relative bg-surface-lowest rounded-xl border border-[#DCC7A1] overflow-hidden flex flex-col transition-shadow hover:shadow-[0_4px_24px_rgba(62,74,57,0.08)] bg-opacity-90 backdrop-blur-sm" style="background-color: rgba(251, 249, 244, 0.8);">
+<div class="absolute top-4 right-4 z-10">
+<button class="p-2 rounded-full bg-surface/80 backdrop-blur-md text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="h-48 w-full relative overflow-hidden bg-surface-variant">
+<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A close-up of a beautifully crafted artisanal herbal tea blend spread across a piece of textured, unbleached linen fabric. The blend includes dried chamomile, rose petals, and rugged local herbs. The image is bathed in soft, diffused morning light coming from a window, highlighting the delicate textures of the dried plants. The aesthetic is clean, holistic, and deeply grounded in natural healing traditions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDYtsHDAzv4gY-6F6XVvpSzFcg6CJa_eGEj4_L4SEYcY72SIqsFLCWSD0wPeZ-dXQ6_1d_My72QY39zTRV06Ne0_DxA4XOa8QMXOMstI5F6UzKYzwDCnT7hLjxAalPQfBzcBQG-_y50iG8-A48LEqWGwKU13ZbiiAjxi4fWkwZUQG6WGu9Al9dD4YpnV81OOcrnEHkkyzP2KRTa-VFol4992J_gvjzxkoOuSKRuW7ngRaawm1VaxoK-Q">
+</div>
+<div class="p-6 flex flex-col flex-1 relative pt-12">
+<div class="absolute -top-10 left-6">
+<img class="w-16 h-16 rounded-full border-4 border-surface object-cover shadow-sm bg-surface" data-alt="A portrait of an herbalist in a bright, airy workshop filled with glass jars of dried herbs. They are gently smiling, wearing a simple linen apron over natural clothing. The background features rustic wooden shelves holding botanical ingredients. The lighting is high-key and natural, conveying a sense of purity, wellness, and artisanal care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaeQCzEaPZ-erhrecidQdlUjGypTjnYGnb2QP-BB1gLRmLUGhDexDS3EsloFLFDtIkS7oLBJIkfu6gwAF8ZKIWOmpTqnb57l7qZRgvWYsFBclUuBIFy7xfh5dpNVByRUOsf9JTPIY-jkTeZUen9XXXJsnihga0zDQc6G_StYClmDUj2ocGQ7RNUT0nVOSf6kyRs7rA0SZNgWqzB7SgUhkFdmf78uHqLLTpQut8ziqYJbVoCBMTRiHyTw">
+</div>
+<div class="flex flex-col gap-2 mb-4">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Energía Vital</h3>
+<div class="flex items-center gap-1 px-2 py-1 bg-surface-container rounded-md">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="location_on">location_on</span>
+<span class="font-label-caps text-label-caps text-[10px] text-on-surface-variant">San Martín de los Andes</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                            Blends botánicos y tinturas madres recolectadas artesanalmente con respeto por la tierra.
+                        </p>
+</div>
+<div class="mt-auto pt-4 border-t border-[#DCC7A1] border-opacity-30 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-[#DCC7A1]/20 text-[#3E4A39] rounded text-[10px] font-label-caps uppercase tracking-wider">Fair Trade</span>
+</div>
+<a class="font-label-caps text-label-caps text-primary hover:text-primary-container transition-colors flex items-center gap-1" href="#">
+                            Ver Perfil <span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Mobile Bottom Nav Bar (Only visible on mobile) -->
+<nav class="md:hidden bg-surface dark:bg-surface-dim font-label-caps text-label-caps font-display-lg-mobile text-display-lg-mobile text-primary border-t border-outline-variant bg-surface/90 backdrop-blur-md shadow-sm fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="storefront" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="text-[10px] mt-1">Mercado</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="text-[10px] mt-1">Agenda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span class="text-[10px] mt-1">Blog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] mt-1">Perfil</span>
+</a>
+</nav>
+</body></html>

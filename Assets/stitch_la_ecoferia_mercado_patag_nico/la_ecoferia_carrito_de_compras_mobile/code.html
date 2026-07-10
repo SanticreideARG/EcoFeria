@@ -1,0 +1,269 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Carrito de Compras - La Ecoferia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#baccaf",
+                        "on-primary": "#ffffff",
+                        "surface": "#fbf9f4",
+                        "surface-dim": "#dbdad5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#53634b",
+                        "surface-container-low": "#f5f3ee",
+                        "on-primary-container": "#f8ffef",
+                        "on-secondary-fixed": "#370e00",
+                        "inverse-on-surface": "#f2f1ec",
+                        "outline-variant": "#c4c8be",
+                        "surface-bright": "#fbf9f4",
+                        "on-secondary-fixed-variant": "#71361d",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e4e2dd",
+                        "inverse-surface": "#30312e",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "on-surface-variant": "#444841",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e2dd",
+                        "secondary-fixed-dim": "#ffb598",
+                        "secondary": "#8e4d31",
+                        "on-secondary-container": "#783c22",
+                        "primary-container": "#697960",
+                        "tertiary-container": "#9a6c00",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#feaa88",
+                        "on-primary-fixed": "#111f0d",
+                        "error": "#ba1a1a",
+                        "background": "#fbf9f4",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "on-surface": "#1b1c19",
+                        "surface-container-high": "#eae8e3",
+                        "surface-container": "#f0eee9",
+                        "on-primary-fixed-variant": "#3c4b35",
+                        "primary": "#506049",
+                        "on-background": "#1b1c19",
+                        "secondary-fixed": "#ffdbce",
+                        "primary-fixed-dim": "#baccaf",
+                        "primary-fixed": "#d6e8ca",
+                        "on-tertiary-fixed": "#271900",
+                        "on-tertiary-container": "#fffbff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdeaa",
+                        "tertiary": "#7a5500",
+                        "outline": "#757870"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "gutter": "12px",
+                        "md": "16px",
+                        "unit": "4px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.05"/></svg>');
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col relative pb-32">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 border-b border-outline-variant bg-surface">
+<div class="flex justify-between items-center px-container-margin py-md w-full max-w-[1280px] mx-auto">
+<button aria-label="Volver" class="text-on-surface-variant hover:text-tertiary transition-colors duration-200 cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">Mi Canasta</h1>
+<button aria-label="Ayuda" class="text-on-surface-variant hover:text-tertiary transition-colors duration-200 cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Main Content - Filled Cart -->
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-container-margin pt-lg pb-xl flex flex-col gap-xl" id="cart-filled">
+<!-- Group 1: Mieles del Bosque -->
+<section class="flex flex-col gap-md">
+<div class="flex items-center gap-sm pb-sm border-b border-surface-variant">
+<span class="material-symbols-outlined text-tertiary">storefront</span>
+<h2 class="font-title-lg text-title-lg text-on-surface">Abeja Obrera SMA</h2>
+</div>
+<div class="flex flex-col gap-md">
+<!-- Product 1 -->
+<article class="flex gap-md bg-surface-container-lowest p-md rounded-lg border border-[#DCC7A1] shadow-sm relative overflow-hidden group">
+<img alt="Miel de Ulmo Orgánica" class="w-24 h-24 object-cover rounded-md flex-shrink-0" data-alt="A jar of raw organic honey from Patagonia, golden amber color, placed on a rustic wooden table with soft natural light streaming in, artisanal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1l02ahCfYLH0CBtcVa9TNnliF369vMRcwaxiOe2jOSIxfAmic2sGbU1a0taoEzSVcL2pg6MsLL_Or0Or-hijg0DPjrsuJtQVLhtTwYjAQNoRz_dp4pTNRV1oFldFt5CTEFyCgtSXsEO4s4ceUmsz_Bv57gY74XmtQMWdaezjws8_8BRKA7fiwYA4NEjTtRU-vudRdEvk1Mp7nHdRJ-IyG46-RDCN_jMjw6FwGAewbF6JpN--4EfJHpA">
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2">Miel Cruda de Montaña 500g</h3>
+<button aria-label="Eliminar Miel de Ulmo" class="text-on-surface-variant hover:text-error transition-colors ml-sm">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-xs">$8.500</p>
+</div>
+<div class="flex justify-between items-end mt-sm">
+<div class="flex items-center border border-outline-variant rounded-md bg-surface-container-low">
+<button aria-label="Disminuir cantidad" class="p-xs text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="font-body-sm text-body-sm text-on-surface px-sm w-6 text-center">1</span>
+<button aria-label="Aumentar cantidad" class="p-xs text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<span class="font-title-lg text-title-lg text-on-surface">$8.500</span>
+</div>
+</div>
+</article>
+</div>
+<div class="flex justify-between items-center pt-sm text-on-surface-variant">
+<span class="font-body-sm text-body-sm">Subtotal Abeja Obrera SMA</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">$8.500</span>
+</div>
+</section>
+<!-- Group 2: Botánica Sur -->
+<section class="flex flex-col gap-md">
+<div class="flex items-center gap-sm pb-sm border-b border-surface-variant">
+<span class="material-symbols-outlined text-tertiary">storefront</span>
+<h2 class="font-title-lg text-title-lg text-on-surface">Energía Vital</h2>
+</div>
+<div class="flex flex-col gap-md">
+<!-- Product 2 -->
+<article class="flex gap-md bg-surface-container-lowest p-md rounded-lg border border-[#DCC7A1] shadow-sm relative overflow-hidden group">
+<img alt="Jabón Artesanal de Lavanda" class="w-24 h-24 object-cover rounded-md flex-shrink-0" data-alt="A bundle of dried lavender and artisanal organic soap on a textured linen cloth, soft muted earthy tones, rustic and grounded aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB97OwL4AeySG9g9D1xsZog-t-NmQq2mQy0ixaHNygawISZeEqEYP8ZySaeyLNFu9UfzclFa8qiiqBvU0SLeqj5y7yFI4cga9t09hm321SAxSqbR2CFdmyzVS6D2xXXq9YMp0lcrr_bE2hXf3fQ7lZjkUBcfB7b5ddgZAHFYHgnqxgVv_ZIod-S3NnFmBWKrNXD44r9iGEydAkKsLqv4kO4WowOHUUWL468m_1Ne-u5jsvPIQ0_23KPUA">
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2">Ungüento Botánico</h3>
+<button aria-label="Eliminar Jabón" class="text-on-surface-variant hover:text-error transition-colors ml-sm">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-xs">$4.200</p>
+</div>
+<div class="flex justify-between items-end mt-sm">
+<div class="flex items-center border border-outline-variant rounded-md bg-surface-container-low">
+<button aria-label="Disminuir cantidad" class="p-xs text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="font-body-sm text-body-sm text-on-surface px-sm w-6 text-center">2</span>
+<button aria-label="Aumentar cantidad" class="p-xs text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<span class="font-title-lg text-title-lg text-on-surface">$8.400</span>
+</div>
+</div>
+</article>
+<!-- Product 3 -->
+<article class="flex gap-md bg-surface-container-lowest p-md rounded-lg border border-[#DCC7A1] shadow-sm relative overflow-hidden group">
+<img alt="Aceite Esencial de Romero" class="w-24 h-24 object-cover rounded-md flex-shrink-0" data-alt="Small amber glass bottle of essential oil with a dropper, surrounded by fresh herbs on a wooden surface, natural and minimalist mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEGpD-tOKx86Ej1UbzEX58Kakmsos26uC5Xp6Y4oH6Moc_nXid7UkMxP9Gi5EePUPK4LOOX7VCixSIhsAkYMWIvDY5OYZ2OXe3TaPbcF9JyBk7QS_NmYaGIL3rpu0dY4TWzRK3Nong_UMB6YFgQF-I58KLi_37kBNsbQAZlVrwUY_xCc0FO2ArxJYBABJRJ1cyQxqTkYY4hfRYHqD1YUQAdnSJNL6bEDlmwIRT9gHM5SWrSbePBjsDag">
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2">Aceite de Cannabis Full Spectrum 15ml</h3>
+<button aria-label="Eliminar Aceite" class="text-on-surface-variant hover:text-error transition-colors ml-sm">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-xs">$12.000</p>
+</div>
+<div class="flex justify-between items-end mt-sm">
+<div class="flex items-center border border-outline-variant rounded-md bg-surface-container-low">
+<button aria-label="Disminuir cantidad" class="p-xs text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="font-body-sm text-body-sm text-on-surface px-sm w-6 text-center">1</span>
+<button aria-label="Aumentar cantidad" class="p-xs text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<span class="font-title-lg text-title-lg text-on-surface">$12.000</span>
+</div>
+</div>
+</article>
+</div>
+<div class="flex justify-between items-center pt-sm text-on-surface-variant">
+<span class="font-body-sm text-body-sm">Subtotal Energía Vital</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">$20.400</span>
+</div>
+</section>
+</main>
+<!-- Empty State Variant (Hidden by default for demonstration) -->
+<main class="hidden flex-grow w-full max-w-[1280px] mx-auto px-container-margin py-xl flex-col items-center justify-center text-center gap-lg" id="cart-empty">
+<div class="w-48 h-48 rounded-full bg-surface-container-low flex items-center justify-center mb-md border border-outline-variant">
+<span class="material-symbols-outlined text-[80px] text-outline-variant">shopping_basket</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Tu canasta está vacía</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Descubre productos orgánicos y artesanales directo de productores locales de la Patagonia.</p>
+<button class="mt-lg bg-[#7D8E74] hover:bg-primary text-on-primary font-title-lg text-title-lg px-xl py-md rounded-full shadow-md active:translate-y-1 transition-all">
+            Explorar Marcas
+        </button>
+</main>
+<!-- Sticky Bottom Section (Only visible when cart has items) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-[#DCC7A1] shadow-[0_-4px_20px_rgba(62,74,57,0.05)] z-40 px-container-margin py-md pb-safe" id="cart-footer">
+<div class="max-w-[1280px] mx-auto">
+<div class="flex justify-between items-end mb-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total (3 productos)</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface">$28.900</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Envío calculado en el siguiente paso</span>
+</div>
+<button class="w-full bg-[#7D8E74] hover:bg-primary text-on-primary font-title-lg text-title-lg py-md rounded-full shadow-md active:translate-y-1 transition-all flex justify-center items-center gap-sm">
+                Continuar compra
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Script to toggle states for demonstration (optional) -->
+<script>
+        // Simple script to demonstrate empty state if needed. Not essential for final static HTML.
+        // document.getElementById('cart-filled').classList.add('hidden');
+        // document.getElementById('cart-footer').classList.add('hidden');
+        // document.getElementById('cart-empty').classList.remove('hidden');
+        // document.getElementById('cart-empty').classList.add('flex');
+    </script>
+
+
+</body></html>

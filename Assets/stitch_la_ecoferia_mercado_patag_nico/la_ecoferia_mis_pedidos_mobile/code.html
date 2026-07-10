@@ -1,0 +1,324 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Mis Pedidos - Patagonia Market</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#506049",
+                      "outline": "#757870",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#271900",
+                      "on-primary-container": "#f8ffef",
+                      "on-primary": "#ffffff",
+                      "surface-tint": "#53634b",
+                      "surface-container-highest": "#e4e2dd",
+                      "surface-container-low": "#f5f3ee",
+                      "primary-fixed": "#d6e8ca",
+                      "on-secondary-fixed": "#370e00",
+                      "on-error": "#ffffff",
+                      "secondary": "#8e4d31",
+                      "on-primary-fixed": "#111f0d",
+                      "background": "#fbf9f4",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e4e2dd",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed-variant": "#3c4b35",
+                      "inverse-primary": "#baccaf",
+                      "on-secondary-fixed-variant": "#71361d",
+                      "on-surface-variant": "#444841",
+                      "on-tertiary-fixed-variant": "#5f4100",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#f0eee9",
+                      "on-tertiary-container": "#fffbff",
+                      "surface-container-high": "#eae8e3",
+                      "primary-fixed-dim": "#baccaf",
+                      "inverse-surface": "#30312e",
+                      "secondary-fixed": "#ffdbce",
+                      "on-background": "#1b1c19",
+                      "error-container": "#ffdad6",
+                      "tertiary-container": "#9a6c00",
+                      "surface-dim": "#dbdad5",
+                      "on-surface": "#1b1c19",
+                      "tertiary-fixed": "#ffdeaa",
+                      "secondary-fixed-dim": "#ffb598",
+                      "outline-variant": "#c4c8be",
+                      "tertiary-fixed-dim": "#fabc45",
+                      "surface-bright": "#fbf9f4",
+                      "surface": "#fbf9f4",
+                      "secondary-container": "#feaa88",
+                      "tertiary": "#7a5500",
+                      "primary-container": "#697960",
+                      "on-secondary-container": "#783c22",
+                      "inverse-on-surface": "#f2f1ec",
+                      "surface-container-lowest": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "xl": "40px",
+                      "sm": "8px",
+                      "lg": "24px",
+                      "gutter": "12px",
+                      "md": "16px",
+                      "xs": "4px",
+                      "container-margin": "20px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "display-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E');
+        }
+        
+        /* Level 1 Depth - Subtle ambient shadow */
+        .ambient-shadow {
+            box-shadow: 0 8px 24px -4px rgba(62, 74, 57, 0.04);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md pb-24 md:pb-8">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface shadow-sm">
+<div class="flex items-center justify-between px-container-margin py-md w-full max-w-[1280px] mx-auto">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">Patagonia Market</h1>
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-container-margin py-lg pt-xl md:grid md:grid-cols-12 md:gap-lg">
+<!-- Page Header -->
+<div class="md:col-span-12 mb-lg">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-sm">Mis Pedidos</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Revisa el estado y el historial de tus compras sustentables.</p>
+</div>
+<!-- Filters (Desktop Sidebar / Mobile Top) -->
+<aside class="md:col-span-3 mb-lg md:mb-0">
+<div class="bg-surface p-lg rounded-xl border border-[#DCC7A1] ambient-shadow relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.03%22/%3E%3C/svg%3E')] pointer-events-none"></div>
+<h3 class="font-title-lg text-title-lg text-primary mb-md">Filtrar</h3>
+<div class="space-y-sm">
+<button class="w-full text-left font-body-md text-body-md text-primary font-bold bg-surface-container-high py-2 px-3 rounded-lg flex items-center justify-between">
+                        Todos
+                        <span class="font-label-caps text-label-caps bg-primary text-on-primary px-2 py-1 rounded-full">12</span>
+</button>
+<button class="w-full text-left font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors py-2 px-3 rounded-lg flex items-center justify-between">
+                        En camino
+                        <span class="font-label-caps text-label-caps bg-surface-container-highest text-on-surface-variant px-2 py-1 rounded-full">1</span>
+</button>
+<button class="w-full text-left font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors py-2 px-3 rounded-lg flex items-center justify-between">
+                        Entregados
+                        <span class="font-label-caps text-label-caps bg-surface-container-highest text-on-surface-variant px-2 py-1 rounded-full">10</span>
+</button>
+<button class="w-full text-left font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors py-2 px-3 rounded-lg flex items-center justify-between">
+                        Cancelados
+                        <span class="font-label-caps text-label-caps bg-surface-container-highest text-on-surface-variant px-2 py-1 rounded-full">1</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Orders List -->
+<div class="md:col-span-9 space-y-md">
+<!-- Order Card 1: Preparando -->
+<article class="bg-surface rounded-xl border border-[#DCC7A1] ambient-shadow p-lg relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg group">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.03%22/%3E%3C/svg%3E')] pointer-events-none"></div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-md border-b border-[#DCC7A1]/30 pb-sm relative z-10">
+<div>
+<span class="font-title-lg text-title-lg text-primary block">Pedido #ECO-12345</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">24 de Octubre, 2023</span>
+</div>
+<div class="mt-sm sm:mt-0 flex items-center">
+<span class="bg-tertiary-container/20 text-tertiary-container font-label-caps text-label-caps px-3 py-1 rounded-full flex items-center gap-1 border border-tertiary-container/30">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+                            Preparando
+                        </span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-lg relative z-10">
+<div class="flex-grow">
+<h4 class="font-title-lg text-title-lg text-on-background mb-xs">Cesta Orgánica Patagónica</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-sm">3 artículos • Incluye Miel de bosque, Té artesanal, Conservas.</p>
+<p class="font-headline-md text-headline-md text-secondary">$8,500 ARS</p>
+</div>
+<div class="flex flex-col justify-end gap-sm md:min-w-[150px]">
+<button class="w-full bg-surface-container border border-[#DCC7A1] text-primary font-body-md text-body-md py-2 px-4 rounded-lg hover:bg-surface-container-high transition-colors text-center">Ver Detalles</button>
+</div>
+</div>
+</article>
+<!-- Order Card 2: Enviado -->
+<article class="bg-surface rounded-xl border border-[#DCC7A1] ambient-shadow p-lg relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg group">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.03%22/%3E%3C/svg%3E')] pointer-events-none"></div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-md border-b border-[#DCC7A1]/30 pb-sm relative z-10">
+<div>
+<span class="font-title-lg text-title-lg text-primary block">Pedido #ECO-12310</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">18 de Octubre, 2023</span>
+</div>
+<div class="mt-sm sm:mt-0 flex items-center">
+<span class="bg-primary-container/30 text-primary-fixed-variant font-label-caps text-label-caps px-3 py-1 rounded-full flex items-center gap-1 border border-primary-container/50">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+                            Enviado
+                        </span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-lg relative z-10">
+<div class="flex-grow">
+<h4 class="font-title-lg text-title-lg text-on-background mb-xs">Set de Cosmética Natural</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-sm">2 artículos • Jabón de lavanda, Crema hidratante base rosa mosqueta.</p>
+<p class="font-headline-md text-headline-md text-secondary">$4,200 ARS</p>
+</div>
+<div class="flex flex-col justify-end gap-sm md:min-w-[150px]">
+<button class="w-full bg-surface-container border border-[#DCC7A1] text-primary font-body-md text-body-md py-2 px-4 rounded-lg hover:bg-surface-container-high transition-colors text-center">Seguimiento</button>
+<button class="w-full bg-surface-container border border-[#DCC7A1] text-primary font-body-md text-body-md py-2 px-4 rounded-lg hover:bg-surface-container-high transition-colors text-center">Ver Detalles</button>
+</div>
+</div>
+</article>
+<!-- Order Card 3: Entregado -->
+<article class="bg-surface rounded-xl border border-[#DCC7A1] ambient-shadow p-lg relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg group opacity-80">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.03%22/%3E%3C/svg%3E')] pointer-events-none"></div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-md border-b border-[#DCC7A1]/30 pb-sm relative z-10">
+<div>
+<span class="font-title-lg text-title-lg text-primary block">Pedido #ECO-11902</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">02 de Septiembre, 2023</span>
+</div>
+<div class="mt-sm sm:mt-0 flex items-center">
+<span class="bg-[#DCC7A1]/30 text-[#3E4A39] font-label-caps text-label-caps px-3 py-1 rounded-full flex items-center gap-1 border border-[#DCC7A1]/50">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                            Entregado
+                        </span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-lg relative z-10">
+<div class="flex-grow flex items-start gap-md">
+<img class="w-20 h-20 object-cover rounded-lg border border-[#DCC7A1]" data-alt="A beautifully crafted artisanal ceramic mug resting on a rustic wooden table, bathed in soft, warm morning light. The mug has natural earthy tones, a slightly imperfect shape showing its handmade origin, and a subtle glaze. A sprig of dried wildflowers lies casually next to it. The overall aesthetic is minimalist, organic, and evocative of a slow-living, sustainable lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRyUTiE8PeoAwP-LzkGAea0UvEM38oohCbfQi3lmycWh1HORnGqdxZF36tT9J2ifyNlZHnGBC2tmub26cwDvsLbl6SO5vQUBK0vjqIFZ4MW7BJt2rUkLEvcH5Lx5irrKH7fz9K2oWEcZbXhmqqMgzhIqnG2paCxRsFN8MQu-ebvgiS9cwfvJ-HEN2e2BioUwvpdOUcElu2f-vIAJlMzT8RDisMYI8w3Tnmj7n6KTiQKvtX9tKzmp5b_w">
+<div>
+<h4 class="font-title-lg text-title-lg text-on-background mb-xs">Taza de Cerámica Artesanal</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-sm">1 artículo • Diseño exclusivo Bariloche.</p>
+<p class="font-headline-md text-headline-md text-secondary">$3,800 ARS</p>
+</div>
+</div>
+<div class="flex flex-col justify-end gap-sm md:min-w-[150px]">
+<button class="w-full bg-primary text-on-primary font-body-md text-body-md py-2 px-4 rounded-lg hover:bg-surface-tint transition-colors text-center">Volver a Comprar</button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-sm pb-safe bg-surface-container-low border-t-0 shadow-[0_-4px_16px_rgba(0,0,0,0.05)] rounded-t-xl relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.03%22/%3E%3C/svg%3E')] pointer-events-none"></div>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200 relative z-10 w-16 h-14">
+<span class="material-symbols-outlined mb-xs">storefront</span>
+<span class="font-label-caps text-[10px] font-bold">Market</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-200 relative z-10 min-w-16 h-14">
+<span class="material-symbols-outlined mb-xs">local_shipping</span>
+<span class="font-label-caps text-[10px] font-bold">Orders</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200 relative z-10 w-16 h-14">
+<span class="material-symbols-outlined mb-xs">mail</span>
+<span class="font-label-caps text-[10px] font-bold">Inbox</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200 relative z-10 w-16 h-14">
+<span class="material-symbols-outlined mb-xs">person</span>
+<span class="font-label-caps text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+</body></html>
