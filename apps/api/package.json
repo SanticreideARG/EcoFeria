@@ -7,6 +7,7 @@
     "dev": "tsx watch src/dev-server.ts",
     "start": "tsx src/dev-server.ts",
     "build:vercel": "node scripts/build-vercel.mjs",
+    "set-password": "tsx src/scripts/set-password.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -14,6 +15,7 @@
     "@ecoferia/shared": "workspace:*",
     "@hono/node-server": "^1.13.7",
     "@hono/zod-validator": "^0.4.2",
+    "better-auth": "1.2.12",
     "hono": "^4.6.15",
     "zod": "^3.24.1"
   },

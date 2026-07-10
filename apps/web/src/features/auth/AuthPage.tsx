@@ -1,10 +1,11 @@
 import { useState, type FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { CtaButton, GoogleIcon, Icon, NoiseOverlay, PaperInput } from '../../components/index.ts';
 import { cn } from '../../lib/cn.ts';
+import { signIn, signUp, useSession } from '../../lib/auth-client.ts';
 
 type Mode = 'login' | 'register';
-type Role = 'cliente' | 'vendedor';
+type WantsRole = 'cliente' | 'vendedor';
 
 function Divider() {
   return (
@@ -20,6 +21,7 @@ function GoogleButton() {
   return (
     <button
       type="button"
+      onClick={() => signIn.social({ provider: 'google', callbackURL: `${window.location.origin}/` })}
       className="flex w-full items-center justify-center gap-2 rounded-lg border border-brand-accent bg-surface-container-low py-4 text-title-lg text-on-surface transition-colors hover:bg-surface-variant active:translate-y-px"
     >
       <GoogleIcon /> Continuar con Google
@@ -27,7 +29,7 @@ function GoogleButton() {
   );
 }
 
-function RoleSelector({ role, onChange }: { role: Role; onChange: (r: Role) => void }) {
+function RoleSelector({ role, onChange }: { role: WantsRole; onChange: (r: WantsRole) => void }) {
   return (
     <div className="mt-2 flex flex-col gap-2">
       <span className="text-label-caps text-on-surface-variant">¿Cómo querés participar?</span>
@@ -62,13 +64,48 @@ function RoleSelector({ role, onChange }: { role: Role; onChange: (r: Role) => v
 
 export function AuthPage() {
   const [mode, setMode] = useState<Mode>('login');
-  const [role, setRole] = useState<Role>('cliente');
-  const [notice, setNotice] = useState(false);
+  const [wantsRole, setWantsRole] = useState<WantsRole>('cliente');
+  const [error, setError] = useState<string | null>(null);
+  const [pending, setPending] = useState(false);
+  const navigate = useNavigate();
+  const { data: session, isPending: sessionPending } = useSession();
 
-  const onSubmit = (e: FormEvent) => {
+  // Ya autenticado: no tiene sentido mostrar el login de nuevo.
+  if (!sessionPending && session) return <Navigate to="/" replace />;
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // El wiring real (Better Auth + Google) llega en M5.
-    setNotice(true);
+    setError(null);
+    const form = new FormData(e.currentTarget);
+    const email = String(form.get('email') ?? '');
+    const password = String(form.get('password') ?? '');
+
+    setPending(true);
+    try {
+      if (mode === 'login') {
+        const { error: err } = await signIn.email({ email, password });
+        if (err) {
+          setError('Email o contraseña incorrectos.');
+          return;
+        }
+      } else {
+        // El rol siempre nace en "cliente" (Better Auth no permite setearlo desde
+        // el cliente); la solicitud de vendedor se resuelve en el panel de admin
+        // en Sprint 2. `name` se deriva del email: no pedimos "Nombre" en el registro.
+        const { error: err } = await signUp.email({
+          email,
+          password,
+          name: email.split('@')[0] || email,
+        });
+        if (err) {
+          setError(err.message ?? 'No pudimos crear la cuenta.');
+          return;
+        }
+      }
+      navigate('/');
+    } finally {
+      setPending(false);
+    }
   };
 
   return (
@@ -86,7 +123,10 @@ export function AuthPage() {
           <div className="flex border-b border-brand-accent">
             <button
               type="button"
-              onClick={() => setMode('login')}
+              onClick={() => {
+                setMode('login');
+                setError(null);
+              }}
               className={cn(
                 'flex-1 border-b-2 py-4 text-center text-title-lg transition-colors',
                 mode === 'login'
@@ -98,7 +138,10 @@ export function AuthPage() {
             </button>
             <button
               type="button"
-              onClick={() => setMode('register')}
+              onClick={() => {
+                setMode('register');
+                setError(null);
+              }}
               className={cn(
                 'flex-1 border-b-2 py-4 text-center text-title-lg transition-colors',
                 mode === 'register'
@@ -125,6 +168,7 @@ export function AuthPage() {
                 name="password"
                 type="password"
                 placeholder={mode === 'login' ? '••••••••' : 'Mín. 8 caracteres'}
+                minLength={mode === 'register' ? 8 : undefined}
                 required
               />
               {mode === 'login' && (
@@ -137,14 +181,21 @@ export function AuthPage() {
               )}
             </div>
 
-            {mode === 'register' && <RoleSelector role={role} onChange={setRole} />}
+            {mode === 'register' && <RoleSelector role={wantsRole} onChange={setWantsRole} />}
+
+            {error && (
+              <p className="flex items-center gap-2 text-body-sm text-error">
+                <Icon name="error" className="text-base" /> {error}
+              </p>
+            )}
 
             <CtaButton
               type="submit"
               variant={mode === 'login' ? 'tertiary' : 'primary'}
+              disabled={pending}
               className="w-full shadow-sm active:translate-y-px"
             >
-              {mode === 'login' ? 'Ingresar' : 'Crear cuenta'}
+              {pending ? 'Un momento…' : mode === 'login' ? 'Ingresar' : 'Crear cuenta'}
             </CtaButton>
 
             <Divider />
@@ -153,15 +204,6 @@ export function AuthPage() {
           </form>
         </div>
       </main>
-
-      {notice && (
-        <div className="relative z-10 mx-auto mb-8 w-full max-w-[500px] px-5">
-          <p className="flex items-center gap-2 rounded-lg bg-tertiary-fixed/50 p-3 text-body-sm text-on-tertiary-fixed">
-            <Icon name="info" className="text-lg" />
-            La autenticación real (email y Google) se habilita en el próximo sprint.
-          </p>
-        </div>
-      )}
     </div>
   );
 }

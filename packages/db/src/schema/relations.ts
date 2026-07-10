@@ -1,4 +1,5 @@
 import { relations } from 'drizzle-orm';
+import { accounts, sessions } from './auth.ts';
 import {
   brandContacts,
   brandPosts,
@@ -15,6 +16,16 @@ export const usersRelations = relations(users, ({ one, many }) => ({
   sellerProfile: one(sellerProfiles),
   managedBrands: many(brands),
   favorites: many(favorites),
+  sessions: many(sessions),
+  accounts: many(accounts),
+}));
+
+export const sessionsRelations = relations(sessions, ({ one }) => ({
+  user: one(users, { fields: [sessions.userId], references: [users.id] }),
+}));
+
+export const accountsRelations = relations(accounts, ({ one }) => ({
+  user: one(users, { fields: [accounts.userId], references: [users.id] }),
 }));
 
 export const sellerProfilesRelations = relations(sellerProfiles, ({ one, many }) => ({

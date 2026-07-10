@@ -4,4 +4,5 @@
  */
 export * from './enums.ts';
 export * from './tables.ts';
+export * from './auth.ts';
 export * from './relations.ts';

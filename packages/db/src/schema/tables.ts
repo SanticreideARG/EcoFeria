@@ -1,5 +1,6 @@
 import { sql } from 'drizzle-orm';
 import {
+  boolean,
   check,
   index,
   integer,
@@ -26,13 +27,20 @@ const createdAt = () => timestamp('created_at', { withTimezone: true }).defaultN
 
 // --- Usuarios y roles ---
 
+// Tabla gestionada por Better Auth (M5): además de los campos de dominio,
+// requiere emailVerified/image/updatedAt como columnas nativas. El id sigue
+// siendo uuid (no el `text` default de Better Auth): se le pasa un generador
+// de ID custom (crypto.randomUUID) en apps/api/src/auth.ts para que coincida
+// con el tipo de columna, evitando cascadear el cambio a las FKs que lo referencian.
 export const users = pgTable('users', {
   id: uuid('id').primaryKey().defaultRandom(),
   name: text('name').notNull(),
   email: text('email').notNull().unique(),
+  emailVerified: boolean('email_verified').notNull().default(false),
+  image: text('image'),
   role: userRole('role').notNull().default('cliente'),
-  avatarUrl: text('avatar_url'),
   createdAt: createdAt(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 });
 
 export const sellerProfiles = pgTable('seller_profiles', {

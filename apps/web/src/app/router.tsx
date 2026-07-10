@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { RootLayout } from './RootLayout.tsx';
+import { RequireRole } from './RequireRole.tsx';
 import { HomePage } from '../features/home/HomePage.tsx';
 import { BrandsDirectoryPage } from '../features/brands/BrandsDirectoryPage.tsx';
 import { BrandProfilePage } from '../features/brands/BrandProfilePage.tsx';
@@ -7,6 +8,8 @@ import { ShopPage } from '../features/catalog/ShopPage.tsx';
 import { ProductDetailPage } from '../features/catalog/ProductDetailPage.tsx';
 import { CartPage } from '../features/cart/CartPage.tsx';
 import { AuthPage } from '../features/auth/AuthPage.tsx';
+import { AdminPage } from '../features/admin/AdminPage.tsx';
+import { SellerPage } from '../features/seller/SellerPage.tsx';
 import { ComingSoon, NotFoundPage } from '../features/misc/Placeholders.tsx';
 import { UiPlayground } from '../features/dev/UiPlayground.tsx';
 
@@ -22,6 +25,14 @@ export const router = createBrowserRouter([
       { path: '/carrito', element: <CartPage /> },
       { path: '/agenda', element: <ComingSoon title="Agenda Cultural" icon="event" /> },
       { path: '/blog', element: <ComingSoon title="Blog" icon="article" /> },
+      {
+        element: <RequireRole roles={['admin']} />,
+        children: [{ path: '/admin', element: <AdminPage /> }],
+      },
+      {
+        element: <RequireRole roles={['admin', 'vendedor']} />,
+        children: [{ path: '/vendedor', element: <SellerPage /> }],
+      },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

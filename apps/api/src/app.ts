@@ -1,10 +1,12 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
+import { auth } from './auth.ts';
 import { health } from './routes/health.ts';
 import { categoriesRoute } from './routes/categories.ts';
 import { brandsRoute } from './routes/brands.ts';
 import { productsRoute } from './routes/products.ts';
 import { contentRoute } from './routes/content.ts';
+import { protectedRoutes } from './routes/protected.ts';
 
 /**
  * App Hono de La Ecoferia. Las rutas cuelgan de la raíz (`/health`, `/brands`, …).
@@ -13,15 +15,25 @@ import { contentRoute } from './routes/content.ts';
  */
 export const app = new Hono();
 
-// En producción conviene restringir el origen al dominio de la web (WEB_ORIGIN).
-const origin = process.env.WEB_ORIGIN?.trim() || '*';
-app.use('*', cors({ origin }));
+// Better Auth usa cookies de sesión: hace falta reflejar el origin exacto (no
+// "*") y `credentials: true`, si no el browser descarta la cookie cross-site.
+// La seguridad real de /auth/* la da `trustedOrigins` en auth.ts.
+app.use(
+  '*',
+  cors({
+    origin: (origin) => origin ?? '*',
+    credentials: true,
+  }),
+);
+
+app.on(['GET', 'POST'], '/auth/*', (c) => auth.handler(c.req.raw));
 
 app.route('/', health);
 app.route('/', categoriesRoute);
 app.route('/', brandsRoute);
 app.route('/', productsRoute);
 app.route('/', contentRoute);
+app.route('/', protectedRoutes);
 
 app.onError((err, c) => {
   console.error('[api] error:', err);
