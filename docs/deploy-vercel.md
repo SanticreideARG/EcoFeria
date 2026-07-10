@@ -17,14 +17,26 @@ Repo ──┬──> Proyecto "eco-feria-web"  (Root Directory: apps/web)
 En Vercel **no corre PGlite** (filesystem de solo lectura). La API exige
 `DATABASE_URL`; si falta, falla con un error explícito.
 
-Creá el proyecto en [neon.tech](https://neon.tech) y copiá la connection string
-**pooled**. Luego, **desde tu máquina** (no en Vercel), aplicá el esquema:
+Creá el proyecto en [neon.tech](https://neon.tech). Vas a usar **dos** connection strings:
+
+| String | Para qué |
+|---|---|
+| **pooled** (`-pooler`) | env var `DATABASE_URL` del proyecto API en Vercel |
+| **unpooled** (directa) | migraciones y seed (DDL), desde tu máquina |
+
+En `.env` (gitignoreado) se guardan con nombres `DATABASE_URL_POOLED` /
+`DATABASE_URL_UNPOOLED`, **no** como `DATABASE_URL`: así `pnpm dev` sigue usando
+PGlite local y ningún `db:reset` accidental puede borrar producción.
 
 ```bash
-# .env con DATABASE_URL apuntando a Neon
-pnpm db:migrate
-pnpm db:seed    # datos demo
+# Aplicar el esquema y los datos demo a Neon (desde tu máquina, no en Vercel)
+set -a && . ./.env && set +a
+DATABASE_URL="$DATABASE_URL_UNPOOLED" pnpm db:migrate
+DATABASE_URL="$DATABASE_URL_UNPOOLED" pnpm db:seed
 ```
+
+> ⚠️ **Comillas obligatorias en `.env`**: la URL pooled contiene `&`. Sin comillas,
+> `source .env` lo interpreta como operador de background y la variable queda vacía.
 
 > Las migraciones nunca corren dentro de la función serverless: el migrador se
 > importa de forma diferida y queda excluido del bundle.
