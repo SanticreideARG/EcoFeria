@@ -108,7 +108,7 @@ export async function seedDatabase(db: DB): Promise<void> {
   const userRows = await db
     .insert(users)
     .values([
-      { name: 'Admin Ecoferia', email: 'admin@laecoferia.ar', role: 'admin' },
+      { name: 'Santiago Creide', email: 'santi.creide@gmail.com', role: 'admin' },
       { name: 'Lucía Fungi', email: 'lucia@ecofungi.ar', role: 'vendedor' },
       { name: 'Mara Ruke', email: 'mara@ceramicaruke.ar', role: 'vendedor' },
       { name: 'Sol Espera', email: 'sol@pendiente.ar', role: 'vendedor' },
@@ -129,7 +129,7 @@ export async function seedDatabase(db: DB): Promise<void> {
     .returning({ id: sellerProfiles.id, userId: sellerProfiles.userId });
   const sellerByUser = Object.fromEntries(sellerRows.map((r) => [r.userId, r.id]));
   const seller = (email: string) => req(sellerByUser, req(user, email));
-  const adminId = req(user, 'admin@laecoferia.ar');
+  const adminId = req(user, 'santi.creide@gmail.com');
 
   // Marcas: XOR gestor (vendedor O admin).
   const brandRows = await db

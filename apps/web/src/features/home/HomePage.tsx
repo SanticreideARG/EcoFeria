@@ -45,7 +45,9 @@ function Hero() {
         }}
       />
       <div className="relative z-10 mb-12 text-on-primary">
-        <p className="mb-2 text-label-caps uppercase opacity-90">Alto Valle · Patagonia</p>
+        <p className="mb-2 text-label-caps uppercase opacity-90">
+          San Martín de los Andes · Neuquén
+        </p>
         <h1 className="mb-3 font-display text-display-lg-mobile md:text-display-lg">
           Raíces de nuestra tierra
         </h1>

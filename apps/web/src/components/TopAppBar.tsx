@@ -26,8 +26,15 @@ export function TopAppBar({ cartCount = 0 }: { cartCount?: number }) {
         <Icon name="menu" />
       </button>
 
-      <Link to="/" className="font-display text-display-lg-mobile tracking-tight text-primary">
-        La Ecoferia
+      <Link to="/" className="flex items-center gap-[15px]">
+        <img
+          src="/logo.png"
+          alt=""
+          className="h-9 w-9 flex-shrink-0 rounded-full object-cover md:h-10 md:w-10"
+        />
+        <span className="font-display text-display-lg-mobile tracking-tight text-primary">
+          La Ecoferia
+        </span>
       </Link>
 
       <nav className="absolute left-1/2 hidden -translate-x-1/2 gap-4 md:flex">
