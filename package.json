@@ -31,7 +31,10 @@
     "typescript-eslint": "^8.19.1"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "sharp"],
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ],
     "overrides": {
       "better-call": "1.0.29"
     }
