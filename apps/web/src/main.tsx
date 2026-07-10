@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { AppProviders } from './app/providers.tsx';
 import { router } from './app/router.tsx';
+import './app/fonts.ts';
 import './app/globals.css';
 
 const rootEl = document.getElementById('root');
