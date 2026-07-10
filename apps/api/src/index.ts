@@ -1,5 +1,6 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
+import { handle } from 'hono/vercel';
 import { health } from './routes/health.ts';
 import { categoriesRoute } from './routes/categories.ts';
 import { brandsRoute } from './routes/brands.ts';
@@ -25,3 +26,8 @@ app.onError((err, c) => {
 app.notFound((c) => c.json({ error: 'No encontrado' }, 404));
 
 export type AppType = typeof app;
+
+// --- Adaptador Vercel ---
+// Vercel invoca el default export como función serverless (runtime Node).
+export const config = { runtime: 'nodejs' };
+export default handle(app);
