@@ -34,33 +34,39 @@ export async function createConnection(): Promise<Connection> {
   const url = process.env.DATABASE_URL?.trim();
 
   if (url) {
-    // Neon HTTP: sin WebSocket ni pooling, ideal para funciones serverless.
+    // Neon HTTP: fetch nativo, sin WebSocket ni pooling. Apto serverless.
+    // No soporta transacciones interactivas (usar CTE si hace falta atomicidad).
     const { drizzle } = await import('drizzle-orm/neon-http');
-    const { migrate } = await import('drizzle-orm/neon-http/migrator');
     const { neon } = await import('@neondatabase/serverless');
     const sql = neon(url);
     const neonDb = drizzle(sql, { schema });
     return {
       db: neonDb as unknown as DB,
-      migrate: (folder) => migrate(neonDb, { migrationsFolder: folder }),
+      // Import diferido: el migrador no entra al bundle de la función serverless.
+      migrate: async (folder) => {
+        const { migrate } = await import('drizzle-orm/neon-http/migrator');
+        await migrate(neonDb, { migrationsFolder: folder });
+      },
       close: async () => {}, // neon-http es stateless
     };
   }
 
   if (onVercel) {
-    // Sin DATABASE_URL en Vercel el filesystem es de solo lectura: PGlite en memoria
-    // (evita el crash de import). Las consultas fallarán hasta configurar Neon.
-    console.warn('[db] Falta DATABASE_URL en Vercel: usando PGlite en memoria (sin datos).');
+    throw new Error(
+      '[db] DATABASE_URL es obligatorio en Vercel. PGlite solo corre en local (filesystem de solo lectura en serverless).',
+    );
   }
 
   const { drizzle } = await import('drizzle-orm/pglite');
-  const { migrate } = await import('drizzle-orm/pglite/migrator');
   const { PGlite } = await import('@electric-sql/pglite');
-  const client = onVercel ? new PGlite() : new PGlite(PGLITE_DATA_DIR);
+  const client = new PGlite(PGLITE_DATA_DIR);
   const db = drizzle({ client, schema });
   return {
     db,
-    migrate: (folder) => migrate(db, { migrationsFolder: folder }),
+    migrate: async (folder) => {
+      const { migrate } = await import('drizzle-orm/pglite/migrator');
+      await migrate(db, { migrationsFolder: folder });
+    },
     close: () => client.close(),
   };
 }

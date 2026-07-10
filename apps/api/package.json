@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "tsx watch src/dev-server.ts",
     "start": "tsx src/dev-server.ts",
+    "build:vercel": "node scripts/build-vercel.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
+    "esbuild": "^0.25.0",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
   }

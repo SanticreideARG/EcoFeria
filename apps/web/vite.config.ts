@@ -8,8 +8,13 @@ export default defineConfig({
     // Respeta PORT (lo asigna el preview); por defecto 5173.
     port: process.env.PORT ? Number(process.env.PORT) : 5173,
     proxy: {
-      // En dev, el frontend reenvía /api al servidor Hono.
-      '/api': 'http://localhost:8787',
+      // En dev, /api/* se reenvía al servidor Hono, que expone las rutas en la raíz.
+      // En prod, VITE_API_URL apunta al origen del proyecto API en Vercel.
+      '/api': {
+        target: 'http://localhost:8787',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
     },
   },
 });

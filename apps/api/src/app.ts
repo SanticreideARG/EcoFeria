@@ -1,22 +1,27 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
-import { handle } from 'hono/vercel';
 import { health } from './routes/health.ts';
 import { categoriesRoute } from './routes/categories.ts';
 import { brandsRoute } from './routes/brands.ts';
 import { productsRoute } from './routes/products.ts';
 import { contentRoute } from './routes/content.ts';
 
-/** App Hono. Todas las rutas cuelgan de `/api`. */
+/**
+ * App Hono de La Ecoferia. Las rutas cuelgan de la raíz (`/health`, `/brands`, …).
+ * En local, el proxy de Vite reescribe `/api/*` -> `/*`.
+ * En Vercel, todo el tráfico se enruta a la función y Hono resuelve por el path original.
+ */
 export const app = new Hono();
 
-app.use('/api/*', cors());
+// En producción conviene restringir el origen al dominio de la web (WEB_ORIGIN).
+const origin = process.env.WEB_ORIGIN?.trim() || '*';
+app.use('*', cors({ origin }));
 
-app.route('/api', health);
-app.route('/api', categoriesRoute);
-app.route('/api', brandsRoute);
-app.route('/api', productsRoute);
-app.route('/api', contentRoute);
+app.route('/', health);
+app.route('/', categoriesRoute);
+app.route('/', brandsRoute);
+app.route('/', productsRoute);
+app.route('/', contentRoute);
 
 app.onError((err, c) => {
   console.error('[api] error:', err);
@@ -27,7 +32,4 @@ app.notFound((c) => c.json({ error: 'No encontrado' }, 404));
 
 export type AppType = typeof app;
 
-// --- Adaptador Vercel ---
-// Vercel invoca el default export como función serverless (runtime Node).
-export const config = { runtime: 'nodejs' };
-export default handle(app);
+export default app;
