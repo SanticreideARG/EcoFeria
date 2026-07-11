@@ -271,6 +271,7 @@ const PRODUCTS: ProductDef[] = [
     price: '8500',
     stock: 35,
     description: 'Extracto de propóleo de la cuenca lacustre local.',
+    imageUrl: '/products/propoleo-gotas.webp',
     seals: ['local'],
   },
   {
@@ -280,6 +281,7 @@ const PRODUCTS: ProductDef[] = [
     price: '9800',
     stock: 15,
     description: 'Panal de cera de abeja natural con miel.',
+    imageUrl: '/products/panal-cera-natural.webp',
     seals: ['local', 'organico'],
   },
   {
@@ -365,6 +367,7 @@ const PRODUCTS: ProductDef[] = [
     price: '6500',
     stock: 25,
     description: 'Bebida probiótica viva para la microbiota.',
+    imageUrl: '/products/kefir-agua-vivo.webp',
     seals: ['local', 'organico'],
   },
   {
@@ -374,6 +377,7 @@ const PRODUCTS: ProductDef[] = [
     price: '5800',
     stock: 30,
     description: 'Repollo colorado fermentado, agroecológico.',
+    imageUrl: '/products/chucrut-violeta.webp',
     seals: ['local', 'organico'],
   },
   {
@@ -412,6 +416,7 @@ const PRODUCTS: ProductDef[] = [
     price: '7800',
     stock: 26,
     description: 'Ungüento medicinal reparador de caléndula.',
+    imageUrl: '/products/unguento-calendula.webp',
     seals: ['organico'],
   },
   {
@@ -589,6 +594,7 @@ const PRODUCTS: ProductDef[] = [
     price: '9500',
     stock: 20,
     description: 'Collar con cristal de cuarzo natural.',
+    imageUrl: '/products/collar-cristal-cuarzo.webp',
     seals: ['local', 'fair_trade'],
   },
   {
@@ -617,6 +623,7 @@ const PRODUCTS: ProductDef[] = [
     price: '13500',
     stock: 16,
     description: 'Bolso matero con estampa propia.',
+    imageUrl: '/products/bolso-matero-autor.webp',
     seals: ['zero_waste', 'local'],
   },
   {
@@ -767,6 +774,7 @@ const PRODUCTS: ProductDef[] = [
     price: '22000',
     stock: 12,
     description: 'Mochila de lonas publicitarias en desuso.',
+    imageUrl: '/products/mochila-lona-reciclada.webp',
     seals: ['zero_waste', 'fair_trade'],
   },
   {

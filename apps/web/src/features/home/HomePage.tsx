@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Icon, Loader } from '../../components/index.ts';
 import { useBlog, useBrands, useCategories, useEvents } from '../../lib/queries.ts';
@@ -34,61 +34,141 @@ function HeroSearch() {
   );
 }
 
+const HERO_SLIDES = [
+  {
+    id: 'territorio',
+    image: '/hero/del-bosque-a-tu-mesa.webp',
+    eyebrow: 'San Martín de los Andes · Neuquén',
+    title: 'Raíces de nuestra tierra',
+    description:
+      'Productos locales, orgánicos y sustentables, directo de artesanos patagónicos a tu hogar.',
+    primaryLabel: 'Explorar el mercado',
+    primaryTo: '/tienda',
+    secondaryLabel: 'Conocer productores',
+    secondaryTo: '/marcas',
+  },
+  {
+    id: 'oficios',
+    image: '/hero/manos-que-crean.webp',
+    eyebrow: 'Oficios con identidad patagónica',
+    title: 'Manos que crean',
+    description:
+      'Conocé a las personas, los saberes y las historias detrás de cada pieza de la feria.',
+    primaryLabel: 'Descubrir productores',
+    primaryTo: '/marcas',
+    secondaryLabel: 'Leer sus historias',
+    secondaryTo: '/blog',
+  },
+  {
+    id: 'impacto',
+    image: '/hero/vivir-consciente.webp',
+    eyebrow: 'Elegí local · Elegí circular',
+    title: 'Viví de manera consciente',
+    description:
+      'Objetos cotidianos con propósito, hechos para durar y cuidar el territorio que habitamos.',
+    primaryLabel: 'Comprar con impacto',
+    primaryTo: '/tienda',
+    secondaryLabel: 'Ver la comunidad',
+    secondaryTo: '/marcas',
+  },
+] as const;
+
 function Hero() {
+  const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const slide = HERO_SLIDES[current]!;
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = window.setInterval(
+      () => setCurrent((index) => (index + 1) % HERO_SLIDES.length),
+      30_000,
+    );
+    return () => window.clearInterval(timer);
+  }, [isPaused]);
+
   return (
-    <section className="relative isolate min-h-[500px] rounded-b-xl border-b border-outline-variant md:mx-5 md:mt-5 md:min-h-0 md:rounded-xl md:border">
-      <div className="absolute inset-0 -z-20 rounded-[inherit] bg-gradient-to-br from-primary via-surface-tint to-secondary" />
-      <div
-        className="absolute inset-0 -z-10 rounded-[inherit] opacity-20"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.4) 1px, transparent 0)',
-          backgroundSize: '22px 22px',
-        }}
-      />
-      <div className="relative z-10 grid min-h-[500px] items-center gap-8 px-5 pb-16 pt-10 text-on-primary md:min-h-[480px] md:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] md:px-10 md:pb-20 md:pt-14 lg:px-14">
-        <div>
-          <p className="mb-3 text-label-caps uppercase opacity-90">
-            San Martín de los Andes · Neuquén
-          </p>
+    <section
+      aria-roledescription="carrusel"
+      aria-label="Historias destacadas de La Ecoferia"
+      className="relative isolate min-h-[500px] rounded-b-xl border-b border-outline-variant bg-primary md:mx-5 md:mt-5 md:min-h-0 md:rounded-xl md:border"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false);
+      }}
+    >
+      <div className="absolute inset-0 -z-20 overflow-hidden rounded-[inherit]">
+        {HERO_SLIDES.map((item, index) => (
+          <img
+            key={item.id}
+            src={item.image}
+            alt=""
+            aria-hidden="true"
+            fetchPriority={index === 0 ? 'high' : 'auto'}
+            className={`absolute inset-0 h-full w-full object-cover object-center transition-[opacity,transform] duration-1000 ease-out ${
+              index === current ? 'scale-100 opacity-100' : 'scale-[1.025] opacity-0'
+            }`}
+          />
+        ))}
+      </div>
+      <div className="absolute inset-0 -z-10 rounded-[inherit] bg-gradient-to-r from-inverse-surface/95 via-inverse-surface/65 to-inverse-surface/5" />
+
+      <div className="relative z-10 flex min-h-[500px] items-center px-5 pb-24 pt-10 text-on-primary md:min-h-[480px] md:px-10 md:pb-24 md:pt-14 lg:px-14">
+        <div key={slide.id} className="max-w-[42rem] animate-[hero-copy-in_700ms_ease-out]">
+          <p className="mb-3 text-label-caps uppercase opacity-90">{slide.eyebrow}</p>
           <h1 className="mb-4 max-w-[760px] font-display text-display-lg-mobile md:text-display-lg lg:text-[56px] lg:leading-[1.05]">
-            Raíces de nuestra tierra
+            {slide.title}
           </h1>
           <p className="max-w-[34rem] text-body-md opacity-90 md:text-title-lg">
-            Productos locales, orgánicos y sustentables, directo de artesanos patagónicos a tu
-            hogar.
+            {slide.description}
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link
-              to="/tienda"
+              to={slide.primaryTo}
               className="inline-flex min-h-11 items-center gap-2 rounded-full bg-surface-bright px-5 py-2 font-bold text-primary transition-transform hover:-translate-y-0.5"
             >
-              Explorar el mercado <Icon name="arrow_forward" className="text-lg" />
+              {slide.primaryLabel} <Icon name="arrow_forward" className="text-lg" />
             </Link>
             <Link
-              to="/marcas"
+              to={slide.secondaryTo}
               className="inline-flex min-h-11 items-center rounded-full border border-on-primary/50 px-5 py-2 font-bold text-on-primary hover:bg-on-primary/10"
             >
-              Conocer productores
+              {slide.secondaryLabel}
             </Link>
-          </div>
-        </div>
-
-        <div className="hidden rounded-xl border border-on-primary/20 bg-on-primary/10 p-6 backdrop-blur-sm md:block">
-          <Icon name="eco" filled className="mb-6 text-4xl text-primary-fixed" />
-          <p className="font-display text-headline-md">Comprá cerca. Elegí con impacto.</p>
-          <div className="mt-6 grid grid-cols-2 gap-4 border-t border-on-primary/20 pt-5">
-            <div>
-              <strong className="block font-display text-3xl">20</strong>
-              <span className="text-body-sm opacity-80">marcas locales</span>
-            </div>
-            <div>
-              <strong className="block font-display text-3xl">6</strong>
-              <span className="text-body-sm opacity-80">rubros conscientes</span>
-            </div>
           </div>
         </div>
       </div>
+
+      <div className="absolute bottom-14 right-5 z-20 flex items-center gap-2 md:bottom-16 md:right-10 lg:right-14">
+        <div className="flex items-center gap-1 rounded-full border border-on-primary/20 bg-inverse-surface/35 p-1.5 backdrop-blur-sm">
+          {HERO_SLIDES.map((item, index) => (
+            <button
+              key={item.id}
+              type="button"
+              aria-label={`Mostrar diapositiva ${index + 1}: ${item.title}`}
+              aria-current={index === current ? 'true' : undefined}
+              onClick={() => setCurrent(index)}
+              className={`h-2.5 rounded-full transition-all duration-500 ${
+                index === current
+                  ? 'w-8 bg-on-primary'
+                  : 'w-2.5 bg-on-primary/45 hover:bg-on-primary/70'
+              }`}
+            />
+          ))}
+        </div>
+        <button
+          type="button"
+          aria-label={isPaused ? 'Reanudar carrusel' : 'Pausar carrusel'}
+          aria-pressed={isPaused}
+          onClick={() => setIsPaused((paused) => !paused)}
+          className="grid h-10 w-10 place-items-center rounded-full border border-on-primary/20 bg-inverse-surface/35 text-on-primary backdrop-blur-sm hover:bg-inverse-surface/55"
+        >
+          <Icon name={isPaused ? 'play_arrow' : 'pause'} className="text-lg" />
+        </button>
+      </div>
+
       <div className="absolute bottom-0 left-5 right-5 z-20 translate-y-1/2 md:left-10 md:right-10 lg:left-14 lg:right-14">
         <HeroSearch />
       </div>
