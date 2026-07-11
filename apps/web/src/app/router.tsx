@@ -10,7 +10,10 @@ import { CartPage } from '../features/cart/CartPage.tsx';
 import { AuthPage } from '../features/auth/AuthPage.tsx';
 import { AdminPage } from '../features/admin/AdminPage.tsx';
 import { SellerPage } from '../features/seller/SellerPage.tsx';
-import { ComingSoon, NotFoundPage } from '../features/misc/Placeholders.tsx';
+import { AgendaPage } from '../features/agenda/AgendaPage.tsx';
+import { BlogListPage } from '../features/blog/BlogListPage.tsx';
+import { BlogPostDetailPage } from '../features/blog/BlogPostDetailPage.tsx';
+import { NotFoundPage } from '../features/misc/Placeholders.tsx';
 import { UiPlayground } from '../features/dev/UiPlayground.tsx';
 
 export const router = createBrowserRouter([
@@ -23,8 +26,9 @@ export const router = createBrowserRouter([
       { path: '/tienda', element: <ShopPage /> },
       { path: '/producto/:slug', element: <ProductDetailPage /> },
       { path: '/carrito', element: <CartPage /> },
-      { path: '/agenda', element: <ComingSoon title="Agenda Cultural" icon="event" /> },
-      { path: '/blog', element: <ComingSoon title="Blog" icon="article" /> },
+      { path: '/agenda', element: <AgendaPage /> },
+      { path: '/blog', element: <BlogListPage /> },
+      { path: '/blog/:slug', element: <BlogPostDetailPage /> },
       {
         element: <RequireRole roles={['admin']} />,
         children: [{ path: '/admin', element: <AdminPage /> }],

@@ -75,7 +75,7 @@ export function ProductCard({
             type="button"
             onClick={onAdd}
             aria-label={`Agregar ${name} al carrito`}
-            className="grid h-9 w-9 place-items-center rounded-full bg-primary text-on-primary shadow-sm transition-transform hover:opacity-90 active:scale-95"
+            className="grid h-11 w-11 place-items-center rounded-full bg-primary text-on-primary shadow-sm transition-transform hover:opacity-90 active:scale-95"
           >
             <Icon name="add_shopping_cart" className="text-lg" />
           </button>

@@ -1,20 +1,6 @@
 import { Link } from 'react-router-dom';
 import { EmptyState } from '../../components/index.ts';
 
-/** Página "próximamente" para secciones de Sprint 2 (Agenda, Blog). */
-export function ComingSoon({ title, icon }: { title: string; icon: string }) {
-  return (
-    <div className="mx-auto max-w-[720px] px-5 py-6">
-      <h1 className="mb-4 font-display text-display-lg-mobile text-primary">{title}</h1>
-      <EmptyState
-        icon={icon}
-        title="Próximamente"
-        hint="Esta sección estará disponible en el próximo sprint."
-      />
-    </div>
-  );
-}
-
 export function NotFoundPage() {
   return (
     <div className="mx-auto max-w-[720px] px-5 py-6">

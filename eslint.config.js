@@ -9,6 +9,7 @@ export default tseslint.config(
       '**/build/**',
       '**/node_modules/**',
       '**/.pglite/**',
+      '**/.vercel/**',
       'packages/db/drizzle/**',
     ],
   },

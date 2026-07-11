@@ -37,7 +37,7 @@ export function EmptyState({
     <div className="grid place-items-center py-20 text-center text-on-surface-variant">
       <Icon name={icon} className="text-5xl text-outline-variant" />
       <p className="mt-3 text-title-lg text-on-surface">{title}</p>
-      {hint && <p className="mt-1 max-w-sm text-body-sm">{hint}</p>}
+      {hint && <p className="mt-1 max-w-[24rem] text-body-sm">{hint}</p>}
       {action && <div className="mt-4">{action}</div>}
     </div>
   );

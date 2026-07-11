@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import type {
+  BlogPostDetailDTO,
   BlogPostSummaryDTO,
   BrandContactInput,
   BrandListItemDTO,
@@ -71,6 +72,14 @@ export function useBlog() {
   return useQuery({
     queryKey: ['blog'],
     queryFn: () => apiGet<BlogPostSummaryDTO[]>('/blog'),
+  });
+}
+
+export function useBlogPost(slug: string | undefined) {
+  return useQuery({
+    queryKey: ['blog', slug],
+    queryFn: () => apiGet<BlogPostDetailDTO>(`/blog/${slug}`),
+    enabled: Boolean(slug),
   });
 }
 

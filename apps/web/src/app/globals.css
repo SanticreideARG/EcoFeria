@@ -102,13 +102,14 @@
   --text-label-caps--font-weight: 700;
 
   /* --- Espaciado semántico (además de la escala numérica de v4) --- */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-gutter: 12px;
-  --spacing-md: 16px;
-  --spacing-container-margin: 20px;
-  --spacing-lg: 24px;
-  --spacing-xl: 40px;
+  /* Prefijo layout: evita colisionar con max-w-sm/md y tamaños nativos de Tailwind. */
+  --spacing-layout-xs: 4px;
+  --spacing-layout-sm: 8px;
+  --spacing-layout-gutter: 12px;
+  --spacing-layout-md: 16px;
+  --spacing-layout-container: 20px;
+  --spacing-layout-lg: 24px;
+  --spacing-layout-xl: 40px;
 }
 
 /* --- Utilidades del design system --- */
@@ -144,4 +145,30 @@ body {
   color: var(--color-on-background);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer base {
+  :where(a, button, input, textarea, select):focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
 }

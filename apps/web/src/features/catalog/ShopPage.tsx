@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
   EmptyState,
@@ -22,17 +22,30 @@ export function ShopPage() {
   const [params, setParams] = useSearchParams();
   const category = params.get('category') ?? undefined;
   const q = params.get('q') ?? '';
-  const [priceIdx, setPriceIdx] = useState(0);
+  const priceIdx = Math.min(Number(params.get('price') ?? 0) || 0, PRICE_RANGES.length - 1);
+  const [sort, setSort] = useState<'featured' | 'price-asc' | 'price-desc'>('featured');
   const range = PRICE_RANGES[priceIdx] ?? PRICE_RANGES[0]!;
 
   const { data: categories } = useCategories();
-  const { data: products, isLoading, isError } = useProducts({
+  const {
+    data: products,
+    isLoading,
+    isError,
+  } = useProducts({
     category,
     q: q.trim() || undefined,
     minPrice: range.min,
     maxPrice: range.max,
   });
   const add = useCart((s) => s.add);
+
+  const sortedProducts = useMemo(() => {
+    if (!products || sort === 'featured') return products;
+    return [...products].sort((a, b) => {
+      const difference = Number(a.price) - Number(b.price);
+      return sort === 'price-asc' ? difference : -difference;
+    });
+  }, [products, sort]);
 
   const patch = (mut: (p: URLSearchParams) => void) =>
     setParams(
@@ -68,36 +81,65 @@ export function ShopPage() {
         />
       </div>
 
-      <div className="no-scrollbar mb-3 flex gap-2 overflow-x-auto pb-1">
-        <FilterChip active={!category} onClick={() => patch((p) => p.delete('category'))}>
-          Todos
-        </FilterChip>
-        {categories?.map((c) => (
-          <FilterChip
-            key={c.id}
-            active={category === c.slug}
-            onClick={() => patch((p) => p.set('category', c.slug))}
-          >
-            {c.name}
+      <section
+        aria-label="Filtros del catálogo"
+        className="mb-6 rounded-xl bg-surface-container-low p-3 paper-border sm:p-4"
+      >
+        <div className="no-scrollbar mb-3 flex gap-2 overflow-x-auto pb-1">
+          <FilterChip active={!category} onClick={() => patch((p) => p.delete('category'))}>
+            Todos
           </FilterChip>
-        ))}
-      </div>
+          {categories?.map((c) => (
+            <FilterChip
+              key={c.id}
+              active={category === c.slug}
+              onClick={() => patch((p) => p.set('category', c.slug))}
+            >
+              {c.name}
+            </FilterChip>
+          ))}
+        </div>
 
-      <div className="no-scrollbar mb-6 flex gap-2 overflow-x-auto pb-1">
-        {PRICE_RANGES.map((r, i) => (
-          <FilterChip key={r.label} active={priceIdx === i} onClick={() => setPriceIdx(i)}>
-            {r.label}
-          </FilterChip>
-        ))}
+        <div className="no-scrollbar flex gap-2 overflow-x-auto pb-1">
+          {PRICE_RANGES.map((r, i) => (
+            <FilterChip
+              key={r.label}
+              active={priceIdx === i}
+              onClick={() =>
+                patch((p) => (i === 0 ? p.delete('price') : p.set('price', String(i))))
+              }
+            >
+              {r.label}
+            </FilterChip>
+          ))}
+        </div>
+      </section>
+
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+        <p className="text-body-sm text-on-surface-variant" aria-live="polite">
+          {isLoading ? 'Buscando productos…' : `${products?.length ?? 0} productos`}
+        </p>
+        <label className="flex items-center gap-2 text-body-sm text-on-surface-variant">
+          Ordenar por
+          <select
+            value={sort}
+            onChange={(event) => setSort(event.target.value as typeof sort)}
+            className="min-h-11 rounded-lg border border-outline-variant bg-surface px-3 text-body-sm text-on-surface"
+          >
+            <option value="featured">Destacados</option>
+            <option value="price-asc">Menor precio</option>
+            <option value="price-desc">Mayor precio</option>
+          </select>
+        </label>
       </div>
 
       {isLoading ? (
         <Loader label="Cargando productos…" />
       ) : isError ? (
         <ErrorState />
-      ) : products && products.length > 0 ? (
+      ) : sortedProducts && sortedProducts.length > 0 ? (
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-          {products.map((p) => (
+          {sortedProducts.map((p) => (
             <ProductCard
               key={p.id}
               name={p.name}

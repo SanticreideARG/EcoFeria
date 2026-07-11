@@ -1,6 +1,6 @@
 import { Hono } from 'hono';
 import { db } from '@ecoferia/db';
-import { BlogPostSummaryDTO, EventSummaryDTO } from '@ecoferia/shared';
+import { BlogPostDetailDTO, BlogPostSummaryDTO, EventSummaryDTO } from '@ecoferia/shared';
 
 export const contentRoute = new Hono()
   .get('/blog', async (c) => {
@@ -17,6 +17,25 @@ export const contentRoute = new Hono()
           publishedAt: p.publishedAt.toISOString(),
         })),
       ),
+    );
+  })
+  .get('/blog/:slug', async (c) => {
+    const slug = c.req.param('slug');
+    const p = await db.query.blogPosts.findFirst({
+      where: (t, { eq }) => eq(t.slug, slug),
+      with: { author: { columns: { name: true } } },
+    });
+    if (!p) return c.json({ error: 'Post no encontrado' }, 404);
+    return c.json(
+      BlogPostDetailDTO.parse({
+        id: p.id,
+        title: p.title,
+        slug: p.slug,
+        coverUrl: p.coverUrl,
+        publishedAt: p.publishedAt.toISOString(),
+        body: p.body,
+        authorName: p.author?.name ?? null,
+      }),
     );
   })
   .get('/events', async (c) => {

@@ -26,6 +26,8 @@ export function BrandCard({
   to,
   className,
 }: BrandCardProps) {
+  const visibleSeals = seals.slice(0, 2);
+  const remainingSeals = seals.length - visibleSeals.length;
   const content = (
     <>
       <div className="flex items-center gap-3">
@@ -40,15 +42,22 @@ export function BrandCard({
         </div>
         <div className="min-w-0">
           <h3 className="truncate font-display text-headline-md text-primary">{name}</h3>
-          {tagline && <p className="line-clamp-1 text-body-sm text-on-surface-variant">{tagline}</p>}
+          {tagline && (
+            <p className="line-clamp-1 text-body-sm text-on-surface-variant">{tagline}</p>
+          )}
         </div>
       </div>
 
-      {seals.length > 0 && (
+      {visibleSeals.length > 0 && (
         <div className="flex flex-wrap gap-1.5">
-          {seals.map((seal) => (
+          {visibleSeals.map((seal) => (
             <ImpactSeal key={seal} seal={seal} />
           ))}
+          {remainingSeals > 0 && (
+            <span className="rounded-full bg-surface-container-high px-2 py-1 text-label-caps text-on-surface-variant">
+              +{remainingSeals}
+            </span>
+          )}
         </div>
       )}
 
@@ -62,7 +71,7 @@ export function BrandCard({
   );
 
   const cardClass = cn(
-    'flex flex-col gap-3 rounded-xl bg-surface-container-lowest p-4 paper-border transition-transform hover:-translate-y-1',
+    'flex flex-col gap-3 rounded-xl bg-surface-container-lowest p-4 paper-border transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-md',
     className,
   );
 

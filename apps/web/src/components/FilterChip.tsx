@@ -13,7 +13,7 @@ export function FilterChip({ active = false, className, children, ...props }: Fi
       type="button"
       aria-pressed={active}
       className={cn(
-        'whitespace-nowrap rounded-full px-4 py-2 text-label-caps transition-colors active:scale-95',
+        'min-h-11 whitespace-nowrap rounded-full px-4 py-2 text-label-caps transition-colors active:scale-95',
         active
           ? 'bg-primary text-on-primary'
           : 'border border-outline-variant bg-surface-container text-on-surface-variant hover:bg-surface-container-high',

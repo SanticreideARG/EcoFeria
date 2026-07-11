@@ -1,6 +1,7 @@
 import { relations } from 'drizzle-orm';
 import { accounts, sessions } from './auth.ts';
 import {
+  blogPosts,
   brandContacts,
   brandPosts,
   brands,
@@ -18,6 +19,11 @@ export const usersRelations = relations(users, ({ one, many }) => ({
   favorites: many(favorites),
   sessions: many(sessions),
   accounts: many(accounts),
+  blogPosts: many(blogPosts),
+}));
+
+export const blogPostsRelations = relations(blogPosts, ({ one }) => ({
+  author: one(users, { fields: [blogPosts.authorUserId], references: [users.id] }),
 }));
 
 export const sessionsRelations = relations(sessions, ({ one }) => ({

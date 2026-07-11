@@ -2,12 +2,8 @@ import { Hono } from 'hono';
 import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
 import { brandContacts, db } from '@ecoferia/db';
-import {
-  BrandContactInput,
-  BrandListItemDTO,
-  BrandProfileDTO,
-  ImpactSeal,
-} from '@ecoferia/shared';
+import { BrandContactInput, BrandListItemDTO, BrandProfileDTO } from '@ecoferia/shared';
+import type { ImpactSeal } from '@ecoferia/shared';
 
 const BrandsQuery = z.object({
   category: z.string().optional(),
@@ -53,9 +49,7 @@ export const brandsRoute = new Hono()
       status: b.status,
       categoryName: b.category?.name ?? null,
       productCount: b.products.length,
-      seals: [
-        ...new Set(b.products.flatMap((p) => p.seals.map((s) => s.seal))),
-      ] as ImpactSeal[],
+      seals: [...new Set(b.products.flatMap((p) => p.seals.map((s) => s.seal)))] as ImpactSeal[],
     }));
 
     return c.json(BrandListItemDTO.array().parse(result));
