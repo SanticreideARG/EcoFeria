@@ -291,6 +291,7 @@ const PRODUCTS: ProductDef[] = [
     price: '7200',
     stock: 28,
     description: 'Polen fresco recolectado en primavera.',
+    imageUrl: '/products/polen-abeja.webp',
     seals: ['local', 'organico'],
   },
   // Miel Chancani
@@ -339,6 +340,7 @@ const PRODUCTS: ProductDef[] = [
     price: '16800',
     stock: 12,
     description: 'Hongo gourmet de textura marina, cultivo circular.',
+    imageUrl: '/products/melena-leon-fresca.webp',
     seals: ['local', 'organico'],
   },
   {
@@ -387,6 +389,7 @@ const PRODUCTS: ProductDef[] = [
     price: '6900',
     stock: 22,
     description: 'Kimchi de estación con insumos locales.',
+    imageUrl: '/products/kimchi-patagonico.webp',
     seals: ['local', 'organico'],
   },
   {
@@ -435,6 +438,7 @@ const PRODUCTS: ProductDef[] = [
     price: '4500',
     stock: 40,
     description: 'Jabón artesanal de base vegetal pura.',
+    imageUrl: '/products/jabon-lavanda-botanico.webp',
     seals: ['organico', 'zero_waste'],
   },
   // Mburucuyá
