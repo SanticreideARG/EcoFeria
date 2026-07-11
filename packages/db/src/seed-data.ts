@@ -38,6 +38,7 @@ type ProductDef = {
   price: string;
   stock: number;
   description: string;
+  imageUrl?: string;
   seals: Seal[];
 };
 
@@ -260,6 +261,7 @@ const PRODUCTS: ProductDef[] = [
     price: '12000',
     stock: 40,
     description: 'Miel pura de la precordillera, sin agroquímicos.',
+    imageUrl: '/products/miel-cruda-montana-500g.webp',
     seals: ['local', 'organico'],
   },
   {
@@ -325,6 +327,7 @@ const PRODUCTS: ProductDef[] = [
     price: '14500',
     stock: 20,
     description: 'Gírgolas cultivadas en bloques de aserrín reciclado.',
+    imageUrl: '/products/girgolas-frescas.webp',
     seals: ['local', 'organico'],
   },
   {
@@ -399,6 +402,7 @@ const PRODUCTS: ProductDef[] = [
     price: '10500',
     stock: 18,
     description: 'Crema facial con activos de flora nativa.',
+    imageUrl: '/products/crema-facial-botanica.webp',
     seals: ['organico', 'zero_waste'],
   },
   {
@@ -669,6 +673,7 @@ const PRODUCTS: ProductDef[] = [
     price: '8500',
     stock: 30,
     description: 'Taza modelada a mano, esmalte libre de plomo.',
+    imageUrl: '/products/taza-ceramica-bosque.webp',
     seals: ['local', 'fair_trade'],
   },
   {
@@ -989,6 +994,7 @@ export async function seedDatabase(db: DB): Promise<void> {
         slug: p.slug,
         name: p.name,
         description: p.description,
+        imageUrl: p.imageUrl,
         price: p.price,
         stock: p.stock,
       })),

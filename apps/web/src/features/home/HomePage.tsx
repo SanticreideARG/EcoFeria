@@ -36,10 +36,10 @@ function HeroSearch() {
 
 function Hero() {
   return (
-    <section className="relative min-h-[500px] overflow-hidden rounded-b-xl border-b border-outline-variant md:mx-5 md:mt-5 md:min-h-0 md:rounded-xl md:border">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-surface-tint to-secondary" />
+    <section className="relative isolate min-h-[500px] rounded-b-xl border-b border-outline-variant md:mx-5 md:mt-5 md:min-h-0 md:rounded-xl md:border">
+      <div className="absolute inset-0 -z-20 rounded-[inherit] bg-gradient-to-br from-primary via-surface-tint to-secondary" />
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 -z-10 rounded-[inherit] opacity-20"
         style={{
           backgroundImage:
             'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.4) 1px, transparent 0)',
