@@ -26,12 +26,14 @@ import subsetFont from 'subset-font';
  * el GSUB por completo — no encarado acá por alcance.
  */
 const ICONS = [
-  'menu', 'shopping_bag', 'person', 'storefront', 'cloud_off', 'image',
+  'menu', 'close', 'shopping_bag', 'person', 'storefront', 'cloud_off', 'image',
   'add_shopping_cart', 'explore_off', 'search', 'arrow_forward', 'eco',
   'article', 'calendar_month', 'arrow_back', 'favorite', 'chat_bubble',
   'mark_email_read', 'location_on', 'category', 'photo_camera',
   'shopping_cart', 'event_note', 'search_off', 'remove', 'add',
   'shield_person', 'error', 'event', 'delete', 'inbox',
+  // Controles del hero carousel (HomePage) y menú móvil (TopAppBar)
+  'play_arrow', 'pause',
   // Íconos de categoría (sembrados en la DB, Assets/04-MODELO-DATOS.md)
   'nutrition', 'spa', 'home', 'design_services', 'checkroom', 'self_improvement',
 ];
