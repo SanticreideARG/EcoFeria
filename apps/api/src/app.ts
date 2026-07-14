@@ -6,6 +6,7 @@ import { categoriesRoute } from './routes/categories.ts';
 import { brandsRoute } from './routes/brands.ts';
 import { productsRoute } from './routes/products.ts';
 import { contentRoute } from './routes/content.ts';
+import { meRoute } from './routes/me.ts';
 import { protectedRoutes } from './routes/protected.ts';
 
 /**
@@ -33,6 +34,7 @@ app.route('/', categoriesRoute);
 app.route('/', brandsRoute);
 app.route('/', productsRoute);
 app.route('/', contentRoute);
+app.route('/', meRoute);
 app.route('/', protectedRoutes);
 
 app.onError((err, c) => {

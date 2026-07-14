@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '../lib/cn.ts';
+import { sessionRole, signOut, useSession } from '../lib/auth-client.ts';
 import { Icon } from './Icon.tsx';
+import { UserMenu } from './UserMenu.tsx';
 
 const NAV = [
   { label: 'Mercado', to: '/tienda', icon: 'storefront' },
@@ -16,7 +18,10 @@ function isActive(pathname: string, to: string): boolean {
 /** Barra superior sticky con navegación responsive, carrito y menú móvil. */
 export function TopAppBar({ cartCount = 0 }: { cartCount?: number }) {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { data: session } = useSession();
+  const role = session ? sessionRole(session) : null;
 
   useEffect(() => setMenuOpen(false), [pathname]);
 
@@ -88,13 +93,9 @@ export function TopAppBar({ cartCount = 0 }: { cartCount?: number }) {
               </span>
             )}
           </Link>
-          <Link
-            to="/ingreso"
-            aria-label="Ingresar"
-            className="hidden h-11 w-11 place-items-center rounded-full text-primary transition-colors hover:bg-surface-container-high active:scale-95 md:grid"
-          >
-            <Icon name="person" />
-          </Link>
+          <div className="hidden md:block">
+            <UserMenu />
+          </div>
         </div>
       </header>
 
@@ -127,6 +128,52 @@ export function TopAppBar({ cartCount = 0 }: { cartCount?: number }) {
                 {item.label}
               </Link>
             ))}
+
+            <div className="my-2 h-px bg-outline-variant" />
+
+            {session ? (
+              <>
+                <Link
+                  to="/mi-cuenta"
+                  className="flex min-h-12 items-center gap-3 rounded-lg px-4 py-3 text-title-lg text-on-surface hover:bg-surface-container"
+                >
+                  <Icon name="person" /> Mi cuenta
+                </Link>
+                {role === 'admin' && (
+                  <Link
+                    to="/admin"
+                    className="flex min-h-12 items-center gap-3 rounded-lg px-4 py-3 text-title-lg text-on-surface hover:bg-surface-container"
+                  >
+                    <Icon name="shield_person" /> Panel de admin
+                  </Link>
+                )}
+                {role === 'vendedor' && (
+                  <Link
+                    to="/vendedor"
+                    className="flex min-h-12 items-center gap-3 rounded-lg px-4 py-3 text-title-lg text-on-surface hover:bg-surface-container"
+                  >
+                    <Icon name="storefront" /> Panel de vendedor
+                  </Link>
+                )}
+                <button
+                  type="button"
+                  onClick={async () => {
+                    await signOut();
+                    navigate('/');
+                  }}
+                  className="flex min-h-12 w-full items-center gap-3 rounded-lg px-4 py-3 text-title-lg text-on-surface hover:bg-surface-container"
+                >
+                  <Icon name="logout" className="text-secondary" /> Cerrar sesión
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/ingreso"
+                className="flex min-h-12 items-center gap-3 rounded-lg bg-primary px-4 py-3 text-title-lg text-on-primary"
+              >
+                <Icon name="person" /> Ingresar
+              </Link>
+            )}
           </nav>
         </div>
       )}

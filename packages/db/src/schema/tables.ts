@@ -39,6 +39,9 @@ export const users = pgTable('users', {
   emailVerified: boolean('email_verified').notNull().default(false),
   image: text('image'),
   role: userRole('role').notNull().default('cliente'),
+  // Datos de perfil adicionales (cargados por el usuario en /mi-cuenta).
+  phone: text('phone'),
+  address: text('address'),
   createdAt: createdAt(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 });

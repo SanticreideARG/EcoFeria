@@ -8,6 +8,7 @@ import { ShopPage } from '../features/catalog/ShopPage.tsx';
 import { ProductDetailPage } from '../features/catalog/ProductDetailPage.tsx';
 import { CartPage } from '../features/cart/CartPage.tsx';
 import { AuthPage } from '../features/auth/AuthPage.tsx';
+import { MiCuentaPage } from '../features/account/MiCuentaPage.tsx';
 import { AdminPage } from '../features/admin/AdminPage.tsx';
 import { SellerPage } from '../features/seller/SellerPage.tsx';
 import { AgendaPage } from '../features/agenda/AgendaPage.tsx';
@@ -26,6 +27,7 @@ export const router = createBrowserRouter([
       { path: '/tienda', element: <ShopPage /> },
       { path: '/producto/:slug', element: <ProductDetailPage /> },
       { path: '/carrito', element: <CartPage /> },
+      { path: '/mi-cuenta', element: <MiCuentaPage /> },
       { path: '/agenda', element: <AgendaPage /> },
       { path: '/blog', element: <BlogListPage /> },
       { path: '/blog/:slug', element: <BlogPostDetailPage /> },

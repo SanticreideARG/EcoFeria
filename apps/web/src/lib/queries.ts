@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import type {
   BlogPostDetailDTO,
   BlogPostSummaryDTO,
@@ -9,8 +9,10 @@ import type {
   EventSummaryDTO,
   ProductDetailDTO,
   ProductListItemDTO,
+  UpdateProfileInput,
+  UserProfileDTO,
 } from '@ecoferia/shared';
-import { apiGet, apiPost } from './api.ts';
+import { apiGet, apiPatch, apiPost } from './api.ts';
 
 function toQuery(params: Record<string, string | number | undefined>): string {
   const qs = new URLSearchParams();
@@ -94,5 +96,23 @@ export function useBrandContact(slug: string) {
   return useMutation({
     mutationFn: (input: BrandContactInput) =>
       apiPost<{ ok: true }>(`/brands/${slug}/contact`, input),
+  });
+}
+
+/** Perfil del usuario autenticado. `enabled` evita el fetch (y el 401) si no hay sesión. */
+export function useProfile(enabled: boolean) {
+  return useQuery({
+    queryKey: ['me'],
+    queryFn: () => apiGet<UserProfileDTO>('/me'),
+    enabled,
+    retry: false,
+  });
+}
+
+export function useUpdateProfile() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (input: UpdateProfileInput) => apiPatch<UserProfileDTO>('/me', input),
+    onSuccess: (data) => qc.setQueryData(['me'], data),
   });
 }

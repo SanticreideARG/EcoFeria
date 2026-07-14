@@ -31,7 +31,7 @@ const ICONS = [
   'article', 'calendar_month', 'arrow_back', 'favorite', 'chat_bubble',
   'mark_email_read', 'location_on', 'category', 'photo_camera',
   'shopping_cart', 'event_note', 'search_off', 'remove', 'add',
-  'shield_person', 'error', 'event', 'delete', 'inbox',
+  'shield_person', 'error', 'event', 'delete', 'inbox', 'logout',
   // Controles del hero carousel (HomePage) y menú móvil (TopAppBar)
   'play_arrow', 'pause',
   // Íconos de categoría (sembrados en la DB, Assets/04-MODELO-DATOS.md)
