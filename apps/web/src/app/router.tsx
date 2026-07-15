@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { RootLayout } from './RootLayout.tsx';
 import { RequireRole } from './RequireRole.tsx';
+import { PanelLayout } from './PanelLayout.tsx';
 import { HomePage } from '../features/home/HomePage.tsx';
 import { BrandsDirectoryPage } from '../features/brands/BrandsDirectoryPage.tsx';
 import { BrandProfilePage } from '../features/brands/BrandProfilePage.tsx';
@@ -9,8 +10,10 @@ import { ProductDetailPage } from '../features/catalog/ProductDetailPage.tsx';
 import { CartPage } from '../features/cart/CartPage.tsx';
 import { AuthPage } from '../features/auth/AuthPage.tsx';
 import { MiCuentaPage } from '../features/account/MiCuentaPage.tsx';
-import { AdminPage } from '../features/admin/AdminPage.tsx';
-import { SellerPage } from '../features/seller/SellerPage.tsx';
+import { AdminDashboardPage } from '../features/admin/AdminDashboardPage.tsx';
+import { AdminSellersPage } from '../features/admin/AdminSellersPage.tsx';
+import { SellerDashboardPage } from '../features/seller/SellerDashboardPage.tsx';
+import { PanelComingSoon } from '../features/panel/PanelComingSoon.tsx';
 import { AgendaPage } from '../features/agenda/AgendaPage.tsx';
 import { BlogListPage } from '../features/blog/BlogListPage.tsx';
 import { BlogPostDetailPage } from '../features/blog/BlogPostDetailPage.tsx';
@@ -31,18 +34,44 @@ export const router = createBrowserRouter([
       { path: '/agenda', element: <AgendaPage /> },
       { path: '/blog', element: <BlogListPage /> },
       { path: '/blog/:slug', element: <BlogPostDetailPage /> },
-      {
-        element: <RequireRole roles={['admin']} />,
-        children: [{ path: '/admin', element: <AdminPage /> }],
-      },
-      {
-        element: <RequireRole roles={['admin', 'vendedor']} />,
-        children: [{ path: '/vendedor', element: <SellerPage /> }],
-      },
       { path: '*', element: <NotFoundPage /> },
     ],
   },
+
   // Shell suprimido (sin TopAppBar/BottomNav): pantalla transaccional a pantalla completa.
   { path: '/ingreso', element: <AuthPage /> },
+
+  // Panel de administrador (layout propio con sidebar).
+  {
+    element: <RequireRole roles={['admin']} />,
+    children: [
+      {
+        element: <PanelLayout variant="admin" />,
+        children: [
+          { path: '/admin', element: <AdminDashboardPage /> },
+          { path: '/admin/vendedores', element: <AdminSellersPage /> },
+          { path: '/admin/marcas', element: <PanelComingSoon title="Directorio de marcas" icon="storefront" /> },
+          { path: '/admin/pedidos', element: <PanelComingSoon title="Pedidos globales" icon="local_shipping" /> },
+        ],
+      },
+    ],
+  },
+
+  // Panel de vendedor (admin también puede entrar).
+  {
+    element: <RequireRole roles={['admin', 'vendedor']} />,
+    children: [
+      {
+        element: <PanelLayout variant="vendedor" />,
+        children: [
+          { path: '/vendedor', element: <SellerDashboardPage /> },
+          { path: '/vendedor/productos', element: <PanelComingSoon title="Mis productos" icon="inventory_2" /> },
+          { path: '/vendedor/pedidos', element: <PanelComingSoon title="Pedidos recibidos" icon="local_shipping" /> },
+          { path: '/vendedor/blog', element: <PanelComingSoon title="Diario de marca" icon="article" /> },
+        ],
+      },
+    ],
+  },
+
   { path: '/dev/ui', element: <UiPlayground /> },
 ]);

@@ -8,3 +8,4 @@ export * from './dto/product.js';
 export * from './dto/brand.js';
 export * from './dto/content.js';
 export * from './dto/user.js';
+export * from './dto/panel.js';

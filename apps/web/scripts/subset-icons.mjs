@@ -34,6 +34,9 @@ const ICONS = [
   'shield_person', 'error', 'event', 'delete', 'inbox', 'logout',
   // Controles del hero carousel (HomePage) y menú móvil (TopAppBar)
   'play_arrow', 'pause',
+  // Paneles admin/vendedor (PanelLayout, dashboards, gestión de vendedores)
+  'dashboard', 'group', 'local_shipping', 'inventory_2', 'hourglass_top',
+  'check_circle', 'cancel', 'construction',
   // Íconos de categoría (sembrados en la DB, Assets/04-MODELO-DATOS.md)
   'nutrition', 'spa', 'home', 'design_services', 'checkroom', 'self_improvement',
 ];

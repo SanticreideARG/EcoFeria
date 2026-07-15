@@ -1,5 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import type {
+  AdminSellerDTO,
+  AdminStatsDTO,
   BlogPostDetailDTO,
   BlogPostSummaryDTO,
   BrandContactInput,
@@ -9,7 +11,9 @@ import type {
   EventSummaryDTO,
   ProductDetailDTO,
   ProductListItemDTO,
+  SellerOverviewDTO,
   UpdateProfileInput,
+  UpdateSellerStatusInput,
   UserProfileDTO,
 } from '@ecoferia/shared';
 import { apiGet, apiPatch, apiPost } from './api.ts';
@@ -114,5 +118,43 @@ export function useUpdateProfile() {
   return useMutation({
     mutationFn: (input: UpdateProfileInput) => apiPatch<UserProfileDTO>('/me', input),
     onSuccess: (data) => qc.setQueryData(['me'], data),
+  });
+}
+
+// --- Paneles ---
+
+export function useAdminStats(enabled = true) {
+  return useQuery({
+    queryKey: ['admin', 'stats'],
+    queryFn: () => apiGet<AdminStatsDTO>('/admin/stats'),
+    enabled,
+  });
+}
+
+export function useAdminSellers(enabled = true) {
+  return useQuery({
+    queryKey: ['admin', 'sellers'],
+    queryFn: () => apiGet<AdminSellerDTO[]>('/admin/sellers'),
+    enabled,
+  });
+}
+
+export function useUpdateSellerStatus() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, ...input }: { id: string } & UpdateSellerStatusInput) =>
+      apiPatch<{ ok: true }>(`/admin/sellers/${id}`, input),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['admin', 'sellers'] });
+      qc.invalidateQueries({ queryKey: ['admin', 'stats'] });
+    },
+  });
+}
+
+export function useSellerOverview(enabled = true) {
+  return useQuery({
+    queryKey: ['vendedor', 'overview'],
+    queryFn: () => apiGet<SellerOverviewDTO>('/vendedor/overview'),
+    enabled,
   });
 }
