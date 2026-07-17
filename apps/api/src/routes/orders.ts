@@ -4,6 +4,7 @@ import { db, eq, inArray, orderItems, orders } from '@ecoferia/db';
 import { OrderDTO, UpdateOrderStatusInput } from '@ecoferia/shared';
 import { auth } from '../auth.ts';
 import { adminOnly, vendedorOrAdmin } from '../middleware/auth.ts';
+import { managedBrandIds } from '../lib/managedBrands.ts';
 
 type OrderRow = {
   id: string;
@@ -47,29 +48,6 @@ function toDTO(o: OrderRow) {
       unitPrice: i.unitPrice,
     })),
   });
-}
-
-/** Marcas que gestiona el usuario de la sesión (perfil de vendedor, o directo si es admin). */
-async function managedBrandIds(userId: string, role: string | undefined): Promise<string[]> {
-  const profile = await db.query.sellerProfiles.findFirst({
-    where: (t, { eq: eqCol }) => eqCol(t.userId, userId),
-    columns: { id: true },
-  });
-  if (profile) {
-    const rows = await db.query.brands.findMany({
-      where: (b, { eq: eqCol }) => eqCol(b.managedBySellerId, profile.id),
-      columns: { id: true },
-    });
-    return rows.map((b) => b.id);
-  }
-  if (role === 'admin') {
-    const rows = await db.query.brands.findMany({
-      where: (b, { eq: eqCol }) => eqCol(b.managedByAdminId, userId),
-      columns: { id: true },
-    });
-    return rows.map((b) => b.id);
-  }
-  return [];
 }
 
 export const ordersRoutes = new Hono()

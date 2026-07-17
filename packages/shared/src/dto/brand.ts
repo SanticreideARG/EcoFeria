@@ -52,3 +52,24 @@ export const BrandContactInput = z.object({
   message: z.string().min(1, 'Escribí un mensaje'),
 });
 export type BrandContactInput = z.infer<typeof BrandContactInput>;
+
+/** Post del diario en el panel de vendedor (identifica de qué marca es, útil si gestiona N). */
+export const SellerBrandPostDTO = BrandPostDTO.extend({
+  brandId: z.string().uuid(),
+  brandName: z.string(),
+});
+export type SellerBrandPostDTO = z.infer<typeof SellerBrandPostDTO>;
+
+const brandPostFields = {
+  title: z.string().trim().min(1, 'Ingresá un título').max(150),
+  body: z.string().trim().min(1, 'Escribí el contenido').max(3000),
+  imageUrl: z.string().trim().max(500).optional().or(z.literal('')),
+};
+
+/** Alta de post: requiere la marca a la que pertenece. */
+export const CreateBrandPostInput = z.object({ brandId: z.string().uuid(), ...brandPostFields });
+export type CreateBrandPostInput = z.infer<typeof CreateBrandPostInput>;
+
+/** Edición de post: la marca no se reasigna. */
+export const UpdateBrandPostInput = z.object(brandPostFields);
+export type UpdateBrandPostInput = z.infer<typeof UpdateBrandPostInput>;

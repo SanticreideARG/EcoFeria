@@ -18,6 +18,7 @@ const NAV: Record<Variant, NavItem[]> = {
     { to: '/vendedor/productos', label: 'Productos', icon: 'inventory_2' },
     { to: '/vendedor/pedidos', label: 'Pedidos', icon: 'local_shipping' },
     { to: '/vendedor/blog', label: 'Diario', icon: 'article' },
+    { to: '/vendedor/mensajes', label: 'Mensajes', icon: 'chat_bubble' },
   ],
 };
 

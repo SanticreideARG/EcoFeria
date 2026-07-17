@@ -5,6 +5,7 @@ import { CreateProductInput, SellerProductDTO, UpdateProductInput } from '@ecofe
 import { auth } from '../auth.ts';
 import { vendedorOrAdmin } from '../middleware/auth.ts';
 import { puedeGestionarMarca } from '../lib/brandOwnership.ts';
+import { managedBrandIds } from '../lib/managedBrands.ts';
 import { slugify } from '../lib/slug.ts';
 
 /** Genera un slug único para la marca, agregando -2, -3… ante colisión. */
@@ -52,30 +53,8 @@ export const sellerProductsRoutes = new Hono()
     const session = await auth.api.getSession({ headers: c.req.raw.headers });
     if (!session) return c.json({ error: 'no_auth' }, 401);
     const role = (session.user as { role?: string }).role;
-    const userId = session.user.id;
 
-    const profile = await db.query.sellerProfiles.findFirst({
-      where: (t, { eq: eqCol }) => eqCol(t.userId, userId),
-      columns: { id: true },
-    });
-
-    // Marcas que gestiona: por perfil de vendedor, o directo si es admin.
-    // Sin perfil y sin ser admin -> ninguna (evita pasar where:undefined, que
-    // en findMany equivale a "sin filtro" y traería TODAS las marcas).
-    let brandIds: string[] = [];
-    if (profile) {
-      const rows = await db.query.brands.findMany({
-        where: (b, { eq: eqCol }) => eqCol(b.managedBySellerId, profile.id),
-        columns: { id: true },
-      });
-      brandIds = rows.map((b) => b.id);
-    } else if (role === 'admin') {
-      const rows = await db.query.brands.findMany({
-        where: (b, { eq: eqCol }) => eqCol(b.managedByAdminId, userId),
-        columns: { id: true },
-      });
-      brandIds = rows.map((b) => b.id);
-    }
+    const brandIds = await managedBrandIds(session.user.id, role);
 
     const rows =
       brandIds.length === 0

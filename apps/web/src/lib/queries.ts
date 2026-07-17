@@ -8,13 +8,18 @@ import type {
   BrandListItemDTO,
   BrandProfileDTO,
   CategoryDTO,
+  CreateBrandPostInput,
   CreateProductInput,
   EventSummaryDTO,
+  MessageThreadDTO,
   OrderDTO,
   ProductDetailDTO,
   ProductListItemDTO,
+  SellerBrandPostDTO,
   SellerOverviewDTO,
   SellerProductDTO,
+  SendMessageInput,
+  UpdateBrandPostInput,
   UpdateOrderStatusInput,
   UpdateProductInput,
   UpdateProfileInput,
@@ -225,5 +230,73 @@ export function useUpdateOrderStatus() {
     mutationFn: ({ id, ...input }: { id: string } & UpdateOrderStatusInput) =>
       apiPatch<{ ok: true }>(`/admin/pedidos/${id}`, input),
     onSuccess: () => qc.invalidateQueries({ queryKey: ['admin', 'pedidos'] }),
+  });
+}
+
+// --- Diario de marca (vendedor) ---
+
+export function useSellerBrandPosts(enabled = true) {
+  return useQuery({
+    queryKey: ['vendedor', 'diario'],
+    queryFn: () => apiGet<SellerBrandPostDTO[]>('/vendedor/diario'),
+    enabled,
+  });
+}
+
+function invalidateBrandPosts(qc: ReturnType<typeof useQueryClient>) {
+  qc.invalidateQueries({ queryKey: ['vendedor', 'diario'] });
+}
+
+export function useCreateBrandPost() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (input: CreateBrandPostInput) =>
+      apiPost<SellerBrandPostDTO>('/vendedor/diario', input),
+    onSuccess: () => invalidateBrandPosts(qc),
+  });
+}
+
+export function useUpdateBrandPost() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, ...input }: { id: string } & UpdateBrandPostInput) =>
+      apiPatch<SellerBrandPostDTO>(`/vendedor/diario/${id}`, input),
+    onSuccess: () => invalidateBrandPosts(qc),
+  });
+}
+
+export function useDeleteBrandPost() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (id: string) => apiDelete<{ ok: true }>(`/vendedor/diario/${id}`),
+    onSuccess: () => invalidateBrandPosts(qc),
+  });
+}
+
+// --- Mensajes (vendedor) ---
+
+export function useSellerMessages(enabled = true) {
+  return useQuery({
+    queryKey: ['vendedor', 'mensajes'],
+    queryFn: () => apiGet<MessageThreadDTO[]>('/vendedor/mensajes'),
+    enabled,
+  });
+}
+
+export function useSendMessage() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ threadId, ...input }: { threadId: string } & SendMessageInput) =>
+      apiPost<{ ok: true }>(`/vendedor/mensajes/${threadId}`, input),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['vendedor', 'mensajes'] }),
+  });
+}
+
+export function useMarkThreadRead() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (threadId: string) =>
+      apiPost<{ ok: true; marked: number }>(`/vendedor/mensajes/${threadId}/leer`, {}),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['vendedor', 'mensajes'] }),
   });
 }

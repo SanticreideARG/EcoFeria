@@ -16,6 +16,8 @@ import { AdminOrdersPage } from '../features/admin/AdminOrdersPage.tsx';
 import { SellerDashboardPage } from '../features/seller/SellerDashboardPage.tsx';
 import { SellerProductsPage } from '../features/seller/SellerProductsPage.tsx';
 import { SellerOrdersPage } from '../features/seller/SellerOrdersPage.tsx';
+import { SellerBrandPostsPage } from '../features/seller/SellerBrandPostsPage.tsx';
+import { SellerMessagesPage } from '../features/seller/SellerMessagesPage.tsx';
 import { PanelComingSoon } from '../features/panel/PanelComingSoon.tsx';
 import { AgendaPage } from '../features/agenda/AgendaPage.tsx';
 import { BlogListPage } from '../features/blog/BlogListPage.tsx';
@@ -70,7 +72,8 @@ export const router = createBrowserRouter([
           { path: '/vendedor', element: <SellerDashboardPage /> },
           { path: '/vendedor/productos', element: <SellerProductsPage /> },
           { path: '/vendedor/pedidos', element: <SellerOrdersPage /> },
-          { path: '/vendedor/blog', element: <PanelComingSoon title="Diario de marca" icon="article" /> },
+          { path: '/vendedor/blog', element: <SellerBrandPostsPage /> },
+          { path: '/vendedor/mensajes', element: <SellerMessagesPage /> },
         ],
       },
     ],

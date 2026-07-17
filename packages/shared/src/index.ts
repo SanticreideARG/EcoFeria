@@ -10,3 +10,4 @@ export * from './dto/content.js';
 export * from './dto/user.js';
 export * from './dto/panel.js';
 export * from './dto/order.js';
+export * from './dto/message.js';
