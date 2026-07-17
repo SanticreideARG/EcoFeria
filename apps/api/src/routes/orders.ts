@@ -3,7 +3,7 @@ import { zValidator } from '@hono/zod-validator';
 import { db, eq, inArray, orderItems, orders } from '@ecoferia/db';
 import { OrderDTO, UpdateOrderStatusInput } from '@ecoferia/shared';
 import { auth } from '../auth.ts';
-import { adminOnly, vendedorOrAdmin } from '../middleware/auth.ts';
+import { adminOnly, requireAuth, vendedorOrAdmin } from '../middleware/auth.ts';
 import { managedBrandIds } from '../lib/managedBrands.ts';
 
 type OrderRow = {
@@ -51,6 +51,24 @@ function toDTO(o: OrderRow) {
 }
 
 export const ordersRoutes = new Hono()
+  .get('/mis-pedidos', requireAuth, async (c) => {
+    const session = await auth.api.getSession({ headers: c.req.raw.headers });
+    if (!session) return c.json({ error: 'no_auth' }, 401);
+
+    const rows = await db.query.orders.findMany({
+      where: (o, { eq: eqCol }) => eqCol(o.userId, session.user.id),
+      with: {
+        user: { columns: { name: true, email: true } },
+        items: {
+          with: { brand: { columns: { name: true } }, product: { columns: { name: true } } },
+        },
+      },
+      orderBy: (o, { desc }) => [desc(o.createdAt)],
+    });
+
+    return c.json(rows.map(toDTO));
+  })
+
   .get('/vendedor/pedidos', vendedorOrAdmin, async (c) => {
     const session = await auth.api.getSession({ headers: c.req.raw.headers });
     if (!session) return c.json({ error: 'no_auth' }, 401);

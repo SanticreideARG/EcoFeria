@@ -230,6 +230,44 @@ export function useDeleteProduct() {
   });
 }
 
+export function useMyOrders(enabled = true) {
+  return useQuery({
+    queryKey: ['mis-pedidos'],
+    queryFn: () => apiGet<OrderDTO[]>('/mis-pedidos'),
+    enabled,
+  });
+}
+
+export function useFavorites(enabled = true) {
+  return useQuery({
+    queryKey: ['favoritos'],
+    queryFn: () => apiGet<BrandListItemDTO[]>('/favoritos'),
+    enabled,
+  });
+}
+
+export function useAddFavorite() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (brandId: string) => apiPost<{ ok: true }>(`/favoritos/${brandId}`, {}),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['favoritos'] });
+      qc.invalidateQueries({ queryKey: ['brand'] });
+    },
+  });
+}
+
+export function useRemoveFavorite() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (brandId: string) => apiDelete<{ ok: true }>(`/favoritos/${brandId}`),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['favoritos'] });
+      qc.invalidateQueries({ queryKey: ['brand'] });
+    },
+  });
+}
+
 export function useSellerOrders(enabled = true) {
   return useQuery({
     queryKey: ['vendedor', 'pedidos'],

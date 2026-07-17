@@ -13,6 +13,7 @@ import { sellerProductsRoutes } from './routes/sellerProducts.ts';
 import { ordersRoutes } from './routes/orders.ts';
 import { sellerBrandPostsRoutes } from './routes/sellerBrandPosts.ts';
 import { sellerMessagesRoutes } from './routes/sellerMessages.ts';
+import { favoritesRoutes } from './routes/favorites.ts';
 
 /**
  * App Hono de La Ecoferia. Las rutas cuelgan de la raíz (`/health`, `/brands`, …).
@@ -46,6 +47,7 @@ app.route('/', sellerProductsRoutes);
 app.route('/', ordersRoutes);
 app.route('/', sellerBrandPostsRoutes);
 app.route('/', sellerMessagesRoutes);
+app.route('/', favoritesRoutes);
 
 app.onError((err, c) => {
   console.error('[api] error:', err);

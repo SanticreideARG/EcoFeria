@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { BrandContactInput, type BrandProfileDTO } from '@ecoferia/shared';
 import {
   CtaButton,
@@ -12,10 +12,24 @@ import {
   ProductCard,
   Tabs,
 } from '../../components/index.ts';
-import { useBrand, useBrandContact } from '../../lib/queries.ts';
+import { cn } from '../../lib/cn.ts';
+import { useSession } from '../../lib/auth-client.ts';
+import { useAddFavorite, useBrand, useBrandContact, useRemoveFavorite } from '../../lib/queries.ts';
 import { useCart } from '../../stores/cart.ts';
 
 function BrandHeader({ brand }: { brand: BrandProfileDTO }) {
+  const { data: session } = useSession();
+  const navigate = useNavigate();
+  const addFavorite = useAddFavorite();
+  const removeFavorite = useRemoveFavorite();
+  const favoritePending = addFavorite.isPending || removeFavorite.isPending;
+
+  const toggleFavorite = () => {
+    if (!session) return navigate('/ingreso');
+    if (brand.isFavorite) removeFavorite.mutate(brand.id);
+    else addFavorite.mutate(brand.id);
+  };
+
   return (
     <header className="relative">
       <div className="relative h-48 bg-gradient-to-br from-primary via-surface-tint to-secondary md:h-60">
@@ -50,10 +64,17 @@ function BrandHeader({ brand }: { brand: BrandProfileDTO }) {
         <div className="mt-4 flex gap-3">
           <button
             type="button"
-            title="Disponible próximamente"
-            className="flex flex-1 items-center justify-center gap-2 rounded-full border border-primary py-2 text-title-lg text-primary opacity-80"
+            onClick={toggleFavorite}
+            disabled={favoritePending}
+            className={cn(
+              'flex flex-1 items-center justify-center gap-2 rounded-full border py-2 text-title-lg transition-colors active:scale-95 disabled:opacity-50',
+              brand.isFavorite
+                ? 'border-primary bg-primary text-on-primary'
+                : 'border-primary text-primary hover:bg-primary-container/30',
+            )}
           >
-            <Icon name="favorite" className="text-lg" /> Seguir
+            <Icon name="favorite" filled={brand.isFavorite} className="text-lg" />{' '}
+            {brand.isFavorite ? 'Siguiendo' : 'Seguir'}
           </button>
           <button
             type="button"

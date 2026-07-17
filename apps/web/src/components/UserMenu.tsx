@@ -96,6 +96,12 @@ export function UserMenu() {
             <MenuLink to="/mi-cuenta" icon="person">
               Mi cuenta
             </MenuLink>
+            <MenuLink to="/mi-cuenta/pedidos" icon="local_shipping">
+              Mis pedidos
+            </MenuLink>
+            <MenuLink to="/mi-cuenta/favoritos" icon="favorite">
+              Favoritos
+            </MenuLink>
             {role === 'admin' && (
               <MenuLink to="/admin" icon="shield_person">
                 Panel de admin

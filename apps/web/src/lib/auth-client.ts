@@ -9,12 +9,19 @@ const RAW_BASE = import.meta.env.VITE_API_URL ?? '/api';
 // es — eso rompe el bundle entero (pantalla blanca) antes de que React monte,
 // incluso con VITE_API_URL mal configurada o ausente. Resolvemos a absoluta
 // contra el origen actual como red de seguridad.
-const BASE = RAW_BASE.startsWith('/') ? `${window.location.origin}${RAW_BASE}` : RAW_BASE;
+const ABSOLUTE_BASE = RAW_BASE.startsWith('/') ? `${window.location.origin}${RAW_BASE}` : RAW_BASE;
 
-/** Cliente de Better Auth. basePath coincide con el mount en apps/api/src/auth.ts. */
+// La opción `basePath` del cliente solo se aplica si `baseURL` NO tiene path
+// propio (better-auth internamente hace `checkHasPath(baseURL)` y, si ya tiene
+// uno, ignora `basePath` en silencio). Como nuestro baseURL siempre trae un
+// path (`/api` en dev vía proxy de Vite, el origen de Vercel en prod), había
+// que armar la ruta completa a mano — si no, el cliente pega a `/api/get-session`
+// en vez de `/api/auth/get-session` y todo el login local devuelve 404.
+const BASE = `${ABSOLUTE_BASE.replace(/\/+$/, '')}/auth`;
+
+/** Cliente de Better Auth. La ruta `/auth` coincide con basePath en apps/api/src/auth.ts. */
 export const authClient = createAuthClient({
   baseURL: BASE,
-  basePath: '/auth',
   fetchOptions: { credentials: 'include' },
 });
 

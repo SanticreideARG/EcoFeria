@@ -10,6 +10,8 @@ import { ProductDetailPage } from '../features/catalog/ProductDetailPage.tsx';
 import { CartPage } from '../features/cart/CartPage.tsx';
 import { AuthPage } from '../features/auth/AuthPage.tsx';
 import { MiCuentaPage } from '../features/account/MiCuentaPage.tsx';
+import { MisPedidosPage } from '../features/account/MisPedidosPage.tsx';
+import { FavoritosPage } from '../features/account/FavoritosPage.tsx';
 import { AdminDashboardPage } from '../features/admin/AdminDashboardPage.tsx';
 import { AdminSellersPage } from '../features/admin/AdminSellersPage.tsx';
 import { AdminBrandsPage } from '../features/admin/AdminBrandsPage.tsx';
@@ -36,6 +38,8 @@ export const router = createBrowserRouter([
       { path: '/producto/:slug', element: <ProductDetailPage /> },
       { path: '/carrito', element: <CartPage /> },
       { path: '/mi-cuenta', element: <MiCuentaPage /> },
+      { path: '/mi-cuenta/pedidos', element: <MisPedidosPage /> },
+      { path: '/mi-cuenta/favoritos', element: <FavoritosPage /> },
       { path: '/agenda', element: <AgendaPage /> },
       { path: '/blog', element: <BlogListPage /> },
       { path: '/blog/:slug', element: <BlogPostDetailPage /> },

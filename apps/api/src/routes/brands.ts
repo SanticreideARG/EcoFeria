@@ -3,7 +3,8 @@ import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
 import { brandContacts, db } from '@ecoferia/db';
 import { BrandContactInput, BrandListItemDTO, BrandProfileDTO } from '@ecoferia/shared';
-import type { ImpactSeal } from '@ecoferia/shared';
+import { auth } from '../auth.ts';
+import { toBrandListItem } from '../lib/brandListItem.ts';
 
 const BrandsQuery = z.object({
   category: z.string().optional(),
@@ -38,21 +39,7 @@ export const brandsRoute = new Hono()
       orderBy: (b, { asc }) => [asc(b.name)],
     });
 
-    const result = rows.map((b) => ({
-      id: b.id,
-      name: b.name,
-      slug: b.slug,
-      tagline: b.tagline,
-      logoUrl: b.logoUrl,
-      coverUrl: b.coverUrl,
-      categoryId: b.categoryId,
-      status: b.status,
-      categoryName: b.category?.name ?? null,
-      productCount: b.products.length,
-      seals: [...new Set(b.products.flatMap((p) => p.seals.map((s) => s.seal)))] as ImpactSeal[],
-    }));
-
-    return c.json(BrandListItemDTO.array().parse(result));
+    return c.json(BrandListItemDTO.array().parse(rows.map(toBrandListItem)));
   })
 
   .get('/brands/:slug', async (c) => {
@@ -69,6 +56,16 @@ export const brandsRoute = new Hono()
       },
     });
     if (!b) return c.json({ error: 'Marca no encontrada' }, 404);
+
+    const session = await auth.api.getSession({ headers: c.req.raw.headers });
+    const isFavorite = session
+      ? Boolean(
+          await db.query.favorites.findFirst({
+            where: (f, { and, eq }) => and(eq(f.userId, session.user.id), eq(f.brandId, b.id)),
+            columns: { userId: true },
+          }),
+        )
+      : false;
 
     const profile = {
       id: b.id,
@@ -99,6 +96,7 @@ export const brandsRoute = new Hono()
         imageUrl: p.imageUrl,
         publishedAt: p.publishedAt.toISOString(),
       })),
+      isFavorite,
     };
 
     return c.json(BrandProfileDTO.parse(profile));

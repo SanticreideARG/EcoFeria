@@ -42,6 +42,8 @@ export const BrandProfileDTO = BrandDetailDTO.extend({
   categoryName: z.string().nullable(),
   products: z.array(ProductSummaryDTO),
   posts: z.array(BrandPostDTO),
+  /** Si el usuario autenticado sigue esta marca (false si no hay sesión). */
+  isFavorite: z.boolean(),
 });
 export type BrandProfileDTO = z.infer<typeof BrandProfileDTO>;
 

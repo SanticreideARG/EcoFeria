@@ -11,6 +11,7 @@ import {
 } from '../../components/index.ts';
 import { signOut, useSession } from '../../lib/auth-client.ts';
 import { useProfile, useUpdateProfile } from '../../lib/queries.ts';
+import { AccountTabs } from './AccountTabs.tsx';
 
 const ROLE_LABEL: Record<string, string> = {
   admin: 'Administrador',
@@ -79,6 +80,8 @@ export function MiCuentaPage() {
           <Icon name="logout" className="text-base" /> Salir
         </button>
       </header>
+
+      <AccountTabs />
 
       <form onSubmit={onSubmit} className="space-y-5 rounded-xl bg-surface-container-lowest p-6 paper-border">
         <PaperInput
