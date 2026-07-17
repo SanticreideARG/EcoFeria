@@ -7,6 +7,9 @@ import {
   brands,
   categories,
   favorites,
+  messages,
+  orderItems,
+  orders,
   products,
   productImpactSeals,
   sellerProfiles,
@@ -20,6 +23,24 @@ export const usersRelations = relations(users, ({ one, many }) => ({
   sessions: many(sessions),
   accounts: many(accounts),
   blogPosts: many(blogPosts),
+  orders: many(orders),
+  messages: many(messages),
+}));
+
+export const ordersRelations = relations(orders, ({ one, many }) => ({
+  user: one(users, { fields: [orders.userId], references: [users.id] }),
+  items: many(orderItems),
+}));
+
+export const orderItemsRelations = relations(orderItems, ({ one }) => ({
+  order: one(orders, { fields: [orderItems.orderId], references: [orders.id] }),
+  brand: one(brands, { fields: [orderItems.brandId], references: [brands.id] }),
+  product: one(products, { fields: [orderItems.productId], references: [products.id] }),
+}));
+
+export const messagesRelations = relations(messages, ({ one }) => ({
+  brand: one(brands, { fields: [messages.brandId], references: [brands.id] }),
+  sender: one(users, { fields: [messages.senderUserId], references: [users.id] }),
 }));
 
 export const blogPostsRelations = relations(blogPosts, ({ one }) => ({
@@ -55,6 +76,8 @@ export const brandsRelations = relations(brands, ({ one, many }) => ({
   posts: many(brandPosts),
   contacts: many(brandContacts),
   favoritedBy: many(favorites),
+  orderItems: many(orderItems),
+  messages: many(messages),
 }));
 
 export const productsRelations = relations(products, ({ one, many }) => ({

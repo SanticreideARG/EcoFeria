@@ -5,4 +5,4 @@ export * from './schema/index.ts';
 
 // Reexporta los operadores de Drizzle: evita que apps/api tenga su propia copia
 // de drizzle-orm en node_modules (rompería `instanceof`/tipos entre paquetes).
-export { and, eq, gte, ilike, lte, or, sql } from 'drizzle-orm';
+export { and, eq, gte, ilike, inArray, lte, or, sql } from 'drizzle-orm';

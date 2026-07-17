@@ -10,10 +10,12 @@ import type {
   CategoryDTO,
   CreateProductInput,
   EventSummaryDTO,
+  OrderDTO,
   ProductDetailDTO,
   ProductListItemDTO,
   SellerOverviewDTO,
   SellerProductDTO,
+  UpdateOrderStatusInput,
   UpdateProductInput,
   UpdateProfileInput,
   UpdateSellerStatusInput,
@@ -198,5 +200,30 @@ export function useDeleteProduct() {
   return useMutation({
     mutationFn: (id: string) => apiDelete<{ ok: true }>(`/vendedor/productos/${id}`),
     onSuccess: () => invalidateSellerProducts(qc),
+  });
+}
+
+export function useSellerOrders(enabled = true) {
+  return useQuery({
+    queryKey: ['vendedor', 'pedidos'],
+    queryFn: () => apiGet<OrderDTO[]>('/vendedor/pedidos'),
+    enabled,
+  });
+}
+
+export function useAdminOrders(enabled = true) {
+  return useQuery({
+    queryKey: ['admin', 'pedidos'],
+    queryFn: () => apiGet<OrderDTO[]>('/admin/pedidos'),
+    enabled,
+  });
+}
+
+export function useUpdateOrderStatus() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, ...input }: { id: string } & UpdateOrderStatusInput) =>
+      apiPatch<{ ok: true }>(`/admin/pedidos/${id}`, input),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['admin', 'pedidos'] }),
   });
 }

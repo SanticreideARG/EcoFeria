@@ -12,8 +12,10 @@ import { AuthPage } from '../features/auth/AuthPage.tsx';
 import { MiCuentaPage } from '../features/account/MiCuentaPage.tsx';
 import { AdminDashboardPage } from '../features/admin/AdminDashboardPage.tsx';
 import { AdminSellersPage } from '../features/admin/AdminSellersPage.tsx';
+import { AdminOrdersPage } from '../features/admin/AdminOrdersPage.tsx';
 import { SellerDashboardPage } from '../features/seller/SellerDashboardPage.tsx';
 import { SellerProductsPage } from '../features/seller/SellerProductsPage.tsx';
+import { SellerOrdersPage } from '../features/seller/SellerOrdersPage.tsx';
 import { PanelComingSoon } from '../features/panel/PanelComingSoon.tsx';
 import { AgendaPage } from '../features/agenda/AgendaPage.tsx';
 import { BlogListPage } from '../features/blog/BlogListPage.tsx';
@@ -52,7 +54,7 @@ export const router = createBrowserRouter([
           { path: '/admin', element: <AdminDashboardPage /> },
           { path: '/admin/vendedores', element: <AdminSellersPage /> },
           { path: '/admin/marcas', element: <PanelComingSoon title="Directorio de marcas" icon="storefront" /> },
-          { path: '/admin/pedidos', element: <PanelComingSoon title="Pedidos globales" icon="local_shipping" /> },
+          { path: '/admin/pedidos', element: <AdminOrdersPage /> },
         ],
       },
     ],
@@ -67,7 +69,7 @@ export const router = createBrowserRouter([
         children: [
           { path: '/vendedor', element: <SellerDashboardPage /> },
           { path: '/vendedor/productos', element: <SellerProductsPage /> },
-          { path: '/vendedor/pedidos', element: <PanelComingSoon title="Pedidos recibidos" icon="local_shipping" /> },
+          { path: '/vendedor/pedidos', element: <SellerOrdersPage /> },
           { path: '/vendedor/blog', element: <PanelComingSoon title="Diario de marca" icon="article" /> },
         ],
       },

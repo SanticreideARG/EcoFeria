@@ -910,6 +910,7 @@ const CLIENTS = [
  */
 export async function seedDatabase(db: DB): Promise<void> {
   const catByBrand = new Map(BRANDS.map((b) => [b.slug, b.category]));
+  const brandByProduct = new Map(PRODUCTS.map((p) => [p.slug, p.brand]));
 
   // Borrado del catálogo (NO users ni tablas de auth) en orden seguro de FKs.
   await db.delete(brandContacts);
@@ -1129,7 +1130,157 @@ export async function seedDatabase(db: DB): Promise<void> {
     { userId: req(user, 'nico@cliente.ar'), brandId: req(brand, 'abeja-obrera') },
   ]);
 
+  // --- Pedidos (paneles admin/vendedor) ---
+  const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000);
+  const priceBySlug = new Map(PRODUCTS.map((p) => [p.slug, Number(p.price)]));
+  const priceOf = (slug: string): number => {
+    const price = priceBySlug.get(slug);
+    if (price == null) throw new Error(`seed: precio no encontrado para '${slug}'`);
+    return price;
+  };
+  const item = (productSlug: string, quantity: number) => {
+    const brandSlug = brandByProduct.get(productSlug);
+    if (!brandSlug) throw new Error(`seed: marca no encontrada para producto '${productSlug}'`);
+    return {
+      productId: req(prod, productSlug),
+      brandId: req(brand, brandSlug),
+      quantity,
+      unitPrice: String(priceOf(productSlug)),
+    };
+  };
+  const money = (n: number) => n.toFixed(2);
+
+  type OrderDef = {
+    clientEmail: string;
+    status: (typeof orders.status.enumValues)[number];
+    daysAgo: number;
+    shippingCost: number;
+    address: { street: string; city: string; province: string };
+    items: { slug: string; qty: number }[];
+  };
+
+  const ORDERS: OrderDef[] = [
+    {
+      clientEmail: 'vale@cliente.ar',
+      status: 'pendiente',
+      daysAgo: 1,
+      shippingCost: 1500,
+      address: { street: 'Av. San Martín 123', city: 'San Martín de los Andes', province: 'Neuquén' },
+      items: [
+        { slug: 'miel-cruda-500', qty: 2 },
+        { slug: 'girgolas-frescas', qty: 1 },
+      ],
+    },
+    {
+      clientEmail: 'vale@cliente.ar',
+      status: 'confirmado',
+      daysAgo: 3,
+      shippingCost: 1500,
+      address: { street: 'Av. San Martín 123', city: 'San Martín de los Andes', province: 'Neuquén' },
+      items: [{ slug: 'aceite-lavanda', qty: 3 }],
+    },
+    {
+      clientEmail: 'vale@cliente.ar',
+      status: 'enviado',
+      daysAgo: 6,
+      shippingCost: 1500,
+      address: { street: 'Av. San Martín 123', city: 'San Martín de los Andes', province: 'Neuquén' },
+      items: [
+        { slug: 'taza-bosque', qty: 1 },
+        { slug: 'dulce-ciruela', qty: 2 },
+      ],
+    },
+    {
+      clientEmail: 'vale@cliente.ar',
+      status: 'entregado',
+      daysAgo: 12,
+      shippingCost: 0,
+      address: { street: 'Av. San Martín 123', city: 'San Martín de los Andes', province: 'Neuquén' },
+      items: [{ slug: 'mochila-lona', qty: 1 }],
+    },
+    {
+      clientEmail: 'nico@cliente.ar',
+      status: 'pendiente',
+      daysAgo: 2,
+      shippingCost: 1500,
+      address: { street: 'Belgrano 456', city: 'San Carlos de Bariloche', province: 'Río Negro' },
+      items: [
+        { slug: 'kefir-agua', qty: 1 },
+        { slug: 'miel-cruda-500', qty: 1 },
+      ],
+    },
+    {
+      clientEmail: 'nico@cliente.ar',
+      status: 'cancelado',
+      daysAgo: 8,
+      shippingCost: 1500,
+      address: { street: 'Belgrano 456', city: 'San Carlos de Bariloche', province: 'Río Negro' },
+      items: [{ slug: 'girgolas-frescas', qty: 2 }],
+    },
+    {
+      clientEmail: 'nico@cliente.ar',
+      status: 'entregado',
+      daysAgo: 14,
+      shippingCost: 0,
+      address: { street: 'Belgrano 456', city: 'San Carlos de Bariloche', province: 'Río Negro' },
+      items: [
+        { slug: 'mochila-lona', qty: 1 },
+        { slug: 'taza-bosque', qty: 1 },
+      ],
+    },
+  ];
+
+  for (const o of ORDERS) {
+    const subtotal = o.items.reduce((sum, i) => sum + priceOf(i.slug) * i.qty, 0);
+    const total = subtotal + o.shippingCost;
+    const [createdOrder] = await db
+      .insert(orders)
+      .values({
+        userId: req(user, o.clientEmail),
+        status: o.status,
+        shippingAddress: o.address,
+        subtotal: money(subtotal),
+        shippingCost: money(o.shippingCost),
+        total: money(total),
+        createdAt: daysAgo(o.daysAgo),
+      })
+      .returning({ id: orders.id });
+    if (!createdOrder) throw new Error('seed: no se pudo crear el pedido');
+    await db
+      .insert(orderItems)
+      .values(o.items.map((i) => ({ orderId: createdOrder.id, ...item(i.slug, i.qty) })));
+  }
+
+  // Mensajes (buzón cliente <-> marca). Cada hilo comparte un único threadId
+  // generado una vez (no por mensaje).
+  function buildThread(clientEmail: string, brandSlug: string, exchange: { from: 'cliente' | 'marca'; body: string }[]) {
+    const threadId = crypto.randomUUID();
+    return exchange.map((m, i) => ({
+      threadId,
+      brandId: req(brand, brandSlug),
+      senderUserId: m.from === 'cliente' ? req(user, clientEmail) : adminId,
+      body: m.body,
+      readAt: m.from === 'cliente' && i < exchange.length - 1 ? daysAgo(1) : null,
+      createdAt: daysAgo(exchange.length - i),
+    }));
+  }
+
+  await db.insert(messages).values([
+    ...buildThread('vale@cliente.ar', 'ecofungi', [
+      { from: 'cliente', body: '¡Hola! ¿Tienen kits de autocultivo con envío a San Martín de los Andes?' },
+      { from: 'marca', body: 'Hola Vale, sí, hacemos envíos a toda la zona. ¡Cualquier consulta, avisanos!' },
+    ]),
+    ...buildThread('nico@cliente.ar', 'zigzag', [
+      { from: 'cliente', body: 'Buenas, ¿la mochila viene en más colores?' },
+    ]),
+    ...buildThread('vale@cliente.ar', 'ceramica-ruke', [
+      { from: 'cliente', body: '¿Hacen sets de vajilla a medida para eventos?' },
+      { from: 'marca', body: 'Sí, armamos sets personalizados. Te escribo por privado para coordinar.' },
+      { from: 'cliente', body: '¡Genial, gracias!' },
+    ]),
+  ]);
+
   console.log(
-    `🌱 Seed: ${CATEGORIES.length} categorías, ${brandRows.length} marcas, ${prodRows.length} productos, ${sealValues.length} sellos, ${userRows.length} usuarios (upsert).`,
+    `🌱 Seed: ${CATEGORIES.length} categorías, ${brandRows.length} marcas, ${prodRows.length} productos, ${sealValues.length} sellos, ${userRows.length} usuarios (upsert), ${ORDERS.length} pedidos, 3 hilos de mensajes.`,
   );
 }
