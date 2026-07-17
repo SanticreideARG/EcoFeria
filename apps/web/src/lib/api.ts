@@ -35,3 +35,10 @@ export async function apiPatch<T>(pathname: string, body: unknown): Promise<T> {
   if (!res.ok) throw new Error(`API ${res.status} en ${pathname}`);
   return (await res.json()) as T;
 }
+
+/** DELETE tipado contra la API. */
+export async function apiDelete<T>(pathname: string): Promise<T> {
+  const res = await fetch(`${BASE}${pathname}`, { ...withCreds, method: 'DELETE' });
+  if (!res.ok) throw new Error(`API ${res.status} en ${pathname}`);
+  return (await res.json()) as T;
+}

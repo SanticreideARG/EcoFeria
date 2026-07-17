@@ -12,3 +12,4 @@ export { UserMenu } from './UserMenu.tsx';
 export { BottomNavBar } from './BottomNavBar.tsx';
 export { NoiseOverlay } from './NoiseOverlay.tsx';
 export { Loader, ErrorState, EmptyState } from './States.tsx';
+export { Dialog } from './Dialog.tsx';

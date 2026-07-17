@@ -36,7 +36,7 @@ const ICONS = [
   'play_arrow', 'pause',
   // Paneles admin/vendedor (PanelLayout, dashboards, gestión de vendedores)
   'dashboard', 'group', 'local_shipping', 'inventory_2', 'hourglass_top',
-  'check_circle', 'cancel', 'construction',
+  'check_circle', 'cancel', 'construction', 'edit',
   // Íconos de categoría (sembrados en la DB, Assets/04-MODELO-DATOS.md)
   'nutrition', 'spa', 'home', 'design_services', 'checkroom', 'self_improvement',
 ];

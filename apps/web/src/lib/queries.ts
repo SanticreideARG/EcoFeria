@@ -8,15 +8,18 @@ import type {
   BrandListItemDTO,
   BrandProfileDTO,
   CategoryDTO,
+  CreateProductInput,
   EventSummaryDTO,
   ProductDetailDTO,
   ProductListItemDTO,
   SellerOverviewDTO,
+  SellerProductDTO,
+  UpdateProductInput,
   UpdateProfileInput,
   UpdateSellerStatusInput,
   UserProfileDTO,
 } from '@ecoferia/shared';
-import { apiGet, apiPatch, apiPost } from './api.ts';
+import { apiDelete, apiGet, apiPatch, apiPost } from './api.ts';
 
 function toQuery(params: Record<string, string | number | undefined>): string {
   const qs = new URLSearchParams();
@@ -156,5 +159,44 @@ export function useSellerOverview(enabled = true) {
     queryKey: ['vendedor', 'overview'],
     queryFn: () => apiGet<SellerOverviewDTO>('/vendedor/overview'),
     enabled,
+  });
+}
+
+export function useSellerProducts(enabled = true) {
+  return useQuery({
+    queryKey: ['vendedor', 'productos'],
+    queryFn: () => apiGet<SellerProductDTO[]>('/vendedor/productos'),
+    enabled,
+  });
+}
+
+function invalidateSellerProducts(qc: ReturnType<typeof useQueryClient>) {
+  qc.invalidateQueries({ queryKey: ['vendedor', 'productos'] });
+  qc.invalidateQueries({ queryKey: ['vendedor', 'overview'] });
+}
+
+export function useCreateProduct() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (input: CreateProductInput) =>
+      apiPost<SellerProductDTO>('/vendedor/productos', input),
+    onSuccess: () => invalidateSellerProducts(qc),
+  });
+}
+
+export function useUpdateProduct() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, ...input }: { id: string } & UpdateProductInput) =>
+      apiPatch<SellerProductDTO>(`/vendedor/productos/${id}`, input),
+    onSuccess: () => invalidateSellerProducts(qc),
+  });
+}
+
+export function useDeleteProduct() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (id: string) => apiDelete<{ ok: true }>(`/vendedor/productos/${id}`),
+    onSuccess: () => invalidateSellerProducts(qc),
   });
 }

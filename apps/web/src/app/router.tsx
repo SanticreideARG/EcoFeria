@@ -13,6 +13,7 @@ import { MiCuentaPage } from '../features/account/MiCuentaPage.tsx';
 import { AdminDashboardPage } from '../features/admin/AdminDashboardPage.tsx';
 import { AdminSellersPage } from '../features/admin/AdminSellersPage.tsx';
 import { SellerDashboardPage } from '../features/seller/SellerDashboardPage.tsx';
+import { SellerProductsPage } from '../features/seller/SellerProductsPage.tsx';
 import { PanelComingSoon } from '../features/panel/PanelComingSoon.tsx';
 import { AgendaPage } from '../features/agenda/AgendaPage.tsx';
 import { BlogListPage } from '../features/blog/BlogListPage.tsx';
@@ -65,7 +66,7 @@ export const router = createBrowserRouter([
         element: <PanelLayout variant="vendedor" />,
         children: [
           { path: '/vendedor', element: <SellerDashboardPage /> },
-          { path: '/vendedor/productos', element: <PanelComingSoon title="Mis productos" icon="inventory_2" /> },
+          { path: '/vendedor/productos', element: <SellerProductsPage /> },
           { path: '/vendedor/pedidos', element: <PanelComingSoon title="Pedidos recibidos" icon="local_shipping" /> },
           { path: '/vendedor/blog', element: <PanelComingSoon title="Diario de marca" icon="article" /> },
         ],

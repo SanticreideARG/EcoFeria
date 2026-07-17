@@ -9,6 +9,7 @@ import { contentRoute } from './routes/content.ts';
 import { meRoute } from './routes/me.ts';
 import { adminRoutes } from './routes/admin.ts';
 import { sellerRoutes } from './routes/seller.ts';
+import { sellerProductsRoutes } from './routes/sellerProducts.ts';
 
 /**
  * App Hono de La Ecoferia. Las rutas cuelgan de la raíz (`/health`, `/brands`, …).
@@ -38,6 +39,7 @@ app.route('/', contentRoute);
 app.route('/', meRoute);
 app.route('/', adminRoutes);
 app.route('/', sellerRoutes);
+app.route('/', sellerProductsRoutes);
 
 app.onError((err, c) => {
   console.error('[api] error:', err);
