@@ -12,13 +12,13 @@ import { AuthPage } from '../features/auth/AuthPage.tsx';
 import { MiCuentaPage } from '../features/account/MiCuentaPage.tsx';
 import { AdminDashboardPage } from '../features/admin/AdminDashboardPage.tsx';
 import { AdminSellersPage } from '../features/admin/AdminSellersPage.tsx';
+import { AdminBrandsPage } from '../features/admin/AdminBrandsPage.tsx';
 import { AdminOrdersPage } from '../features/admin/AdminOrdersPage.tsx';
 import { SellerDashboardPage } from '../features/seller/SellerDashboardPage.tsx';
 import { SellerProductsPage } from '../features/seller/SellerProductsPage.tsx';
 import { SellerOrdersPage } from '../features/seller/SellerOrdersPage.tsx';
 import { SellerBrandPostsPage } from '../features/seller/SellerBrandPostsPage.tsx';
 import { SellerMessagesPage } from '../features/seller/SellerMessagesPage.tsx';
-import { PanelComingSoon } from '../features/panel/PanelComingSoon.tsx';
 import { AgendaPage } from '../features/agenda/AgendaPage.tsx';
 import { BlogListPage } from '../features/blog/BlogListPage.tsx';
 import { BlogPostDetailPage } from '../features/blog/BlogPostDetailPage.tsx';
@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
         children: [
           { path: '/admin', element: <AdminDashboardPage /> },
           { path: '/admin/vendedores', element: <AdminSellersPage /> },
-          { path: '/admin/marcas', element: <PanelComingSoon title="Directorio de marcas" icon="storefront" /> },
+          { path: '/admin/marcas', element: <AdminBrandsPage /> },
           { path: '/admin/pedidos', element: <AdminOrdersPage /> },
         ],
       },

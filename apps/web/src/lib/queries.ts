@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import type {
+  AdminBrandDTO,
   AdminSellerDTO,
   AdminStatsDTO,
   BlogPostDetailDTO,
@@ -20,6 +21,7 @@ import type {
   SellerProductDTO,
   SendMessageInput,
   UpdateBrandPostInput,
+  UpdateBrandStatusInput,
   UpdateOrderStatusInput,
   UpdateProductInput,
   UpdateProfileInput,
@@ -156,6 +158,26 @@ export function useUpdateSellerStatus() {
       apiPatch<{ ok: true }>(`/admin/sellers/${id}`, input),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['admin', 'sellers'] });
+      qc.invalidateQueries({ queryKey: ['admin', 'stats'] });
+    },
+  });
+}
+
+export function useAdminBrands(enabled = true) {
+  return useQuery({
+    queryKey: ['admin', 'brands'],
+    queryFn: () => apiGet<AdminBrandDTO[]>('/admin/marcas'),
+    enabled,
+  });
+}
+
+export function useUpdateBrandStatus() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, ...input }: { id: string } & UpdateBrandStatusInput) =>
+      apiPatch<{ ok: true }>(`/admin/marcas/${id}`, input),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['admin', 'brands'] });
       qc.invalidateQueries({ queryKey: ['admin', 'stats'] });
     },
   });

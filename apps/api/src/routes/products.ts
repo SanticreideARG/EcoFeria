@@ -33,10 +33,18 @@ export const productsRoute = new Hono()
     if (category && !cat) return c.json([]);
     if (brand && !br) return c.json([]);
 
+    const activeBrands = await db.query.brands.findMany({
+      where: (b, { eq }) => eq(b.status, 'activa'),
+      columns: { id: true },
+    });
+    const activeBrandIds = activeBrands.map((b) => b.id);
+    if (activeBrandIds.length === 0) return c.json([]);
+
     const rows = await db.query.products.findMany({
-      where: (p, { and, eq, ilike, gte, lte }) =>
+      where: (p, { and, eq, ilike, gte, lte, inArray }) =>
         and(
           eq(p.status, 'publicado'),
+          inArray(p.brandId, activeBrandIds),
           cat ? eq(p.categoryId, cat.id) : undefined,
           br ? eq(p.brandId, br.id) : undefined,
           q ? ilike(p.name, `%${q}%`) : undefined,
@@ -74,12 +82,12 @@ export const productsRoute = new Hono()
     const p = await db.query.products.findFirst({
       where: (t, { eq }) => eq(t.slug, slug),
       with: {
-        brand: { columns: { name: true, slug: true } },
+        brand: { columns: { name: true, slug: true, status: true } },
         category: { columns: { name: true } },
         seals: { columns: { seal: true } },
       },
     });
-    if (!p) return c.json({ error: 'Producto no encontrado' }, 404);
+    if (!p || p.brand.status !== 'activa') return c.json({ error: 'Producto no encontrado' }, 404);
 
     const detail = {
       id: p.id,

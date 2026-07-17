@@ -45,3 +45,20 @@ export const SellerOverviewDTO = z.object({
   brands: z.array(SellerBrandDTO),
 });
 export type SellerOverviewDTO = z.infer<typeof SellerOverviewDTO>;
+
+/** Marca en el directorio del panel de administrador. */
+export const AdminBrandDTO = z.object({
+  id: z.string().uuid(),
+  name: z.string(),
+  slug: z.string(),
+  status: BrandStatus,
+  categoryName: z.string().nullable(),
+  ownerType: z.enum(['vendedor', 'admin']),
+  ownerName: z.string(),
+  productCount: z.number().int(),
+});
+export type AdminBrandDTO = z.infer<typeof AdminBrandDTO>;
+
+/** Pausar / reactivar una marca. */
+export const UpdateBrandStatusInput = z.object({ status: BrandStatus });
+export type UpdateBrandStatusInput = z.infer<typeof UpdateBrandStatusInput>;
